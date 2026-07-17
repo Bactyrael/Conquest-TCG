@@ -3,7 +3,7 @@
     "id": "000",
     "name": "Blade Dance",
     "type": "Action",
-    "imageUrl": "/cards/fronts/000.png",
+    "imageUrl": "/cards/templates/000.png",
     "rawText": "r TY\ni\"\n- A\n0 o 38 =\n5 WA “\nNy o \\ lo\ny © Sp »\noY ood\n— \\ ~ 3\nion - Ability =\n1 1d10 plus your Dexterity modifier\ni shing damage to a target.\n>\n- .\nAY\nTE) LA\n. @ Place Holder Art y\n",
     "requirements": {
       "str": 0,
@@ -16,13 +16,14 @@
     "subtype": "Ability",
     "rarity": "Common",
     "rulesText": "Deal 1d10 plus your Dexterity modifier in Slashing damage to a target.",
-    "flavorText": ""
+    "flavorText": "",
+    "originalArtFile": "Blade Dance.png"
   },
   {
     "id": "001",
     "name": "Duel",
     "type": "Action",
-    "imageUrl": "/cards/fronts/001.png",
+    "imageUrl": "/cards/templates/001.jpg",
     "rawText": "a OY\nDuel\n4\n0 ’\n0\nER dr\ny 3 / No\nNE © = I\nFon =\not |\n% + NU\n(0) 1 2\nAction - Ability\nYouand a et eac on\ndamage. ifi er.\n“In a war o it tor is one\nwho doesnot battle.” — General\nBaelkhan\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 4,
@@ -35,13 +36,14 @@
     "rulesText": "You and a target each deal weapon damage plus modifier to each other.",
     "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Duel.jpg"
   },
   {
     "id": "002",
     "name": "Giant Stomp",
     "type": "Action",
-    "imageUrl": "/cards/fronts/002.png",
+    "imageUrl": "/cards/templates/002.png",
     "rawText": "a Bh\nmp\nf a ¥ 9\n: ” 4 = 1\n1 Ee 5 J\n0) 4 §)\nn - Ability »)\nlus yo h mo\nage t . i\n| [ pr?\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 6,
@@ -54,13 +56,14 @@
     "rulesText": "Deal 1d12 plus your Strength modifier in Blunt damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Giant Stomp.png"
   },
   {
     "id": "003",
     "name": "Onslaught",
     "type": "Action",
-    "imageUrl": "/cards/fronts/003.png",
+    "imageUrl": "/cards/templates/003.png",
     "rawText": "a Bh\ni Onslaught\nSl p\nny oi A -| l\n“ a 4 TOY | AY\nys Lg RARE LIS ek\na =F », ol”\n2h ay le : =\nction - Ability Ve\nDuring your next attack 7 you\nmay attack twice. > %\n“In chaos theresS also opportunity.” —\n: a i\n. @ Place Holder Art # p\n",
     "requirements": {
       "str": 6,
@@ -73,13 +76,14 @@
     "rulesText": "During your next attack this turn, you may attack twice.",
     "flavorText": "“In chaos there is also opportunity.” — Stug",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Onslaught.png"
   },
   {
     "id": "004",
     "name": "Slice and Dice",
     "type": "Action",
-    "imageUrl": "/cards/fronts/004.png",
+    "imageUrl": "/cards/templates/004.jpg",
     "rawText": "a OY\nSlice and Dice\n0 y\n4 =\n=\n0 gy NQE/7\nNGA\ny A Bo S40\n(0) p To AS |\nAction - Ability J\nDeal 1d8 s your Dexterity modifier in\nSlashing damage to a target.\n“I have no desire to mar my blade; 1 will\nend you with the utmost efficiency.” —\nShadow orf)\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -92,13 +96,14 @@
     "rulesText": "Deal 1d8 plus your Dexterity modifier in Slashing damage to a target.",
     "flavorText": "“I have no desire to mar my blade; I will end you with the utmost efficiency.” — Shadow Chuson",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Slice and Dice.jpg"
   },
   {
     "id": "005",
     "name": "Stab and Jab",
     "type": "Action",
-    "imageUrl": "/cards/fronts/005.png",
+    "imageUrl": "/cards/templates/005.jpg",
     "rawText": "r TY\nStab and Jab {\nBR \\ Ne\n0 ! |\n4 :f\nAction - Ability\nDeal 2d4 plus your Luck modifier in\nPiercing damage to a target.\n“The dead don't desire revenge.” —\nMerkil, the Slayer\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -111,13 +116,14 @@
     "rulesText": "Deal 2d4 plus your Luck modifier in Piercing damage to a target.",
     "flavorText": "“The dead don’t desire revenge.” — Merkil, the Slayer",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Stab and Jab.jpg"
   },
   {
     "id": "006",
     "name": "Titanic Volley",
     "type": "Action",
-    "imageUrl": "/cards/fronts/006.png",
+    "imageUrl": "/cards/templates/006.png",
     "rawText": "Titanic Volley\n°\nI hil,\n: | 7 iy +l Wh\nB f \" pl mr y yy\n: vour Luc mod eri 4\n)! magetoatarget. ~\n= 3 ]\na ae 9\nRw 5 Vv.\nTy Fa ! 48\ney J. 3 y AR BN &=\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -130,13 +136,14 @@
     "rulesText": "Deal 3d4 plus your Luck modifier in Slashing damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Titanic Volley.png"
   },
   {
     "id": "007",
     "name": "Warcry",
     "type": "Action",
-    "imageUrl": "/cards/fronts/007.png",
+    "imageUrl": "/cards/templates/007.jpg",
     "rawText": "r TY\n4 A\nERY 4 A\n- oN wy <i.\ngr Wr\n“I\n(0) We\nility\nyour Strength modifierin\nBI nt da to a target. N 4\ny\n\"By Corporis’ roaring presence, unleash\na wave of destruction that shatters the\nwill'of all who hear it.\"\nEY\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 4,
@@ -149,13 +156,14 @@
     "rulesText": "Deal 1d8 plus your Strength modifier in Blunt damage to a target.",
     "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "War Cry.jpg"
   },
   {
     "id": "008",
     "name": "Acid Splash",
     "type": "Action",
-    "imageUrl": "/cards/fronts/008.png",
+    "imageUrl": "/cards/templates/008.png",
     "rawText": "a OY\n: a\nAcid sh\na |\n| J 4\n> I hil. Toll i\nAction - Spell\nDeal plus your Constitution\nmodifier in .\noe\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -168,13 +176,14 @@
     "rulesText": "Deal 1d6 plus your Constitution modifier in Nature damage.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Acid Splash.png"
   },
   {
     "id": "009",
     "name": "Boom",
     "type": "Action",
-    "imageUrl": "/cards/fronts/009.png",
+    "imageUrl": "/cards/templates/009.jpg",
     "rawText": "a OY\n0 -\n0 Ne\n0\nOF. a dhe\n3 v 7 57\nAction Spell\nDeal 2d4 plus your Luck modifier in\nThunder damage to a target. :\n\"By the roar of Fragor’s mighty voice,\nthe skies shatter and strike with\nthunderous wrath.\"\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -187,13 +196,14 @@
     "rulesText": "Deal 2d4 plus your Luck modifier in Thunder damage to a target.",
     "flavorText": "By the roar of Fragor’s mighty voice, the skies shatter and strike with thunderous wrath.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Boom.jpg"
   },
   {
     "id": "010",
     "name": "Chain Lightning",
     "type": "Action",
-    "imageUrl": "/cards/fronts/010.png",
+    "imageUrl": "/cards/templates/010.jpg",
     "rawText": "a OY\nChain Lightning as\n7B ‘TF\n0 yy -\n»\nh # Fa\nAction d Spell - F 4\nDeal 3d4 plus your Luck Ba\nLightning damage to,ajtarget.\nA «or\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -206,13 +216,14 @@
     "rulesText": "Deal 3d4 plus your Luck modifier in Lightning damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Chain Lightning.jpg"
   },
   {
     "id": "011",
     "name": "Cone of Cold",
     "type": "Action",
-    "imageUrl": "/cards/fronts/011.png",
+    "imageUrl": "/cards/templates/011.png",
     "rawText": "a OY\nCone of Cold y\ni E\nBR AY\n=\nAction - Spell i i\nDeal 1d10 plus your Strength modifier\nin Ice damage to a target.\na\nPlace Holder Art # Bh\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 3,
@@ -225,13 +236,14 @@
     "rulesText": "Deal 1d10 plus your Strength modifier in Ice damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Cone of Cold.png"
   },
   {
     "id": "012",
     "name": "Entangle",
     "type": "Action",
-    "imageUrl": "/cards/fronts/012.png",
+    "imageUrl": "/cards/templates/012.jpg",
     "rawText": "a } Bh\nbp C1 E it ie = Py\n. wig 5S > ‘a\n- Etandieiie. ~~ €\nVasa i al NW\nw (J) . > E 74 ~~\nSOC NTT a ™.\n4 =F or) y 2 Ww\n0 Tu * A. lee)\nNY /\n{ A\\ “vr\n> a { N yy JA 2\nLi \\ : 758\nwr Zh.\nyD A LH ; Bx 7). 4\nLS NENG\nwr 4 Au\ngr. \\\nAction-Spell 20g\nDeal 1d10 plus your Soniution\nodifier in\"Nature damage to a tar 1\nPrva Ss pes wry\n\"By the amen, earth rise and\nupondt™~ FF ~F.\nr ? =. A — 54\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -244,13 +256,14 @@
     "rulesText": "Deal 1d10 plus your Constitution modifier in Nature damage to a target.",
     "flavorText": "By the will of Gramen, earth rise and nature grasp ensnare all who tread upon it.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Entangle.jpg"
   },
   {
     "id": "013",
     "name": "Fire Ball",
     "type": "Action",
-    "imageUrl": "/cards/fronts/013.png",
+    "imageUrl": "/cards/templates/013.png",
     "rawText": "a Bh\n5 BX Fire Ball |\nEns\n3 XB\nBR\nVa ~\nIR ¢ i\nPi AN k\nAction - Spell bp 95\nDeal 1d8 plus your Strength modifier in\nFire damage to a target. a\nJ wl\n\"By the burning will of Caeles, fire be\nboth my forge and fury.\" {\nPTFE. a odes\n@ Place Holder Art # )\n",
     "requirements": {
       "str": 3,
@@ -263,13 +276,14 @@
     "rulesText": "Deal 1d8 plus your Strength modifier in Fire damage to a target.",
     "flavorText": "By the burning will of Caeles, fire be both my forge and fury.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Fire Ball.png"
   },
   {
     "id": "014",
     "name": "Fissure",
     "type": "Action",
-    "imageUrl": "/cards/fronts/014.png",
+    "imageUrl": "/cards/templates/014.png",
     "rawText": "g TY\nVad Fissure\nia JC g\n0 |\n4 ; 1) i\nph Ss 2 J\nDeal 1d12 plus your Constitution —\nmodifier in Earth damage to a target.\n=\nTo =\n~\nic\nPlace Holder Art\n| 9 p\n",
     "requirements": {
       "str": 0,
@@ -282,13 +296,14 @@
     "rulesText": "Deal 1d12 plus your Constitution modifier in Earth damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Fissure.png"
   },
   {
     "id": "015",
     "name": "Geyser",
     "type": "Action",
-    "imageUrl": "/cards/fronts/015.png",
+    "imageUrl": "/cards/templates/015.png",
     "rawText": "r TY\n_ Geyser\nhb\n\\ ry\n\\4 ~~ Y # A\n0 i\n\" \\ F\nAction - Spell d\nDeal 1d12 plus your Dexterity modifier\nin Water damage to a target.\n~~\nPlace Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -301,13 +316,14 @@
     "rulesText": "Deal 1d12 plus your Dexterity modifier in Water damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Geyser.png"
   },
   {
     "id": "016",
     "name": "Gust",
     "type": "Action",
-    "imageUrl": "/cards/fronts/016.png",
+    "imageUrl": "/cards/templates/016.jpg",
     "rawText": "0 il i = — |\n= 3 . 4 4 ho |\nUre £/ o ae\ngegen C0\nAir gh -\n\"By Volucris’ bfeath, the winds stirand\nsweep alfbefore me with boundless\n—— ee § Su — =\n— —- aT\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -320,13 +336,14 @@
     "rulesText": "Deal 1d6 plus your Dexterity modifier in Air damage to a target.",
     "flavorText": "By Volucris’ breath, the winds stir and sweep all before me with boundless force.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Gust.jpg"
   },
   {
     "id": "017",
     "name": "Heal",
     "type": "Action",
-    "imageUrl": "/cards/fronts/017.png",
+    "imageUrl": "/cards/templates/017.jpg",
     "rawText": "r TY\n[ Nl |\n| WERT\n: LALA il 1\nli AD ¢ ll}\n0 Ny ot i | \\\nSi 2 7 JE \\\n| JSWAA RN i.\nalll) did P\"\nFARE | 0\nii ll J\nesi e 4 plus your Constitution\nmodifier in Hit Points to a target.\n\"By Spirabilis” gentle touch, may light\n+ a\n. @ Place Holder Art y\n",
     "requirements": {
       "str": 0,
@@ -339,13 +356,14 @@
     "rulesText": "Restore 1d4 plus your Constitution modifier in Hit Points to a target.",
     "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Heal.jpg"
   },
   {
     "id": "018",
     "name": "Holy Bolt",
     "type": "Action",
-    "imageUrl": "/cards/fronts/018.png",
+    "imageUrl": "/cards/templates/018.jpg",
     "rawText": "r TY\nHoly\n0a B\nhe pr RAN - jo) NN\noD a\nLf EW 2 vi\n|\noR , A\nfo J Spell |\nDeal*1.d4 plus your Constit :\nmodifierin Holy dama |\nKE Xa\ney the radiant grace of Spiral \"\npure light pierce the darknessa\nsmite with divine fury.\" . ]\nPI Holder Art\n@ Place Holder Ar p\n",
     "requirements": {
       "str": 0,
@@ -358,13 +376,14 @@
     "rulesText": "Deal 1d4 plus your Constitution modifier in Holy damage to a target.",
     "flavorText": "By the radiant grace of Spirabilis, let pure light pierce the darkness and smite with divine fury.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Holy Bolt.jpg"
   },
   {
     "id": "019",
     "name": "Ice Bolt",
     "type": "Action",
-    "imageUrl": "/cards/fronts/019.png",
+    "imageUrl": "/cards/templates/019.jpg",
     "rawText": "Ice Bolt \"4\nr § » - n\n4\npr - X\n@ Place Holder Art\n",
     "requirements": {
       "str": 3,
@@ -377,13 +396,14 @@
     "rulesText": "Deal 1d8 plus your Strength modifier in Ice damage to a target.",
     "flavorText": "By the chilling breath of Gelus, let frost pierce air and strike with icy precision.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Ice Bolt.jpg"
   },
   {
     "id": "020",
     "name": "Lightning Bolt",
     "type": "Action",
-    "imageUrl": "/cards/fronts/020.png",
+    "imageUrl": "/cards/templates/020.png",
     "rawText": "a OY\nt\n0 b\n0 4\n0 E L\nB - A i\nAction - Spell\nDeal 2d4 plus your Luck modifier in\nLightning damage to a tar.\n\"By Fulmen’s crackling ry/unleash\njudgment and strike withyli ing’s\nswift wrath.\"\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -396,13 +416,14 @@
     "rulesText": "Deal 2d4 plus your Luck modifier in Lightning damage to a target.",
     "flavorText": "By Fulmen’s crackling fury, unleash judgment and strike with lightning’s swift wrath.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Lightning Bolt.png"
   },
   {
     "id": "021",
     "name": "Magic Bolt",
     "type": "Action",
-    "imageUrl": "/cards/fronts/021.png",
+    "imageUrl": "/cards/templates/021.jpg",
     "rawText": "r TY\nMagic Bolt /\noF . ’\n- J\n: < S\n- ’. i) “sy J\n- (. @) ’ ™ >.\nEe ND\nRO. Nr\nyr rae\nnT \\\nDez plu ur Intelligence modifier\ni age to a target.\n3 do's hand, let arcane fury fly!\" /.\nC7 pS\n) Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -415,13 +436,14 @@
     "rulesText": "Deal 1d8 plus your Intelligence modifier in Magic damage to a target.",
     "flavorText": "By Inludo’s hand, let arcane fury fly!",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Magic Bolt.jpg"
   },
   {
     "id": "022",
     "name": "Magic Missile",
     "type": "Action",
-    "imageUrl": "/cards/fronts/022.png",
+    "imageUrl": "/cards/templates/022.jpg",
     "rawText": "a OY\na Vago mide Mi pt\n\n\\ N J\n\n0, . ;\n\n= -\noT a = »\n(# — =\n\n5 A ; 1\n\n0 N — a ~\n\n3 Y®)) Ki\nINK -Spellx © »\nBeal 410 plus yourlntelligence\nmadifier in Magic damage to a target.\nBH 2. I gf Ss 2\n\"By Inludo’s arca c ill ¢ ereal forces ~\n‘take ight an thmystic ~\nbarrage. ————F——— =\nrs = 5 a —8 - &\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -434,13 +456,14 @@
     "rulesText": "Deal 1d10 plus your Intelligence modifier in Magic damage to a target.",
     "flavorText": "By Inludo’s arcane will, ethereal forces take flight and strike true with mystic barrage.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Magic Missile.jpg"
   },
   {
     "id": "023",
     "name": "Meteor Shower",
     "type": "Action",
-    "imageUrl": "/cards/fronts/023.png",
+    "imageUrl": "/cards/templates/023.jpg",
     "rawText": "r TY\nMeteor Shower\nfe < ‘\nB\nD ; i\nP .\nAction - Spell \"\nDeal 1d12 plus your Strength modifier\nin Fire damage to a target.\nly by 3\na “— : x\nPlace Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 4,
@@ -453,13 +476,14 @@
     "rulesText": "Deal 1d12 plus your Strength modifier in Fire damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Meteor Shower.jpg"
   },
   {
     "id": "024",
     "name": "Quake",
     "type": "Action",
-    "imageUrl": "/cards/fronts/024.png",
+    "imageUrl": "/cards/templates/024.jpg",
     "rawText": "r TY\nRJ\ny Quake\no |\n|\n0 \\ ol\n2 4 : }\ni» -\ni 4 ==\n0 —__\n[Pition- Sig\nDeal 1d6 plus your Constitution\nmodifier in Earth damage to a target.\nBy Mamel's.unshakable strengths\ngr lerand fracture under thes\nJestionable mi >,\nPlace Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -472,13 +496,14 @@
     "rulesText": "Deal 1d6 plus your Constitution modifier in Earth damage to a target.",
     "flavorText": "By Mamel’s unshakable strength, ground tremble and fracture under the weight of unquestionable might.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Quake.jpg"
   },
   {
     "id": "025",
     "name": "Radiance",
     "type": "Action",
-    "imageUrl": "/cards/fronts/025.png",
+    "imageUrl": "/cards/templates/025.png",
     "rawText": "a OY\nRadiance\n0 |\n0 .\n4\n- 4 : \\\nA ;\n/] i\nAction - Spell 1\nDeal 2d4 plus your Constitution\nmodifier in ot 1 toa =\nPlace Holder Art a\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -491,13 +516,14 @@
     "rulesText": "Deal 2d4 plus your Constitution modifier in Holy damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Radiance.png"
   },
   {
     "id": "026",
     "name": "Rejuvenate",
     "type": "Action",
-    "imageUrl": "/cards/fronts/026.png",
+    "imageUrl": "/cards/templates/026.jpg",
     "rawText": "a OY\n& =v,\n>i\n0 & AR kc\n0] 4 ge EJ Es bi\nACY oy ood\n& : IN Ld < 4d\nvid SNe 3\n4 ; = 3 x\nen\" ot on ua: pl 5\n0 We LB\nrst A\nAction - Spell =\nRestore 1d4 plus your Wisdom modifier\nin Hit Points to a target.\n\"By Gramen’s nurturing embrace, vitality\nof nature flow and restore life's essence\nanew.’ i\n@ Place Holder Art\n| 4\n",
     "requirements": {
       "str": 0,
@@ -510,13 +536,14 @@
     "rulesText": "Restore 1d4 plus your Wisdom modifier in Hit Points to a target.",
     "flavorText": "By Gramen’s nurturing embrace, vitality of nature flow and restore life’s essence anew.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Rejuvenate.jpg"
   },
   {
     "id": "027",
     "name": "Restoration",
     "type": "Action",
-    "imageUrl": "/cards/fronts/027.png",
+    "imageUrl": "/cards/templates/027.jpg",
     "rawText": "a Bh\nRestoration\nWi | re & QY =\nWC fT : y\n{ERAN 4\nA a a\nction - Spell : he | |\nRemove-a tC e, then restore 4\nHit points 1 yaleil TAL ih\nTES ee a\nBe Fae  ]\n|\n. @ Place Holder Art # )\n",
     "requirements": {
       "str": 0,
@@ -529,13 +556,14 @@
     "rulesText": "Remove a target Curse, then restore 4 Hit Points.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Restoration.jpg"
   },
   {
     "id": "028",
     "name": "Squall",
     "type": "Action",
-    "imageUrl": "/cards/fronts/028.png",
+    "imageUrl": "/cards/templates/028.png",
     "rawText": "a Bh\nJi ’ pu\n: ’\niD | 5 8\nie i A fF\nAction Bilatr\nDe D plus your Dexterity modifier\nJamage to a target.\n7,\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -548,13 +576,14 @@
     "rulesText": "Deal 1d10 plus your Dexterity modifier in Air damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Squall.png"
   },
   {
     "id": "029",
     "name": "Terror",
     "type": "Action",
-    "imageUrl": "/cards/fronts/029.png",
+    "imageUrl": "/cards/templates/029.png",
     "rawText": "r TY\nTerror\n0\n0 fo) :\n_ ide 4 |\nAction - Spell - ®\nDeal 1d6 plus your Wisdom ler in\nDark damage to a target. -\n\"By Mortuus’ chilling;shadow, dread\nseep into the hearts of the living and\nparalyze their very souls” ‘\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -567,13 +596,14 @@
     "rulesText": "Deal 1d6 plus your Wisdom modifier in Dark damage to a target.",
     "flavorText": "By Mortuus’ chilling shadow, dread seep into the hearts of the living and paralyze their very souls.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Terror.png"
   },
   {
     "id": "030",
     "name": "Thunderclap",
     "type": "Action",
-    "imageUrl": "/cards/fronts/030.png",
+    "imageUrl": "/cards/templates/030.png",
     "rawText": "é A\nA hunderclap, .\nFL an A\n0)\na, Ci\nNg y a\nKk |\nA on - Spell Bl, J |\nDeal 3d4 olushou Luck modifier in\nThunder damage to a target. kl f\n\\ )\nN\\\nPlace Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -586,13 +616,14 @@
     "rulesText": "Deal 3d4 plus your Luck modifier in Thunder damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Thunderclap.png"
   },
   {
     "id": "031",
     "name": "Voidstorm",
     "type": "Action",
-    "imageUrl": "/cards/fronts/031.png",
+    "imageUrl": "/cards/templates/031.png",
     "rawText": "a TY\nVoidstorm : 4\n0 P\nbo\nAction - io\na f / Na\nDeal 1d in\nDark dam ati\n—\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -605,13 +636,14 @@
     "rulesText": "Deal 1d10 plus your Wisdom modifier in Dark damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Voidstorm.png"
   },
   {
     "id": "032",
     "name": "Water Ball",
     "type": "Action",
-    "imageUrl": "/cards/fronts/032.png",
+    "imageUrl": "/cards/templates/032.jpg",
     "rawText": "a TY\n0@® oa ¥-{\nmo a 7.\n\n«iF\nT/A’ Fy\n0 “7 &)\nbd [7 0 SO = 3\n® 5 AP Ya J Jy\nTe ’ - i\nhy - Spell \\ \\ ° / ™ J 1 £\nDea 1d6 plus our Dexterity. odifier in\n\\ ater damage toa’ arget. C4\nquamai turbu ent w i, radndlfP\nconverge-and crash down-pon _\njmy‘foes with mercilessiforee™”\ni / \\\nP=\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -624,13 +656,14 @@
     "rulesText": "Deal 1d6 plus your Dexterity modifier in Water damage to a target.",
     "flavorText": "By Squama’s turbulent will, raging waters converge and crash down upon my foes with merciless force.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Water Ball.jpg"
   },
   {
     "id": "033",
     "name": "Battle Cry",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/033.png",
+    "imageUrl": "/cards/templates/033.jpg",
     "rawText": "ry TY\nar ’ 6\n3 : 7”\nIR yf &\n\n0 9 ie = 1\n® JS\ndad A » » Ey\n\nNA 4» CA\n\nL % LN -\n\no ¥ ~~ !\n\nA ONS N \\ =\n\nyo Q EE pr\n\na JE Pg 9\n\nBonus A ion- Ability ~e\n\narget ins disadvantage on attacks\n‘until the} 5 ifining of your next turn. 3)\n\nAN\n\"B ength of Co poris, mayweak\n5 tremble and yieldiinthe a\nOre of true wa iors” gr\n—_ = ~ :\n@ Place Holder Art\nQC 4\n",
     "requirements": {
       "str": 3,
@@ -643,13 +676,14 @@
     "rulesText": "A target gains disadvantage on attacks until the beginning of your next turn.",
     "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Battle Cry.jpg"
   },
   {
     "id": "034",
     "name": "Hunter's Mark",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/034.png",
+    "imageUrl": "/cards/templates/034.jpg",
     "rawText": "r TY\nH 's Mark\n. 1\ni ws rr\n0 Be\noo\n0 < Ne S = -\nBonus Action - Ability\nA target loses 1d6 defense until the end of\nthe turn. (This effect cannot reduce defense\nbelow 0.)\n“Every being that stirs in the realm carries a\ntale of enchantment and intrigue, weaving\ntimeless legends of adventure and\ntransformation with each step it takes.” —\nTalpit, the Ranger\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -662,13 +696,14 @@
     "rulesText": "A target loses 1d6 defense until the end of the turn.  (This effect cannot reduce defense below 0.)\n“Every being that stirs in the realm carries a tale of enchantment and intrigue, weaving timeless legends of adventure and transformation with each step it takes.” — Talpit, the Ranger",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Hunters Mark.jpg"
   },
   {
     "id": "035",
     "name": "Inspire",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/035.png",
+    "imageUrl": "/cards/templates/035.jpg",
     "rawText": "0\na\n> — E ve m= a\n\ns Action - Ability\nAtar n Inspir ie less than or\nequal : if you\nhave a Luck modifier o ina\n1d4 Inspiration Die.\n“Only in times v\ndoes the ake:\nbecome a necess /\nProsperous 2\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -681,13 +716,14 @@
     "rulesText": "A target gains an Inspiration Die less than or equal to their highest modifier. (e.g., if you have a Luck modifier of five, you would gain a 1d4 Inspiration Die.)\n“Only in times where failure is a possibility does the quest for wisdom through mistakes become a necessity.” — Koreghar, the Prosperous",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Inspire.jpg"
   },
   {
     "id": "036",
     "name": "Instruction",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/036.png",
+    "imageUrl": "/cards/templates/036.jpg",
     "rawText": "0]\n80000 06\n| |\n\n- WV\nBonus Action - Ability —_— is\nSearch y Archive tor anfADIIItY-«\n55 1 5 hae {yo\nNe a -\n———— ee eee\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -700,13 +736,14 @@
     "rulesText": "Search your Archive for an Ability card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Instruction.jpg"
   },
   {
     "id": "037",
     "name": "Luck of the Draw",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/037.png",
+    "imageUrl": "/cards/templates/037.jpg",
     "rawText": "r TY\nLuck of the Draw |\n®\n5 g i)\n5 ia SI\n=\nEE\nCE\" FT\nBh \\ 94\n© y \" 4 \\! fy\n4 VAIN i\nonus Action - Abili 4 \\ fo.\nIndependently roll a 1d4,1d6, 1d8, 1d10\n1d1 F160. For each Die that criticall\nhits, to critical range until t nd 0\nyour , ly that critica tothe) /\nnext die rolled. Draw’ card 0 die'that\nresults in a orice TAN i? =\n3 SINE ce =\nhen all is lost, having no\npens the door o-endless; PO ji\n@ Place Holder Art #\nC 4\n",
     "requirements": {
       "str": 0,
@@ -719,13 +756,14 @@
     "rulesText": "Independently roll a 1d4, 1d6, 1d8, 1d10, 1d12, and 1d20. For each Die that critically hits, gain +1 to critical range until the end of your turn, and apply that critical range to the next die rolled. Draw a card for each die that results in a critical hit.",
     "flavorText": "When all is lost, having nothing to lose opens the door to endless possibilities.",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Luck of the Draw.jpg"
   },
   {
     "id": "038",
     "name": "Misdirection",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/038.png",
+    "imageUrl": "/cards/templates/038.jpg",
     "rawText": "a OY\n< Jif Ce 7\nNEN\nCd a ye —\nWor 75 ad NE 5 0\nond \\l KI L Hs\n“7 / 4 \\S7 Soh\nb// A > \\ 1)\nRN Aig! )\n\\ REN # (lf Nise\nn o Acti 4\nntil the beginning of you ext turn, all,\nHeroes must attack ea atif.\nable.. [0 a\n$ aN\n| 25 » ail RA NN\nNo” - nN 5 Z 4\nNS @ di. po a Lo\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 3,
@@ -738,13 +776,14 @@
     "rulesText": "Until the beginning of your next turn, all Heroes must attack each combat if able.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Taunt.jpg"
   },
   {
     "id": "039",
     "name": "Surge",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/039.png",
+    "imageUrl": "/cards/templates/039.jpg",
     "rawText": "r TY\n3 “3 iy 3 - RR\n(8 BER\n0 BS \\s\nCA a,\nA IR hn hs\nyr N\nBonus Action - Ability\nA target gains one additional Action\nuntil the end of their next turn.\nye\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -757,13 +796,14 @@
     "rulesText": "A target gains one additional Action until the end of their next turn.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Surge.jpg"
   },
   {
     "id": "040",
     "name": "Amplify Magic",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/040.png",
+    "imageUrl": "/cards/templates/040.png",
     "rawText": "a Bh\n4 - od\nY N\n£ nl |\n[ 3 fad \\\nho « &\n\\ \\ No\n0 _\np G2\nB n-Boon 4\n| e‘thestotal number of{dice'\na targ next Act card E TRA\nadditional die to the roll. €*\n491t becomes 2d4.) \\\na\nTrue,po ial emerges whe e loo\nyone confines of r >\nDragon Emperor | jes\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -776,13 +816,14 @@
     "rulesText": "Increase the total number of dice rolled on a target’s next Act card by 1. (Adds an additional die to the roll. e.g., if you roll 1d4, it becomes 2d4.)",
     "flavorText": "“True potential emerges when one looks beyond the confines of reality.” — Dragon Emperor Galilecies",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Amplify Magic.png"
   },
   {
     "id": "041",
     "name": "Aria of Accuracy",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/041.png",
+    "imageUrl": "/cards/templates/041.jpg",
     "rawText": "2 27\n3 7;\n2 EY\n1] \"TN\n0 NE a\nan \\spiratio 1 Die i\ner target +1 de mag\nck e attack results\nie ay roll the Inspiration Die and\ndd lue as extra damagely Sa\n> =\n@ Place Holder Art\n",
     "requirements": {
       "str": 0,
@@ -795,13 +836,14 @@
     "rulesText": "Spend an Inspiration Die to grant another target +1 damage on their next attack. If the attack results in a critical hit they may roll the Inspiration Die and add its value as extra damage.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Aria of Accuracy.jpg"
   },
   {
     "id": "042",
     "name": "Bark Skin",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/042.png",
+    "imageUrl": "/cards/templates/042.jpg",
     "rawText": "r TY\nBark Skin\n| a\nyy Ba\n0 Bs 3\nir\nains 4 He un 2 €\nxt turn. (Each point o {\nces eachi Bf Physical .\ndamage you take.)\n\"By Gramen'’s sacred roots, | entwine\nmyself in nature's embrace, wrapping\nmy form in sturdy armor of bark and\n. MNBtace Holder Art p\n",
     "requirements": {
       "str": 0,
@@ -814,13 +856,14 @@
     "rulesText": "A target gains 4 defense until the end of their next turn. (Each point of defense reduces each instance of Physical damage you take.)",
     "flavorText": "By Gramen’s sacred roots, I entwine myself in nature’s embrace, wrapping my form in sturdy armor of bark and vine.",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Bark Skin.jpg"
   },
   {
     "id": "043",
     "name": "Beast Bond",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/043.png",
+    "imageUrl": "/cards/templates/043.jpg",
     "rawText": "a OY\nF 2 \\\n2 Ng \\ p\n0 a $a \\ NN 3\nak ) Ne »\n2 2 & :\nSCA {\nS$ £ \\ —\n2.7 4 LE > Le #1 4 3\nb+ SE >\ngf oroet an ot att u and gains\n‘advantage ol ntil the end of\ntheir next turn.\n“My foes are merely friends who have\nyet to realize it.” — Grove Tender losis\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -833,13 +876,14 @@
     "rulesText": "A target cannot attack you and gains advantage on attacks until the end of their next turn.",
     "flavorText": "“My foes are merely friends who have yet to realize it.” — Grove Tender Iosis",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Beast Bond.jpg"
   },
   {
     "id": "044",
     "name": "Divine Favor",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/044.png",
+    "imageUrl": "/cards/templates/044.jpg",
     "rawText": "r TY\nov 3\n3 Divine Favor\n0 k rs \\ Ere\n£2) ~ Ni\n0 Ny\na :\n~~ :\nBonus Action -Boon #\nUntil the end of their next tu n, a target\ndeals an*additional 1d4 insHoly'damage\nwith their attackss(DiVine Favorcannot\ncritically hit.) ND\nNY\n“Power is not a oder but a'gif <\nbestowed to uplift those in need: =\nVenia, the Aspect of Charity\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -852,13 +896,14 @@
     "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Divine Favor cannot critically hit.)",
     "flavorText": "“Power is not a burden but a gift, bestowed to uplift those in need.” — Venia, the Aspect of Charity",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Divine Favor.jpg"
   },
   {
     "id": "045",
     "name": "Ensorcell",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/045.png",
+    "imageUrl": "/cards/templates/045.jpg",
     "rawText": "a OY\nI e\niy 2 BR 4 ;\n\nA Oh ow\nBP \\\\\nLN SAN W =\n\" AN ~\n. . 6) 3 v\na WAY lo BF\nth el coll\n30nus Action - Been\\ ~ /77/ :\n=i &\n| the endiof theilfnext tirn-a-target\ndeals an additionalsld4iin Magic\ndamage with the ra acks. (Ensorcell.\n&ahnot critically hit)\"; Rh\nDrawing power from:th Mund s an\neasy featfor those w eld the: ¢\narcan e-~— Patheld: ~thelVeek= -\nPlace Holder Art #\n9 4\n",
     "requirements": {
       "str": 0,
@@ -871,13 +916,14 @@
     "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Magic damage with their attacks. (Ensorcell cannot critically hit.)",
     "flavorText": "“Drawing power from the mundane is an easy feat for those who can wield the arcane.” — Patheldar, the Meek",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Ensorcell.jpg"
   },
   {
     "id": "046",
     "name": "Gambit",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/046.png",
+    "imageUrl": "/cards/templates/046.jpg",
     "rawText": "r TY\n—\nmbit -\noN\n0 J\n: ay\nBonus Action - Boon i\n1 d ve\n[ d of their next turn, a target”\ns a card for each attack or Act card\n‘they perform th sina critical hit.\n“Fortune is the ora le outcome that\narises when careful strategy meets a\n1il ity.” — Mothang, the -\nPlace Holder Art # B\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -890,13 +936,14 @@
     "rulesText": "Until the end of their next turn, a target draws a card for each attack or Act card they perform that results in a critical hit.",
     "flavorText": "“Fortune is the favorable outcome that arises when careful strategy meets a timely opportunity.” — Mothang, the Long-Sleeved",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Gambit.jpg"
   },
   {
     "id": "047",
     "name": "Hymn of Deterrence",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/047.png",
+    "imageUrl": "/cards/templates/047.jpg",
     "rawText": "a Bh\nHyrga of Deterrance\n2 | Ria\nBonus Action - Boon\n% i\nGrant another target +2 defense and\nresilience until thomeaf their next\nturn. If they took damage during the\nduration of this effect, gain a 1d4\nInspiration Die.\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -914,7 +961,7 @@
     "id": "048",
     "name": "Invisibility",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/048.png",
+    "imageUrl": "/cards/templates/048.jpg",
     "rawText": "r TY\nZ 3\nInvisibili\n\\ BE Pl 3\n0\n(0]\n(0]\n/ 3\n0 pdt pre\nBonus Action - Boon\nA target gains invisibility until the end\nof their next turn. It ends if they use an\nAct card. (Act.cards targeting an\ninvisible unit'have disadvantage.)\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -927,13 +974,14 @@
     "rulesText": "A target gains invisibility until the end of their next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Invisibility.jpg"
   },
   {
     "id": "049",
     "name": "Mass Invisibility",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/049.png",
+    "imageUrl": "/cards/templates/049.jpg",
     "rawText": "a OY\nMass In vi sibility \\\n0 3 i iy\n0 E\n0 Ne off\nNE\n; BE |\n(0) -\nBonus Action - Boon\nAll targets gain invisibility until the\nbeginning of your next turn. It ends if they\nuse an Act card. (Act cards targeting an\ninvisible unit have disadvantage.)\n“By Inludo’s deception, shroud the realm\nin mystic fog, cloaking the world in\nshadow and mirth.\"\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -946,13 +994,14 @@
     "rulesText": "All targets gain invisibility until the beginning of your next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
     "flavorText": "By Inludo’s deception, shroud the realm in mystic fog, cloaking the world in shadow and mirth.",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Fog Cloud.jpg"
   },
   {
     "id": "050",
     "name": "Pass Without Trace",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/050.png",
+    "imageUrl": "/cards/templates/050.jpg",
     "rawText": "r TY\nPass Witho e\nke )\nB y\nBonus Action -Boon\nAll targets gain stealth until your next\nturn. Stealth ends if they attack.\n(Attacks against Se targets have\ndisadvantage.)\nN E . A\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -965,13 +1014,14 @@
     "rulesText": "All targets gain stealth until your next turn. Stealth ends if they attack. (Attacks against stealthed targets have disadvantage.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Pass Without Trace.jpg"
   },
   {
     "id": "051",
     "name": "See Red",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/051.png",
+    "imageUrl": "/cards/templates/051.jpg",
     "rawText": "a a Bh\n\\ . ) he 2\nMo / See Reds” — B\n. 7 J ~~ F\nNy ke Co\noe 7 Ba 5 A Va\nog» Zhe 8 r\n“oes Z| 7\nA NE Ri\nCER Jf >\n0 ; oar . :\nBonus on =\nb the be@ibning of your riext turn,\natiagf toe makes and receives\nhave advaiitage, :\ndad\n“Inthe frenzy, all strikes grow ferocious,\nand Ra: its mark.” —\nDormu\npe : of Ag ha |\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 2,
@@ -984,13 +1034,14 @@
     "rulesText": "Until the beginning of your next turn, attacks a target makes and receives have advantage.",
     "flavorText": "“In the frenzy, all strikes grow ferocious, and every blow finds its mark.” — Dormund Greis",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "See Red.jpg"
   },
   {
     "id": "052",
     "name": "Song of Favor",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/052.png",
+    "imageUrl": "/cards/templates/052.jpg",
     "rawText": "a OY\nSong of Favor\nB vw. | #\n\\\n|\n0 oy\nB i\nLA i$\nBonus Action Boon y :\nGrant a target a 1d4 Inspiration\nthe end of their next turn. If anot\nHero uses that Die, you gain a SS\nInspiration Die. i rE\na — ey\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1003,13 +1054,14 @@
     "rulesText": "Grant a target a 1d4 Inspiration Die until the end of their next turn. If another Hero uses that Die, you gain a 1d4 Inspiration Die.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Song of Favor.jpg"
   },
   {
     "id": "053",
     "name": "Splash the Pot",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/053.png",
+    "imageUrl": "/cards/templates/053.jpg",
     "rawText": "a OY\nSplash the Pot\n_———\n0\n- q\n: aro \\\nJs 0 - =\n0 — > 2 —\nD.5 —7\n= , ® ene ” =)\nBonus Action - Boon Ei\nUntil the endef their next turn, a target's\nattacks and Act cards gain +2 critical\nrange. (Critical range reduces the dice ~\nroll required to achieve a critical hit.)\n: LZ\n= ———\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1022,13 +1074,14 @@
     "rulesText": "Until the end of their next turn, a target’s attacks and Act cards gain +2 critical range. (Critical range reduces the dice roll required to achieve a critical hit.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Splash the Pot.jpg"
   },
   {
     "id": "054",
     "name": "Stealth",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/054.png",
+    "imageUrl": "/cards/templates/054.jpg",
     "rawText": "a Bh\n7 p Sw\na ; {d Ng\nX : lf aa i > i\n3g V/ 7 BR i\n<i 0 ! 1 \"K\nEEL)\npy h he YH ~.\n0 « 0/2) NN & \\ -\n) = VV 2)\nBX . WN \\\na 2 \"AY XY ° N\n~~ Ph, X A ~~\nSonus Alon Bon 5\narget gain stealth until your next\nn. Stealth ph if ttack.\nttacks against steal rgets have’\ndi di age) — \\\n; FF 30\n4 A \\ -\n= Ja & = a)\n. @ Place Holder Art # p\n",
     "requirements": {
       "str": 0,
@@ -1041,13 +1094,14 @@
     "rulesText": "A target gains stealth until your next turn. Stealth ends if they attack. (Attacks against stealthed targets have disadvantage.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Stealth.jpg"
   },
   {
     "id": "055",
     "name": "Blight",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/055.png",
+    "imageUrl": "/cards/templates/055.jpg",
     "rawText": "r TY\n3d [A\n0 if y,\nrn i A\nBonus Action - Cu ii\nA target must succeed a (DC 8 plus half\nthe performer's Wisdom, rounded\ndown) Constitution saving throw or\nbecome blighted (Vulnerable to Divine\ndamage types “Dark, Holy, Magic, and\nNature”).\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1060,13 +1114,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Constitution saving throw or become blighted (Vulnerable to Divine damage types “Dark, Holy, Magic, and Nature”).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Blight.jpg"
   },
   {
     "id": "056",
     "name": "Blind",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/056.png",
+    "imageUrl": "/cards/templates/056.jpg",
     "rawText": "a TY\n“Blind =\nAr ~ \\}\n./ -_— “-\n4 Ce\nA, 7. s Eid 2 y\ni Yo = Se A\nB 2 §o Y 3\n. N . i\nBonus Action - Curse\nust succeed a (DC 8 plus half\nr's Luck, rounded down)\n‘saving throw or become\n0 ctions on\n\\ \\ pit. i\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1079,13 +1134,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Intelligence saving throw or become blinded (Cannot use Reactions on attacks).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Blind.jpg"
   },
   {
     "id": "057",
     "name": "Buffet",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/057.png",
+    "imageUrl": "/cards/templates/057.jpg",
     "rawText": "r TY\nBuffet\n2 EJ ~My\n0 Fy,\n~ TT\"\nBo. Gs\nBonus Action - Curse wing\nA target mu cceed a (DC 8 plu\n‘the perfo Dexterity, rounded\ndo | telligenc ‘saving OW C\nbecome d (IM ysical\nmage sources roll with advantage\nagainst ye pr\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -1098,13 +1154,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Intelligence saving throw or become buffeted (Non-Physical damage sources roll with advantage against you).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Buffet.jpg"
   },
   {
     "id": "058",
     "name": "Burn",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/058.png",
+    "imageUrl": "/cards/templates/058.jpg",
     "rawText": "a OY\nBurn\n(\nBY\n[] Ll X\nBonus A urse\nERE\nA target must succeed a (DC 8 plus half\nthe performer's Srength, rounded |\ndo igence saving throw or ji\nto\nental damage types: Air, Earth,\nFire, Ice, Lightning, Thunder, and Water).\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 3,
@@ -1117,13 +1174,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Intelligence saving throw or become burned (Vulnerable to Elemental damage types: Air, Earth, Fire, Ice, Lightning, Thunder, and Water).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Burn.jpg"
   },
   {
     "id": "059",
     "name": "Charm",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/059.png",
+    "imageUrl": "/cards/templates/059.jpg",
     "rawText": "r TY\na mm\nYT\nh-\n| 0] a VE -\n-. Bi tee = WN)\n| / VES\nBonus Action - Curse\nA get must succeed a (DC 8 plus half\ntl er's on, rounded\nofe onstitutic ing throw or\nbecom ed (Roll with\ndisadvantage on Act cards). /\nTi 7\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -1136,13 +1194,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Constitution, rounded down) Constitution saving throw or become charmed (Roll with disadvantage on Act cards).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Charm.jpg"
   },
   {
     "id": "060",
     "name": "Chill",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/060.png",
+    "imageUrl": "/cards/templates/060.jpg",
     "rawText": "a OY\nChill\n0 ‘ven\nRR i 4\nBD - Wu\nBonus Action - Curse —\nA target must succeed:\nthe pel r's Wisc\ndo ength savin\nbecome chilled (Can only perform one\nAct card per turn).\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 3,
@@ -1155,13 +1214,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Strength saving throw or become chilled (Can only perform one Act card per turn).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Chill.jpg"
   },
   {
     "id": "061",
     "name": "Confuse",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/061.png",
+    "imageUrl": "/cards/templates/061.jpg",
     "rawText": "r TY\npe Co he. e aun\niB Ek 4\n3 Hl § -\nBonus Action - Curse ~~ ~~\nA target must succeed a (DC 8 plus half\nthe performer's Intelligence, rounded\ndown) Intelligence saving throw or\ncome confused (Saving throws and)\nntests have their difficulty class\nincreased by 2).\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1174,13 +1234,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Intelligence, rounded down) Intelligence saving throw or become confused (Saving throws and contests have their difficulty class increased by 2).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Confuse.jpg"
   },
   {
     "id": "062",
     "name": "Deafen",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/062.png",
+    "imageUrl": "/cards/templates/062.jpg",
     "rawText": "r TY\nNY:\n#Deaten 23 / z\nPo a — E “\n—-\\ ¥ Sa\nCA pr\nn i A * ls“;\n=f A\n4 A \\\nBonus Action - Curse ey\nAtarg t' succeed a (DC 8 plus half\nthe former's Luck, rounded down)\nWiddom saving throw or become\ndeafened (Cannot use Reactions on Act\ncards). |\ndle. i \\\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -1193,13 +1254,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Wisdom saving throw or become deafened (Cannot use Reactions on Act cards).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Deafen.jpg"
   },
   {
     "id": "063",
     "name": "Drench",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/063.png",
+    "imageUrl": "/cards/templates/063.jpg",
     "rawText": "r TY\nDrench\nE= i\nBonus Action - Curse\nA target must succeed a (DC 8 plus half\nthe performer's Dexterity, rounded\ndown) Wisdom saving throw or become\ndrenched (All damage dealt is reduced\nby2).\nPlace Holder Art #\n. @ Place Holder Ar p\n",
     "requirements": {
       "str": 0,
@@ -1212,13 +1274,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Wisdom saving throw or become drenched (All damage dealt is reduced by 2).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Drench.jpg"
   },
   {
     "id": "064",
     "name": "Fright",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/064.png",
+    "imageUrl": "/cards/templates/064.jpg",
     "rawText": "r TY\nFright\n| 1\n4 >. &% \\\nST ie\na Eg\na co\nTERN ©\nBonus Action -Curse hes 1\nA target must Sucagsd a (DC 8 plus half\nthe performer's Wisdom, rounded\ndown) Wisdom savifig throw or become\n[frightened (Roll with disadvantage on\nphacks). .\n\\ NG —\n. @ Place Holder Art # p\n",
     "requirements": {
       "str": 0,
@@ -1231,13 +1294,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Wisdom saving throw or become frightened (Roll with disadvantage on attacks).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Castigation.jpg"
   },
   {
     "id": "065",
     "name": "Rupture",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/065.png",
+    "imageUrl": "/cards/templates/065.jpg",
     "rawText": "[0]\n‘1\not be\nonus Action - Cur e\nfio mus s » a (D a\ne performer’'s\\Dexterity, ro\nRR) Rexterit ving thro\necome ruptur Inerabl\nPhysical damage \\Blud\nPiercing, and Slashing”).\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -1250,13 +1314,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Dexterity saving throw or become ruptured (Vulnerable to Physical damage types “Bludgeoning, Piercing, and Slashing”).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Bleed.jpg"
   },
   {
     "id": "066",
     "name": "Sever",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/066.png",
+    "imageUrl": "/cards/templates/066.jpg",
     "rawText": "4 Bh\nver £3 a\n| Leg\n0 [1] i 4\nond, A\n; 3 \\ \\ %\n: Sl <\nJy \\ N 3 5 7 Y \\\n[4 7 Ei 4\nI# ry ) (ria i\nBonus Action - Curse =~\nA target must succeed a (DC 8 plus half\nhe performer's Luck, rounded down)\n| uck saving throw or become severed\n(Lose and cannot gain resistance to\ndamage types “Bludgeoning,\nIPiercing, and Slashing”).\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1269,13 +1334,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Luck saving throw or become severed (Lose and cannot gain resistance to Physical damage types “Bludgeoning, Piercing, and Slashing”).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Sever.jpg"
   },
   {
     "id": "067",
     "name": "Sunder",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/067.png",
+    "imageUrl": "/cards/templates/067.jpg",
     "rawText": "r TY\n0d iil |\n9 ;\na |\nA\nSg «\nfe\" 3 ><\n0 mS\nBAL —=& o.\n= i /\nA target must succeed a (D€ 8 plus half\nthe performer's Constitution, rounded\ndown) Intelligence saving throw or\nbecome sundered (Lose and cannot\ngain resistance to Elemental damage\ntypes “Air, Earth, Fire, Ice, Lightning,\nThunder, and Water”).\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1288,13 +1354,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Constitution, rounded down) Intelligence saving throw or become sundered (Lose and cannot gain resistance to Elemental damage types “Air, Earth, Fire, Ice, Lightning, Thunder, and Water”).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Sunder.jpg"
   },
   {
     "id": "068",
     "name": "Torment",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/068.png",
+    "imageUrl": "/cards/templates/068.jpg",
     "rawText": "r TY\nTorment\n5 >\nBonus Action - Curde= .\nA targelymust suceeed-a (DC 8 plus half\nthe performer's Wisdom, round\ndown) Wisdom saving throw or become\ntormented (Lose and.cannot gain\nresistance to Divine damage types.\n“Dark, Holy, Magic, and Nature”).\nArtist's Name #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1307,13 +1374,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Wisdom saving throw or become tormented (Lose and cannot gain resistance to Divine damage types. “Dark, Holy, Magic, and Nature”).",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Curse.jpg"
   },
   {
     "id": "069",
     "name": "Wound",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/069.png",
+    "imageUrl": "/cards/templates/069.jpg",
     "rawText": "a OY\n“4\nI Ni | £3 ph - * /\nBe -\n» hy 0 Ue\n> ey us\nSOEST A]\nSEEN\nBonus Action - Curse\nt succeed a (DC 8 plus hal\n's Strength, rounded\nving throw or\n(Physical damage\nvantage against you\n, Piercing, and Slashing”. 2\n. @ Place Holder Art y\n",
     "requirements": {
       "str": 5,
@@ -1326,13 +1394,14 @@
     "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become wounded (Physical damage sources roll with advantage against you “Bludgeoning, Piercing, and Slashing”.)",
     "flavorText": "",
     "subtype": "Curse",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Wound.jpg"
   },
   {
     "id": "070",
     "name": "Ascertain",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/070.png",
+    "imageUrl": "/cards/templates/070.jpg",
     "rawText": "r TY\nscertain\nww\n‘op r \\\nBT\nf 4 {\noo I\nBD A\n\\\nZA |\ni\n‘\nIN {\nBonus Action - Spell BE\nAscertain a number Ohids equal to your\nWisdom. (e.g., Look at the top “x” cards of\n\\your Archive, then place any number of them\non the bottom of your Archive and the rest on\ntop in any order.)\n“Only the wise should dare to manipulate\nfate, lest you find yourself contemplating\neternity.” — Fraus, of the Fae Court\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -1345,13 +1414,14 @@
     "rulesText": "Ascertain a number of cards equal to your Wisdom. (e.g., Look at the top “x” cards of your Archive, then place any number of them on the bottom of your Archive and the rest on top in any order.)",
     "flavorText": "“Only the wise should dare to manipulate fate, lest you find yourself contemplating eternity.” — Fraus, of the Fae Court",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Ascertain.jpg"
   },
   {
     "id": "071",
     "name": "Augury",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/071.png",
+    "imageUrl": "/cards/templates/071.jpg",
     "rawText": "a OY\n: »\nr .\nBonus Action - Spell\nSear r Archive ard,\nreveal\nplace that card yo\n. @ Place Holder Art # p\n",
     "requirements": {
       "str": 0,
@@ -1364,13 +1434,14 @@
     "rulesText": "Search your Archive for a Curse card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Augury.jpg"
   },
   {
     "id": "072",
     "name": "Conveyance",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/072.png",
+    "imageUrl": "/cards/templates/072.jpg",
     "rawText": "a TY\n8 FE\n4\n[0] ( N § 74 “4% \\\nRV C2\n3 (A Sel\"\n\\ IT77 XN\n2 yy ° \\ \\ 4\ny IN NN\nBonus Action 4Spell” #25. | (5) |\n= AB < 4 1\nDraw two cards from the’top of your\nArchive. 4 -. =m A\nUN == (4\n“The college of St nessdeaches mami:\nthings, but plundering the‘futturesisnot=\namongjithem.” — Oaken, the-Sage Scroll\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -1383,13 +1454,14 @@
     "rulesText": "Draw two cards from the top of your Archive.",
     "flavorText": "“The college of Straness teaches many things, but plundering the future is not among them.” — Oaken, the Sage Scroll",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Conveyance.jpg"
   },
   {
     "id": "073",
     "name": "Early Withdrawl",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/073.png",
+    "imageUrl": "/cards/templates/073.jpg",
     "rawText": "a OY\n’ XB\nEarly With SX\nRE SEA\nBD LSP\n/ N\nFl L ha\n5 FR\nBonus Action - Spell | it 2\nDraw a card for every three Wisdom you\nhave. + WE gas\nro SN AY\now canyou long fc nething, never\nknowing wh tit might h Bs —\nMiluina;Asp of Greed\nPI Holder Art #\n9 ace Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -1402,13 +1474,14 @@
     "rulesText": "Draw a card for every three Wisdom you have.",
     "flavorText": "“How can you long for something, never knowing what it might have been?” — Miluina, Aspect of Greed",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Early Withdrawl.jpg"
   },
   {
     "id": "074",
     "name": "Earthen Bounty",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/074.png",
+    "imageUrl": "/cards/templates/074.jpg",
     "rawText": "a Bh\n. Earthen Bounty KW\n: ,\noy. :\ni Tl\n2 ATEN\nBonus Action - Spell\nSearch your Archive for a common\nLocation card, reveal it, and put it into\nyour hand. Then, shuffle your Archive.\n“From the ruins of the old, the earth\nbreathes anew—fertile, untamed, and\nwaiting to be claimed.” — Antorius,\nThunder of the Mountain\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1421,13 +1494,14 @@
     "rulesText": "Search your Archive for a common Location card, reveal it, and put it into your hand. Then, shuffle your Archive.",
     "flavorText": "“From the ruins of the old, the earth breathes anew—fertile, untamed, and waiting to be claimed.” — Antorius, Thunder of the Mountain",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Earthen Bounty.jpg"
   },
   {
     "id": "075",
     "name": "Faerie Fire",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/075.png",
+    "imageUrl": "/cards/templates/075.jpg",
     "rawText": "r TY\n: i Faerie Fire\ni Nl Ps\n\\Y + YY\n| }\n2B\n0 .\nBD =\nBonus Action - Spell\nA'target loses 1d6 resilience until the\nend of the turn. (This effect cannot\nreduce Resilience below 0)\n“The greatest deligN®Come from the\nmost preposterous things.” — Stropha,\nof the Fae Count\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1440,13 +1514,14 @@
     "rulesText": "A target loses 1d6 resilience until the end of the turn. (This effect cannot reduce Resilience below 0.)",
     "flavorText": "“The greatest delights come from the most preposterous things.” — Stropha, of the Fae Count",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Faerie Fire.jpg"
   },
   {
     "id": "076",
     "name": "Forethought",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/076.png",
+    "imageUrl": "/cards/templates/076.jpg",
     "rawText": "r TY\n~ Forethought\n—\nwy 7 4 = hd 4. Ne\n7 CN K. \\{\ngo » L) N\n€ \\ |\n4 — » \\ J\nBonus Action - Spe\nAscertain‘three card 5. (Look at the top\nthree cards. of younA ive place\nany pdmber o hem n the m of\nyour/Archive al d He rest on top in any\noft)\nE YZ -\n“Victory is decided long b the\nbattle begins.\"— Freysa /\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -1459,13 +1534,14 @@
     "rulesText": "Ascertain three cards. (Look at the top three cards of your Archive, then place any number of them on the bottom of your Archive and the rest on top in any order.)",
     "flavorText": "“Victory is decided long before the battle begins.”— Freysa",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Forethought.jpg"
   },
   {
     "id": "077",
     "name": "Guidance",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/077.png",
+    "imageUrl": "/cards/templates/077.jpg",
     "rawText": "a OY\nGui\n0\n0\n3\n0 —\nBonus As IY\nSearch your a Boon card,\nreveal it, then'shuffle your Archive and\nplace that card on top.\n-\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -1478,13 +1554,14 @@
     "rulesText": "Search your Archive for a Boon card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Guidance.jpg"
   },
   {
     "id": "078",
     "name": "Juxtaposition",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/078.png",
+    "imageUrl": "/cards/templates/078.jpg",
     "rawText": "g TY\nwe QV,\n> <4\n\nov AV Ly\na \" =v 4 fo = y\nug 7 5\n\n75 Y ~ >\n\n0.27 w@ YP\n\nSN NN v4\n\nm0 %., © Go ~$ |\nBol S56 7s ar AZ 7 N ke. 3\n>. of ipiglligence yo\n\n0SSess r drthen diseard'e\nTNA a TS\nJ@ithe dance df intellect; eachisy ik of\ninsight draws ORth NEW. Vi ions. et ith\neach: evelation, e treline e\nJia Lets, 8 Seas\n|\n\nPlace Holder Art\n| 9 py\n",
     "requirements": {
       "str": 0,
@@ -1497,13 +1574,14 @@
     "rulesText": "For every two points of Intelligence you possess, draw one card, then discard one card for every two cards drawn this way.",
     "flavorText": "“In the dance of intellect, each spark of insight draws forth new visions, yet with each revelation, we must relinquish the old.” — Lesuvius, the Mentalist",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Juxtaposition.jpg"
   },
   {
     "id": "079",
     "name": "Teleportation",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/079.png",
+    "imageUrl": "/cards/templates/079.jpg",
     "rawText": "a OY\nTeleportation\n3 T\ni) Ei\nBonus Action - spell\nSearch your Archive for a common\nLocation card and put it onto the\nbattlefield. As an additional cost,\nshuffle a Location gid into your\nArchive. =\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1516,13 +1594,14 @@
     "rulesText": "Search your Archive for a common Location card and put it onto the battlefield. As an additional cost, shuffle a Location card into your Archive.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Teleportation.jpg"
   },
   {
     "id": "080",
     "name": "Tutelage",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/080.png",
+    "imageUrl": "/cards/templates/080.jpg",
     "rawText": "a OY\nTutelage\nry |\nBonus Action - Spell\nSearch your Archive for a Spell card,\nPees it, then shuffle your Archive and\nplace that card on top. \\\n+ ARR\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -1535,13 +1614,14 @@
     "rulesText": "Search your Archive for a Spell card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Tutelage.jpg"
   },
   {
     "id": "081",
     "name": "Verdant Pathfinding",
     "type": "Bonus Action",
-    "imageUrl": "/cards/fronts/081.png",
+    "imageUrl": "/cards/templates/081.jpg",
     "rawText": "a Bh\nerdant Pathfinding\n0]\n= \\Y LL 1,\nZ %\n).- ra “ad a 4d\nBonus Action - Spel\nSearch your Archive for a common\nLocation card, reveal it, and put it onto\nthe battlefield. Then, shuffle your\nArchive.\n“With patience and toil, the wilds yield to\nour vision, and a new haven is born.” —\nGrove Tender losis\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -1554,13 +1634,14 @@
     "rulesText": "Search your Archive for a common Location card, reveal it, and put it onto the battlefield. Then, shuffle your Archive.",
     "flavorText": "“With patience and toil, the wilds yield to our vision, and a new haven is born.” — Grove Tender Iosis",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Verdant Pathfinding.jpg"
   },
   {
     "id": "082",
     "name": "Absorb Elements",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/082.png",
+    "imageUrl": "/cards/templates/082.jpg",
     "rawText": "Absorb Elements\n50\n\"id |\n”\n\n4 -\n\nReac [ion - Boon .\nA target gains resistance to a type of N\nElemental Page targeting them until |\nthe'beginning of their next turn. (Air,\nEarth, Fire, Ice, Lightning, Thunder, or\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -1573,13 +1654,14 @@
     "rulesText": "A target gains resistance to a type of Elemental damage targeting them until the beginning of their next turn. (Air, Earth, Fire, Ice, Lightning, Thunder, or Water.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Absorb Elements.jpg"
   },
   {
     "id": "083",
     "name": "Ace in the Hole",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/083.png",
+    "imageUrl": "/cards/templates/083.jpg",
     "rawText": "a OY\n\\ 7 - Ace in the Hole\nBE\nReaction - Ability -\nUse your Luck modifier instead of\nanother stat for a saving throwyou =\nmake. 5, ES\n£ [2 a “ pu - -\n“Sometimes, all it takes is a sprinkle of\nluck and a dash of magic to turn things\naround.” 4\n\na\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1592,7 +1674,8 @@
     "rulesText": "Use your Luck modifier instead of another stat for a saving throw you make.",
     "flavorText": "Sometimes, all it takes is a sprinkle of luck and a dash of magic to turn things around.",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Ace in the Hole.jpg"
   },
   {
     "id": "084",
@@ -1617,7 +1700,7 @@
     "id": "085",
     "name": "Celerity",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/085.png",
+    "imageUrl": "/cards/templates/085.jpg",
     "rawText": "é A\ne_ 2 Celerit =\ni =, N/\n~ i\nTR =F = >= <0\nAW £ Ea A)\nANN a y\n5 “NR / VA : Z\nGi ) v / i 3 1\nVil p - 7 Pe\n‘Reaction - Ability 7 TE\nSs SB VA\nAct card that requires § - =\n‘Action can be performed at Reaction:\nspeed. (You : iif ise SMsion as\nrequired by t ard) g\nPlace Holder Art #\n@ Place Holder Ar .\n",
     "requirements": {
       "str": 0,
@@ -1630,13 +1713,14 @@
     "rulesText": "Your next Act card that requires an Action can be performed at Reaction speed. (You must still use an Action as required by the Act card.)",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Celerity.jpg"
   },
   {
     "id": "086",
     "name": "Counter",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/086.png",
+    "imageUrl": "/cards/templates/086.jpg",
     "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 2,
@@ -1649,13 +1733,14 @@
     "rulesText": "Make a contest against a (DC of 2 plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Counter.jpg"
   },
   {
     "id": "087",
     "name": "Dodge",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/087.png",
+    "imageUrl": "/cards/templates/087.jpg",
     "rawText": "a OY\n[0] -\n- b\n0) \\ 4 ~~ »\nof CY Vo\nA \\ 1\noe VP\n0 A A\nD > 0 hb ifr J 5\nMake a contest against a (DC of 3 plus\na target's Dexterity). If successful, gain\nresistance and negate the effects of\nany Act card from that target.\n> 3\n. @ Place Holder Art p\n",
     "requirements": {
       "str": 0,
@@ -1668,13 +1753,14 @@
     "rulesText": "Make a contest against a (DC of 3 plus a target’s Dexterity). If successful, gain resistance and negate the effects of any Act card from that target.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Dodge.jpg"
   },
   {
     "id": "088",
     "name": "No Dice",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/088.png",
+    "imageUrl": "/cards/templates/088.jpg",
     "rawText": "a OY\nK) 1 N\n> ;\nReaction - Ability\nA target roll with advantage now has\ndisadvantage instead. (The lower of the\ntwo rolls must be used.)\n“The only truth about luck is that it\ndances like a fickle breeze, forever\nchanging its course.”\n\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1687,13 +1773,14 @@
     "rulesText": "A target roll with advantage now has disadvantage instead. (The lower of the two rolls must be used.)",
     "flavorText": "The only truth about luck is that it dances like a fickle breeze, forever changing its course.",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "No Dice.jpg"
   },
   {
     "id": "089",
     "name": "Parry",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/089.png",
+    "imageUrl": "/cards/templates/089.jpg",
     "rawText": "r TY\nParry\nv \"I —|\nMs\n0 ¢ gx.\n3 3\nSs \\\nbility ~~\nottibosinst a(DC s\nr's Dexterity).,\\If suc\ntance to the damage\neffe ck.\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -1706,13 +1793,14 @@
     "rulesText": "Make a contest against a (DC of 2 plus an attacker’s Dexterity). If successful, gain resistance to the damage and negate the effects of that attack.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Parry.jpg"
   },
   {
     "id": "090",
     "name": "Riposte",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/090.png",
+    "imageUrl": "/cards/templates/090.jpg",
     "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 2,
@@ -1725,13 +1813,14 @@
     "rulesText": "Deal weapon damage to a target that has failed a contest this turn.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Riposte.jpg"
   },
   {
     "id": "091",
     "name": "Bless",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/091.png",
+    "imageUrl": "/cards/templates/091.jpg",
     "rawText": "a OY\nBless\n1\n; | /\nAR\nJAE |\nReaction -Boon / Lh\nA target gains a 1d4 bonus on saving\nthrows until the end of their next turn.\nEE\n= i=\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -1744,13 +1833,14 @@
     "rulesText": "A target gains a 1d4 bonus on saving throws until the end of their next turn.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Bless.jpg"
   },
   {
     "id": "092",
     "name": "Heroism",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/092.png",
+    "imageUrl": "/cards/templates/092.jpg",
     "rawText": "r TY\nHeroism\n0 Ne\nEL = ’ \\\n5 a\n7 we\n0 wz 4\n(0) y\nReaction - Boon Ra\nUntil the beginning of their nextturn, a\ntarget gains temporary Hit Points equal\nto'their Constitution modifier and is\nimmune to Fright. Woe 4\n“Fear not, for | am-by-your side; be.\nunafraid, for I shall be your guide.” —\nNavitas, the Aspect of Diligence\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1763,13 +1853,14 @@
     "rulesText": "Until the beginning of their next turn, a target gains temporary Hit Points equal to their Constitution modifier and is immune to Fright.",
     "flavorText": "“Fear not, for I am by your side; be unafraid, for I shall be your guide.” — Navitas, the Aspect of Diligence",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Heroism.jpg"
   },
   {
     "id": "093",
     "name": "Iron Skin",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/093.png",
+    "imageUrl": "/cards/templates/093.jpg",
     "rawText": "r TY\n\nTW) id /\n, EE ¢\nos 5 NL po? 4 Sy EAR ;\nReaction - Boon\nA target gains resistance to a type of\nPhysical damage targeting them until\nthe beginning of their next turn.\n(Bludgeoning, Piercing, or Slashing).\nApu\n\n@ Place Holder Art #\n\n| 4\n",
     "requirements": {
       "str": 2,
@@ -1782,13 +1873,14 @@
     "rulesText": "A target gains resistance to a type of Physical damage targeting them until the beginning of their next turn. (Bludgeoning, Piercing, or Slashing).",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Iron Skin.jpg"
   },
   {
     "id": "094",
     "name": "Rallying Anthem",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/094.png",
+    "imageUrl": "/cards/templates/094.jpg",
     "rawText": "a OY\nEig Rallying Anthem\ni a\nE .\n: * -\np er on ~\nal We. ) i nS\npr—— - A - io\nReaction - Boon\nro 4\nSpend an ropes ie to grant\nadvantage on another target's saving\nthrow. If their saving throw succeeds,\ngaina :\n» Sas Riss ¢\nSr : NY WY\n<@\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 2,
@@ -1801,13 +1893,14 @@
     "rulesText": "Spend an Inspiration Die to grant advantage on another target’s saving throw. If their saving throw succeeds, gain a 1d4 Inspiration Die.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Rallying Anthem.jpg"
   },
   {
     "id": "095",
     "name": "Sanctuary",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/095.png",
+    "imageUrl": "/cards/templates/095.png",
     "rawText": "0 3 1\nFre\nReact Boon of\ntil the beginning of their next |\ntacks and Act card Jainst 5 : :\nrequire a (DC 8 plusihalf the per r's\nonstitution, rounded'down) {\nonstitution saving ow to succ\nEe nee\nmust targ the i r\nAct card. <\n@ Place Holder Art #\n",
     "requirements": {
       "str": 0,
@@ -1820,13 +1913,14 @@
     "rulesText": "Until the beginning of their next turn, attacks and Act cards against a target require a (DC 8 plus half the performer’s Constitution, rounded down) Constitution saving throw to succeed. On a failed saving throw, the attacker must target another with that attack or Act card.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Sancturary.png"
   },
   {
     "id": "096",
     "name": "Spiked Growth",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/096.png",
+    "imageUrl": "/cards/templates/096.jpg",
     "rawText": "a OY\nx3\n5roV\n= . L\nIB \\ NMA | E\n(NG wf at\n3 n Vt\nx SER J\nan b } /\npz Z “ J 5 €\nReaction - Boon\nUntil the end of their next turn,\nwhenever a target is attacked, their\nattacker takes 1d8 Earth damage.\n“By the will of Mamel, the earth shall\nrise in vengeance; let every attack\nagainst me invoke the fury of stone”\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1839,13 +1933,14 @@
     "rulesText": "Until the end of their next turn, whenever a target is attacked, their attacker takes 1d8 Earth damage.",
     "flavorText": "By the will of Mamel, the earth shall rise in vengeance; let every attack against me invoke the fury of stone",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Spiked Growth.jpg"
   },
   {
     "id": "097",
     "name": "Superstition",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/097.png",
+    "imageUrl": "/cards/templates/097.jpg",
     "rawText": "r TY\n- > Ra -\n0\n(0) PL. LP» 1\n-y\n0) 4\nion - Boon \\\ntarget gains resistance to a type of\nine (Dark, Holy, Magic, or Nature)\ndamage targeting them until the BN\nbeginning of ne |\ny 4 . 9\nPlace Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -1858,13 +1953,14 @@
     "rulesText": "A target gains resistance to a type of Divine (Dark, Holy, Magic, or Nature) damage targeting them until the beginning of their next turn.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Superstition.jpg"
   },
   {
     "id": "098",
     "name": "Wind Wall",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/098.png",
+    "imageUrl": "/cards/templates/098.jpg",
     "rawText": "a Bh\nWind Wall\nor FTN\n2 *\n0 A i\nk\npA\nReaction - Boon\nUntil the end of the turn, attacks made\nagainst a target have disadvantage and\ndeal 1d4 less damage.\n-\n|\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1877,13 +1973,14 @@
     "rulesText": "Until the end of the turn, attacks made against a target have disadvantage and deal 1d4 less damage.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Wind Wall.jpg"
   },
   {
     "id": "099",
     "name": "Abolish",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/099.png",
+    "imageUrl": "/cards/templates/099.jpg",
     "rawText": "r TY\nAbolish\nv A\n0 \\§/\n2\nReaction - Spell\nRemove a target Boon.\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1896,13 +1993,14 @@
     "rulesText": "Remove a target Boon.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Abolish.jpg"
   },
   {
     "id": "100",
     "name": "Counter Spell",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/100.png",
+    "imageUrl": "/cards/templates/100.jpg",
     "rawText": "a OY\n~\\ A\nad Courter gpell ‘ # /\n= Vz od\n> Nd rr ) o%. 4\n0) ,. , -\nNo 9 i 5 }\n) 3 ‘ W.\nVio a L A 4 <\n«VE “ZW\n{ No 0\nWW \\ Y y J B\\~ 0,\n| FY A\n= 7 AY 0/4 y\nWD ESE\nReactio pell IN \\% : <<\nBR: alcontest against a (DC gr plus:\nrget's| telligence). If suc essful, )\nremove the target:Heno's Action fror\nMEANS\n- Me\n-\n- ed =\n- —_ —\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1915,13 +2013,14 @@
     "rulesText": "Make a contest against a (DC of 2 plus a target’s Intelligence). If successful, remove the target Hero’s Action from the Timeline.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Counter Spell.jpg"
   },
   {
     "id": "101",
     "name": "Cure",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/101.png",
+    "imageUrl": "/cards/templates/101.jpg",
     "rawText": "4 Bh\nwr’ { % Se\nWo prs c re 2) o) by\nERPs “We \\\n0 PRN\nag 4 3 i itp UND LY\nOY PIE ON\nNe We J ses kJ)\nMC { W 0)\nReacti pell 2\n@; NA HM\n@ Place Holder Art -\n| 4\n",
     "requirements": {
       "str": 0,
@@ -1934,13 +2033,14 @@
     "rulesText": "Remove a target Curse.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Cure.jpg"
   },
   {
     "id": "102",
     "name": "Disarming Ditty",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/102.png",
+    "imageUrl": "/cards/templates/102.jpg",
     "rawText": "r TY\nDisarn\n- be He\n\\ nr\n1 v3\nr = N | -\nReaction - Spell\nMake a contest against a (DC of 2 plus\nan attacker's Wisdom). On success,\ntheir attack rolls with disadvantage.\nYou may spend an Inspiration Die to\nreduce their critical range by 1 for that\nattack.\n= ¢\nPlace Holder Art *\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1953,13 +2053,14 @@
     "rulesText": "Make a contest against a (DC of 2 plus an attacker’s Wisdom). On success, their attack rolls with disadvantage. You may spend an Inspiration Die to reduce their critical range by 1 for that attack.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Disarming Ditty.jpg"
   },
   {
     "id": "103",
     "name": "Dispel",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/103.png",
+    "imageUrl": "/cards/templates/103.jpg",
     "rawText": "a ) TY\n- (27\n=e = :\n=\\- Y\n\\\nb | \\\n4 = 7 2\nReaction - Spell :\nRemove a Boon or Curse from a target,\nthen draw a card.\n’\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -1972,13 +2073,14 @@
     "rulesText": "Remove a Boon or Curse from a target, then draw a card.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Dispel.jpg"
   },
   {
     "id": "104",
     "name": "Dissonant Whispers",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/104.png",
+    "imageUrl": "/cards/templates/104.jpg",
     "rawText": "r TY\nDissonant Whispers\na\n0 .\n0 \\ -\nReaction - Spell\nM contest against é C of 2 plus a\ntar Wisdom). If suce |, remove\nt t Hero's Reactiol the\nrough your mind like\nisting your thoughts and\nur courage with every breath.”\nPlace Holder Art\nC 9 4\n",
     "requirements": {
       "str": 0,
@@ -1991,13 +2093,14 @@
     "rulesText": "Make a contest against a (DC of 2 plus a target’s Wisdom). If successful, remove the target Hero’s Reaction from the Timeline.",
     "flavorText": "Whispers coil through your mind like shadows, twisting your thoughts and unraveling your courage with every breath.",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Dissonant Whispers.jpg"
   },
   {
     "id": "105",
     "name": "Energy Shield",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/105.png",
+    "imageUrl": "/cards/templates/105.jpg",
     "rawText": "4 TY\nNy & ed =\n— C Niel! X\n) Si J RN,\n¢ < oy : ul\n1 ae.\nof. BN es\nE- - - > 4 7) i\\\n3 3 i i 4 N = ’ )\n$ (Ty { AN ¢ \\\n7, / = 4 Vv,\nocho soy © LJ\neduce lamage from a single soirce\namo eg al to your i dom\n\\ Robie age ciion s not\nfected by Re sistance or.Vulnera ility.\nha NF\nq 9 Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -2010,13 +2113,14 @@
     "rulesText": "Reduce damage from a single source by an amount equal to your Wisdom modifier. (This damage reduction is not affected by Resistance or Vulnerability.)",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Energy Shield.jpg"
   },
   {
     "id": "106",
     "name": "Mass Dispel",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/106.png",
+    "imageUrl": "/cards/templates/106.jpg",
     "rawText": "r TY\ny.\nLe\n7 w\nEEL\nResctifsped”™ & |\nRemove all Boons and Curses, then\ndraw a card for each removed this way.\n4 a\n. @ Place Holder Art # p\n",
     "requirements": {
       "str": 0,
@@ -2029,13 +2133,14 @@
     "rulesText": "Remove all Boons and Curses, then draw a card for each removed this way.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Mass Dispel.jpg"
   },
   {
     "id": "107",
     "name": "Silence",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/107.png",
+    "imageUrl": "/cards/templates/107.jpg",
     "rawText": "a OY\nSilence\nBD TN\n%\nod _ 4\na\nB ’ = |\nReaction - Spg! »\nMdKe a contest against a (DC of 2 plus\na target's Constitution). If successful,\nremove the target Hero's Bonus Action\nfrom the-Timeline.\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2048,13 +2153,14 @@
     "rulesText": "Make a contest against a (DC of 2 plus a target’s Constitution). If successful, remove the target Hero’s Bonus Action from the Timeline.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Silence.jpg"
   },
   {
     "id": "108",
     "name": "Warp",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/108.png",
+    "imageUrl": "/cards/templates/108.jpg",
     "rawText": "[0]\n0 A\n(0) Wy F\nHE Te - 4\nEa 5\n| a\na» | B\n4 a I 8\nReaction - Spell\nYour next Act card that requires a\nBonus Action can be performed at\nReacti 3 :\n@ Place Holder Art\n",
     "requirements": {
       "str": 0,
@@ -2067,13 +2173,14 @@
     "rulesText": "Your next Act card that requires a Bonus Action can be performed at Reaction speed. (You must still use a Bonus Action as required by the Act card.)",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Warp.jpg"
   },
   {
     "id": "109",
     "name": "Stug",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/109.png",
+    "imageUrl": "/cards/templates/109.jpg",
     "rawText": "r BN TY\n‘= I\niy Q \\\ni Ne p 0%\nRS od LT\niy \\$ » Vi pA” 3\nRie oe\nLT SOT NG CR \\\nI Ree afte\nck: 1d8 + Str (Blunt) p72\nge — Until the beginning of your\n, your attacks deal +2 damage. If\nu haveladvantage, it instead deals +4\n) ] => io]\n\\ : § - Ly\nNhile enraged, attacker's have | ©\ndvantage against you = V\n. @ Place Holder Art y\n",
     "requirements": {
       "str": 0,
@@ -2085,13 +2192,14 @@
     },
     "rulesText": "**Rage →** Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4.",
     "rarity": "Common",
-    "subtype": "1d8 + Str (Blunt)"
+    "subtype": "1d8 + Str (Blunt)",
+    "originalArtFile": "Barbarian Set.jpg"
   },
   {
     "id": "110",
     "name": "Naeris",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/110.png",
+    "imageUrl": "/cards/templates/110.jpg",
     "rawText": "a OY\n[ :\ngl\n(=m\nA\n7 3 ) 8\ni pn YX /\naE i]\n. ) ZN ;\n- A yr\n\nWR\nAttack: 1d6 + Mrmr\nBardic Inspiration > Gain an Inspiration\nDie cage! to or less than one of your\nstats. I’\nGain +1 defense and resilience until the\nend of your turnjfor every step of that\nInspiration Die (e4g., +1 for a 1d4, +2 for\na 1d6, etc.). ] i\n\nPlace Holder Art\n\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2103,13 +2211,14 @@
     },
     "rulesText": "**Bardic Inspiration →** Gain an Inspiration Die equal to or less than one of your stats. ",
     "rarity": "Common",
-    "subtype": "1d6 + Lck (Thunder)"
+    "subtype": "1d6 + Lck (Thunder)",
+    "originalArtFile": "Bard Set.jpg"
   },
   {
     "id": "111",
     "name": "Aelastrion",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/111.png",
+    "imageUrl": "/cards/templates/111.jpg",
     "rawText": "r TY\nAelastrion\n> 4\n® A\n2,\n(gs 8 &. [| -\ny an 7% p I\nAttack: 6 +Condl oly)\nChannel'Divinit | Bpyou may use yourCon\nin placelof vo ther stat - meeting the\ntotal s eq L Fat of the next son you\nperformithis rou oh\n1 JL)\nWi ver you perform a Boon card, restore\n1 Point to the target for each point of\nConstitution required to perform that card.\n@ Place Holder Art #\nC 4\n",
     "requirements": {
       "str": 0,
@@ -2121,13 +2230,14 @@
     },
     "rulesText": "**Channel Divinity →** You may use your Con in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.",
     "rarity": "Common",
-    "subtype": "1d6 + Con (Holy)"
+    "subtype": "1d6 + Con (Holy)",
+    "originalArtFile": "Cleric Set.jpg"
   },
   {
     "id": "112",
     "name": "Kaeliss",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/112.png",
+    "imageUrl": "/cards/templates/112.png",
     "rawText": "r TY\nAn P 2\nVv 3 LI.\nA =\n4 3 9\n4\n\nr ; A 4\n4 k ! 4 ) ~ - AS,\n> ABE Ne\n\n(E'S YR\n\na\nAtt Tae mE) \\\nA ic — If the next Spell you perform\nthis round has a total stat requirement\nhigher than the number of Elemental\nCounters you control, gain an Elemental\nCounter. NS\nSpells require 1 less of any stat for each\nElemental Counter you control.\n@ Place Holder Art #\n\n| 4\n",
     "requirements": {
       "str": 0,
@@ -2139,13 +2249,14 @@
     },
     "rulesText": "**Aetheric →** If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter.",
     "rarity": "Common",
-    "subtype": "1d4 + Int (Fire)"
+    "subtype": "1d4 + Int (Fire)",
+    "originalArtFile": "Conjurer Set.png"
   },
   {
     "id": "113",
     "name": "Ilyndra",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/113.png",
+    "imageUrl": "/cards/templates/113.jpg",
     "rawText": "r TY\n‘, - , ng\nEr TS\n\n. Zl > \\\n‘A fo C ¢\n\n= X-_ A. 4 Xe =\nFoy bh (NLT\n\n4 ya J) | . \\\nChg\nAttack: + Wis\\(Nature) %\nVe ~\nWild Resurgence —' Js cardigy\nmay. perfor na n Act card from the.\nDungeon. The'Act card y6u choos\nmoves, to the'Void after being\nperformed. e Ac card’ avd the\nVoid eveniffi'cannot be performed.)\n4 7% \\\nf 7 il :\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -2157,13 +2268,14 @@
     },
     "rulesText": "**Wild Resurgence →** Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
     "rarity": "Common",
-    "subtype": "Attack: 1d6 + Wis (Nature)"
+    "subtype": "Attack: 1d6 + Wis (Nature)",
+    "originalArtFile": "Druid Set.jpg"
   },
   {
     "id": "114",
     "name": "Naev",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/114.png",
+    "imageUrl": "/cards/templates/114.jpg",
     "rawText": "a Bh\n4 EN ]\ntd -' NY\n] J VER -\nah o q } (Ng.\nul NES\nA AY =\nAttack 148% ex (Slashing) A\nMas & of s — Until the beginning\n0 ur turn, your attack:rolls can't\nBfavel an half theif maximum value\n(eg.a 1'on a d4 becomes a2).\nShi ic, |\non a critical hit, deal 2a dditi nal\ndamage. \\ | \\\na - \\\nPI Holder Art\n9 ace Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -2175,13 +2287,14 @@
     },
     "rulesText": "**Master at Arms →** Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). ",
     "rarity": "Common",
-    "subtype": "1d8 + Dex (Slashing)"
+    "subtype": "1d8 + Dex (Slashing)",
+    "originalArtFile": "Fighter Set.jpg"
   },
   {
     "id": "115",
     "name": "Arachrion",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/115.png",
+    "imageUrl": "/cards/templates/115.png",
     "rawText": "r TY\nArachrion\n8\n9\nFE\nAttack: 1d8 + Wis (Dark) -\nBurial Rite — Discard up to three cards.\nThen, you may Void an Act card from\nthe Dungeon to perform it, reducing its\nstat requirements by one for each card\ndiscarded. (It moves to the Void even if\nit couldn't be performed.)\nPI Holder Art #\n. @ Place Holder Ar p\n",
     "requirements": {
       "str": 0,
@@ -2193,13 +2306,14 @@
     },
     "rulesText": "**Burial Rite → **Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
-    "subtype": "Attack: 1d8 + Wis (Dark)"
+    "subtype": "Attack: 1d8 + Wis (Dark)",
+    "originalArtFile": "Necromancer Set.png"
   },
   {
     "id": "116",
     "name": "Yuanai",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/116.png",
+    "imageUrl": "/cards/templates/116.jpg",
     "rawText": "a OY\n\\ 5\n' fl\n2\n-\\\nIS U\n] < = E\nAY\nAttack: 2d4 + Dex (Blunt) \\\nMartial Arts — Gain an Inspiration Die\".\nequal to or less than your Dex. nN\nGain critical rani y +1 for each step\nof that InspirationiDie (e.g., +1 for a\n1d4, +2 fora 1d6, >.)\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -2211,13 +2325,14 @@
     },
     "rulesText": "**Martial Arts → **Gain an Inspiration Die equal to or less than your Dex. ",
     "rarity": "Common",
-    "subtype": "2d4 + Dex (Blunt)"
+    "subtype": "2d4 + Dex (Blunt)",
+    "originalArtFile": "Monk Set.jpg"
   },
   {
     "id": "117",
     "name": "Marius",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/117.png",
+    "imageUrl": "/cards/templates/117.jpg",
     "rawText": "a OY\n“EES\n| Marius\n1111 Ll |\nI a.\nry EEN\nFN A 7 AYE i\n\\ ee 3 y / A J \\ |\nAttack: 1d8 - Con Holy) \\\nRadiant Strikes 5 Until the start of\nyour next turn, your’damage rolls are\nHoly and deal +1'damage for every 2\nConstitution you have.\nT——— A——=\n] —\nTENE CT S——\n@ Place Holder Art\n| 4\n",
     "requirements": {
       "str": 0,
@@ -2229,13 +2344,14 @@
     },
     "rulesText": "**Radiant Strikes →** Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
     "rarity": "Common",
-    "subtype": "Attack: 1d8 + Con (Holy)"
+    "subtype": "Attack: 1d8 + Con (Holy)",
+    "originalArtFile": "Paladin Set.jpg"
   },
   {
     "id": "118",
     "name": "Avery",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/118.png",
+    "imageUrl": "/cards/templates/118.png",
     "rawText": "a OY\nAvery ’\n7 Al 4 p\n| <r\nie 3\ni ~~ }\n4 SER o\nAttack: | / A Lck (Piercing Poe\nNo Prey, No Pay — If you damage a\nHero this round, you may void the top\ncard of their Archive. If it's an Act card,\nattach it to your Hero. You may use\nyour Luck in place of any olbgit=t\nwhen meeting h ;\nrequirement of attache cards.\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2247,13 +2363,14 @@
     },
     "rulesText": "**No Prey, No Pay → **If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
     "rarity": "Common",
-    "subtype": "Attack: 1d4 + Lck (Piercing)"
+    "subtype": "Attack: 1d4 + Lck (Piercing)",
+    "originalArtFile": "Pirate Set.png"
   },
   {
     "id": "119",
     "name": "Viona",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/119.png",
+    "imageUrl": "/cards/templates/119.jpg",
     "rawText": "r TY\n\\\n\\ na)\nPte\nf N= (%\n=p N\n\\ \\,\nV2 S,\nAttack:\\1d8 +L k'(Riercing) ;\nDeft Explorer — L'dok at the top ard of\nyour Archive. If it is a Location card, you\nmay draw i ff\n1 : )\nAfter playing’ zation card, you next\nattack or Act card has advantage until\nthe end of yo rn.\n\\\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -2265,13 +2382,14 @@
     },
     "rulesText": "**Deft Explorer → **Look at the top card of your Archive. If it is a Location card, you may draw it.",
     "rarity": "Common",
-    "subtype": "1d8 + Lck (Piercing)"
+    "subtype": "1d8 + Lck (Piercing)",
+    "originalArtFile": "Ranger Set.jpg"
   },
   {
     "id": "120",
     "name": "Faela",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/120.png",
+    "imageUrl": "/cards/templates/120.jpg",
     "rawText": "a OY\nFa\n1 > \\\n7\nIP =\nZB FL \\\n77 NZ PA\nAttack: 1d6 + Int (Magic fe\nFont of Magic Sainan Inspiration\nDie equal to or 16834 LoiSo Al\nf NY h\nIf you already have an ‘Inspiration NS\nyou may increase its size by 1 ste|\n(e.g., 1d4 to 1dS6, max 3 1d20). J,\nSNL\n. @ Place Holder Art # y\n",
     "requirements": {
       "str": 0,
@@ -2283,13 +2401,14 @@
     },
     "rulesText": "**Font of Magic** → Gain an Inspiration Die equal to or less than your Int. ",
     "rarity": "Common",
-    "subtype": "1d6 + Int (Magic)"
+    "subtype": "1d6 + Int (Magic)",
+    "originalArtFile": "Sorcerer Set.jpg"
   },
   {
     "id": "121",
     "name": "Leif",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/121.png",
+    "imageUrl": "/cards/templates/121.jpg",
     "rawText": "r TY\n3\n>\nPL NG Zo fr\nfe 15\nNt T“\nAttack: 2d4 + Lck (Piercing) A\nSneak Attack — Gain stealth until the\nbeginning of next turn. Stealth ends if\nyou attack. (Attacks against a stealthed\ntarget have disadvantage.)\nYour critical hit range is increased by 2\nwhile attacking from stealth (e.g., 18-\n20).\nPlace Holder Art #\n. @ Place Holder Ar p\n",
     "requirements": {
       "str": 0,
@@ -2301,13 +2420,14 @@
     },
     "rulesText": "**Sneak Attack** → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.)",
     "rarity": "Common",
-    "subtype": "2d4 + Lck (Piercing)"
+    "subtype": "2d4 + Lck (Piercing)",
+    "originalArtFile": "Rogue Set.jpg"
   },
   {
     "id": "122",
     "name": "Malakar",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/122.png",
+    "imageUrl": "/cards/templates/122.jpg",
     "rawText": "r TY\n/AN\n# |\n¥\nwe oo. f\n5 %\nAttack: 1d4 + Wis (Dark) _\nEldritch Invocation — Void 2, from your\nhand, then draw a card from the top of your\nArchive. If the voided card was an Act card,\nyou may instead draw two cards.\nWhenever you void a card, you may deal 1\nDark damage to any target. If the voided card\nwas an Act card, deal 2 Dark damage\ninstead.\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -2319,13 +2439,14 @@
     },
     "rulesText": "**Eldritch Invocation → **Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
     "rarity": "Common",
-    "subtype": "1d4 + Wis (Dark)"
+    "subtype": "1d4 + Wis (Dark)",
+    "originalArtFile": "Warlock Set.jpg"
   },
   {
     "id": "123",
     "name": "Sebelda",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/123.png",
+    "imageUrl": "/cards/templates/123.jpeg",
     "rawText": "r TY\n.  Sebelda\nIv -— | =\np 5\n: Ne py, 4 x\nfie Y & > Y Q ;\ni py l | y\n& NR Oe 4 jv\na: . a 0 ] fe\nAttack: 1d6 + Wis (Dark) &)\nM na — You may use your L\nplac y other stat when meeting\ntotal requirement of the next Curs\nperform this round. 3\n(hx ¢ A ’ 2 4\nWhenever you petfo seydeal Dark\ndamage to eac Ir t t -\nthe card's total stat require men mg’\ndown) eee TT —\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -2337,13 +2458,14 @@
     },
     "rulesText": "**Malignance → **You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round.",
     "rarity": "Common",
-    "subtype": "1d6 + Wis (Dark)"
+    "subtype": "1d6 + Wis (Dark)",
+    "originalArtFile": "Witch Set.jpeg"
   },
   {
     "id": "124",
     "name": "Sundrian",
     "type": "Hero",
-    "imageUrl": "/cards/fronts/124.png",
+    "imageUrl": "/cards/templates/124.jpg",
     "rawText": "a OY\nSundrian\n/\n> if 7\n=> EA NR, =\n3,\nK » Tap\n7, \"A\nAttack: 1d8 + Int ( C)\nSpell Mastery h an Act card fr\nyour hand to S n You may perfor\nattached Act c ttached Act card\nmove to the Vi en performed.\nAct cards perfor ed from anywhere\nother than your hand require two less of\na chosen f\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2355,13 +2477,14 @@
     },
     "rulesText": "**Spell Mastery → **Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed.",
     "rarity": "Common",
-    "subtype": "1d8 + Int (Magic)"
+    "subtype": "1d8 + Int (Magic)",
+    "originalArtFile": "Wizard Set.jpg"
   },
   {
     "id": "125",
     "name": "Arena of Strength",
     "type": "Location",
-    "imageUrl": "/cards/fronts/125.png",
+    "imageUrl": "/cards/templates/125.jpg",
     "rawText": "a OY\nArena of Strength\n— = - iE —\nPe —\nZa TZ ~ SN\ndL . 20% — 2 =) Nee\nLocation - Common ~~ \\g\nGain+1Strength.\n\"The roar of the crowd fuels both\nambition and might.\"\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -2373,13 +2496,14 @@
     },
     "rulesText": "Gain +1 Strength.",
     "flavorText": "The roar of the crowd fuels both ambition and might.",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Strength Stat Card.jpg"
   },
   {
     "id": "126",
     "name": "Stream of Dexterity",
     "type": "Location",
-    "imageUrl": "/cards/fronts/126.png",
+    "imageUrl": "/cards/templates/126.jpg",
     "rawText": "a TY\nFu\nZot). =»\n1 a ) Fa |\n# rg»\nISAT aTay oe\nie Nay\n7 A\ni \\ F\n—n -< Sa BAYA —\nLocation ommon 14 my\nGain +1 Dexterity \\ A\n\"The stream teaches those who listen\nito move swiftly, like water over stone.\"\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2391,13 +2515,14 @@
     },
     "rulesText": "Gain +1 Dexterity.",
     "flavorText": "The stream teaches those who listen to move swiftly, like water over stone.",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Dexterity Stat Card.jpg"
   },
   {
     "id": "127",
     "name": "Fortress of Constitution",
     "type": "Location",
-    "imageUrl": "/cards/fronts/127.png",
+    "imageUrl": "/cards/templates/127.jpg",
     "rawText": "a OY\n4 } .\n. ; = EN\nAd \\ H A A\nAX oN 3\n' 3 Law “ ]\n§ [ LE i i y |\n| 3 | eat = 5 Ee\nLegation - Common : \\\n) +1 ay #\n\"The stones of the ortress may crack,\nbut they never fall.\" ar\nBE coe ———\n: Place Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2409,13 +2534,14 @@
     },
     "rulesText": "Gain +1 Constitution.",
     "flavorText": "The stones of the fortress may crack, but they never fall.",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Constitution Stat Card.jpg"
   },
   {
     "id": "128",
     "name": "Library of Intelligence",
     "type": "Location",
-    "imageUrl": "/cards/fronts/128.png",
+    "imageUrl": "/cards/templates/128.jpg",
     "rawText": "4 A\n~~\n\\ gph {brary of Intelligence\n») £ 57 A >\nN) AT ; \"\n> CN — Fi\n== = 2 adn a EE\n—\n0 i iol (Ro wow wi 7 1\nd : malig Rian I [7 =2.8 nf}\n= hit gil es Tie | 3 ft.\n| on - Common — - —\nni+1 Intelligence. = 1\n1 Nin y ——\n“Fhese-grand repositories of knowledge\nhave stood i= = —\nEB 7 >= a\n@ Place Holder Art #\n| 4\n",
     "requirements": {
       "str": 0,
@@ -2427,13 +2553,14 @@
     },
     "rulesText": "Gain +1 Intelligence.",
     "flavorText": "These grand repositories of knowledge have stood the test of time.",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Intelligence Stat Card.jpg"
   },
   {
     "id": "129",
     "name": "Cavern of Wisdom",
     "type": "Location",
-    "imageUrl": "/cards/fronts/129.png",
+    "imageUrl": "/cards/templates/129.jpg",
     "rawText": "r TY\ni | Z gl\n= ern of Wisdom”\nSE —\nCx =\nAS ie\n= / |\nLY | ! -\n- \\\nES\n- I}\n- - , \\\non - mon AN\nGain +1 Wisdom. \\\n\"Ancient wisdom opis ugh\nthe ages, speaking to those who fisten.”\n— [ET KK = 2\nCad FETE =\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2445,13 +2572,14 @@
     },
     "rulesText": "Gain +1 Wisdom.",
     "flavorText": "Ancient wisdom reverberates through the ages, speaking to those who listen.",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Wisdom Stat Card.jpg"
   },
   {
     "id": "130",
     "name": "Treasure of Luck",
     "type": "Location",
-    "imageUrl": "/cards/fronts/130.png",
+    "imageUrl": "/cards/templates/130.jpg",
     "rawText": "a Bh\nTreasure of Luck 4\nBEY »\ne hel R\n= ony OS a tA,\nag (B-34 A\nER be oS EK\nLocation - Common “0 ‘P\nGainet1 uo q | ||. - u\n\"Gold andiriches can change fortunes in\naninstant” == :\n: : I\n= —- An a [|\nLD _-\nRE Fo TT\nPI Holder Art #\n9 ace Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -2463,13 +2591,14 @@
     },
     "rulesText": "Gain +1 Luck.",
     "flavorText": "Gold and riches can change fortunes in an instant.",
-    "rarity": "Common"
+    "rarity": "Common",
+    "originalArtFile": "Luck Stat Card.jpg"
   },
   {
     "id": "131",
     "name": "Athenaeum of Acumen",
     "type": "Location",
-    "imageUrl": "/cards/fronts/131.png",
+    "imageUrl": "/cards/templates/131.jpg",
     "rawText": "a OY\n¥ a\n|! Athenaeum of Acumen | v\nA ) -\n\n{ [\nA i I] a | A F.\n“il fERaRE BY\nRY] r #\nRY Nh. VERE Z| 2\nLocation - Uncommon\nWhen Athenaeum of Acumen enters\nthe battlefield, return another Location\ncard you control to its owner's hand.\nGain +1 Intelligence and Wisdom.\nf / /f I 4\ny\n(4\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2481,13 +2610,14 @@
     },
     "rulesText": "When Athenaeum of Acumen enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Intelligence and Wisdom.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Archive of Enlightenment.jpg"
   },
   {
     "id": "132",
     "name": "Cartographer's Post",
     "type": "Location",
-    "imageUrl": "/cards/fronts/132.png",
+    "imageUrl": "/cards/templates/132.jpg",
     "rawText": "a TY\nLocation - Uncommon\n—s Sacrifice this Location card, search\nyour Archive for a common Location\ncard, put it onto the battlefield, then\nshuffle.\n@ Place Holder Art\n\n| 4\n",
     "requirements": {
       "str": 0,
@@ -2499,13 +2629,14 @@
     },
     "rulesText": "**→** Sacrifice this Location card, search your Archive for a common Location card, put it onto the battlefield, then shuffle.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Cartographers Post.jpg"
   },
   {
     "id": "133",
     "name": "Citadel of Resilience",
     "type": "Location",
-    "imageUrl": "/cards/fronts/133.png",
+    "imageUrl": "/cards/templates/133.jpg",
     "rawText": "a TY\nCitadel of Resilience\nLM\nTyr\n3] (iii ¥\nnoe LJ\n» - 1\nLocation - Uncommon i =\nWhen Citadel of Resili enters the\nbattlefield, return er Location card\nyou control owner's hand.\nGain + titution and Intelligence.\npe\n(4\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2517,13 +2648,14 @@
     },
     "rulesText": "When Citadel of Resilience enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Intelligence.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Citadel of Resilience.jpg"
   },
   {
     "id": "134",
     "name": "Coliseum of Willpower",
     "type": "Location",
-    "imageUrl": "/cards/fronts/134.png",
+    "imageUrl": "/cards/templates/134.jpg",
     "rawText": "a OY\nColiseum of Willpower\nA\ni\nA)\n| pi\nhel\nwm\nI Nd\nal 1\n; ed L EE\nLocation - Uncommon\nWhen Coliseum of Willpower enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Dexterity and Constitution.\nil -— TT —————\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2535,13 +2667,14 @@
     },
     "rulesText": "When Coliseum of Willpower enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Constitution.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Coliseum of Willpower.jpg"
   },
   {
     "id": "135",
     "name": "Crossroads of Chance",
     "type": "Location",
-    "imageUrl": "/cards/fronts/135.png",
+    "imageUrl": "/cards/templates/135.jpg",
     "rawText": "a OY\nads y\npe He,\n=r i i\nWAL\nI 1\n= els >»\nLocation - Uncommon “\nWhen Crossroads of Chance enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Dexterity and Luck.\nfF -\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2553,13 +2686,14 @@
     },
     "rulesText": "When Crossroads of Chance enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Luck.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Crossroads of Chance.jpg"
   },
   {
     "id": "136",
     "name": "Forge of Endurance",
     "type": "Location",
-    "imageUrl": "/cards/fronts/136.png",
+    "imageUrl": "/cards/templates/136.jpg",
     "rawText": "a Bh\nForge\ni\nA id\nre . Je -»\nLocation - Uncommon\nWhen Forge of Endurance enters the\nbattlefield, return another Location card\nyou control to its er's hand.\nGain +1 Streng ;\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2571,13 +2705,14 @@
     },
     "rulesText": "When Forge of Endurance enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Strength and Constitution.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Forge of Endurance.jpg"
   },
   {
     "id": "137",
     "name": "Garden of Insight",
     "type": "Location",
-    "imageUrl": "/cards/fronts/137.png",
+    "imageUrl": "/cards/templates/137.jpg",
     "rawText": "a TY\n9% / of Insight\noN ¥en\nAX ’\nJEP CE\nSd -\nTAN )\n. 3 BS [38\nSS\n\\ TN\nLocation - Uncommon\nWhen Garden of Insight enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Constitution and Wisdom.\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2589,13 +2724,14 @@
     },
     "rulesText": "When Garden of Insight enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Wisdom.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Garden of Insight.jpg"
   },
   {
     "id": "138",
     "name": "Hall of Strategy",
     "type": "Location",
-    "imageUrl": "/cards/fronts/138.png",
+    "imageUrl": "/cards/templates/138.jpg",
     "rawText": "a TY\n1 |\n| | | WA |\n: t\nLocation - Uncommon\nWhen Hall of b+ enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Strength and Intelligence.\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2607,13 +2743,14 @@
     },
     "rulesText": "When Hall of Strategy enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Intelligence.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Hall of Strategy.jpg"
   },
   {
     "id": "139",
     "name": "Labyrinth of Serendipity",
     "type": "Location",
-    "imageUrl": "/cards/fronts/139.png",
+    "imageUrl": "/cards/templates/139.jpg",
     "rawText": "r TY\nab i of Sere dipity\ngy |\nNAL) W Vf\n| ¢ Vd i A\nbh es\n=. ~~\nLocation - Uncommon ==\nWhen Labyrinth of Serendipity enters\nthe battlefield, return another Location\ncard you control to its ounel ag. <\nGain +1 Intelligence and Luck.\npnp\n—\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2625,13 +2762,14 @@
     },
     "rulesText": "When Labyrinth of Serendipity enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Intelligence and Luck.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Labyrinth of Serendipity.jpg"
   },
   {
     "id": "140",
     "name": "Pit of Fortune",
     "type": "Location",
-    "imageUrl": "/cards/fronts/140.png",
+    "imageUrl": "/cards/templates/140.jpg",
     "rawText": "a TY\nPit of Fortune\n1\n! a q ]\nRFR\nLocation - Uncommo!\nWhen Pit of Fortune enters the\nbattlefield, return another Location card\nyou control to it hand.\nGain +1 Strengt Luck.\nLN\n|\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2643,13 +2781,14 @@
     },
     "rulesText": "When Pit of Fortune enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Luck.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Pit of Fortune.jpg"
   },
   {
     "id": "141",
     "name": "Sanctum of Valor",
     "type": "Location",
-    "imageUrl": "/cards/fronts/141.png",
+    "imageUrl": "/cards/templates/141.jpg",
     "rawText": "r TY\nSanctum of Valor\n' 3\nSa\nANE i\nyh |\nwe\nLocation - Uncommon\nWhen Sanctum of Valor s the\nbattlefield, return anothe rd\nyou control to its owner” {\"\nmy +1 Strength a i\n. @ Place Holder Art # p\n",
     "requirements": {
       "str": 0,
@@ -2661,13 +2800,14 @@
     },
     "rulesText": "When Sanctum of Valor enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Wisdom.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Sanctum of Valor.jpg"
   },
   {
     "id": "142",
     "name": "Shrine of Finesse",
     "type": "Location",
-    "imageUrl": "/cards/fronts/142.png",
+    "imageUrl": "/cards/templates/142.jpg",
     "rawText": "a ) TY\nShrine of Finesse\nPp\" ve\n|\n-\nps’ 3\nLocation - Uncommon\nWhen Shrine of Finesse enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Dexterity and Wisdom.\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2679,13 +2819,14 @@
     },
     "rulesText": "When Shrine of Finesse enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Wisdom.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Shrine of Finesse.jpg"
   },
   {
     "id": "143",
     "name": "Temple of Destiny",
     "type": "Location",
-    "imageUrl": "/cards/fronts/143.png",
+    "imageUrl": "/cards/templates/143.jpg",
     "rawText": "a Bh\nTe\n|e iE “if\n4 cod =) ' 1\nLocation - Uncommon\nWhen Temple of Destiny enters the\nbattlefield, return er Location card\nyou control to hand.\nGain +1 Wisd\nPI Holder Art #\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,
@@ -2697,13 +2838,14 @@
     },
     "rulesText": "When Temple of Destiny enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Wisdom and Luck.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Temple of Destiny.jpg"
   },
   {
     "id": "144",
     "name": "Tower of Ingenuity",
     "type": "Location",
-    "imageUrl": "/cards/fronts/144.png",
+    "imageUrl": "/cards/templates/144.jpg",
     "rawText": "a TY\nTower of Ingenuity\n|\n3 0\npy 5\npn\n5, A\nLocation - Uncommon\nWhen Tower of Ingenuity enters the\nbattlefield, return another Location card\nyou control to its owner's hand. s\nGain +1 Dexterity and Intelligence. |\nPlace Holder Art\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2715,13 +2857,14 @@
     },
     "rulesText": "When Tower of Ingenuity enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Intelligence.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Tower of Ingenuity.jpg"
   },
   {
     "id": "145",
     "name": "Training Grounds",
     "type": "Location",
-    "imageUrl": "/cards/fronts/145.png",
+    "imageUrl": "/cards/templates/145.jpg",
     "rawText": "\\\nES\nLo Cd On - Jnc J ;\n\nhen Training Grotmdsertersther =.\ndvhen Iraig ing LEE EE NE\nbattlefield, return another Location card”\nyou control to its owners hand. ~~\nGain +1 Str gth and Dexerit ot To\nA RP mn 5g\n3 » £ :\n@ Place Holder Art\n",
     "requirements": {
       "str": 0,
@@ -2733,13 +2876,14 @@
     },
     "rulesText": "When Training Grounds enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Strength and Dexterity.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Training Grounds.jpg"
   },
   {
     "id": "146",
     "name": "Vault of Providence",
     "type": "Location",
-    "imageUrl": "/cards/fronts/146.png",
+    "imageUrl": "/cards/templates/146.jpg",
     "rawText": "a OY\nVault of Provide\nP\n§ | |\n|\npi | ; I\n| | \\\nry \\\nCR |\nL 3 i\nLocation - Uncommon = I A HN\nHi q\nRu of Providence en rs the\nattlefield, return another Lpetion card\nyou control to its owner's hand.\nGain +1 Constitution and Luck.\nPI Holder Art #\n. @ Place Holder Ar p\n",
     "requirements": {
       "str": 0,
@@ -2751,6 +2895,7 @@
     },
     "rulesText": "When Vault of Providence enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Luck.",
     "flavorText": "",
-    "rarity": "Uncommon"
+    "rarity": "Uncommon",
+    "originalArtFile": "Vault of Providence.jpg"
   }
 ]

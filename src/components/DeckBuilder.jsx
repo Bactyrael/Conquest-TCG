@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './DeckBuilder.css';
 import cardDatabase from '../data/cardDatabase.json';
+import Card from './Card';
 
 export default function DeckBuilder() {
   const [db, setDb] = useState([]);
   const [deck, setDeck] = useState([]);
   const [deckName, setDeckName] = useState('My Deck');
   const [savedDecks, setSavedDecks] = useState({});
+  const [zoomedCard, setZoomedCard] = useState(null);
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('All');
   const [statFilters, setStatFilters] = useState({
@@ -164,10 +166,18 @@ export default function DeckBuilder() {
         <div className="catalog-grid">
           {filteredDb.map((card, i) => (
              <div className="catalog-card-wrapper" key={card.id || i} onClick={() => addToDeck({...card, uid: Math.random().toString()})}>
-               <img src={card.artUrl || card.imageUrl} alt={card.name} />
+               <Card data={card} />
                <div className="catalog-card-overlay">
-                 <div>{card.type}</div>
-                 <div style={{fontSize: '0.7rem', color: '#aaa'}}>Click to Add</div>
+                 <div style={{fontSize: '0.9rem', color: '#fff'}}>Click to Add</div>
+                 <button 
+                   className="zoom-btn"
+                   onClick={(e) => {
+                     e.stopPropagation();
+                     setZoomedCard(card);
+                   }}
+                 >
+                   🔍
+                 </button>
                </div>
              </div>
           ))}
@@ -215,6 +225,19 @@ export default function DeckBuilder() {
            <button className="remove-btn" style={{padding: '0.8rem', background: '#d32f2f', color: '#fff'}} onClick={() => { if(window.confirm('Clear current deck?')) setDeck([]) }}>Clear Deck</button>
         </div>
       </div>
+
+      {/* Zoom Modal */}
+      {zoomedCard && (
+        <div className="zoom-modal-backdrop" onClick={() => setZoomedCard(null)}>
+          <div className="zoom-modal-content" onClick={e => e.stopPropagation()}>
+            <div className="zoom-modal-card-container">
+              <Card data={zoomedCard} />
+            </div>
+            <button className="zoom-close-btn" onClick={() => setZoomedCard(null)}>Close</button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

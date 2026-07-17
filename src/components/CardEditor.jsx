@@ -128,6 +128,19 @@ export default function CardEditor() {
                  </div>
                </div>
                
+               <div className="form-row">
+                 <div className="form-group" style={{flex: 1}}>
+                   <label>Artist Credit</label>
+                   <input 
+                     type="text" 
+                     value={card.artist || ''} 
+                     onChange={(e) => handleUpdateCard(card.id, 'artist', e.target.value)}
+                     className="editor-input"
+                     placeholder="Artist name"
+                   />
+                 </div>
+               </div>
+               
                <div className="form-group">
                  <label>Rules Text</label>
                  <textarea 

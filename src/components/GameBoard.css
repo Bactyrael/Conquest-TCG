@@ -108,7 +108,6 @@
 .location-slot {
   width: 100px;
   height: 140px;
-  border-radius: 8px;
   border: 1px dashed var(--color-text-muted);
   display: flex;
   align-items: center;
@@ -165,7 +164,6 @@
 .mini-hero {
   width: 140px;
   height: 200px;
-  border-radius: 8px;
   border: 2px solid var(--color-accent-gold);
   position: relative;
   overflow: hidden;

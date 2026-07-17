@@ -64,7 +64,6 @@
   position: relative;
   width: 150px;
   height: 210px;
-  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -90,12 +89,16 @@
   width: 100%;
   background: rgba(0,0,0,0.8);
   color: white;
-  text-align: center;
-  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
   font-weight: bold;
   font-size: 0.8rem;
   transform: translateY(100%);
   transition: transform 0.2s ease;
+  z-index: 200;
 }
 
 .catalog-card-wrapper:hover .catalog-card-overlay {
@@ -182,4 +185,57 @@
 
 .save-deck-btn:hover {
   background: var(--color-accent-gold-dark);
+}
+
+.zoom-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s;
+}
+
+.zoom-btn:hover {
+  transform: scale(1.2);
+}
+
+.zoom-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoom-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.zoom-modal-card-container {
+  width: 300px;
+  height: 420px;
+}
+
+.zoom-close-btn {
+  padding: 0.5rem 2rem;
+  background: #333;
+  color: white;
+  border: 1px solid var(--color-accent-gold);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.zoom-close-btn:hover {
+  background: #444;
 }
