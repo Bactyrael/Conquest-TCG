@@ -1,0 +1,185 @@
+.deck-builder-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.catalog-panel {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.catalog-header {
+  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalog-header h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+}
+
+.catalog-filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.type-select, .search-input {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-dark);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+}
+
+.search-input {
+  width: 250px;
+}
+
+.catalog-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.catalog-card-wrapper {
+  position: relative;
+  width: 150px;
+  height: 210px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-text-muted);
+}
+
+.catalog-card-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.8), 0 0 12px var(--color-accent-gold);
+}
+
+.catalog-card-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catalog-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transform: translateY(100%);
+  transition: transform 0.2s ease;
+}
+
+.catalog-card-wrapper:hover .catalog-card-overlay {
+  transform: translateY(0);
+}
+
+/* DECK PANEL */
+.deck-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.deck-panel h2 {
+  padding: 1rem 2rem;
+  margin: 0;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-heading);
+  color: var(--color-accent-gold);
+  text-align: center;
+}
+
+.deck-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.deck-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.deck-list-item:hover {
+  background: rgba(0,0,0,0.6);
+  border-color: #ef4444; /* red to indicate remove */
+}
+
+.deck-item-name {
+  font-size: 0.9rem;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.deck-actions {
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+  background: rgba(0,0,0,0.4);
+}
+
+.save-deck-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-accent-gold);
+  color: black;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  transition: background 0.2s ease;
+}
+
+.save-deck-btn:hover {
+  background: var(--color-accent-gold-dark);
+}

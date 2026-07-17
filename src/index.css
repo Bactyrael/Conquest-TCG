@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  /* High Fantasy Color Palette */
+  --color-bg-dark: #090a0f;
+  --color-bg-board: #151821;
+  --color-bg-panel: #1e222e;
+  
+  --color-accent-gold: #d4af37;
+  --color-accent-gold-light: #f3e5ab;
+  --color-accent-gold-dark: #aa8c2c;
+  --color-accent-silver: #c0c0c0;
+  
+  --color-text-main: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  
+  --color-health-high: #22c55e;
+  --color-health-med: #eab308;
+  --color-health-low: #ef4444;
+
+  --color-mana: #3b82f6;
+  --color-attack: #dc2626;
+
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lora', serif;
+
+  /* Shadows and Borders */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.8), 0 2px 4px -1px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 10px 15px -3px rgba(212, 175, 55, 0.3), 0 4px 6px -2px rgba(212, 175, 55, 0.15);
+  
+  --border-radius-card: 12px;
+  --border-radius-panel: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Base interactive elements */
+button {
+  font-family: var(--font-heading);
+  cursor: pointer;
+  border: 1px solid var(--color-accent-gold);
+  background: var(--color-bg-panel);
+  color: var(--color-accent-gold);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-accent-gold);
+  color: var(--color-bg-dark);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--color-text-muted);
+  color: var(--color-text-muted);
+}

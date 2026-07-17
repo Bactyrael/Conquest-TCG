@@ -1,0 +1,350 @@
+.game-board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  background: var(--color-bg-board);
+  position: relative;
+}
+
+.player-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.player-area-main-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.deck-zones {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.opponent-area {
+  border-bottom: none;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  /* Removed row-reverse so both sides keep Hero on the left, Deck on the right. */
+}
+
+/* Stats */
+.player-stats-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-tracker-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-right: 1rem;
+}
+
+.tracker-box {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--color-text-muted);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: left;
+  min-width: 70px;
+}
+
+.tracker-box.str { border-color: #ef4444; color: #fca5a5; }
+.tracker-box.dex { border-color: #22c55e; color: #86efac; }
+.tracker-box.con { border-color: #eab308; color: #fef08a; }
+.tracker-box.int { border-color: #3b82f6; color: #93c5fd; }
+.tracker-box.wis { border-color: #a855f7; color: #d8b4fe; }
+.tracker-box.luc { border-color: #f59e0b; color: #fde68a; }
+
+.stat-box {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-accent-gold-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.stat-box.hp { color: var(--color-health-high); }
+.stat-box.def { color: var(--color-accent-silver); }
+.stat-box.res { color: var(--color-mana); }
+
+/* Battlefield Core (Hero + Locations) */
+.battlefield-core {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-zone {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.location-zone {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  height: 140px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.location-slot {
+  width: 100px;
+  height: 140px;
+  border-radius: 8px;
+  border: 1px dashed var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  background: rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.location-slot.active {
+  border: 2px solid #84cc16; /* Green highlight for locations */
+}
+
+.location-slot.active img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loc-label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 0.2rem;
+}
+
+/* Equipment slots */
+
+.equipment-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.equip-slot {
+  width: 80px;
+  height: 40px;
+  background: rgba(0,0,0,0.4);
+  border: 1px dashed var(--color-accent-gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  border-radius: 4px;
+}
+
+.mini-hero {
+  width: 140px;
+  height: 200px;
+  border-radius: 8px;
+  border: 2px solid var(--color-accent-gold);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.mini-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  text-align: center;
+  padding: 0.25rem;
+  font-size: 0.8rem;
+  font-family: var(--font-heading);
+}
+
+/* Decks */
+.deck-zones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.zone-slot {
+  width: 90px;
+  height: 100px;
+  border: 2px solid var(--color-text-muted);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+  font-size: 0.8rem;
+  color: #bbb;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.zone-slot.archive {
+  border-color: var(--color-accent-gold-dark);
+  background: repeating-linear-gradient(45deg, #111, #111 10px, #222 10px, #222 20px);
+}
+
+.zone-slot.void {
+  border-color: #7c3aed;
+  background: repeating-linear-gradient(135deg, #050011, #050011 10px, #1a0b2e 10px, #1a0b2e 20px);
+  color: #c4b5fd;
+}
+
+.zone-slot.interactive {
+  cursor: pointer;
+}
+.zone-slot.interactive:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--color-accent-gold);
+}
+
+.deck-back-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.archive-count {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  z-index: 2;
+  font-weight: bold;
+}
+
+/* Timeline */
+.timeline-area {
+  height: 120px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--color-accent-gold-dark);
+  border-bottom: 1px solid var(--color-accent-gold-dark);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.timeline-track {
+  width: 90%;
+  height: 90px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  overflow-x: auto;
+}
+
+.timeline-mini-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-accent-gold);
+  border-radius: 6px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  height: 70px;
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.timeline-mini-card strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
+}
+
+.timeline-actions {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.timeline-actions button {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.6rem;
+  letter-spacing: 0;
+}
+
+/* Hand */
+.player-hand-container {
+  height: 220px; /* Dedicated height for the hand area */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px; /* Lift cards off the bottom edge */
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.player-hand {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  pointer-events: auto;
+}
+
+.hand-card-wrapper {
+  transform: scale(0.5);
+  transform-origin: bottom center;
+  transition: transform 0.2s ease, z-index 0.1s;
+  cursor: pointer;
+}
+
+.hand-card-wrapper:hover {
+  transform: scale(0.8) translateY(-20px);
+  z-index: 10;
+}

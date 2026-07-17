@@ -1,0 +1,21 @@
+.tcg-card {
+  width: 150px;
+  height: 210px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 0 4px var(--color-accent-gold);
+  overflow: hidden;
+  background: var(--color-bg-dark);
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+
+.tcg-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.8), 0 0 12px var(--color-accent-gold);
+}
+
+.full-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
