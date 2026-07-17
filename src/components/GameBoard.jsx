@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './GameBoard.css';
 import Card from './Card';
+import cardDatabase from '../data/cardDatabase.json';
 
 export default function GameBoard() {
   const [savedDecks, setSavedDecks] = useState({});
   const [heroCard, setHeroCard] = useState(null);
+  const [zoomedCard, setZoomedCard] = useState(null);
 
   // Local Game State
   const [archive, setArchive] = useState([]);
@@ -29,8 +31,12 @@ export default function GameBoard() {
     if (!deckName) return;
     
     let rawDeck = savedDecks[deckName] || [];
-    // Give every card a fresh UID so they are unique instances
-    let freshDeck = rawDeck.map(c => ({ ...c, uid: Math.random().toString() }));
+    
+    // Sync with fresh database to grab updated image URLs
+    let freshDeck = rawDeck.map(c => {
+      const dbCard = cardDatabase.find(dbC => dbC.name === c.name);
+      return { ...(dbCard || c), uid: Math.random().toString() };
+    });
     
     // Find Hero
     const hero = freshDeck.find(c => c.type === 'Hero') || null;
@@ -167,6 +173,7 @@ export default function GameBoard() {
                 >
                   <div className="timeline-mini-card">
                     <strong>{card.name}</strong>
+                    <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(card); }}>🔍</button>
                     <div className="timeline-actions">
                       <button onClick={() => resolveToDungeon(card.uid)}>To Dungeon</button>
                       <button onClick={() => resolveToVoid(card.uid)} style={{color: '#c4b5fd', borderColor: '#c4b5fd'}}>To Void</button>
@@ -197,9 +204,12 @@ export default function GameBoard() {
             
             <div className="hero-zone">
               <div className="hero-card-wrapper">
-                 <div className="mini-hero" style={{border: heroCard ? '2px solid gold' : '2px dashed #444'}}>
+                  <div className="mini-hero" style={{border: heroCard ? '2px solid gold' : '2px dashed #444'}}>
                     {heroCard ? (
-                      <img src={heroCard.artUrl || heroCard.imageUrl} alt="Player Hero" />
+                      <>
+                        <Card data={heroCard} />
+                        <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(heroCard); }}>🔍</button>
+                      </>
                     ) : (
                       <div style={{color: '#555', textAlign: 'center', padding: '20px'}}>No Hero</div>
                     )}
@@ -217,8 +227,8 @@ export default function GameBoard() {
               {playerLocations.length === 0 && <div className="location-slot empty">Location</div>}
               {playerLocations.map(loc => (
                 <div className="location-slot active" key={loc.uid}>
-                   <img src={loc.imageUrl || loc.artUrl} alt={loc.name} />
-                   <div className="loc-label">{loc.name}</div>
+                   <Card data={loc} />
+                   <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(loc); }}>🔍</button>
                 </div>
               ))}
             </div>
@@ -256,11 +266,25 @@ export default function GameBoard() {
                  layout
                >
                  <Card data={card} />
+                 <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(card); }}>🔍</button>
                </motion.div>
             ))}
           </AnimatePresence>
         </div>
       </div>
+
+
+      {/* Zoom Modal */}
+      {zoomedCard && (
+        <div className="zoom-modal-backdrop" onClick={() => setZoomedCard(null)}>
+          <div className="zoom-modal-content" onClick={e => e.stopPropagation()}>
+            <div className="zoom-modal-card-container">
+              <Card data={zoomedCard} />
+            </div>
+            <button className="zoom-close-btn" onClick={() => setZoomedCard(null)}>Close</button>
+          </div>
+        </div>
+      )}
 
     </div>
   );

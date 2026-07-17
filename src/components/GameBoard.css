@@ -344,3 +344,75 @@
   transform: scale(0.8) translateY(-20px);
   z-index: 10;
 }
+
+/* Zoom feature */
+.mini-hero, .location-slot, .hand-card-wrapper, .timeline-mini-card {
+  position: relative;
+}
+
+.board-zoom-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid var(--color-accent-gold);
+  border-radius: 4px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.mini-hero:hover .board-zoom-btn,
+.location-slot:hover .board-zoom-btn,
+.hand-card-wrapper:hover .board-zoom-btn,
+.timeline-mini-card:hover .board-zoom-btn {
+  opacity: 1;
+}
+
+.board-zoom-btn:hover {
+  background: rgba(0,0,0,0.9);
+  transform: scale(1.1);
+}
+
+.zoom-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoom-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.zoom-modal-card-container {
+  width: 300px;
+  height: 420px;
+}
+
+.zoom-close-btn {
+  padding: 0.5rem 2rem;
+  background: #333;
+  color: white;
+  border: 1px solid var(--color-accent-gold);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.zoom-close-btn:hover {
+  background: #444;
+}

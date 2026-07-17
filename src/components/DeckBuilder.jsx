@@ -45,7 +45,15 @@ export default function DeckBuilder() {
   const handleLoadDeck = (e) => {
     const name = e.target.value;
     if (!name) return;
-    setDeck(savedDecks[name]);
+    
+    // Map to fresh database to update any changed URLs
+    const rawDeck = savedDecks[name] || [];
+    const freshDeck = rawDeck.map(c => {
+      const dbCard = db.find(dbC => dbC.name === c.name);
+      return dbCard || c;
+    });
+
+    setDeck(freshDeck);
     setDeckName(name);
   };
 
