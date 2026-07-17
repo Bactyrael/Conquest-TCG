@@ -2083,8 +2083,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Rage →** Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4.",
-    "rarity": "Common"
+    "rulesText": "**Rage →** Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4.",
+    "rarity": "Common",
+    "subtype": "1d8 + Str (Blunt)"
   },
   {
     "id": "110",
@@ -2100,8 +2101,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Bardic Inspiration →** Gain an Inspiration Die equal to or less than one of your stats. ",
-    "rarity": "Common"
+    "rulesText": "**Bardic Inspiration →** Gain an Inspiration Die equal to or less than one of your stats. ",
+    "rarity": "Common",
+    "subtype": "1d6 + Lck (Thunder)"
   },
   {
     "id": "111",
@@ -2117,8 +2119,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Channel Divinity →** You may use your Con in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.",
-    "rarity": "Common"
+    "rulesText": "**Channel Divinity →** You may use your Con in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.",
+    "rarity": "Common",
+    "subtype": "1d6 + Con (Holy)"
   },
   {
     "id": "112",
@@ -2134,8 +2137,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Aetheric →** If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter.",
-    "rarity": "Common"
+    "rulesText": "**Aetheric →** If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter.",
+    "rarity": "Common",
+    "subtype": "1d4 + Int (Fire)"
   },
   {
     "id": "113",
@@ -2151,8 +2155,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Attack: 1d6 + Wis (Nature)\n\n**Wild Resurgence →** Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
-    "rarity": "Common"
+    "rulesText": "**Wild Resurgence →** Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
+    "rarity": "Common",
+    "subtype": "Attack: 1d6 + Wis (Nature)"
   },
   {
     "id": "114",
@@ -2168,8 +2173,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Master at Arms →** Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). ",
-    "rarity": "Common"
+    "rulesText": "**Master at Arms →** Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). ",
+    "rarity": "Common",
+    "subtype": "1d8 + Dex (Slashing)"
   },
   {
     "id": "115",
@@ -2185,8 +2191,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Attack: 1d8 + Wis (Dark)\n\n**Burial Rite → **Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
-    "rarity": "Common"
+    "rulesText": "**Burial Rite → **Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
+    "rarity": "Common",
+    "subtype": "Attack: 1d8 + Wis (Dark)"
   },
   {
     "id": "116",
@@ -2202,8 +2209,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Martial Arts → **Gain an Inspiration Die equal to or less than your Dex. ",
-    "rarity": "Common"
+    "rulesText": "**Martial Arts → **Gain an Inspiration Die equal to or less than your Dex. ",
+    "rarity": "Common",
+    "subtype": "2d4 + Dex (Blunt)"
   },
   {
     "id": "117",
@@ -2219,8 +2227,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Attack: 1d8 + Con (Holy)\n\n**Radiant Strikes →** Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
-    "rarity": "Common"
+    "rulesText": "**Radiant Strikes →** Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
+    "rarity": "Common",
+    "subtype": "Attack: 1d8 + Con (Holy)"
   },
   {
     "id": "118",
@@ -2236,8 +2245,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Attack: 1d4 + Lck (Piercing)\n\n**No Prey, No Pay → **If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
-    "rarity": "Common"
+    "rulesText": "**No Prey, No Pay → **If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
+    "rarity": "Common",
+    "subtype": "Attack: 1d4 + Lck (Piercing)"
   },
   {
     "id": "119",
@@ -2253,8 +2263,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Deft Explorer → **Look at the top card of your Archive. If it is a Location card, you may draw it.",
-    "rarity": "Common"
+    "rulesText": "**Deft Explorer → **Look at the top card of your Archive. If it is a Location card, you may draw it.",
+    "rarity": "Common",
+    "subtype": "1d8 + Lck (Piercing)"
   },
   {
     "id": "120",
@@ -2270,8 +2281,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Font of Magic** → Gain an Inspiration Die equal to or less than your Int. ",
-    "rarity": "Common"
+    "rulesText": "**Font of Magic** → Gain an Inspiration Die equal to or less than your Int. ",
+    "rarity": "Common",
+    "subtype": "1d6 + Int (Magic)"
   },
   {
     "id": "121",
@@ -2287,8 +2299,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Sneak Attack** → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.)",
-    "rarity": "Common"
+    "rulesText": "**Sneak Attack** → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.)",
+    "rarity": "Common",
+    "subtype": "2d4 + Lck (Piercing)"
   },
   {
     "id": "122",
@@ -2304,8 +2317,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Eldritch Invocation → **Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
-    "rarity": "Common"
+    "rulesText": "**Eldritch Invocation → **Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
+    "rarity": "Common",
+    "subtype": "1d4 + Wis (Dark)"
   },
   {
     "id": "123",
@@ -2321,8 +2335,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Malignance → **You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round.",
-    "rarity": "Common"
+    "rulesText": "**Malignance → **You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round.",
+    "rarity": "Common",
+    "subtype": "1d6 + Wis (Dark)"
   },
   {
     "id": "124",
@@ -2338,8 +2353,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "undefined\n\n**Spell Mastery → **Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed.",
-    "rarity": "Common"
+    "rulesText": "**Spell Mastery → **Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed.",
+    "rarity": "Common",
+    "subtype": "1d8 + Int (Magic)"
   },
   {
     "id": "125",

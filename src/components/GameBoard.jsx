@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './GameBoard.css';
 import Card from './Card';
-import { mockCards } from '../data/mockCards';
-
-// Helper to generate a larger mock deck
-const generateDeck = () => {
-  let deck = [];
-  for (let i = 0; i < 5; i++) {
-    deck = [...deck, ...mockCards.filter(c => c.name !== 'Aelastion').map(c => ({ ...c, uid: Math.random().toString() }))];
-  }
-  return deck.sort(() => Math.random() - 0.5);
-};
 
 export default function GameBoard() {
-  const heroCard = mockCards.find(c => c.name === 'Aelastion');
+  const [savedDecks, setSavedDecks] = useState({});
+  const [heroCard, setHeroCard] = useState(null);
 
   // Local Game State
-  const [archive, setArchive] = useState(generateDeck());
+  const [archive, setArchive] = useState([]);
   const [hand, setHand] = useState([]);
   const [timeline, setTimeline] = useState([]);
   const [dungeon, setDungeon] = useState([]);
@@ -25,6 +16,37 @@ export default function GameBoard() {
   
   // New Location/Attachments Zone State
   const [playerLocations, setPlayerLocations] = useState([]);
+
+  useEffect(() => {
+    const loaded = localStorage.getItem('conquest-tcg-decks');
+    if (loaded) {
+      setSavedDecks(JSON.parse(loaded));
+    }
+  }, []);
+
+  const loadDeck = (e) => {
+    const deckName = e.target.value;
+    if (!deckName) return;
+    
+    let rawDeck = savedDecks[deckName] || [];
+    // Give every card a fresh UID so they are unique instances
+    let freshDeck = rawDeck.map(c => ({ ...c, uid: Math.random().toString() }));
+    
+    // Find Hero
+    const hero = freshDeck.find(c => c.type === 'Hero') || null;
+    setHeroCard(hero);
+    
+    // The rest is the archive
+    let remainingDeck = freshDeck.filter(c => c.type !== 'Hero');
+    remainingDeck.sort(() => Math.random() - 0.5); // Shuffle
+    
+    setArchive(remainingDeck);
+    setHand([]);
+    setTimeline([]);
+    setDungeon([]);
+    setVoidZone([]);
+    setPlayerLocations([]);
+  };
 
   // Game Actions
   const drawCard = () => {
@@ -71,13 +93,7 @@ export default function GameBoard() {
     <div className="game-board">
       
       {/* OPPONENT AREA */}
-      <div className="player-area opponent-area">
-        <div className="location-zone">
-          <div className="location-slot empty">Location</div>
-        </div>
-
-        <div className="player-area-main-row">
-          <div className="left-spacer"></div>
+      <div className="player-area opponent-area">        <div className="player-area-main-row">
           
           <div className="battlefield-core">
             <div className="stat-tracker-vertical">
@@ -91,8 +107,8 @@ export default function GameBoard() {
             
             <div className="hero-zone">
               <div className="hero-card-wrapper">
-                 <div className="mini-hero">
-                    <img src={heroCard.artUrl} alt="Opponent Hero" />
+                 <div className="mini-hero" style={{border: '2px dashed #444'}}>
+                    <div style={{color: '#555', textAlign: 'center', padding: '20px'}}>Opponent Hero</div>
                  </div>
               </div>
             </div>
@@ -101,6 +117,10 @@ export default function GameBoard() {
               <div className="stat-box hp">HP: 20</div>
               <div className="stat-box def">DEF: 2</div>
               <div className="stat-box res">RES: 1</div>
+            </div>
+
+            <div className="location-zone">
+              <div className="location-slot empty">Location</div>
             </div>
           </div>
 
@@ -117,8 +137,24 @@ export default function GameBoard() {
 
       {/* TIMELINE AREA (Middle) */}
       <div className="timeline-area">
+         {!heroCard && (
+           <div style={{position: 'absolute', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 100, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <h2 style={{color: '#fff', textShadow: '2px 2px 4px #000'}}>Load a Deck to Begin</h2>
+              {Object.keys(savedDecks).length > 0 ? (
+                <select onChange={loadDeck} className="editor-select" value="" style={{padding: '10px', fontSize: '1.2rem', marginTop: '10px'}}>
+                  <option value="" disabled>Select Deck...</option>
+                  {Object.keys(savedDecks).map(name => (
+                    <option key={name} value={name}>{name}</option>
+                  ))}
+                </select>
+              ) : (
+                <p style={{color: '#aaa'}}>No decks saved. Build one in the Deck Builder!</p>
+              )}
+           </div>
+         )}
+         
          <div className="timeline-track">
-            {timeline.length === 0 && <span>Timeline / Active Cards (Click hand to play)</span>}
+            {timeline.length === 0 && heroCard && <span>Timeline / Active Cards (Click hand to play)</span>}
             <AnimatePresence mode="popLayout">
               {timeline.map((card) => (
                 <motion.div 
@@ -148,7 +184,6 @@ export default function GameBoard() {
       {/* PLAYER AREA */}
       <div className="player-area">
         <div className="player-area-main-row">
-          <div className="left-spacer"></div>
           
           <div className="battlefield-core">
             <div className="stat-tracker-vertical">
@@ -162,8 +197,12 @@ export default function GameBoard() {
             
             <div className="hero-zone">
               <div className="hero-card-wrapper">
-                 <div className="mini-hero">
-                    <img src={heroCard.artUrl} alt="Player Hero" />
+                 <div className="mini-hero" style={{border: heroCard ? '2px solid gold' : '2px dashed #444'}}>
+                    {heroCard ? (
+                      <img src={heroCard.artUrl || heroCard.imageUrl} alt="Player Hero" />
+                    ) : (
+                      <div style={{color: '#555', textAlign: 'center', padding: '20px'}}>No Hero</div>
+                    )}
                  </div>
               </div>
             </div>
@@ -172,6 +211,16 @@ export default function GameBoard() {
               <div className="stat-box hp">HP: 20</div>
               <div className="stat-box def">DEF: 3</div>
               <div className="stat-box res">RES: 4</div>
+            </div>
+
+            <div className="location-zone">
+              {playerLocations.length === 0 && <div className="location-slot empty">Location</div>}
+              {playerLocations.map(loc => (
+                <div className="location-slot active" key={loc.uid}>
+                   <img src={loc.imageUrl || loc.artUrl} alt={loc.name} />
+                   <div className="loc-label">{loc.name}</div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -189,15 +238,6 @@ export default function GameBoard() {
           </div>
         </div>
 
-        <div className="location-zone">
-          {playerLocations.length === 0 && <div className="location-slot empty">Location</div>}
-          {playerLocations.map(loc => (
-            <div className="location-slot active" key={loc.uid}>
-               <img src={loc.artUrl} alt={loc.name} />
-               <div className="loc-label">{loc.name}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* PLAYER HAND */}
