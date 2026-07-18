@@ -713,8 +713,8 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "A target gains an Inspiration Die less than or equal to their highest modifier. (e.g., if you have a Luck modifier of five, you would gain a 1d4 Inspiration Die.)\n“Only in times where failure is a possibility does the quest for wisdom through mistakes become a necessity.” — Koreghar, the Prosperous",
-    "flavorText": "",
+    "rulesText": "A target gains an Inspiration Die less than or equal to their highest modifier. (e.g., if you have a Luck modifier of five, you would gain a 1d4 Inspiration Die.)",
+    "flavorText": "“Only in times where failure is a possibility does the quest for wisdom through mistakes become a necessity.” — Koreghar, the Prosperous",
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Inspire.jpg"

@@ -18,6 +18,18 @@ export default function CardEditor() {
     );
   };
 
+  const handleUpdateRequirement = (id, reqField, value) => {
+    setCards(prevCards => 
+      prevCards.map(c => {
+        if (c.id === id) {
+          const updatedReqs = { ...(c.requirements || {}), [reqField]: Number(value) };
+          return { ...c, requirements: updatedReqs };
+        }
+        return c;
+      })
+    );
+  };
+
   const handleSave = async () => {
     setSaving(true);
     setMessage('');
@@ -126,6 +138,22 @@ export default function CardEditor() {
                      {uniqueRarities.map(r => <option key={r} value={r}>{r}</option>)}
                    </select>
                  </div>
+               </div>
+               
+               <div className="form-group-row">
+                 {['str', 'dex', 'con', 'int', 'wis', 'luc'].map(stat => (
+                   <div className="form-group" key={stat} style={{flex: 1, textAlign: 'center'}}>
+                     <label style={{fontSize: '0.7rem', color: '#888'}}>{stat.toUpperCase()}</label>
+                     <input 
+                       type="number" 
+                       min="0"
+                       value={card.requirements?.[stat] || 0} 
+                       onChange={(e) => handleUpdateRequirement(card.id, stat, e.target.value)}
+                       className="editor-input"
+                       style={{textAlign: 'center', padding: '0.2rem'}}
+                     />
+                   </div>
+                 ))}
                </div>
                
                <div className="form-row">

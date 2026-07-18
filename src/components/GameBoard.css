@@ -1,10 +1,97 @@
 .game-board {
   display: flex;
+  flex-direction: row; 
+  height: calc(100vh - 66px); /* Viewport minus header */
+  margin: -2rem; /* Offset the 2rem padding from App.css */
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  overflow: hidden;
+}
+
+.game-board-content {
+  flex: 1;
+  display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Phase Bar */
+.phase-bar {
+  width: 80px;
+  background: rgba(10, 10, 10, 0.95);
+  border-right: 2px solid var(--color-accent-gold-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  z-index: 10;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.8);
+}
+
+.pass-btn {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  padding: 0.5rem 0.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  width: 90%;
+  transition: all 0.2s;
+}
+
+.pass-btn:hover {
+  background: var(--color-accent-gold-dark);
+  color: white;
+}
+
+.phase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
-  min-height: 100%;
-  background: var(--color-bg-board);
-  position: relative;
+}
+
+.phase-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-right: none;
+  border-left: none;
+  transition: all 0.2s;
+  color: #888;
+}
+
+.phase-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ccc;
+}
+
+.phase-item.active {
+  background: rgba(212, 175, 55, 0.1);
+  border-top: 1px solid var(--color-accent-gold);
+  border-bottom: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.phase-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.phase-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .player-area {
@@ -14,6 +101,12 @@
   justify-content: space-between;
   padding: 1rem 3rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+}
+
+.player-area.active-turn {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 80%);
+  box-shadow: inset 0 0 40px rgba(212, 175, 55, 0.15);
 }
 
 .player-area-main-row {
@@ -116,11 +209,11 @@
   font-size: 0.8rem;
   background: rgba(0,0,0,0.2);
   position: relative;
-  overflow: hidden;
 }
 
 .location-slot.active {
-  border: 2px solid #84cc16; /* Green highlight for locations */
+  border: none;
+  background: transparent;
 }
 
 .location-slot.active img {
@@ -163,10 +256,8 @@
 
 .mini-hero {
   width: 140px;
-  height: 200px;
-  border: 2px solid var(--color-accent-gold);
+  height: 196px;
   position: relative;
-  overflow: hidden;
   box-shadow: var(--shadow-card);
 }
 
@@ -253,7 +344,7 @@
 
 /* Timeline */
 .timeline-area {
-  height: 120px;
+  height: 180px;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -265,7 +356,7 @@
 
 .timeline-track {
   width: 90%;
-  height: 90px;
+  height: 160px;
   border-radius: 12px;
   background: rgba(255,255,255,0.05);
   display: flex;
@@ -277,30 +368,11 @@
   font-style: italic;
   overflow-x: auto;
 }
-
-.timeline-mini-card {
-  background: var(--color-bg-panel);
-  border: 1px solid var(--color-accent-gold);
-  border-radius: 6px;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 120px;
-  height: 70px;
-  font-size: 0.8rem;
-  font-style: normal;
+.timeline-card-wrapper {
+  width: 100px;
+  height: 140px;
+  position: relative;
 }
-
-.timeline-mini-card strong {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  text-align: center;
-}
-
 .timeline-actions {
   display: flex;
   gap: 0.25rem;
@@ -334,14 +406,15 @@
 }
 
 .hand-card-wrapper {
-  transform: scale(0.5);
+  width: 140px;
+  height: 196px;
   transform-origin: bottom center;
   transition: transform 0.2s ease, z-index 0.1s;
   cursor: pointer;
 }
 
 .hand-card-wrapper:hover {
-  transform: scale(0.8) translateY(-20px);
+  transform: scale(1.4) translateY(-20px);
   z-index: 10;
 }
 
@@ -415,4 +488,96 @@
 
 .zoom-close-btn:hover {
   background: #444;
+}
+
+/* Drag and Drop */
+[draggable="true"] {
+  cursor: grab;
+}
+[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Zone View Modal */
+.zone-view-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid var(--color-accent-gold);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.zone-view-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 1rem;
+}
+
+.zone-view-card-wrapper {
+  width: 200px;
+  height: 280px;
+  position: relative;
+}
+
+/* Context Menu */
+.context-menu {
+  position: fixed;
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid var(--color-accent-gold);
+  border-radius: 4px;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0;
+}
+
+.context-menu-item {
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.1s;
+}
+
+.context-menu-item:hover {
+  background: var(--color-accent-gold-dark);
+}
+
+/* Card State Modifiers */
+.timeline-card-wrapper.tapped,
+.location-slot.tapped,
+.mini-hero.tapped {
+  transform: rotate(90deg);
+}
+
+.card-counter-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 2px solid white;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
