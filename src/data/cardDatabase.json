@@ -2306,7 +2306,7 @@
     },
     "rulesText": "Burial Rite → Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
-    "subtype": "Attack: 1d8 + Wis (Dark)",
+    "subtype": "1d8 + Wis (Dark)",
     "originalArtFile": "Necromancer Set.png"
   },
   {
@@ -2344,7 +2344,7 @@
     },
     "rulesText": "Radiant Strikes → Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
     "rarity": "Common",
-    "subtype": "Attack: 1d8 + Con (Holy)",
+    "subtype": "1d8 + Con (Holy)",
     "originalArtFile": "Paladin Set.jpg"
   },
   {
@@ -2363,7 +2363,7 @@
     },
     "rulesText": "No Prey, No Pay → If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
     "rarity": "Common",
-    "subtype": "Attack: 1d4 + Lck (Piercing)",
+    "subtype": "1d4 + Lck (Piercing)",
     "originalArtFile": "Pirate Set.png"
   },
   {
