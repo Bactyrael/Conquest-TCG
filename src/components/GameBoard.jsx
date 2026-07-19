@@ -29,9 +29,9 @@ export default function GameBoard() {
   // Automation: Reaction Timer & Dice
 
 // Calculate Dynamic Stats
-  const getStat = (statFull) => {
+  const getStat = (statFull, owner = activePlayer) => {
     let val = 0;
-    const locs = activePlayer === 'player' ? playerLocations : opponentLocations;
+    const locs = owner === 'player' ? playerLocations : opponentLocations;
     [...locs, ...timeline].forEach(card => {
       if (card.rulesText) {
         const statListRegex = /([-+])(\d+)((?:\s*(?:and|,)?\s*(?:Strength|Dexterity|Constitution|Intelligence|Wisdom|Luck))+)/gi;
@@ -1092,12 +1092,12 @@ export default function GameBoard() {
           
           <div className="battlefield-core">
             <div className="stat-tracker-vertical">
-              <div className="tracker-box str">STR: 0</div>
-              <div className="tracker-box dex">DEX: 0</div>
-              <div className="tracker-box con">CON: 0</div>
-              <div className="tracker-box int">INT: 0</div>
-              <div className="tracker-box wis">WIS: 0</div>
-              <div className="tracker-box luc">LUC: 0</div>
+              <div className="tracker-box str">STR: {getStat('Strength', 'opponent')}</div>
+              <div className="tracker-box dex">DEX: {getStat('Dexterity', 'opponent')}</div>
+              <div className="tracker-box con">CON: {getStat('Constitution', 'opponent')}</div>
+              <div className="tracker-box int">INT: {getStat('Intelligence', 'opponent')}</div>
+              <div className="tracker-box wis">WIS: {getStat('Wisdom', 'opponent')}</div>
+              <div className="tracker-box luc">LUC: {getStat('Luck', 'opponent')}</div>
             </div>
             
             <div className="hero-zone">
@@ -1140,8 +1140,6 @@ export default function GameBoard() {
                    <button onClick={() => setOpponentHp(p => p + 1)} style={{width:'30px'}}>+</button>
                 </div>
               </div>
-              <div className="stat-box def">DEF: 0</div>
-              <div className="stat-box res">RES: 0</div>
               <EconomyTracker economy={opponentEconomy} />
             </div>
 
@@ -1235,12 +1233,12 @@ export default function GameBoard() {
           
           <div className="battlefield-core">
             <div className="stat-tracker-vertical">
-              <div className="tracker-box str">STR: {getStat('Strength')}</div>
-              <div className="tracker-box dex">DEX: {getStat('Dexterity')}</div>
-              <div className="tracker-box con">CON: {getStat('Constitution')}</div>
-              <div className="tracker-box int">INT: {getStat('Intelligence')}</div>
-              <div className="tracker-box wis">WIS: {getStat('Wisdom')}</div>
-              <div className="tracker-box luc">LUC: {getStat('Luck')}</div>
+              <div className="tracker-box str">STR: {getStat('Strength', 'player')}</div>
+              <div className="tracker-box dex">DEX: {getStat('Dexterity', 'player')}</div>
+              <div className="tracker-box con">CON: {getStat('Constitution', 'player')}</div>
+              <div className="tracker-box int">INT: {getStat('Intelligence', 'player')}</div>
+              <div className="tracker-box wis">WIS: {getStat('Wisdom', 'player')}</div>
+              <div className="tracker-box luc">LUC: {getStat('Luck', 'player')}</div>
             </div>
             
             <div className="hero-zone">
@@ -1285,8 +1283,6 @@ export default function GameBoard() {
                    <button onClick={() => setPlayerHp(p => p + 1)} style={{width:'30px'}}>+</button>
                 </div>
               </div>
-              <div className="stat-box def">DEF: 0</div>
-              <div className="stat-box res">RES: 0</div>
               <EconomyTracker economy={playerEconomy} />
             </div>
 
