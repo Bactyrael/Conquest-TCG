@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Xarrow, { Xwrapper } from 'react-xarrows';
 import './GameBoard.css';
 import Card from './Card';
 import cardDatabase from '../data/cardDatabase.json';
@@ -193,6 +194,7 @@ export default function GameBoard() {
   const [opponentEconomy, setOpponentEconomy] = useState({ action: 1, bonusAction: 1, reaction: 1 });
 
   const [diceRoll, setDiceRoll] = useState(null);
+  const [arrows, setArrows] = useState([]);
 
   // Targeting System State
   const [targetingState, setTargetingState] = useState({
@@ -309,6 +311,22 @@ export default function GameBoard() {
   const handleTargetClick = (targetId) => {
     if (!targetingState.active) return;
     
+    let endDomId = targetId;
+    if (targetId !== 'opponent-hero' && targetId !== 'player-hero') {
+        endDomId = "card-" + targetId;
+    }
+
+    if (targetingState.actionType === 'draw-arrow') {
+      setArrows(prev => [...prev, {
+         id: Date.now() + Math.random(),
+         startDomId: targetingState.sourceDomId,
+         endDomId: endDomId,
+         color: 'red'
+      }]);
+      setTargetingState({ active: false, sourceCard: null, actionType: null, sourceZone: null });
+      return;
+    }
+
     const card = targetingState.sourceCard;
     const diceParams = parseAttackLogic(card);
     
@@ -751,6 +769,25 @@ export default function GameBoard() {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
+  const actionDrawArrow = (card, zoneType) => {
+    let sourceDomId = "card-" + card.uid;
+    if (zoneType === 'card_hero') {
+        sourceDomId = card === opponentHeroCard ? 'opponent-hero' : 'player-hero';
+    }
+    setTargetingState({
+        active: true,
+        actionType: 'draw-arrow',
+        sourceCard: card,
+        sourceDomId: sourceDomId
+    });
+    setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionClearArrows = () => {
+    setArrows([]);
+    setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
   const actionPlayCardFromHand = (card, faceDown = false) => {
     const cardToPlay = faceDown ? { ...card, faceDown: true } : card;
     consumeEconomy(card, 'player');
@@ -1002,6 +1039,7 @@ export default function GameBoard() {
   });
 
   const handlePhaseAdvance = () => {
+    setArrows([]);
     if (discardState.active) {
       alert(`You must discard ${discardState.count} more card(s) before advancing!`);
       return;
@@ -1046,6 +1084,7 @@ export default function GameBoard() {
   };
 
   return (
+    <Xwrapper>
     <div className="game-board">
       
       {/* PHASE BAR */}
@@ -1101,7 +1140,7 @@ export default function GameBoard() {
             </div>
             
             <div className="hero-zone">
-              <div className={`hero-card-wrapper ${opponentHeroCard?.isTapped ? 'tapped' : ''}`} style={{position: 'relative'}}>
+              <div id="opponent-hero" className={`hero-card-wrapper ${opponentHeroCard?.isTapped ? 'tapped' : ''}`} style={{position: 'relative'}}>
                  {opponentHeroCard ? (
                    <>
                      <Card data={opponentHeroCard} />
@@ -1113,7 +1152,7 @@ export default function GameBoard() {
                        </div>
                      )}
                      {opponentHeroCard.attachedCards && opponentHeroCard.attachedCards.map((attached, attachIdx) => (
-                         <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: opponentHeroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                         <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: opponentHeroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
                              <Card data={attached} />
                          </div>
                      ))}
@@ -1146,7 +1185,7 @@ export default function GameBoard() {
             <div className="location-zone" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'opponent-locations')}>
               {opponentLocations.length === 0 && <div className="location-slot empty">Location</div>}
               {opponentLocations.map(loc => (
-                 <div key={loc.uid} className="location-slot active">
+                 <div key={loc.uid} id={`card-${loc.uid}`} className="location-slot active">
                    <Card data={loc} />
                    {targetingState.active && targetingState.actionType === 'bounce-location' && activePlayer === 'opponent' && (
                      <div className="target-overlay bounce-overlay" onClick={() => handleTargetLocationClick(loc)}>Target</div>
@@ -1201,7 +1240,7 @@ export default function GameBoard() {
             <AnimatePresence mode="popLayout">
               {timeline.map((card) => (
                 <motion.div 
-                  className={`timeline-card-wrapper ${card.isTapped ? 'tapped' : ''}`}
+                  id={`card-${card.uid}`} className={`timeline-card-wrapper ${card.isTapped ? 'tapped' : ''}`}
                   key={card.uid}
                   draggable
                   onDragStart={(e) => handleDragStart(e, card.uid, 'timeline')}
@@ -1216,7 +1255,7 @@ export default function GameBoard() {
                   {card.counters > 0 && <div className="card-counter-badge">{card.counters}</div>}
                   <Card data={card} />
                   {card.attachedCards && card.attachedCards.map((attached, attachIdx) => (
-                      <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: card.uid, zone: 'timeline' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                      <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: card.uid, zone: 'timeline' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
                           <Card data={attached} />
                       </div>
                   ))}
@@ -1242,7 +1281,7 @@ export default function GameBoard() {
             </div>
             
             <div className="hero-zone">
-              <div className={`hero-card-wrapper ${heroCard?.isTapped ? 'tapped' : ''}`} onContextMenu={(e) => heroCard && handleContextMenu(e, 'card_hero', heroCard)} style={{position: 'relative'}}>
+              <div id="player-hero" className={`hero-card-wrapper ${heroCard?.isTapped ? 'tapped' : ''}`} onContextMenu={(e) => heroCard && handleContextMenu(e, 'card_hero', heroCard)} style={{position: 'relative'}}>
                  {heroCard ? (
                    <>
                      <Card data={heroCard} />
@@ -1254,7 +1293,7 @@ export default function GameBoard() {
                        </div>
                      )}
                      {heroCard.attachedCards && heroCard.attachedCards.map((attached, attachIdx) => (
-                         <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: heroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                         <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: heroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
                              <Card data={attached} />
                          </div>
                      ))}
@@ -1294,7 +1333,7 @@ export default function GameBoard() {
               {groupedLocations.map((group, groupIndex) => (
                 <div key={groupIndex} className="location-stack" style={{ position: 'relative', width: `${100 + (group.length - 1) * 20}px`, height: `${140 + (group.length - 1) * 20}px` }}>
                   {group.map((loc, i) => (
-                    <div className={`location-slot active ${loc.isTapped ? 'tapped' : ''}`} key={loc.uid}
+                    <div id={`card-${loc.uid}`} className={`location-slot active ${loc.isTapped ? 'tapped' : ''}`} key={loc.uid}
                          style={{ position: i === 0 ? 'relative' : 'absolute', top: i * 20, left: i * 20, zIndex: i }}
                          draggable
                          onDragStart={(e) => handleDragStart(e, loc.uid, 'locations')}
@@ -1305,7 +1344,7 @@ export default function GameBoard() {
                        {loc.counters > 0 && <div className="card-counter-badge">{loc.counters}</div>}
                        <Card data={loc} />
                        {loc.attachedCards && loc.attachedCards.map((attached, attachIdx) => (
-                           <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: loc.uid, zone: 'locations' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                           <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: loc.uid, zone: 'locations' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
                                <Card data={attached} />
                            </div>
                        ))}
@@ -1773,6 +1812,7 @@ export default function GameBoard() {
           
           {(contextMenu.targetType === 'card_timeline' || contextMenu.targetType === 'card_location' || contextMenu.targetType === 'card_hero') && (
             <>
+              <div className="context-menu-item" onClick={() => actionDrawArrow(contextMenu.targetData, contextMenu.targetType)}>Draw Arrow...</div>
               <div className="context-menu-item" onClick={() => actionToggleTap(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Engage / Disengage</div>
               <div className="context-menu-item" onClick={() => actionAddCounter(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Add Counter</div>
               <div className="context-menu-item" onClick={() => actionRemoveCounter(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Remove Counter</div>
@@ -1850,6 +1890,7 @@ export default function GameBoard() {
 
           {contextMenu.targetType === 'card_attached' && (
             <>
+              <div className="context-menu-item" onClick={() => actionDrawArrow(contextMenu.targetData.card, contextMenu.targetType)}>Draw Arrow...</div>
               <div className="context-menu-item" onClick={() => actionDetachCard(contextMenu.targetData.card, contextMenu.targetData.parentUid, contextMenu.targetData.zone, 'timeline')}>Detach (Move to Table)</div>
               <div className="context-menu-item" onClick={() => actionDetachCard(contextMenu.targetData.card, contextMenu.targetData.parentUid, contextMenu.targetData.zone, 'hand')}>Return to Hand</div>
               
@@ -1866,9 +1907,18 @@ export default function GameBoard() {
       )}
 
     </div>
+    {arrows.map(arrow => (
+        <Xarrow key={arrow.id} start={arrow.startDomId} end={arrow.endDomId} color={arrow.color} strokeWidth={4} headSize={6} passProps={{style: {pointerEvents: 'none'}}} />
+    ))}
     </div>
+    </Xwrapper>
   );
 }
+
+
+
+
+
 
 
 
