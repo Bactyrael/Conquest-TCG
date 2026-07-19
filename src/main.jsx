@@ -11,3 +11,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>,
 )
+
+window.addEventListener('error', e => console.error('GLOBAL ERROR:', e.message)); window.addEventListener('unhandledrejection', e => console.error('PROMISE ERROR:', e.reason));

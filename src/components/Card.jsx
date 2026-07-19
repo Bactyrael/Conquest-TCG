@@ -17,6 +17,14 @@ export default function Card({ data }) {
   // Formatting Type Line
   const typeLine = data.subtype ? `${data.type} - ${data.subtype}` : data.type;
 
+  if (data.faceDown) {
+    return (
+      <div className="tcg-card">
+        <img src="/cards/backs/000_back.png" alt="Face Down Card" className="full-card-image" style={{ borderRadius: '12px' }} />
+      </div>
+    );
+  }
+
   return (
     <div className="tcg-card">
       <img src={data.imageUrl || data.artUrl} alt={data.name || 'Card'} className="full-card-image" />

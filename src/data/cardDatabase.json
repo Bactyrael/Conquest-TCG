@@ -674,6 +674,9 @@
       "luc": 0
     },
     "rulesText": "A target gains disadvantage on attacks until the beginning of your next turn.",
+    "effects": [
+      { "type": "apply_condition", "target": "selected", "condition": "disadvantage", "duration": 1 }
+    ],
     "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
     "subtype": "Ability",
     "rarity": "Common",
@@ -972,6 +975,9 @@
       "luc": 0
     },
     "rulesText": "A target gains invisibility until the end of their next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
+    "effects": [
+      { "type": "apply_condition", "target": "selected", "condition": "invisibility", "duration": 1 }
+    ],
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",

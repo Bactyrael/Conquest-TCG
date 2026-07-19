@@ -15,6 +15,7 @@ const EconomyTracker = ({ economy }) => (
 export default function GameBoard() {
   const [savedDecks, setSavedDecks] = useState({});
   const [heroCard, setHeroCard] = useState(null);
+  const [annotationModal, setAnnotationModal] = useState({ active: false, cardUid: null, source: null, text: '' });
   const [zoomedCard, setZoomedCard] = useState(null);
   const [viewingZone, setViewingZone] = useState(null);
   
@@ -23,86 +24,9 @@ export default function GameBoard() {
   const [activePlayer, setActivePlayer] = useState('player'); // 'player' or 'opponent'
   const [turnNumber, setTurnNumber] = useState(1);
   const [locationsPlayedThisTurn, setLocationsPlayedThisTurn] = useState(0);
-  const [mulliganState, setMulliganState] = useState({ active: false, count: 7 });
   const [discardState, setDiscardState] = useState({ active: false, count: 0 });
-  const [playerHeroConditions, setPlayerHeroConditions] = useState([]);
-  const [opponentHeroConditions, setOpponentHeroConditions] = useState([]);
 
   // Automation: Reaction Timer & Dice
-  const [reactionTimer, setReactionTimer] = useState({
-    active: false,
-    message: '',
-    timeRemaining: 0,
-    maxTime: 50, // 5 seconds (50 ticks)
-    shouldRollDice: false,
-    targetId: null,
-    actionType: null,
-    diceParams: null,
-    sourceCard: null
-  });
-  const [diceRoll, setDiceRoll] = useState(null);
-
-  useEffect(() => {
-    if (!reactionTimer.active) return;
-    if (reactionTimer.timeRemaining <= 0) {
-      setReactionTimer(prev => ({ ...prev, active: false }));
-      if (reactionTimer.sourceCard && reactionTimer.actionType === 'card-play') {
-          actionResolveCard(reactionTimer.sourceCard, 'timeline');
-      }
-      if (reactionTimer.shouldRollDice) {
-         console.log("Timer expired, rolling dice with params:", reactionTimer.diceParams);
-         if (reactionTimer.duelParams) {
-           rollDice(
-             reactionTimer.duelParams.attacker.count, reactionTimer.duelParams.attacker.faces, reactionTimer.duelParams.attacker.modifierStat, { disadvantage: reactionTimer.duelParams.attacker.disadvantage, duelParams: reactionTimer.duelParams }
-           );
-         } else if (reactionTimer.diceParams) {
-           rollDice(reactionTimer.diceParams.count, reactionTimer.diceParams.faces, reactionTimer.diceParams.modifierStat, { disadvantage: reactionTimer.diceParams.disadvantage });
-         } else {
-           rollDice(1, 20, null);
-         }
-      }
-      return;
-    }
-    const interval = setInterval(() => {
-      setReactionTimer(prev => ({ ...prev, timeRemaining: prev.timeRemaining - 1 }));
-    }, 100);
-    return () => clearInterval(interval);
-  }, [reactionTimer.active, reactionTimer.timeRemaining]);
-
-// Parse Attack Logic
-  const parseAttackLogic = (card) => {
-    let count = 1, faces = 20, statRaw = null;
-    if (!card) return { count, faces, modifierStat: statRaw };
-
-    if (card.type === 'Hero' && card.subtype) {
-      const match = card.subtype.match(/(\d+)d(\d+)\s*\+\s*([a-zA-Z]+)/i);
-      if (match) {
-        count = parseInt(match[1], 10);
-        faces = parseInt(match[2], 10);
-        statRaw = match[3];
-      }
-    } else if (card.rulesText) {
-      const match = card.rulesText.match(/(\d+)d(\d+)\s+plus\s+your\s+([a-zA-Z]+)/i);
-      if (match) {
-        count = parseInt(match[1], 10);
-        faces = parseInt(match[2], 10);
-        statRaw = match[3];
-      }
-    }
-    
-    let modifierStat = null;
-    if (statRaw) {
-       const s = statRaw.toLowerCase();
-       if (s.startsWith('str')) modifierStat = 'Strength';
-       else if (s.startsWith('dex')) modifierStat = 'Dexterity';
-       else if (s.startsWith('con')) modifierStat = 'Constitution';
-       else if (s.startsWith('int')) modifierStat = 'Intelligence';
-       else if (s.startsWith('wis')) modifierStat = 'Wisdom';
-       else if (s.startsWith('luc') || s.startsWith('lck')) modifierStat = 'Luck';
-    }
-
-    return { count, faces, modifierStat };
-  };
 
 // Calculate Dynamic Stats
   const getStat = (statFull) => {
@@ -138,7 +62,7 @@ export default function GameBoard() {
     let modValue = 0;
     let defModValue = 0;
     try {
-      modValue = modifierStat ? getStat(modifierStat) : 0;
+      modValue = modifierStat ? getStat(modifierStat) : (options.rawModifier || 0);
       if (isDuel && defModStat) defModValue = getStat(defModStat);
       
       setDiceRoll({ 
@@ -222,48 +146,13 @@ export default function GameBoard() {
            duelResults: defChosenResults, duelResults2: defDroppedResults, duelTotalDamage: defFinalDamage
         }));
         
-        // HP Reduction Logic
-        if (reactionTimer.actionType === 'attack' || reactionTimer.actionType === 'card-play') {
-          if (isDuel) {
-             if (activePlayer === 'player') {
-                 setOpponentHp(prev => Math.max(0, prev - finalDamage));
-                 setPlayerHp(prev => Math.max(0, prev - defFinalDamage));
-             } else {
-                 setPlayerHp(prev => Math.max(0, prev - finalDamage));
-                 setOpponentHp(prev => Math.max(0, prev - defFinalDamage));
-             }
-          } else {
-             if (reactionTimer.targetId === 'opponent-hero') {
-                setOpponentHp(prev => Math.max(0, prev - finalDamage));
-             } else if (reactionTimer.targetId === 'player-hero') {
-                setPlayerHp(prev => Math.max(0, prev - finalDamage));
-             } else {
-                if (activePlayer === 'player') setOpponentHp(prev => Math.max(0, prev - finalDamage));
-                else setPlayerHp(prev => Math.max(0, prev - finalDamage));
-             }
-          }
-        }
+        // Removed HP Reduction Logic for sandbox manual HP controls
         
         setTimeout(() => setDiceRoll(null), 4000);
       }
     }, 80);
   };
 
-  const triggerReactionTimer = (cardName, shouldRollDice = false, targetId = null, actionType = 'card-play', diceParams = null, sourceCard = null, duelParams = null) => {
-    console.log("triggerReactionTimer", cardName, shouldRollDice, targetId, actionType, diceParams, duelParams);
-    setReactionTimer({
-      active: true,
-      message: `Waiting for Reactions to: ${cardName}...`,
-      timeRemaining: 100,
-      maxTime: 100,
-      shouldRollDice,
-      targetId,
-      actionType,
-      diceParams,
-      sourceCard,
-      duelParams,
-    });
-  };
   
   const phases = [
     { id: 'upkeep', label: 'Upkeep', icon: '⚙️' },
@@ -274,7 +163,10 @@ export default function GameBoard() {
   ];
 
   // Local Game State
+  const [diceModal, setDiceModal] = useState({ active: false, count: 1, faces: 20, modifier: 0, advantage: false, disadvantage: false });
   const [archive, setArchive] = useState([]);
+  const [drawHistory, setDrawHistory] = useState([]);
+  const [archiveModifiers, setArchiveModifiers] = useState({ alwaysRevealTop: false, alwaysLookAtTop: false });
   const [hand, setHand] = useState([]);
   const [timeline, setTimeline] = useState([]);
   const [dungeon, setDungeon] = useState([]);
@@ -299,6 +191,8 @@ export default function GameBoard() {
   
   const [playerEconomy, setPlayerEconomy] = useState({ action: 1, bonusAction: 1, reaction: 1 });
   const [opponentEconomy, setOpponentEconomy] = useState({ action: 1, bonusAction: 1, reaction: 1 });
+
+  const [diceRoll, setDiceRoll] = useState(null);
 
   // Targeting System State
   const [targetingState, setTargetingState] = useState({
@@ -419,10 +313,34 @@ export default function GameBoard() {
     const diceParams = parseAttackLogic(card);
     
     if (targetingState.actionType === 'attack') {
-       const attackerConditions = targetingState.sourceZone === 'player-hero' ? playerHeroConditions : opponentHeroConditions;
-       if (attackerConditions.some(c => c.type === 'disadvantage')) {
-          diceParams.disadvantage = true;
+       
+       
+       // Cancel out if both are true
+       if (diceParams.advantage && diceParams.disadvantage) {
+          diceParams.advantage = false;
+          diceParams.disadvantage = false;
        }
+    } else if (targetingState.actionType === 'attach') {
+       const sourceCard = targetingState.sourceCard;
+       
+       if (targetingState.sourceZone === 'hand') {
+           setHand(prev => prev.filter(c => c.uid !== sourceCard.uid));
+       }
+       
+       const updateAttached = (cards) => cards.map(c => 
+          c.uid === targetId ? { ...c, attachedCards: [...(c.attachedCards || []), sourceCard] } : c
+       );
+       
+       // targetId can be a zone like 'player-hero', or a uid
+       if (targetId === 'player-hero') {
+           setHeroCard(prev => prev ? { ...prev, attachedCards: [...(prev.attachedCards || []), sourceCard] } : prev);
+       } else {
+           // We'll optimistically update both arrays since uid is unique
+           setTimeline(updateAttached);
+           setPlayerLocations(updateAttached);
+       }
+       setTargetingState({ active: false, sourceCard: null, sourceZone: null, targetZone: null, actionType: null });
+       return;
     }
     // Resolve Targeting
     if (targetingState.actionType === 'attack') {
@@ -436,10 +354,18 @@ export default function GameBoard() {
       }
 
       const heroName = card ? card.name : 'Hero';
-      triggerReactionTimer(heroName + ' Attack', true, targetId, 'attack', diceParams, card);
     } else if (targetingState.actionType === 'card-play') {
       const shouldRoll = card.rulesText && (card.rulesText.toLowerCase().includes('roll') || /\d+d\d+/i.test(card.rulesText));
       
+      // Remove from hand and consume economy
+      if (targetingState.sourceZone === 'hand') {
+         setHand(prev => prev.filter(c => c.uid !== card.uid));
+         consumeEconomy(card, 'player');
+      } else if (targetingState.sourceZone === 'opponent-hand') {
+         setOpponentHand(prev => prev.filter(c => c.uid !== card.uid));
+         consumeEconomy(card, 'opponent');
+      }
+
       // Officially play the card
       if (targetingState.targetZone === 'timeline') {
         setTimeline(prev => [...prev, card]);
@@ -449,28 +375,21 @@ export default function GameBoard() {
         setOpponentLocations(prev => [...prev, card]);
       }
       
-      // Handle Card Specific Status Effects
-      if (card.name === 'Battle Cry') {
-         if (activePlayer === 'player') {
-            setPlayerHeroConditions(prev => [...prev, { type: 'disadvantage', caster: activePlayer, expiresTurn: turnNumber + 1 }]);
-         } else {
-            setOpponentHeroConditions(prev => [...prev, { type: 'disadvantage', caster: activePlayer, expiresTurn: turnNumber + 1 }]);
-         }
-      }
+      // Removed buggy hardcoded Battle Cry block - moved to data-driven JSON engine
       
       let duelParams = null;
       if (card.name === 'Duel') {
          const p1 = parseAttackLogic(activePlayer === 'player' ? heroCard : opponentHeroCard);
          const p2 = parseAttackLogic(activePlayer === 'player' ? opponentHeroCard : heroCard);
-         const attackerConditions = activePlayer === 'player' ? playerHeroConditions : opponentHeroConditions;
-         const defenderConditions = activePlayer === 'player' ? opponentHeroConditions : playerHeroConditions;
-         if (attackerConditions.some(c => c.type === 'disadvantage')) p1.disadvantage = true;
-         if (defenderConditions.some(c => c.type === 'disadvantage')) p2.disadvantage = true;
+           
+         
+         
+         if (p1.advantage && p1.disadvantage) { p1.advantage = false; p1.disadvantage = false; }
+         if (p2.advantage && p2.disadvantage) { p2.advantage = false; p2.disadvantage = false; }
          
          duelParams = { attacker: p1, defender: p2 };
       }
 
-      triggerReactionTimer(card.name, shouldRoll, targetId, 'card-play', diceParams, card, duelParams);
     }
     
     setTargetingState({ active: false, sourceCard: null, sourceZone: null, targetZone: null, actionType: null });
@@ -500,22 +419,8 @@ export default function GameBoard() {
     setTargetingState({ active: false, sourceCard: null, sourceZone: null, targetZone: null, actionType: null });
   };
 
-  const handleKeep = () => {
-    setMulliganState({ active: false, count: 7 });
-  };
-
-  const handleMulligan = () => {
-    if (mulliganState.count <= 1) return;
-    const newCount = mulliganState.count - 1;
-    
-    setArchive(prev => {
-       const newArchive = [...hand, ...prev]; // Send hand to bottom (index 0)
-       const newHand = newArchive.splice(-newCount); // Draw from top
-       setHand(newHand);
-       return newArchive;
-    });
-    setMulliganState({ active: true, count: newCount });
-  };
+  const handleKeep = () => {};
+  const handleMulligan = () => {};
 
   // Game Actions
   const drawCard = () => {
@@ -605,8 +510,7 @@ export default function GameBoard() {
     
     const shouldRoll = card.rulesText && (card.rulesText.toLowerCase().includes('roll') || /\d+d\d+/i.test(card.rulesText));
     if (card.type !== 'Location') {
-       triggerReactionTimer(card.name, shouldRoll, null, 'card-play', parseAttackLogic(card), card);
-    }
+     }
   };
 
   const resolveToDungeon = (uid) => {
@@ -633,10 +537,23 @@ export default function GameBoard() {
   // Context Menu Logic
   const handleContextMenu = (e, targetType, targetData) => {
     e.preventDefault();
+    e.stopPropagation();
+
+    const menuWidth = 220;
+    let menuHeight = 250;
+    if (targetType === 'archive') menuHeight = 400;
+    if (targetType === 'card_hand') menuHeight = 450;
+    
+    let x = e.clientX;
+    let y = e.clientY;
+    
+    if (x + menuWidth > window.innerWidth) x = window.innerWidth - menuWidth - 10;
+    if (y + menuHeight > window.innerHeight) y = window.innerHeight - menuHeight - 10;
+
     setContextMenu({
       visible: true,
-      x: e.clientX,
-      y: e.clientY,
+      x,
+      y,
       targetType,
       targetData
     });
@@ -645,7 +562,7 @@ export default function GameBoard() {
   const updateCardState = (uid, source, updates) => {
     if (source === 'timeline') {
       setTimeline(prev => prev.map(c => c.uid === uid ? { ...c, ...updates } : c));
-    } else if (source === 'locations') {
+    } else if (source === 'locations' || source === 'location') {
       setPlayerLocations(prev => prev.map(c => c.uid === uid ? { ...c, ...updates } : c));
     } else if (source === 'hero') {
       setHeroCard(prev => prev && prev.uid === uid ? { ...prev, ...updates } : prev);
@@ -668,6 +585,46 @@ export default function GameBoard() {
   };
 
   // Context Menu Actions
+  const actionDrawCard = () => {
+    if (archive.length === 0) return;
+    const newArchive = [...archive];
+    const drawn = newArchive.pop();
+    setArchive(newArchive);
+    setHand(prev => [...prev, drawn]);
+    setDrawHistory(prev => [...prev, drawn.uid]);
+    setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionDrawCards = () => {
+    setContextMenu(prev => ({ ...prev, visible: false }));
+    const countStr = prompt("How many cards to draw?", "1");
+    if (!countStr) return;
+    const count = parseInt(countStr, 10);
+    if (isNaN(count) || count <= 0) return;
+
+    const newArchive = [...archive];
+    const drawnCards = newArchive.splice(-count);
+    setArchive(newArchive);
+    setHand(h => [...h, ...drawnCards]);
+    setDrawHistory(dh => [...dh, ...drawnCards.map(c => c.uid)]);
+  };
+
+  const actionUndoDraw = () => {
+    if (drawHistory.length === 0) {
+        setContextMenu(prev => ({ ...prev, visible: false }));
+        return;
+    }
+    const lastDrawnUid = drawHistory[drawHistory.length - 1];
+    
+    const cardToReturn = hand.find(c => c.uid === lastDrawnUid);
+    if (cardToReturn) {
+        setDrawHistory(prev => prev.slice(0, -1));
+        setArchive(prev => [...prev, cardToReturn]);
+        setHand(prev => prev.filter(c => c.uid !== lastDrawnUid));
+    }
+    setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
   const actionShuffleArchive = () => {
     setArchive(prev => [...prev].sort(() => Math.random() - 0.5));
     setContextMenu(prev => ({ ...prev, visible: false }));
@@ -689,10 +646,51 @@ export default function GameBoard() {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
-  const actionResolveCard = (card, source) => {
+  const executeCardEffects = (card, specificTargetId = null) => {
+     if (!card.effects || !Array.isArray(card.effects)) return;
+     
+     const caster = activePlayer;
+     const target = specificTargetId || (caster === 'player' ? 'opponent-hero' : 'player-hero');
+
+     card.effects.forEach(eff => {
+        if (eff.type === 'draw') {
+           const amount = eff.amount || 1;
+           if (caster === 'player') {
+              setArchive(prev => {
+                 const newArchive = [...prev];
+                 const drawn = newArchive.splice(0, amount);
+                 setHand(h => [...h, ...drawn]);
+                 return newArchive;
+              });
+           } else {
+              setOpponentArchive(prev => {
+                 const newArchive = [...prev];
+                 const drawn = newArchive.splice(0, amount);
+                 setOpponentHand(h => [...h, ...drawn]);
+                 return newArchive;
+              });
+           }
+        } else if (eff.type === 'apply_condition') {
+           let applyTo = eff.target; // "caster" or "selected"
+           if (applyTo === 'selected') {
+              if (target === 'player-hero') {
+              } else {
+              }
+           } else if (applyTo === 'caster') {
+              if (caster === 'player') {
+              } else {
+              }
+           }
+        }
+     });
+  };
+
+  const actionResolveCard = (card, source, targetId = null) => {
     if (source === 'timeline') setTimeline(prev => prev.filter(c => c.uid !== card.uid));
     if (source === 'locations') setPlayerLocations(prev => prev.filter(c => c.uid !== card.uid));
     
+    executeCardEffects(card, targetId);
+
     if (card.rulesText && card.rulesText.toLowerCase().includes('moves to the void after play')) {
        setVoidZone(prev => [...prev, card]);
     } else {
@@ -702,9 +700,7 @@ export default function GameBoard() {
     // Apply Onslaught
     if (card.rulesText && card.rulesText.toLowerCase().includes('may attack twice')) {
        if (activePlayer === 'player') {
-          setPlayerHeroConditions(prev => [...prev, { type: 'onslaught', caster: 'player', expiresTurn: turnNumber }]);
        } else {
-          setOpponentHeroConditions(prev => [...prev, { type: 'onslaught', caster: 'opponent', expiresTurn: turnNumber }]);
        }
     }
     
@@ -755,6 +751,92 @@ export default function GameBoard() {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
+  const actionPlayCardFromHand = (card, faceDown = false) => {
+    const cardToPlay = faceDown ? { ...card, faceDown: true } : card;
+    consumeEconomy(card, 'player');
+    setHand(prev => prev.filter(c => c.uid !== card.uid));
+    
+    if (card.type === 'Hero') {
+       setHeroCard(cardToPlay);
+    } else if (card.type === 'Location') {
+       setPlayerLocations(prev => [...prev, cardToPlay]);
+       setLocationsPlayedThisTurn(prev => prev + 1);
+    } else {
+       setTimeline(prev => [...prev, cardToPlay]);
+    }
+    setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionRevealCard = (card) => {
+     setHand(prev => prev.map(c => c.uid === card.uid ? { ...c, isRevealed: !c.isRevealed } : c));
+     setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionMoveHandToTop = (card) => {
+     setHand(prev => prev.filter(c => c.uid !== card.uid));
+     setArchive(prev => [...prev, card]);
+     setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionMoveHandToBottom = (card) => {
+     setHand(prev => prev.filter(c => c.uid !== card.uid));
+     setArchive(prev => [card, ...prev]);
+     setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+  
+  const actionMoveHandToX = (card) => {
+     const xStr = prompt("Insert at what index from the top? (1 = top)", "2");
+     if (!xStr) return;
+     let x = parseInt(xStr, 10);
+     if (isNaN(x) || x < 1) x = 1;
+     
+     setHand(prev => prev.filter(c => c.uid !== card.uid));
+     setArchive(prev => {
+         const newArchive = [...prev];
+         const indexFromBottom = newArchive.length - (x - 1);
+         newArchive.splice(Math.max(0, indexFromBottom), 0, card);
+         return newArchive;
+     });
+     setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionMoveToZone = (card, zone) => {
+     setHand(prev => prev.filter(c => c.uid !== card.uid));
+     if (zone === 'timeline') setTimeline(prev => [...prev, card]);
+     if (zone === 'dungeon') setDungeon(prev => [...prev, card]);
+     if (zone === 'void') setVoidZone(prev => [...prev, card]);
+     setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionAttachCard = (card) => {
+     setTargetingState({ active: true, sourceCard: card, sourceZone: 'hand', targetZone: null, actionType: 'attach' });
+     setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
+  const actionDetachCard = (attachedCard, parentUid, sourceZone, destZone) => {
+    const removeAttached = (cards) => cards.map(c => 
+       c.uid === parentUid ? { ...c, attachedCards: (c.attachedCards || []).filter(a => a.uid !== attachedCard.uid) } : c
+    );
+    
+    if (sourceZone === 'hero') {
+       if (heroCard && heroCard.uid === parentUid) {
+           setHeroCard(prev => ({ ...prev, attachedCards: (prev.attachedCards || []).filter(a => a.uid !== attachedCard.uid) }));
+       } else if (opponentHeroCard && opponentHeroCard.uid === parentUid) {
+           setOpponentHeroCard(prev => ({ ...prev, attachedCards: (prev.attachedCards || []).filter(a => a.uid !== attachedCard.uid) }));
+       }
+    } else {
+       setTimeline(removeAttached);
+       setPlayerLocations(removeAttached);
+    }
+    
+    if (destZone === 'hand') setHand(prev => [...prev, attachedCard]);
+    if (destZone === 'dungeon') setDungeon(prev => [...prev, attachedCard]);
+    if (destZone === 'void') setVoid(prev => [...prev, attachedCard]);
+    if (destZone === 'timeline') setTimeline(prev => [...prev, attachedCard]);
+    
+    setContextMenu(prev => ({ ...prev, visible: false }));
+  };
+
   const actionArchiveToHand = (card) => {
     setArchive(prev => prev.filter(c => c.uid !== card.uid));
     setHand(prev => [...prev, card]);
@@ -773,7 +855,7 @@ export default function GameBoard() {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
-  const actionRevealCard = (card) => {
+  const actionRevealArchiveCard = (card) => {
     alert(`Revealed: ${card.name}`);
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
@@ -790,12 +872,6 @@ export default function GameBoard() {
   
   
   const canPlayCard = (card, owner = 'player') => {
-    if (card.type !== 'Reaction') {
-      if (owner !== activePlayer) return false;
-      if (currentPhase !== 'act') return false;
-    } else {
-      if (!reactionTimer.active) return false;
-    }
     
     // Action Economy restrictions
     const economy = owner === 'player' ? playerEconomy : opponentEconomy;
@@ -866,10 +942,6 @@ export default function GameBoard() {
     // Strict Enforcement for playing cards to the board
     if ((sourceZone === 'hand' || sourceZone === 'opponent-hand') && (targetZone === 'timeline' || targetZone === 'locations' || targetZone === 'opponent-locations')) {
       const owner = sourceZone === 'hand' ? 'player' : 'opponent';
-      if (!canPlayCard(cardToMove, owner)) {
-        alert("Cannot play this card: Requirements not met or wrong phase/turn.");
-        return;
-      }
     }
 
     // 2. Add to target or Intercept
@@ -899,8 +971,7 @@ export default function GameBoard() {
       setTimeline(prev => [...prev, cardToMove]);
       if (sourceZone === 'hand' || sourceZone === 'opponent-hand') {
          consumeEconomy(cardToMove, sourceZone === 'hand' ? 'player' : 'opponent');
-         triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove), cardToMove);
-      }
+         }
     } else if (targetZone === 'dungeon') {
       setDungeon(prev => [...prev, cardToMove]);
     } else if (targetZone === 'void') {
@@ -908,11 +979,9 @@ export default function GameBoard() {
     } else if (targetZone === 'locations') {
       setPlayerLocations(prev => [...prev, cardToMove]);
       if (cardToMove.type === 'Location' && sourceZone === 'hand') setLocationsPlayedThisTurn(prev => prev + 1);
-      if (sourceZone === 'hand' && cardToMove.type !== 'Location') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove), cardToMove);
     } else if (targetZone === 'opponent-locations') {
       setOpponentLocations(prev => [...prev, cardToMove]);
       if (cardToMove.type === 'Location' && sourceZone === 'opponent-hand') setLocationsPlayedThisTurn(prev => prev + 1);
-      if (sourceZone === 'opponent-hand' && cardToMove.type !== 'Location') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove), cardToMove);
     }
   };
 
@@ -933,10 +1002,6 @@ export default function GameBoard() {
   });
 
   const handlePhaseAdvance = () => {
-    if (mulliganState.active) {
-      alert("You must decide to Keep or Mulligan your hand before advancing!");
-      return;
-    }
     if (discardState.active) {
       alert(`You must discard ${discardState.count} more card(s) before advancing!`);
       return;
@@ -972,31 +1037,12 @@ export default function GameBoard() {
       nextPhaseId = phases[0].id;
       if (activePlayer === 'opponent') setTurnNumber(nextTurnNumber);
       
-      // Clear expired conditions
-      setPlayerHeroConditions(prev => prev.filter(c => !(c.caster === nextActivePlayer && c.expiresTurn <= nextTurnNumber)));
-      setOpponentHeroConditions(prev => prev.filter(c => !(c.caster === nextActivePlayer && c.expiresTurn <= nextTurnNumber)));
       
     } else {
       nextPhaseId = phases[currentIndex + 1].id;
     }
 
     setCurrentPhase(nextPhaseId);
-
-    // Automation: Auto Draw
-    if (nextPhaseId === 'draw' && activePlayer === 'player') {
-      if (turnNumber === 1) {
-        const newArchive = [...archive];
-        const initialHand = newArchive.splice(-7);
-        setHand(initialHand);
-        setArchive(newArchive);
-        setMulliganState({ active: true, count: 7 });
-      } else {
-        if (archive.length > 0) {
-           setHand(h => [...h, archive[archive.length - 1]]);
-           setArchive(a => a.slice(0, -1));
-        }
-      }
-    }
   };
 
   return (
@@ -1042,7 +1088,7 @@ export default function GameBoard() {
           </div>
         </div>
 
-        <div className="player-area-main-row">
+        <div className="player-area-main-row" onContextMenu={(e) => handleContextMenu(e, 'battlefield', null)}>
           
           <div className="battlefield-core">
             <div className="stat-tracker-vertical">
@@ -1055,21 +1101,24 @@ export default function GameBoard() {
             </div>
             
             <div className="hero-zone">
-              <div className="hero-card-wrapper" style={{position: 'relative'}}>
+              <div className={`hero-card-wrapper ${opponentHeroCard?.isTapped ? 'tapped' : ''}`} style={{position: 'relative'}}>
                  {opponentHeroCard ? (
                    <>
                      <Card data={opponentHeroCard} />
-                     {opponentHeroConditions.map((cond, idx) => (
-                        <div key={idx} style={{
-                           position: 'absolute', bottom: -25, left: '50%', transform: 'translateX(-50%)', background: '#8a0303', color: 'white', 
-                           padding: '2px 8px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold',
-                           boxShadow: '0 0 5px rgba(0,0,0,0.5)', border: '1px solid #ff4500', whiteSpace: 'nowrap', zIndex: 10
-                        }}>
-                           {cond.type === 'disadvantage' ? 'Attack: Disadv.' : cond.type}
-                        </div>
+                     {opponentHeroCard.annotations && (
+                       <div className="hero-annotations-container">
+                         {opponentHeroCard.annotations.split('\n').filter(line => line.trim() !== '').map((line, idx) => (
+                           <div key={idx} className="hero-annotation-badge">{line}</div>
+                         ))}
+                       </div>
+                     )}
+                     {opponentHeroCard.attachedCards && opponentHeroCard.attachedCards.map((attached, attachIdx) => (
+                         <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: opponentHeroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                             <Card data={attached} />
+                         </div>
                      ))}
-                     {currentPhase === 'combat' && activePlayer === 'opponent' && !targetingState.active && opponentAttacksThisTurn < (1 + opponentHeroConditions.filter(c => c.type === 'onslaught').length) && (opponentEconomy.action > 0 || opponentHeroConditions.some(c => c.type === 'onslaught')) && (
-                        <button className="attack-btn" onClick={(e) => { e.stopPropagation(); handleHeroAttack('opponent'); }}>⚔️ Attack</button>
+                     {currentPhase === 'combat' && activePlayer === 'opponent' && !targetingState.active && opponentAttacksThisTurn < 1 && opponentEconomy.action > 0 && (
+                        <div className="target-overlay" onClick={() => handleTargetClick('opponent-hero', 'hero')}>⚔️ Attack</div>
                      )}
                      {targetingState.active && targetingState.actionType !== 'bounce-location' && targetingState.sourceZone !== 'opponent-hero' && (
                         <div className="target-overlay" onClick={() => handleTargetClick('opponent-hero')}>🎯 Target</div>
@@ -1084,7 +1133,13 @@ export default function GameBoard() {
             </div>
             
             <div className="player-stats-vertical">
-              <div className="stat-box hp">HP: {opponentHp}</div>
+              <div className="stat-box hp">
+                HP: {opponentHp}
+                <div style={{display:'flex', gap:'5px', marginTop:'5px', justifyContent: 'center'}}>
+                   <button onClick={() => setOpponentHp(p => p - 1)} style={{width:'30px'}}>-</button>
+                   <button onClick={() => setOpponentHp(p => p + 1)} style={{width:'30px'}}>+</button>
+                </div>
+              </div>
               <div className="stat-box def">DEF: 0</div>
               <div className="stat-box res">RES: 0</div>
               <EconomyTracker economy={opponentEconomy} />
@@ -1153,14 +1208,20 @@ export default function GameBoard() {
                   draggable
                   onDragStart={(e) => handleDragStart(e, card.uid, 'timeline')}
                   onContextMenu={(e) => handleContextMenu(e, 'card_timeline', card)}
+                  onClick={() => handleTargetClick(card.uid, 'timeline')}
                   onDoubleClick={() => actionToggleTap(card, 'timeline')}
                   initial={{ opacity: 0, scale: 0.5, y: 50 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: 0, rotate: card.isTapped ? 90 : 0 }}
                   exit={{ opacity: 0, scale: 0, y: -50 }}
                   layout
                 >
                   {card.counters > 0 && <div className="card-counter-badge">{card.counters}</div>}
                   <Card data={card} />
+                  {card.attachedCards && card.attachedCards.map((attached, attachIdx) => (
+                      <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: card.uid, zone: 'timeline' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                          <Card data={attached} />
+                      </div>
+                  ))}
                   <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(card); }}>🔍</button>
                 </motion.div>
               ))}
@@ -1170,7 +1231,7 @@ export default function GameBoard() {
 
       {/* PLAYER AREA */}
       <div className={`player-area ${activePlayer === 'player' ? 'active-turn' : ''}`}>
-        <div className="player-area-main-row">
+        <div className="player-area-main-row" onContextMenu={(e) => handleContextMenu(e, 'battlefield', null)}>
           
           <div className="battlefield-core">
             <div className="stat-tracker-vertical">
@@ -1183,23 +1244,26 @@ export default function GameBoard() {
             </div>
             
             <div className="hero-zone">
-              <div className="hero-card-wrapper" onContextMenu={(e) => heroCard && handleContextMenu(e, 'card_hero', heroCard)} style={{position: 'relative'}}>
+              <div className={`hero-card-wrapper ${heroCard?.isTapped ? 'tapped' : ''}`} onContextMenu={(e) => heroCard && handleContextMenu(e, 'card_hero', heroCard)} style={{position: 'relative'}}>
                  {heroCard ? (
                    <>
                      <Card data={heroCard} />
-                     {heroCard.counters > 0 && <div className="card-counter-badge">{heroCard.counters}</div>}
-                     {playerHeroConditions.map((cond, idx) => (
-                        <div key={idx} style={{
-                           position: 'absolute', top: -25, left: '50%', transform: 'translateX(-50%)', background: '#8a0303', color: 'white', 
-                           padding: '2px 8px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold',
-                           boxShadow: '0 0 5px rgba(0,0,0,0.5)', border: '1px solid #ff4500', whiteSpace: 'nowrap', zIndex: 10
-                        }}>
-                           {cond.type === 'disadvantage' ? 'Attack: Disadv.' : cond.type}
-                        </div>
+                     {heroCard.annotations && (
+                       <div className="hero-annotations-container">
+                         {heroCard.annotations.split('\n').filter(line => line.trim() !== '').map((line, idx) => (
+                           <div key={idx} className="hero-annotation-badge">{line}</div>
+                         ))}
+                       </div>
+                     )}
+                     {heroCard.attachedCards && heroCard.attachedCards.map((attached, attachIdx) => (
+                         <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: heroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                             <Card data={attached} />
+                         </div>
                      ))}
+                     {heroCard.counters > 0 && <div className="card-counter-badge">{heroCard.counters}</div>}
                      <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(heroCard); }}>🔍</button>
-                     {currentPhase === 'combat' && activePlayer === 'player' && !targetingState.active && playerAttacksThisTurn < (1 + playerHeroConditions.filter(c => c.type === 'onslaught').length) && (playerEconomy.action > 0 || playerHeroConditions.some(c => c.type === 'onslaught')) && (
-                        <button className="attack-btn" onClick={(e) => { e.stopPropagation(); handleHeroAttack('player'); }}>⚔️ Attack</button>
+                     {currentPhase === 'combat' && activePlayer === 'player' && !targetingState.active && playerAttacksThisTurn < 1 && playerEconomy.action > 0 && (
+                        <div className="target-overlay" onClick={() => handleTargetClick('player-hero', 'hero')}>⚔️ Attack</div>
                      )}
                      {targetingState.active && targetingState.actionType !== 'bounce-location' && targetingState.sourceZone !== 'player-hero' && (
                         <div className="target-overlay" onClick={() => handleTargetClick('player-hero')}>🎯 Target</div>
@@ -1214,7 +1278,13 @@ export default function GameBoard() {
             </div>
             
             <div className="player-stats-vertical">
-              <div className="stat-box hp">HP: {playerHp}</div>
+              <div className="stat-box hp">
+                HP: {playerHp}
+                <div style={{display:'flex', gap:'5px', marginTop:'5px', justifyContent: 'center'}}>
+                   <button onClick={() => setPlayerHp(p => p - 1)} style={{width:'30px'}}>-</button>
+                   <button onClick={() => setPlayerHp(p => p + 1)} style={{width:'30px'}}>+</button>
+                </div>
+              </div>
               <div className="stat-box def">DEF: 0</div>
               <div className="stat-box res">RES: 0</div>
               <EconomyTracker economy={playerEconomy} />
@@ -1233,10 +1303,16 @@ export default function GameBoard() {
                          draggable
                          onDragStart={(e) => handleDragStart(e, loc.uid, 'locations')}
                          onContextMenu={(e) => handleContextMenu(e, 'card_location', loc)}
+                         onClick={() => handleTargetClick(loc.uid, 'locations')}
                          onDoubleClick={() => actionToggleTap(loc, 'locations')}
                     >
                        {loc.counters > 0 && <div className="card-counter-badge">{loc.counters}</div>}
                        <Card data={loc} />
+                       {loc.attachedCards && loc.attachedCards.map((attached, attachIdx) => (
+                           <div key={attached.uid} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: loc.uid, zone: 'locations' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                               <Card data={attached} />
+                           </div>
+                       ))}
                        <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(loc); }}>🔍</button>
                        {targetingState.active && targetingState.actionType === 'bounce-location' && activePlayer === 'player' && (
                          <div className="target-overlay bounce-overlay" onClick={() => handleTargetLocationClick(loc)}>Target</div>
@@ -1262,10 +1338,31 @@ export default function GameBoard() {
              <div 
                className="zone-slot archive interactive" 
                onContextMenu={(e) => handleContextMenu(e, 'archive', null)}
+               onDoubleClick={actionDrawCard}
                title="Right-Click for Options"
+               style={{ position: 'relative' }}
              >
                <img src="/cards/backs/000_back.png" alt="Player Deck" className="deck-back-image" />
                <div className="archive-count">{archive.length}</div>
+               
+               {(archiveModifiers.alwaysRevealTop || archiveModifiers.alwaysLookAtTop) && archive.length > 0 && (
+                 <div style={{
+                     position: 'absolute', top: -30, left: 10, right: -10, zIndex: 10,
+                     transform: 'rotate(5deg) scale(0.9)',
+                     pointerEvents: 'none',
+                     boxShadow: '0 5px 15px rgba(0,0,0,0.5)',
+                     border: archiveModifiers.alwaysLookAtTop ? '2px dashed #0ff' : '2px solid #ff0'
+                 }}>
+                    <Card data={archive[archive.length - 1]} />
+                    <div style={{
+                       position: 'absolute', bottom: -20, left: 0, right: 0, textAlign: 'center',
+                       background: 'rgba(0,0,0,0.8)', color: archiveModifiers.alwaysLookAtTop ? '#0ff' : '#ff0',
+                       fontSize: '0.8rem', padding: '2px', borderRadius: '4px'
+                    }}>
+                       {archiveModifiers.alwaysLookAtTop ? 'Peeking' : 'Revealed'}
+                    </div>
+                 </div>
+               )}
              </div>
           </div>
         </div>
@@ -1282,20 +1379,30 @@ export default function GameBoard() {
                <motion.div 
                  className={`hand-card-wrapper ${!playable ? 'unplayable' : ''}`} 
                  key={card.uid} 
-                 draggable={playable}
-                 onDragStart={(e) => { if(playable) handleDragStart(e, card.uid, 'hand'); }}
+                 draggable={true}
+                 onDragStart={(e) => handleDragStart(e, card.uid, 'hand')}
+                 onContextMenu={(e) => handleContextMenu(e, 'card_hand', card)}
                  onClick={() => { 
                    if (discardState.active && activePlayer === 'player') playCard(card.uid);
-                   else if(playable) playCard(card.uid); 
-                   else alert('Cannot play this card right now.'); 
+                   else playCard(card.uid); 
                  }}
-                 title={playable ? "Click or Drag to Play" : "Requirements not met or wrong phase"}
+                 title="Click or Drag to Play"
                  initial={{ y: 100, opacity: 0 }}
                  animate={{ y: 0, opacity: 1 }}
                  exit={{ y: -100, opacity: 0 }}
                  layout
                >
                  <Card data={card} />
+                 {card.isRevealed && (
+                    <div style={{
+                       position: 'absolute', top: -15, left: '50%', transform: 'translateX(-50%)',
+                       background: 'rgba(255,255,0,0.9)', color: 'black',
+                       fontSize: '0.8rem', padding: '2px 8px', borderRadius: '4px',
+                       fontWeight: 'bold', zIndex: 10, boxShadow: '0 0 5px rgba(0,0,0,0.5)', whiteSpace: 'nowrap'
+                    }}>
+                       Revealed
+                    </div>
+                 )}
                  <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(card); }}>🔍</button>
                </motion.div>
               );
@@ -1313,6 +1420,83 @@ export default function GameBoard() {
               <Card data={zoomedCard} />
             </div>
             <button className="zoom-close-btn" onClick={() => setZoomedCard(null)}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* Annotation Modal */}
+      {annotationModal.active && (
+        <div className="zoom-modal-backdrop" onClick={() => setAnnotationModal({ active: false, cardUid: null, source: null, text: '' })}>
+          <div className="zoom-modal-content" style={{padding: '2rem', background: '#e3e3e3', color: '#000', borderRadius: '4px', border: '1px solid #999', width: '350px'}} onClick={e => e.stopPropagation()}>
+            <h3 style={{marginTop: 0, fontSize: '0.9rem', fontWeight: 'normal'}}>Please enter the new annotation:</h3>
+            <textarea 
+              value={annotationModal.text}
+              onChange={e => setAnnotationModal(prev => ({ ...prev, text: e.target.value }))}
+              style={{width: '100%', height: '120px', resize: 'none', padding: '8px', border: '1px solid #ccc', background: '#fff', color: '#000', outline: 'none'}}
+            />
+            <div style={{display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: '1rem'}}>
+              <button 
+                onClick={() => {
+                  updateCardState(annotationModal.cardUid, annotationModal.source, { annotations: annotationModal.text });
+                  setAnnotationModal({ active: false, cardUid: null, source: null, text: '' });
+                }}
+                style={{padding: '4px 16px', background: '#fff', border: '1px solid #0078d7', borderRadius: '4px', cursor: 'pointer', color: '#000'}}
+              >
+                OK
+              </button>
+              <button 
+                onClick={() => setAnnotationModal({ active: false, cardUid: null, source: null, text: '' })}
+                style={{padding: '4px 16px', background: '#fff', border: '1px solid #ccc', borderRadius: '4px', cursor: 'pointer', color: '#000'}}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Dice Config Modal */}
+      {diceModal.active && (
+        <div className="zoom-modal-backdrop" onClick={() => setDiceModal(prev => ({ ...prev, active: false }))}>
+          <div className="zoom-modal-content" style={{padding: '2rem', background: '#222', borderRadius: '12px', border: '1px solid #555'}} onClick={e => e.stopPropagation()}>
+            <h2 style={{marginTop: 0}}>🎲 Roll Dice</h2>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', color: '#ccc'}}>
+              <div>
+                 <label>Count:</label>
+                 <input type="number" min="1" max="10" value={diceModal.count} onChange={e => setDiceModal(prev => ({ ...prev, count: parseInt(e.target.value)||1 }))} style={{marginLeft: '10px', background: '#333', color: '#fff', border: 'none', padding: '5px', borderRadius: '4px'}}/>
+              </div>
+              <div>
+                 <label>Faces:</label>
+                 <select value={diceModal.faces} onChange={e => setDiceModal(prev => ({ ...prev, faces: parseInt(e.target.value) }))} style={{marginLeft: '10px', background: '#333', color: '#fff', border: 'none', padding: '5px', borderRadius: '4px'}}>
+                    <option value="4">d4</option>
+                    <option value="6">d6</option>
+                    <option value="8">d8</option>
+                    <option value="10">d10</option>
+                    <option value="12">d12</option>
+                    <option value="20">d20</option>
+                    <option value="100">d100</option>
+                 </select>
+              </div>
+              <div>
+                 <label>Modifier (+/-):</label>
+                 <input type="number" value={diceModal.modifier} onChange={e => setDiceModal(prev => ({ ...prev, modifier: parseInt(e.target.value)||0 }))} style={{marginLeft: '10px', background: '#333', color: '#fff', border: 'none', padding: '5px', borderRadius: '4px'}}/>
+              </div>
+              <div style={{display:'flex', gap:'15px', marginTop: '10px'}}>
+                 <label><input type="checkbox" checked={diceModal.advantage} onChange={e => setDiceModal(prev => ({ ...prev, advantage: e.target.checked, disadvantage: false }))} /> Advantage</label>
+                 <label><input type="checkbox" checked={diceModal.disadvantage} onChange={e => setDiceModal(prev => ({ ...prev, disadvantage: e.target.checked, advantage: false }))} /> Disadvantage</label>
+              </div>
+              <div style={{display: 'flex', gap: '10px', marginTop: '1rem'}}>
+                <button className="primary-btn" onClick={() => {
+                   setDiceModal(prev => ({ ...prev, active: false }));
+                   rollDice(diceModal.count, diceModal.faces, null, { 
+                       disadvantage: diceModal.disadvantage, 
+                       advantage: diceModal.advantage,
+                       rawModifier: diceModal.modifier 
+                   });
+                }}>Roll!</button>
+                <button className="secondary-btn" onClick={() => setDiceModal(prev => ({ ...prev, active: false }))}>Cancel</button>
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -1345,11 +1529,11 @@ export default function GameBoard() {
         <div className="zoom-modal-backdrop" onClick={() => setArchiveView({visible: false, mode: 'all', count: 0})} style={{zIndex: 900}}>
           <div className="zone-view-content" onClick={e => e.stopPropagation()}>
             <h2 style={{color: 'white', marginTop: 0}}>
-              {archiveView.mode === 'all' ? 'Archive Library' : `Top ${archiveView.count} Cards`}
+              {archiveView.mode === 'all' ? 'Archive Library' : (archiveView.mode === 'topX' ? `Top ${archiveView.count} Cards` : `Bottom ${archiveView.count} Cards`)}
             </h2>
             <div className="zone-view-grid">
               {/* Deck top is end of array; we want to show top-down so we slice from end and reverse */}
-              {archive.slice(archiveView.mode === 'all' ? 0 : Math.max(0, archive.length - archiveView.count)).reverse().map(card => (
+              {(archiveView.mode === 'all' ? archive.slice().reverse() : (archiveView.mode === 'topX' ? archive.slice(Math.max(0, archive.length - archiveView.count)).reverse() : archive.slice(0, archiveView.count).reverse())).map(card => (
                 <div key={card.uid} className="zone-view-card-wrapper"
                      onContextMenu={(e) => handleContextMenu(e, 'card_archive', card)}>
                   <Card data={card} />
@@ -1385,20 +1569,7 @@ export default function GameBoard() {
       )}
 
       {/* Mulligan Overlay */}
-      {mulliganState.active && (
-         <div style={{
-            position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-            zIndex: 3000, background: 'rgba(0,0,0,0.95)',
-            padding: '40px', borderRadius: '16px', border: '2px solid #555',
-            color: '#fff', textAlign: 'center', boxShadow: '0 0 40px rgba(0,0,0,0.8)'
-         }}>
-            <h2>Keep Starting Hand?</h2>
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '20px' }}>
-               <button onClick={handleKeep} style={{ padding: '10px 20px', background: '#2c7a2c', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Keep Hand</button>
-               <button onClick={handleMulligan} style={{ padding: '10px 20px', background: '#9e2a2b', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Mulligan (Draw {mulliganState.count - 1})</button>
-            </div>
-         </div>
-      )}
+      {/* Mulligan Overlay Removed */}
 
       {/* Discard Overlay */}
       {discardState.active && (
@@ -1426,24 +1597,6 @@ export default function GameBoard() {
 
 
 
-      {/* Reaction Timer Overlay */}
-      {reactionTimer.active && (
-        <div className="reaction-overlay">
-          <div className="reaction-box">
-            <h3>{reactionTimer.message}</h3>
-            <div className="reaction-progress-bar">
-              <div 
-                className="reaction-progress-fill" 
-                style={{ width: `${(reactionTimer.timeRemaining / reactionTimer.maxTime) * 100}%` }}
-              ></div>
-            </div>
-            <div className="reaction-actions">
-               <button onClick={() => setReactionTimer(prev => ({...prev, timeRemaining: 0}))}>Pass (Resolve)</button>
-               <button onClick={() => setReactionTimer(prev => ({...prev, timeRemaining: 100}))}>Pause Timer</button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Dice Roller Overlay */}
       <AnimatePresence>
@@ -1571,22 +1724,60 @@ export default function GameBoard() {
           style={{ top: contextMenu.y, left: contextMenu.x }}
           onClick={(e) => e.stopPropagation()}
         >
+          <div className="context-menu-header">{contextMenu.targetType.replace('card_', '').toUpperCase()}</div>
+              
+          {contextMenu.targetType === 'battlefield' && (
+             <div className="context-menu-item" onClick={() => {
+                 setContextMenu(prev => ({ ...prev, visible: false }));
+                 setDiceModal(prev => ({ ...prev, active: true }));
+             }}>🎲 Roll Dice</div>
+          )}
+
           {contextMenu.targetType === 'archive' && (
             <>
-              <div className="context-menu-item" onClick={actionShuffleArchive}>Shuffle Archive</div>
-              <div className="context-menu-item" onClick={actionMillToDungeon}>Mill to Dungeon</div>
-              <div className="context-menu-item" onClick={() => { setArchiveView({visible: true, mode: 'all', count: 0}); setContextMenu(prev=>({...prev, visible: false})); }}>View Library</div>
+              <div className="context-menu-item" onClick={actionDrawCard}>Draw card</div>
+              <div className="context-menu-item" onClick={actionDrawCards}>Draw cards...</div>
+              <div className="context-menu-item" onClick={actionUndoDraw}>Undo last draw</div>
+              
+              <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+              
+              <div className="context-menu-item" onClick={actionShuffleArchive}>Shuffle</div>
+              
+              <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+
+              <div className="context-menu-item" onClick={() => { setArchiveView({visible: true, mode: 'all', count: 0}); setContextMenu(prev=>({...prev, visible: false})); }}>View library</div>
               <div className="context-menu-item" onClick={() => { 
-                const count = parseInt(prompt("Look at top how many cards?", "3"), 10) || 3;
+                const count = parseInt(prompt("View top how many cards?", "3"), 10) || 3;
                 setArchiveView({visible: true, mode: 'topX', count}); 
                 setContextMenu(prev=>({...prev, visible: false})); 
-              }}>Look at Top X...</div>
+              }}>View top cards of library...</div>
+              <div className="context-menu-item" onClick={() => { 
+                const count = parseInt(prompt("View bottom how many cards?", "3"), 10) || 3;
+                setArchiveView({visible: true, mode: 'bottomX', count}); 
+                setContextMenu(prev=>({...prev, visible: false})); 
+              }}>View bottom cards of library...</div>
+
+              <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+
+              <div className="context-menu-item" onClick={() => {
+                 setArchiveModifiers(prev => ({ ...prev, alwaysRevealTop: !prev.alwaysRevealTop, alwaysLookAtTop: false }));
+                 setContextMenu(prev=>({...prev, visible: false})); 
+              }}>
+                 {archiveModifiers.alwaysRevealTop ? 'Stop revealing top card' : 'Always reveal top card'}
+              </div>
+              
+              <div className="context-menu-item" onClick={() => {
+                 setArchiveModifiers(prev => ({ ...prev, alwaysLookAtTop: !prev.alwaysLookAtTop, alwaysRevealTop: false }));
+                 setContextMenu(prev=>({...prev, visible: false})); 
+              }}>
+                 {archiveModifiers.alwaysLookAtTop ? 'Stop looking at top card' : 'Always look at top card'}
+              </div>
             </>
           )}
           
           {(contextMenu.targetType === 'card_timeline' || contextMenu.targetType === 'card_location' || contextMenu.targetType === 'card_hero') && (
             <>
-              <div className="context-menu-item" onClick={() => actionToggleTap(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Tap / Untap</div>
+              <div className="context-menu-item" onClick={() => actionToggleTap(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Engage / Disengage</div>
               <div className="context-menu-item" onClick={() => actionAddCounter(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Add Counter</div>
               <div className="context-menu-item" onClick={() => actionRemoveCounter(contextMenu.targetData, contextMenu.targetType.replace('card_', ''))}>Remove Counter</div>
               {contextMenu.targetType !== 'card_hero' && (
@@ -1597,6 +1788,15 @@ export default function GameBoard() {
                     {contextMenu.targetType === 'card_timeline' ? 'Resolve Card' : 'Send to Dungeon'}
                   </div>
                   <div className="context-menu-item" onClick={() => actionSendToBottom(contextMenu.targetData, contextMenu.targetType === 'card_timeline' ? 'timeline' : 'locations')}>Send to Bottom of Archive</div>
+                </>
+              )}
+              {contextMenu.targetType === 'card_hero' && (
+                <>
+                  <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+                  <div className="context-menu-item" onClick={() => {
+                    setAnnotationModal({ active: true, cardUid: contextMenu.targetData.uid, source: 'hero', text: contextMenu.targetData.annotations || '' });
+                    setContextMenu(prev => ({...prev, visible: false}));
+                  }}>Set Annotations...</div>
                 </>
               )}
             </>
@@ -1611,7 +1811,7 @@ export default function GameBoard() {
 
           {contextMenu.targetType === 'card_archive' && (
             <>
-              <div className="context-menu-item" onClick={() => actionRevealCard(contextMenu.targetData)}>Reveal</div>
+              <div className="context-menu-item" onClick={() => actionRevealArchiveCard(contextMenu.targetData)}>Reveal</div>
               <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
               <div className="context-menu-item" onClick={() => actionArchiveToHand(contextMenu.targetData)}>Send to Hand</div>
               <div className="context-menu-item" onClick={() => actionArchiveToDungeon(contextMenu.targetData)}>Send to Dungeon</div>
@@ -1621,6 +1821,51 @@ export default function GameBoard() {
               <div className="context-menu-item" onClick={() => actionArchiveMoveToBottom(contextMenu.targetData)}>Move to Bottom</div>
             </>
           )}
+
+          {contextMenu.targetType === 'card_hand' && (
+            <>
+              <div className="context-menu-item" onClick={() => actionPlayCardFromHand(contextMenu.targetData, false)}>Play</div>
+              <div className="context-menu-item" onClick={() => actionPlayCardFromHand(contextMenu.targetData, true)}>Play Face Down</div>
+              <div className="context-menu-item" onClick={() => actionRevealCard(contextMenu.targetData)}>{contextMenu.targetData.isRevealed ? 'Hide' : 'Reveal'}</div>
+              
+              <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+
+              <div className="context-menu-item" onClick={() => actionMoveHandToTop(contextMenu.targetData)}>Move to Top of library</div>
+              <div className="context-menu-item" onClick={() => actionMoveHandToX(contextMenu.targetData)}>Move to X cards from top of library...</div>
+              <div className="context-menu-item" onClick={() => actionMoveHandToBottom(contextMenu.targetData)}>Move to Bottom of library</div>
+              
+              <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+
+              <div className="context-menu-item" onClick={() => actionMoveToZone(contextMenu.targetData, 'timeline')}>Move to Table</div>
+              
+              <div className="context-menu-item has-submenu">
+                <span>Discard</span> <span>▶</span>
+                <div className="context-menu-submenu">
+                  <div className="context-menu-item" onClick={(e) => { e.stopPropagation(); actionMoveToZone(contextMenu.targetData, 'dungeon'); }}>Dungeon</div>
+                  <div className="context-menu-item" onClick={(e) => { e.stopPropagation(); actionMoveToZone(contextMenu.targetData, 'void'); }}>Void</div>
+                </div>
+              </div>
+
+              <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
+              
+              <div className="context-menu-item" onClick={() => actionAttachCard(contextMenu.targetData)}>Attach to card...</div>
+            </>
+          )}
+
+          {contextMenu.targetType === 'card_attached' && (
+            <>
+              <div className="context-menu-item" onClick={() => actionDetachCard(contextMenu.targetData.card, contextMenu.targetData.parentUid, contextMenu.targetData.zone, 'timeline')}>Detach (Move to Table)</div>
+              <div className="context-menu-item" onClick={() => actionDetachCard(contextMenu.targetData.card, contextMenu.targetData.parentUid, contextMenu.targetData.zone, 'hand')}>Return to Hand</div>
+              
+              <div className="context-menu-item has-submenu">
+                <span>Discard</span> <span>▶</span>
+                <div className="context-menu-submenu">
+                  <div className="context-menu-item" onClick={(e) => { e.stopPropagation(); actionDetachCard(contextMenu.targetData.card, contextMenu.targetData.parentUid, contextMenu.targetData.zone, 'dungeon'); }}>Dungeon</div>
+                  <div className="context-menu-item" onClick={(e) => { e.stopPropagation(); actionDetachCard(contextMenu.targetData.card, contextMenu.targetData.parentUid, contextMenu.targetData.zone, 'void'); }}>Void</div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
 
@@ -1628,3 +1873,9 @@ export default function GameBoard() {
     </div>
   );
 }
+
+
+
+
+
+
