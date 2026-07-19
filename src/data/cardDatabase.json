@@ -33,7 +33,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "You and a target each deal weapon damage plus modifier to each other.",
+    "rulesText": "You and another target each deal attack damage plus modifier to each other.",
     "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
     "subtype": "Ability",
     "rarity": "Common",
@@ -73,7 +73,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "During your next attack this turn, you may attack twice.",
+    "rulesText": "During your next combat this turn, you may attack twice.",
     "flavorText": "“In chaos there is also opportunity.” — Stug",
     "subtype": "Ability",
     "rarity": "Common",
@@ -693,8 +693,8 @@
       "wis": 0,
       "luc": 5
     },
-    "rulesText": "A target loses 1d6 defense until the end of the turn.  (This effect cannot reduce defense below 0.)\n“Every being that stirs in the realm carries a tale of enchantment and intrigue, weaving timeless legends of adventure and transformation with each step it takes.” — Talpit, the Ranger",
-    "flavorText": "",
+    "rulesText": "A target loses 1d6 defense until the end of the turn.  (This effect cannot reduce defense below 0.)",
+    "flavorText": "“Every being that stirs in the realm carries a tale of enchantment and intrigue, weaving timeless legends of adventure and transformation with each step it takes.” — Talpit, the Ranger",
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Hunters Mark.jpg"
@@ -1681,7 +1681,7 @@
     "id": "084",
     "name": "Brutal Critical",
     "type": "Reaction",
-    "imageUrl": "/cards/fronts/084.png",
+    "imageUrl": "/cards/templates/084.png",
     "rawText": "a OY\nBrutal Critical\n0 | = =\n| 7\n0 a\n0 “0 - 5\n2 £ |\n2 [ P|\nReaction - Ability\nRoll one additional weapon damage die\nwhen determining the extra damage for\na critical hit. =\n“It deesn’t happen by chance and\nde ds immense skill and combat\nprowess to achieve.”\nPlace Holder Art 4\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 0,

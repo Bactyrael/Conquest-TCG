@@ -4,6 +4,14 @@ import './GameBoard.css';
 import Card from './Card';
 import cardDatabase from '../data/cardDatabase.json';
 
+const EconomyTracker = ({ economy }) => (
+   <div style={{ display: 'flex', gap: '5px', marginTop: '10px' }}>
+      <div style={{ padding: '2px 8px', borderRadius: '4px', background: economy.action > 0 ? '#4caf50' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>ACT</div>
+      <div style={{ padding: '2px 8px', borderRadius: '4px', background: economy.bonusAction > 0 ? '#2196f3' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>BON</div>
+      <div style={{ padding: '2px 8px', borderRadius: '4px', background: economy.reaction > 0 ? '#ff9800' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>RXN</div>
+   </div>
+);
+
 export default function GameBoard() {
   const [savedDecks, setSavedDecks] = useState({});
   const [heroCard, setHeroCard] = useState(null);
@@ -14,7 +22,11 @@ export default function GameBoard() {
   const [currentPhase, setCurrentPhase] = useState('upkeep');
   const [activePlayer, setActivePlayer] = useState('player'); // 'player' or 'opponent'
   const [turnNumber, setTurnNumber] = useState(1);
+  const [locationsPlayedThisTurn, setLocationsPlayedThisTurn] = useState(0);
   const [mulliganState, setMulliganState] = useState({ active: false, count: 7 });
+  const [discardState, setDiscardState] = useState({ active: false, count: 0 });
+  const [playerHeroConditions, setPlayerHeroConditions] = useState([]);
+  const [opponentHeroConditions, setOpponentHeroConditions] = useState([]);
 
   // Automation: Reaction Timer & Dice
   const [reactionTimer, setReactionTimer] = useState({
@@ -25,7 +37,8 @@ export default function GameBoard() {
     shouldRollDice: false,
     targetId: null,
     actionType: null,
-    diceParams: null
+    diceParams: null,
+    sourceCard: null
   });
   const [diceRoll, setDiceRoll] = useState(null);
 
@@ -33,10 +46,17 @@ export default function GameBoard() {
     if (!reactionTimer.active) return;
     if (reactionTimer.timeRemaining <= 0) {
       setReactionTimer(prev => ({ ...prev, active: false }));
+      if (reactionTimer.sourceCard && reactionTimer.actionType === 'card-play') {
+          actionResolveCard(reactionTimer.sourceCard, 'timeline');
+      }
       if (reactionTimer.shouldRollDice) {
          console.log("Timer expired, rolling dice with params:", reactionTimer.diceParams);
-         if (reactionTimer.diceParams) {
-           rollDice(reactionTimer.diceParams.count, reactionTimer.diceParams.faces, reactionTimer.diceParams.modifierStat);
+         if (reactionTimer.duelParams) {
+           rollDice(
+             reactionTimer.duelParams.attacker.count, reactionTimer.duelParams.attacker.faces, reactionTimer.duelParams.attacker.modifierStat, { disadvantage: reactionTimer.duelParams.attacker.disadvantage, duelParams: reactionTimer.duelParams }
+           );
+         } else if (reactionTimer.diceParams) {
+           rollDice(reactionTimer.diceParams.count, reactionTimer.diceParams.faces, reactionTimer.diceParams.modifierStat, { disadvantage: reactionTimer.diceParams.disadvantage });
          } else {
            rollDice(1, 20, null);
          }
@@ -105,13 +125,35 @@ export default function GameBoard() {
     return val;
   };
 
-  const rollDice = (count = 1, max = 20, modifierStat = null) => {
-    console.log("rollDice called!", count, max, modifierStat);
+  const rollDice = (count = 1, max = 20, modifierStat = null, options = {}) => {
+    console.log("rollDice called!", count, max, modifierStat, options);
+    
+    const isDuel = !!options.duelParams;
+    const defCount = isDuel ? options.duelParams.defender.count : 0;
+    const defMax = isDuel ? options.duelParams.defender.faces : 0;
+    const defModStat = isDuel ? options.duelParams.defender.modifierStat : null;
+    const defDisadvantage = isDuel ? options.duelParams.defender.disadvantage : false;
+    const defAdvantage = isDuel ? options.duelParams.defender.advantage : false;
+
     let modValue = 0;
+    let defModValue = 0;
     try {
       modValue = modifierStat ? getStat(modifierStat) : 0;
-      console.log("modValue calculated:", modValue);
-      setDiceRoll({ active: true, results: Array(count).fill(1), max, modifierStat, modValue, final: false, totalDamage: 0 });
+      if (isDuel && defModStat) defModValue = getStat(defModStat);
+      
+      setDiceRoll({ 
+         active: true, 
+         results: Array(count).fill(1), 
+         results2: (options.disadvantage || options.advantage) ? Array(count).fill(1) : null, 
+         max, modifierStat, modValue, final: false, totalDamage: 0, disadvantage: options.disadvantage,
+         duel: isDuel,
+         duelResults: isDuel ? Array(defCount).fill(1) : null,
+         duelResults2: (isDuel && (defDisadvantage || defAdvantage)) ? Array(defCount).fill(1) : null,
+         duelMax: defMax,
+         duelModifierStat: defModStat,
+         duelModValue: defModValue,
+         duelTotalDamage: 0
+      });
     } catch(err) {
       console.error("Error in rollDice init:", err);
     }
@@ -120,26 +162,85 @@ export default function GameBoard() {
     const rollAnim = setInterval(() => {
       setDiceRoll(prev => ({ 
          ...prev, 
-         results: Array(count).fill(0).map(() => Math.floor(Math.random() * max) + 1) 
+         results: Array(count).fill(0).map(() => Math.floor(Math.random() * max) + 1),
+         results2: (options.disadvantage || options.advantage) ? Array(count).fill(0).map(() => Math.floor(Math.random() * max) + 1) : null,
+         duelResults: isDuel ? Array(defCount).fill(0).map(() => Math.floor(Math.random() * defMax) + 1) : null,
+         duelResults2: (isDuel && (defDisadvantage || defAdvantage)) ? Array(defCount).fill(0).map(() => Math.floor(Math.random() * defMax) + 1) : null
       }));
       ticks++;
       if (ticks > 15) {
         clearInterval(rollAnim);
         const finalResults = Array(count).fill(0).map(() => Math.floor(Math.random() * max) + 1);
-        const sum = finalResults.reduce((a, b) => a + b, 0);
-        const finalTotal = sum + modValue;
+        const finalResults2 = (options.disadvantage || options.advantage) ? Array(count).fill(0).map(() => Math.floor(Math.random() * max) + 1) : null;
         
-        setDiceRoll({ active: true, results: finalResults, max, modifierStat, modValue, final: true, totalDamage: finalTotal });
+        let chosenResults = finalResults;
+        let droppedResults = null;
+        if (options.disadvantage || options.advantage) {
+           const sum1 = finalResults.reduce((a,b) => a+b, 0);
+           const sum2 = finalResults2.reduce((a,b) => a+b, 0);
+           if (options.disadvantage) {
+              if (sum1 <= sum2) { chosenResults = finalResults; droppedResults = finalResults2; }
+              else { chosenResults = finalResults2; droppedResults = finalResults; }
+           } else {
+              if (sum1 >= sum2) { chosenResults = finalResults; droppedResults = finalResults2; }
+              else { chosenResults = finalResults2; droppedResults = finalResults; }
+           }
+        }
+
+        const sum = chosenResults.reduce((a, b) => a + b, 0);
+        let finalDamage = sum + modValue;
+        if (finalDamage < 0) finalDamage = 0;
+        
+        let defChosenResults = null;
+        let defDroppedResults = null;
+        let defFinalDamage = 0;
+        
+        if (isDuel) {
+           const defFinalResults = Array(defCount).fill(0).map(() => Math.floor(Math.random() * defMax) + 1);
+           const defFinalResults2 = (defDisadvantage || defAdvantage) ? Array(defCount).fill(0).map(() => Math.floor(Math.random() * defMax) + 1) : null;
+           
+           defChosenResults = defFinalResults;
+           if (defDisadvantage || defAdvantage) {
+               const sum1 = defFinalResults.reduce((a,b) => a+b, 0);
+               const sum2 = defFinalResults2.reduce((a,b) => a+b, 0);
+               if (defDisadvantage) {
+                   if (sum1 <= sum2) { defChosenResults = defFinalResults; defDroppedResults = defFinalResults2; }
+                   else { defChosenResults = defFinalResults2; defDroppedResults = defFinalResults; }
+               } else {
+                   if (sum1 >= sum2) { defChosenResults = defFinalResults; defDroppedResults = defFinalResults2; }
+                   else { defChosenResults = defFinalResults2; defDroppedResults = defFinalResults; }
+               }
+           }
+           const defSum = defChosenResults.reduce((a,b) => a+b, 0);
+           defFinalDamage = defSum + defModValue;
+           if (defFinalDamage < 0) defFinalDamage = 0;
+        }
+
+        setDiceRoll(prev => ({ 
+           ...prev, 
+           results: chosenResults, results2: droppedResults, final: true, totalDamage: finalDamage,
+           duelResults: defChosenResults, duelResults2: defDroppedResults, duelTotalDamage: defFinalDamage
+        }));
         
         // HP Reduction Logic
         if (reactionTimer.actionType === 'attack' || reactionTimer.actionType === 'card-play') {
-          if (reactionTimer.targetId === 'opponent-hero') {
-             setOpponentHp(prev => prev - finalTotal);
-          } else if (reactionTimer.targetId === 'player-hero') {
-             setPlayerHp(prev => prev - finalTotal);
+          if (isDuel) {
+             if (activePlayer === 'player') {
+                 setOpponentHp(prev => Math.max(0, prev - finalDamage));
+                 setPlayerHp(prev => Math.max(0, prev - defFinalDamage));
+             } else {
+                 setPlayerHp(prev => Math.max(0, prev - finalDamage));
+                 setOpponentHp(prev => Math.max(0, prev - defFinalDamage));
+             }
           } else {
-             if (activePlayer === 'player') setOpponentHp(prev => prev - finalTotal);
-             else setPlayerHp(prev => prev - finalTotal);
+             if (reactionTimer.targetId === 'opponent-hero') {
+                setOpponentHp(prev => Math.max(0, prev - finalDamage));
+             } else if (reactionTimer.targetId === 'player-hero') {
+                setPlayerHp(prev => Math.max(0, prev - finalDamage));
+             } else {
+                if (activePlayer === 'player') setOpponentHp(prev => Math.max(0, prev - finalDamage));
+                else setPlayerHp(prev => Math.max(0, prev - finalDamage));
+             }
           }
         }
         
@@ -148,24 +249,26 @@ export default function GameBoard() {
     }, 80);
   };
 
-  const triggerReactionTimer = (cardName, shouldRollDice = false, targetId = null, actionType = 'card-play', diceParams = null) => {
-    console.log("triggerReactionTimer", cardName, shouldRollDice, targetId, actionType, diceParams);
+  const triggerReactionTimer = (cardName, shouldRollDice = false, targetId = null, actionType = 'card-play', diceParams = null, sourceCard = null, duelParams = null) => {
+    console.log("triggerReactionTimer", cardName, shouldRollDice, targetId, actionType, diceParams, duelParams);
     setReactionTimer({
       active: true,
       message: `Waiting for Reactions to: ${cardName}...`,
-      timeRemaining: 50,
-      maxTime: 50,
+      timeRemaining: 100,
+      maxTime: 100,
       shouldRollDice,
       targetId,
       actionType,
       diceParams,
+      sourceCard,
+      duelParams,
     });
   };
   
   const phases = [
     { id: 'upkeep', label: 'Upkeep', icon: '⚙️' },
     { id: 'draw', label: 'Draw', icon: '🎴' },
-    { id: 'action', label: 'Action', icon: '⚡' },
+    { id: 'act', label: 'Act', icon: '⚡' },
     { id: 'combat', label: 'Combat', icon: '⚔️' },
     { id: 'end', label: 'End', icon: '🏁' }
   ];
@@ -191,6 +294,11 @@ export default function GameBoard() {
   
   const [playerHp, setPlayerHp] = useState(20);
   const [opponentHp, setOpponentHp] = useState(20);
+  const [playerAttacksThisTurn, setPlayerAttacksThisTurn] = useState(0);
+  const [opponentAttacksThisTurn, setOpponentAttacksThisTurn] = useState(0);
+  
+  const [playerEconomy, setPlayerEconomy] = useState({ action: 1, bonusAction: 1, reaction: 1 });
+  const [opponentEconomy, setOpponentEconomy] = useState({ action: 1, bonusAction: 1, reaction: 1 });
 
   // Targeting System State
   const [targetingState, setTargetingState] = useState({
@@ -310,12 +418,27 @@ export default function GameBoard() {
     const card = targetingState.sourceCard;
     const diceParams = parseAttackLogic(card);
     
+    if (targetingState.actionType === 'attack') {
+       const attackerConditions = targetingState.sourceZone === 'player-hero' ? playerHeroConditions : opponentHeroConditions;
+       if (attackerConditions.some(c => c.type === 'disadvantage')) {
+          diceParams.disadvantage = true;
+       }
+    }
     // Resolve Targeting
     if (targetingState.actionType === 'attack') {
+      if (targetingState.sourceZone === 'player-hero') {
+         setPlayerAttacksThisTurn(prev => prev + 1);
+         if (playerEconomy.action > 0) setPlayerEconomy(prev => ({ ...prev, action: prev.action - 1 }));
+      }
+      else if (targetingState.sourceZone === 'opponent-hero') {
+         setOpponentAttacksThisTurn(prev => prev + 1);
+         if (opponentEconomy.action > 0) setOpponentEconomy(prev => ({ ...prev, action: prev.action - 1 }));
+      }
+
       const heroName = card ? card.name : 'Hero';
-      triggerReactionTimer(heroName + ' Attack', true, targetId, 'attack', diceParams);
+      triggerReactionTimer(heroName + ' Attack', true, targetId, 'attack', diceParams, card);
     } else if (targetingState.actionType === 'card-play') {
-      const shouldRoll = card.rulesText && card.rulesText.toLowerCase().includes('roll');
+      const shouldRoll = card.rulesText && (card.rulesText.toLowerCase().includes('roll') || /\d+d\d+/i.test(card.rulesText));
       
       // Officially play the card
       if (targetingState.targetZone === 'timeline') {
@@ -326,7 +449,52 @@ export default function GameBoard() {
         setOpponentLocations(prev => [...prev, card]);
       }
       
-      triggerReactionTimer(card.name, shouldRoll, targetId, 'card-play', diceParams);
+      // Handle Card Specific Status Effects
+      if (card.name === 'Battle Cry') {
+         if (activePlayer === 'player') {
+            setPlayerHeroConditions(prev => [...prev, { type: 'disadvantage', caster: activePlayer, expiresTurn: turnNumber + 1 }]);
+         } else {
+            setOpponentHeroConditions(prev => [...prev, { type: 'disadvantage', caster: activePlayer, expiresTurn: turnNumber + 1 }]);
+         }
+      }
+      
+      let duelParams = null;
+      if (card.name === 'Duel') {
+         const p1 = parseAttackLogic(activePlayer === 'player' ? heroCard : opponentHeroCard);
+         const p2 = parseAttackLogic(activePlayer === 'player' ? opponentHeroCard : heroCard);
+         const attackerConditions = activePlayer === 'player' ? playerHeroConditions : opponentHeroConditions;
+         const defenderConditions = activePlayer === 'player' ? opponentHeroConditions : playerHeroConditions;
+         if (attackerConditions.some(c => c.type === 'disadvantage')) p1.disadvantage = true;
+         if (defenderConditions.some(c => c.type === 'disadvantage')) p2.disadvantage = true;
+         
+         duelParams = { attacker: p1, defender: p2 };
+      }
+
+      triggerReactionTimer(card.name, shouldRoll, targetId, 'card-play', diceParams, card, duelParams);
+    }
+    
+    setTargetingState({ active: false, sourceCard: null, sourceZone: null, targetZone: null, actionType: null });
+  };
+
+  const handleTargetLocationClick = (loc) => {
+    if (!targetingState.active || targetingState.actionType !== 'bounce-location') return;
+    
+    const card = targetingState.sourceCard;
+    
+    if (activePlayer === 'player') {
+       // Remove targeted location and return to hand
+       setPlayerLocations(prev => prev.filter(c => c.uid !== loc.uid));
+       setHand(prev => [...prev, loc]);
+       // Place the new location
+       setPlayerLocations(prev => [...prev, card]);
+       setLocationsPlayedThisTurn(prev => prev + 1);
+    } else {
+       // Remove targeted location and return to hand
+       setOpponentLocations(prev => prev.filter(c => c.uid !== loc.uid));
+       setOpponentHand(prev => [...prev, loc]);
+       // Place the new location
+       setOpponentLocations(prev => [...prev, card]);
+       setLocationsPlayedThisTurn(prev => prev + 1);
     }
     
     setTargetingState({ active: false, sourceCard: null, sourceZone: null, targetZone: null, actionType: null });
@@ -361,14 +529,84 @@ export default function GameBoard() {
     setArchive(newArchive);
     setHand([...hand, card]);
   };
+  const consumeEconomy = (card, owner) => {
+    if (card.type === 'Action') {
+       if (owner === 'player') setPlayerEconomy(prev => ({ ...prev, action: prev.action - 1 }));
+       else setOpponentEconomy(prev => ({ ...prev, action: prev.action - 1 }));
+    } else if (card.type === 'Bonus Action') {
+       if (owner === 'player') setPlayerEconomy(prev => ({ ...prev, bonusAction: prev.bonusAction - 1 }));
+       else setOpponentEconomy(prev => ({ ...prev, bonusAction: prev.bonusAction - 1 }));
+    } else if (card.type === 'Reaction') {
+       if (owner === 'player') setPlayerEconomy(prev => ({ ...prev, reaction: prev.reaction - 1 }));
+       else setOpponentEconomy(prev => ({ ...prev, reaction: prev.reaction - 1 }));
+    }
+  };
 
   const playCard = (uid) => {
+    // Handle discarding
+    if (discardState.active) {
+       if (activePlayer === 'player') {
+          const cardIndex = hand.findIndex(c => c.uid === uid);
+          if (cardIndex !== -1) {
+             const card = hand[cardIndex];
+             setHand(hand.filter(c => c.uid !== uid));
+             setDungeon([...dungeon, card]);
+             
+             setDiscardState(prev => ({ active: prev.count - 1 > 0, count: prev.count - 1 }));
+          }
+       } else if (activePlayer === 'opponent') {
+          const oppCardIndex = opponentHand.findIndex(c => c.uid === uid);
+          if (oppCardIndex !== -1) {
+             const card = opponentHand[oppCardIndex];
+             setOpponentHand(opponentHand.filter(c => c.uid !== uid));
+             setOpponentDungeon([...opponentDungeon, card]);
+             
+             setDiscardState(prev => ({ active: prev.count - 1 > 0, count: prev.count - 1 }));
+          }
+       }
+       return;
+    }
+
     const card = hand.find(c => c.uid === uid);
     if (!card) return;
+    
+    const targetZone = card.type === 'Location' ? 'locations' : 'timeline';
+
+    if (card.rulesText && card.rulesText.toLowerCase().includes('return another location') && targetZone === 'locations') {
+       setTargetingState({
+          active: true,
+          sourceCard: card,
+          sourceZone: 'hand',
+          targetZone: targetZone,
+          actionType: 'bounce-location'
+       });
+       return;
+    }
+
+    if (card.rulesText && card.rulesText.toLowerCase().includes('target')) {
+       setTargetingState({
+          active: true,
+          sourceCard: card,
+          sourceZone: 'hand',
+          targetZone: targetZone,
+          actionType: 'card-play'
+       });
+       return;
+    }
+
     setHand(hand.filter(c => c.uid !== uid));
-    setTimeline([...timeline, card]);
-    const shouldRoll = card.rulesText && card.rulesText.toLowerCase().includes('roll');
-    triggerReactionTimer(card.name, shouldRoll);
+    if (targetZone === 'locations') {
+       setPlayerLocations([...playerLocations, card]);
+       setLocationsPlayedThisTurn(prev => prev + 1);
+    } else {
+       setTimeline([...timeline, card]);
+       consumeEconomy(card, 'player');
+    }
+    
+    const shouldRoll = card.rulesText && (card.rulesText.toLowerCase().includes('roll') || /\d+d\d+/i.test(card.rulesText));
+    if (card.type !== 'Location') {
+       triggerReactionTimer(card.name, shouldRoll, null, 'card-play', parseAttackLogic(card), card);
+    }
   };
 
   const resolveToDungeon = (uid) => {
@@ -451,10 +689,25 @@ export default function GameBoard() {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
-  const actionSendToDungeon = (card, source) => {
+  const actionResolveCard = (card, source) => {
     if (source === 'timeline') setTimeline(prev => prev.filter(c => c.uid !== card.uid));
     if (source === 'locations') setPlayerLocations(prev => prev.filter(c => c.uid !== card.uid));
-    setDungeon(prev => [...prev, card]);
+    
+    if (card.rulesText && card.rulesText.toLowerCase().includes('moves to the void after play')) {
+       setVoidZone(prev => [...prev, card]);
+    } else {
+       setDungeon(prev => [...prev, card]);
+    }
+    
+    // Apply Onslaught
+    if (card.rulesText && card.rulesText.toLowerCase().includes('may attack twice')) {
+       if (activePlayer === 'player') {
+          setPlayerHeroConditions(prev => [...prev, { type: 'onslaught', caster: 'player', expiresTurn: turnNumber }]);
+       } else {
+          setOpponentHeroConditions(prev => [...prev, { type: 'onslaught', caster: 'opponent', expiresTurn: turnNumber }]);
+       }
+    }
+    
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
@@ -536,9 +789,35 @@ export default function GameBoard() {
 
   
   
-  const canPlayCard = (card) => {
-    // Phase restrictions
-    if (card.type !== 'Reaction' && currentPhase !== 'action') return false;
+  const canPlayCard = (card, owner = 'player') => {
+    if (card.type !== 'Reaction') {
+      if (owner !== activePlayer) return false;
+      if (currentPhase !== 'act') return false;
+    } else {
+      if (!reactionTimer.active) return false;
+    }
+    
+    // Action Economy restrictions
+    const economy = owner === 'player' ? playerEconomy : opponentEconomy;
+    if (card.type === 'Action' && economy.action <= 0) return false;
+    if (card.type === 'Bonus Action' && economy.bonusAction <= 0) return false;
+    if (card.type === 'Reaction' && economy.reaction <= 0) return false;
+    
+    // Location restrictions
+    if (card.type === 'Location') {
+      let maxLocations = 1;
+      // In the future, we can scan active cards for effects that increase maxLocations
+      if (locationsPlayedThisTurn >= maxLocations) {
+        return false;
+      }
+      
+      if (card.rulesText && card.rulesText.toLowerCase().includes('return another location')) {
+        const activeLocations = activePlayer === 'player' ? playerLocations : opponentLocations;
+        if (activeLocations.length === 0) {
+           return false; // Cannot play if you have no location to bounce
+        }
+      }
+    }
     
     // Requirements check
     if (card.requirements) {
@@ -582,17 +861,29 @@ export default function GameBoard() {
 
     if (!cardToMove) return;
 
-    const shouldRoll = cardToMove.rulesText && cardToMove.rulesText.toLowerCase().includes('roll');
+    const shouldRoll = cardToMove.rulesText && (cardToMove.rulesText.toLowerCase().includes('roll') || /\d+d\d+/i.test(cardToMove.rulesText));
 
     // Strict Enforcement for playing cards to the board
     if ((sourceZone === 'hand' || sourceZone === 'opponent-hand') && (targetZone === 'timeline' || targetZone === 'locations' || targetZone === 'opponent-locations')) {
-      if (!canPlayCard(cardToMove)) {
-        alert("Cannot play this card: Requirements not met or wrong phase.");
+      const owner = sourceZone === 'hand' ? 'player' : 'opponent';
+      if (!canPlayCard(cardToMove, owner)) {
+        alert("Cannot play this card: Requirements not met or wrong phase/turn.");
         return;
       }
     }
 
     // 2. Add to target or Intercept
+    if (cardToMove.rulesText && cardToMove.rulesText.toLowerCase().includes('return another location') && targetZone === 'locations') {
+       setTargetingState({
+          active: true,
+          sourceCard: cardToMove,
+          sourceZone: sourceZone,
+          targetZone: targetZone,
+          actionType: 'bounce-location'
+       });
+       return;
+    }
+
     if (cardToMove.rulesText && cardToMove.rulesText.toLowerCase().includes('target') && (targetZone === 'timeline' || targetZone === 'locations' || targetZone === 'opponent-locations')) {
        setTargetingState({
           active: true,
@@ -606,17 +897,22 @@ export default function GameBoard() {
 
     if (targetZone === 'timeline') {
       setTimeline(prev => [...prev, cardToMove]);
-      if (sourceZone === 'hand' || sourceZone === 'opponent-hand') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove));
+      if (sourceZone === 'hand' || sourceZone === 'opponent-hand') {
+         consumeEconomy(cardToMove, sourceZone === 'hand' ? 'player' : 'opponent');
+         triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove), cardToMove);
+      }
     } else if (targetZone === 'dungeon') {
       setDungeon(prev => [...prev, cardToMove]);
     } else if (targetZone === 'void') {
       setVoidZone(prev => [...prev, cardToMove]);
     } else if (targetZone === 'locations') {
       setPlayerLocations(prev => [...prev, cardToMove]);
-      if (sourceZone === 'hand') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove));
+      if (cardToMove.type === 'Location' && sourceZone === 'hand') setLocationsPlayedThisTurn(prev => prev + 1);
+      if (sourceZone === 'hand' && cardToMove.type !== 'Location') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove), cardToMove);
     } else if (targetZone === 'opponent-locations') {
       setOpponentLocations(prev => [...prev, cardToMove]);
-      if (sourceZone === 'opponent-hand') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove));
+      if (cardToMove.type === 'Location' && sourceZone === 'opponent-hand') setLocationsPlayedThisTurn(prev => prev + 1);
+      if (sourceZone === 'opponent-hand' && cardToMove.type !== 'Location') triggerReactionTimer(cardToMove.name, shouldRoll, null, 'card-play', parseAttackLogic(cardToMove), cardToMove);
     }
   };
 
@@ -637,13 +933,49 @@ export default function GameBoard() {
   });
 
   const handlePhaseAdvance = () => {
+    if (mulliganState.active) {
+      alert("You must decide to Keep or Mulligan your hand before advancing!");
+      return;
+    }
+    if (discardState.active) {
+      alert(`You must discard ${discardState.count} more card(s) before advancing!`);
+      return;
+    }
+
     const currentIndex = phases.findIndex(p => p.id === currentPhase);
+    
+    if (currentIndex === phases.length - 1) {
+      // Check hand size limit before passing turn
+      const activeHand = activePlayer === 'player' ? hand : opponentHand;
+      if (activeHand.length > 7) {
+         setDiscardState({ active: true, count: activeHand.length - 7 });
+         return; // Pause passing until resolved
+      }
+    }
+
     let nextPhaseId;
     if (currentIndex === phases.length - 1) {
       // Passing from End phase -> Change active player and go to upkeep
-      setActivePlayer(prev => prev === 'player' ? 'opponent' : 'player');
+      const nextActivePlayer = activePlayer === 'player' ? 'opponent' : 'player';
+      const nextTurnNumber = activePlayer === 'opponent' ? turnNumber + 1 : turnNumber;
+      
+      setActivePlayer(nextActivePlayer);
+      setLocationsPlayedThisTurn(0);
+      setPlayerAttacksThisTurn(0);
+      setOpponentAttacksThisTurn(0);
+      
+      if (nextActivePlayer === 'player') {
+         setPlayerEconomy({ action: 1, bonusAction: 1, reaction: 1 });
+      } else {
+         setOpponentEconomy({ action: 1, bonusAction: 1, reaction: 1 });
+      }
       nextPhaseId = phases[0].id;
-      if (activePlayer === 'opponent') setTurnNumber(prev => prev + 1);
+      if (activePlayer === 'opponent') setTurnNumber(nextTurnNumber);
+      
+      // Clear expired conditions
+      setPlayerHeroConditions(prev => prev.filter(c => !(c.caster === nextActivePlayer && c.expiresTurn <= nextTurnNumber)));
+      setOpponentHeroConditions(prev => prev.filter(c => !(c.caster === nextActivePlayer && c.expiresTurn <= nextTurnNumber)));
+      
     } else {
       nextPhaseId = phases[currentIndex + 1].id;
     }
@@ -653,21 +985,16 @@ export default function GameBoard() {
     // Automation: Auto Draw
     if (nextPhaseId === 'draw' && activePlayer === 'player') {
       if (turnNumber === 1) {
-        setArchive(prev => {
-          const newArchive = [...prev];
-          const initialHand = newArchive.splice(-7);
-          setHand(initialHand);
-          return newArchive;
-        });
+        const newArchive = [...archive];
+        const initialHand = newArchive.splice(-7);
+        setHand(initialHand);
+        setArchive(newArchive);
         setMulliganState({ active: true, count: 7 });
       } else {
-        setArchive(prev => {
-          if (prev.length > 0) {
-             setHand(h => [...h, prev[prev.length - 1]]);
-             return prev.slice(0, -1);
-          }
-          return prev;
-        });
+        if (archive.length > 0) {
+           setHand(h => [...h, archive[archive.length - 1]]);
+           setArchive(a => a.slice(0, -1));
+        }
       }
     }
   };
@@ -688,7 +1015,6 @@ export default function GameBoard() {
             <div 
               key={phase.id} 
               className={`phase-item ${currentPhase === phase.id ? 'active' : ''}`}
-              onClick={() => setCurrentPhase(phase.id)}
             >
               <span className="phase-icon">{phase.icon}</span>
               <span className="phase-label">{phase.label}</span>
@@ -705,7 +1031,7 @@ export default function GameBoard() {
         <div className="player-hand-container opponent-hand-container">
           <div className="player-hand">
             {opponentHand.map((card, i) => (
-               <div className="hand-card-wrapper" key={i} draggable={activePlayer === 'opponent'} onDragStart={(e) => handleDragStart(e, card.uid, 'opponent-hand')}>
+               <div className="hand-card-wrapper" key={i} draggable={activePlayer === 'opponent'} onDragStart={(e) => handleDragStart(e, card.uid, 'opponent-hand')} onClick={() => discardState.active && activePlayer === 'opponent' ? playCard(card.uid) : null}>
                  {activePlayer === 'opponent' ? (
                    <Card data={card} />
                  ) : (
@@ -733,10 +1059,19 @@ export default function GameBoard() {
                  {opponentHeroCard ? (
                    <>
                      <Card data={opponentHeroCard} />
-                     {currentPhase === 'combat' && activePlayer === 'opponent' && !targetingState.active && (
+                     {opponentHeroConditions.map((cond, idx) => (
+                        <div key={idx} style={{
+                           position: 'absolute', bottom: -25, left: '50%', transform: 'translateX(-50%)', background: '#8a0303', color: 'white', 
+                           padding: '2px 8px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold',
+                           boxShadow: '0 0 5px rgba(0,0,0,0.5)', border: '1px solid #ff4500', whiteSpace: 'nowrap', zIndex: 10
+                        }}>
+                           {cond.type === 'disadvantage' ? 'Attack: Disadv.' : cond.type}
+                        </div>
+                     ))}
+                     {currentPhase === 'combat' && activePlayer === 'opponent' && !targetingState.active && opponentAttacksThisTurn < (1 + opponentHeroConditions.filter(c => c.type === 'onslaught').length) && (opponentEconomy.action > 0 || opponentHeroConditions.some(c => c.type === 'onslaught')) && (
                         <button className="attack-btn" onClick={(e) => { e.stopPropagation(); handleHeroAttack('opponent'); }}>⚔️ Attack</button>
                      )}
-                     {targetingState.active && targetingState.sourceZone !== 'opponent-hero' && (
+                     {targetingState.active && targetingState.actionType !== 'bounce-location' && targetingState.sourceZone !== 'opponent-hero' && (
                         <div className="target-overlay" onClick={() => handleTargetClick('opponent-hero')}>🎯 Target</div>
                      )}
                    </>
@@ -752,6 +1087,7 @@ export default function GameBoard() {
               <div className="stat-box hp">HP: {opponentHp}</div>
               <div className="stat-box def">DEF: 0</div>
               <div className="stat-box res">RES: 0</div>
+              <EconomyTracker economy={opponentEconomy} />
             </div>
 
             <div className="location-zone" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, 'opponent-locations')}>
@@ -759,6 +1095,9 @@ export default function GameBoard() {
               {opponentLocations.map(loc => (
                  <div key={loc.uid} className="location-slot active">
                    <Card data={loc} />
+                   {targetingState.active && targetingState.actionType === 'bounce-location' && activePlayer === 'opponent' && (
+                     <div className="target-overlay bounce-overlay" onClick={() => handleTargetLocationClick(loc)}>Target</div>
+                   )}
                  </div>
               ))}
             </div>
@@ -849,11 +1188,20 @@ export default function GameBoard() {
                    <>
                      <Card data={heroCard} />
                      {heroCard.counters > 0 && <div className="card-counter-badge">{heroCard.counters}</div>}
+                     {playerHeroConditions.map((cond, idx) => (
+                        <div key={idx} style={{
+                           position: 'absolute', top: -25, left: '50%', transform: 'translateX(-50%)', background: '#8a0303', color: 'white', 
+                           padding: '2px 8px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold',
+                           boxShadow: '0 0 5px rgba(0,0,0,0.5)', border: '1px solid #ff4500', whiteSpace: 'nowrap', zIndex: 10
+                        }}>
+                           {cond.type === 'disadvantage' ? 'Attack: Disadv.' : cond.type}
+                        </div>
+                     ))}
                      <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(heroCard); }}>🔍</button>
-                     {currentPhase === 'combat' && activePlayer === 'player' && !targetingState.active && (
+                     {currentPhase === 'combat' && activePlayer === 'player' && !targetingState.active && playerAttacksThisTurn < (1 + playerHeroConditions.filter(c => c.type === 'onslaught').length) && (playerEconomy.action > 0 || playerHeroConditions.some(c => c.type === 'onslaught')) && (
                         <button className="attack-btn" onClick={(e) => { e.stopPropagation(); handleHeroAttack('player'); }}>⚔️ Attack</button>
                      )}
-                     {targetingState.active && targetingState.sourceZone !== 'player-hero' && (
+                     {targetingState.active && targetingState.actionType !== 'bounce-location' && targetingState.sourceZone !== 'player-hero' && (
                         <div className="target-overlay" onClick={() => handleTargetClick('player-hero')}>🎯 Target</div>
                      )}
                    </>
@@ -869,6 +1217,7 @@ export default function GameBoard() {
               <div className="stat-box hp">HP: {playerHp}</div>
               <div className="stat-box def">DEF: 0</div>
               <div className="stat-box res">RES: 0</div>
+              <EconomyTracker economy={playerEconomy} />
             </div>
 
             <div className="location-zone"
@@ -889,6 +1238,9 @@ export default function GameBoard() {
                        {loc.counters > 0 && <div className="card-counter-badge">{loc.counters}</div>}
                        <Card data={loc} />
                        <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(loc); }}>🔍</button>
+                       {targetingState.active && targetingState.actionType === 'bounce-location' && activePlayer === 'player' && (
+                         <div className="target-overlay bounce-overlay" onClick={() => handleTargetLocationClick(loc)}>Target</div>
+                       )}
                     </div>
                   ))}
                 </div>
@@ -909,9 +1261,8 @@ export default function GameBoard() {
              >Dungeon ({dungeon.length})</div>
              <div 
                className="zone-slot archive interactive" 
-               onClick={drawCard}
                onContextMenu={(e) => handleContextMenu(e, 'archive', null)}
-               title="Click to Draw, Right-Click for Options"
+               title="Right-Click for Options"
              >
                <img src="/cards/backs/000_back.png" alt="Player Deck" className="deck-back-image" />
                <div className="archive-count">{archive.length}</div>
@@ -933,7 +1284,11 @@ export default function GameBoard() {
                  key={card.uid} 
                  draggable={playable}
                  onDragStart={(e) => { if(playable) handleDragStart(e, card.uid, 'hand'); }}
-                 onClick={() => { if(playable) playCard(card.uid); else alert('Cannot play this card right now.'); }}
+                 onClick={() => { 
+                   if (discardState.active && activePlayer === 'player') playCard(card.uid);
+                   else if(playable) playCard(card.uid); 
+                   else alert('Cannot play this card right now.'); 
+                 }}
                  title={playable ? "Click or Drag to Play" : "Requirements not met or wrong phase"}
                  initial={{ y: 100, opacity: 0 }}
                  animate={{ y: 0, opacity: 1 }}
@@ -1009,6 +1364,53 @@ export default function GameBoard() {
       )}
 
       {/* Modals and Overlays */}
+      
+      {/* Game Over Overlay */}
+      {(playerHp === 0 || opponentHp === 0) && (
+         <div style={{
+            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+            zIndex: 5000, background: 'rgba(0,0,0,0.95)', display: 'flex', flexDirection: 'column',
+            justifyContent: 'center', alignItems: 'center', color: '#fff'
+         }}>
+            <h1 style={{ fontSize: '6rem', margin: 0, color: playerHp === 0 ? '#ff4500' : '#ffd700', textShadow: '0 0 20px rgba(255,255,255,0.3)' }}>
+               {playerHp === 0 ? 'DEFEAT' : 'VICTORY'}
+            </h1>
+            <p style={{ fontSize: '2rem', marginTop: '20px', color: '#aaa' }}>
+               {playerHp === 0 ? 'Your hero has fallen.' : 'You have vanquished your opponent!'}
+            </p>
+            <button onClick={() => window.location.reload()} style={{ marginTop: '40px', padding: '15px 40px', fontSize: '1.5rem', background: '#222', color: '#fff', border: '2px solid #555', borderRadius: '12px', cursor: 'pointer', transition: 'all 0.2s' }}>
+               Play Again
+            </button>
+         </div>
+      )}
+
+      {/* Mulligan Overlay */}
+      {mulliganState.active && (
+         <div style={{
+            position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+            zIndex: 3000, background: 'rgba(0,0,0,0.95)',
+            padding: '40px', borderRadius: '16px', border: '2px solid #555',
+            color: '#fff', textAlign: 'center', boxShadow: '0 0 40px rgba(0,0,0,0.8)'
+         }}>
+            <h2>Keep Starting Hand?</h2>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '20px' }}>
+               <button onClick={handleKeep} style={{ padding: '10px 20px', background: '#2c7a2c', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Keep Hand</button>
+               <button onClick={handleMulligan} style={{ padding: '10px 20px', background: '#9e2a2b', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Mulligan (Draw {mulliganState.count - 1})</button>
+            </div>
+         </div>
+      )}
+
+      {/* Discard Overlay */}
+      {discardState.active && (
+         <div style={{
+            position: 'absolute', top: '20%', left: '50%', transform: 'translate(-50%, -50%)',
+            zIndex: 3000, pointerEvents: 'none', background: 'rgba(0,0,0,0.8)',
+            padding: '20px 40px', borderRadius: '12px', border: '2px solid #e0c800',
+            color: '#e0c800', fontSize: '2rem', textShadow: '0 0 10px #e0c800'
+         }}>
+            Discard {discardState.count} Card(s) to the Dungeon! ({activePlayer === 'player' ? 'Your Hand' : "Opponent's Hand"})
+         </div>
+      )}
 
       {/* Targeting Message Overlay */}
       {targetingState.active && (
@@ -1022,25 +1424,7 @@ export default function GameBoard() {
          </div>
       )}
 
-      {/* Mulligan Overlay */}
-      {mulliganState.active && (
-        <div className="reaction-overlay" style={{ borderColor: '#00d2ff', boxShadow: '0 0 20px rgba(0, 210, 255, 0.3)' }}>
-          <div className="reaction-box">
-            <h3 style={{ color: '#00d2ff' }}>Starting Hand</h3>
-            <p style={{ color: '#ccc', margin: '0 0 1rem 0' }}>You drew {mulliganState.count} cards. Would you like to Keep or Mulligan?</p>
-            <div className="reaction-actions">
-               <button onClick={handleKeep} style={{ borderColor: '#00ff88', color: '#00ff88' }}>Keep Hand</button>
-               <button 
-                  onClick={handleMulligan} 
-                  disabled={mulliganState.count <= 1}
-                  style={{ borderColor: '#ff4500', color: '#ff4500', opacity: mulliganState.count <= 1 ? 0.5 : 1, cursor: mulliganState.count <= 1 ? 'not-allowed' : 'pointer' }}
-               >
-                 Mulligan (Draw {mulliganState.count - 1})
-               </button>
-            </div>
-          </div>
-        </div>
-      )}
+
 
       {/* Reaction Timer Overlay */}
       {reactionTimer.active && (
@@ -1072,29 +1456,109 @@ export default function GameBoard() {
           >
             <div className={`dice-container ${diceRoll.final ? 'final' : ''}`} style={{flexDirection: 'column', padding: '30px', background: 'rgba(0,0,0,0.85)', border: '4px solid #ffaa00', borderRadius: '16px'}}>
               <h2 style={{color: '#ffaa00', textShadow: '0 0 10px #ffaa00', marginBottom: '10px', marginTop: 0}}>Attack Resolution</h2>
-              <div style={{display: 'flex', gap: '15px', marginBottom: '15px'}}>
-                {diceRoll.results.map((res, i) => (
-                  <div key={i} style={{
-                    width: '80px', height: '80px', background: '#333', border: '3px solid #666', borderRadius: '12px',
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: diceRoll.final ? '0 0 20px #ffaa00' : 'none',
-                    transition: 'box-shadow 0.3s'
-                  }}>
-                    <div style={{fontSize: '12px', color: '#aaa'}}>D{diceRoll.max}</div>
-                    <div style={{fontSize: '36px', color: '#fff', fontWeight: 'bold'}}>{res}</div>
-                  </div>
-                ))}
+              <div style={{display: 'flex', gap: '40px', alignItems: 'flex-start'}}>
+                 
+                 {/* Attacker Roll */}
+                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    {diceRoll.duel && <h3 style={{color: '#ddd', marginTop: 0}}>Attacker</h3>}
+                    <div style={{display: 'flex', gap: '30px', marginBottom: '15px', justifyContent: 'center'}}>
+                      <div style={{display: 'flex', gap: '15px', flexDirection: 'column', alignItems: 'center'}}>
+                         {diceRoll.final && diceRoll.results2 && <div style={{color: '#ffaa00', fontWeight: 'bold'}}>Chosen Roll</div>}
+                         <div style={{display: 'flex', gap: '15px'}}>
+                           {diceRoll.results.map((res, i) => (
+                             <div key={`res1-${i}`} style={{
+                               width: '80px', height: '80px', background: '#333', border: '3px solid #666', borderRadius: '12px',
+                               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                               boxShadow: diceRoll.final ? '0 0 20px #ffaa00' : 'none',
+                               transition: 'box-shadow 0.3s'
+                             }}>
+                               <div style={{fontSize: '12px', color: '#aaa'}}>D{diceRoll.max}</div>
+                               <div style={{fontSize: '36px', color: '#fff', fontWeight: 'bold'}}>{res}</div>
+                             </div>
+                           ))}
+                         </div>
+                      </div>
+                      {diceRoll.results2 && (
+                         <div style={{display: 'flex', gap: '15px', flexDirection: 'column', alignItems: 'center', opacity: diceRoll.final ? 0.5 : 1}}>
+                            {diceRoll.final && <div style={{color: '#888', fontStyle: 'italic'}}>Dropped Roll</div>}
+                            <div style={{display: 'flex', gap: '15px'}}>
+                              {diceRoll.results2.map((res, i) => (
+                                <div key={`res2-${i}`} style={{
+                                  width: '80px', height: '80px', background: '#222', border: '3px solid #444', borderRadius: '12px',
+                                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+                                }}>
+                                  <div style={{fontSize: '12px', color: '#888'}}>D{diceRoll.max}</div>
+                                  <div style={{fontSize: '36px', color: '#aaa', fontWeight: 'bold'}}>{res}</div>
+                                </div>
+                              ))}
+                            </div>
+                         </div>
+                      )}
+                    </div>
+                    {diceRoll.modifierStat && (
+                      <div style={{fontSize: '24px', color: '#ddd', marginBottom: '15px'}}>
+                        + {diceRoll.modValue} <span style={{fontSize: '16px', color: '#aaa'}}>({diceRoll.modifierStat})</span>
+                      </div>
+                    )}
+                    {diceRoll.final && (
+                      <div style={{fontSize: '48px', color: '#ff4500', fontWeight: 'bold', textShadow: '0 0 20px #ff4500'}}>
+                        {diceRoll.totalDamage} DAMAGE!
+                      </div>
+                    )}
+                 </div>
+                 
+                 {/* Defender Roll (Duel) */}
+                 {diceRoll.duel && (
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', borderLeft: '2px solid #555', paddingLeft: '40px'}}>
+                       <h3 style={{color: '#ddd', marginTop: 0}}>Defender</h3>
+                       <div style={{display: 'flex', gap: '30px', marginBottom: '15px', justifyContent: 'center'}}>
+                         <div style={{display: 'flex', gap: '15px', flexDirection: 'column', alignItems: 'center'}}>
+                            {diceRoll.final && diceRoll.duelResults2 && <div style={{color: '#ffaa00', fontWeight: 'bold'}}>Chosen Roll</div>}
+                            <div style={{display: 'flex', gap: '15px'}}>
+                              {(diceRoll.duelResults || []).map((res, i) => (
+                                <div key={`def-res1-${i}`} style={{
+                                  width: '80px', height: '80px', background: '#333', border: '3px solid #666', borderRadius: '12px',
+                                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                                  boxShadow: diceRoll.final ? '0 0 20px #ffaa00' : 'none',
+                                  transition: 'box-shadow 0.3s'
+                                }}>
+                                  <div style={{fontSize: '12px', color: '#aaa'}}>D{diceRoll.duelMax}</div>
+                                  <div style={{fontSize: '36px', color: '#fff', fontWeight: 'bold'}}>{res}</div>
+                                </div>
+                              ))}
+                            </div>
+                         </div>
+                         {diceRoll.duelResults2 && (
+                            <div style={{display: 'flex', gap: '15px', flexDirection: 'column', alignItems: 'center', opacity: diceRoll.final ? 0.5 : 1}}>
+                               {diceRoll.final && <div style={{color: '#888', fontStyle: 'italic'}}>Dropped Roll</div>}
+                               <div style={{display: 'flex', gap: '15px'}}>
+                                 {(diceRoll.duelResults2 || []).map((res, i) => (
+                                   <div key={`def-res2-${i}`} style={{
+                                     width: '80px', height: '80px', background: '#222', border: '3px solid #444', borderRadius: '12px',
+                                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+                                   }}>
+                                     <div style={{fontSize: '12px', color: '#888'}}>D{diceRoll.duelMax}</div>
+                                     <div style={{fontSize: '36px', color: '#aaa', fontWeight: 'bold'}}>{res}</div>
+                                   </div>
+                                 ))}
+                               </div>
+                            </div>
+                         )}
+                       </div>
+                       {diceRoll.duelModifierStat && (
+                         <div style={{fontSize: '24px', color: '#ddd', marginBottom: '15px'}}>
+                           + {diceRoll.duelModValue} <span style={{fontSize: '16px', color: '#aaa'}}>({diceRoll.duelModifierStat})</span>
+                         </div>
+                       )}
+                       {diceRoll.final && (
+                         <div style={{fontSize: '48px', color: '#ff4500', fontWeight: 'bold', textShadow: '0 0 20px #ff4500'}}>
+                           {diceRoll.duelTotalDamage} DAMAGE!
+                         </div>
+                       )}
+                    </div>
+                 )}
+                 
               </div>
-              {diceRoll.modifierStat && (
-                <div style={{fontSize: '24px', color: '#ddd', marginBottom: '15px'}}>
-                  + {diceRoll.modValue} <span style={{fontSize: '16px', color: '#aaa'}}>({diceRoll.modifierStat})</span>
-                </div>
-              )}
-              {diceRoll.final && (
-                <div style={{fontSize: '48px', color: '#ff4500', fontWeight: 'bold', textShadow: '0 0 20px #ff4500'}}>
-                  {diceRoll.totalDamage} DAMAGE!
-                </div>
-              )}
             </div>
           </motion.div>
         )}
@@ -1129,8 +1593,9 @@ export default function GameBoard() {
                 <>
                   <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
                   <div className="context-menu-item" onClick={() => actionReturnToHand(contextMenu.targetData, contextMenu.targetType === 'card_timeline' ? 'timeline' : 'locations')}>Return to Hand</div>
-                  <div className="context-menu-item" onClick={() => actionSendToDungeon(contextMenu.targetData, contextMenu.targetType === 'card_timeline' ? 'timeline' : 'locations')}>Send to Dungeon</div>
-                  <div className="context-menu-item" onClick={() => actionSendToVoid(contextMenu.targetData, contextMenu.targetType === 'card_timeline' ? 'timeline' : 'locations')}>Send to Void</div>
+                  <div className="context-menu-item" onClick={() => actionResolveCard(contextMenu.targetData, contextMenu.targetType === 'card_timeline' ? 'timeline' : 'locations')}>
+                    {contextMenu.targetType === 'card_timeline' ? 'Resolve Card' : 'Send to Dungeon'}
+                  </div>
                   <div className="context-menu-item" onClick={() => actionSendToBottom(contextMenu.targetData, contextMenu.targetType === 'card_timeline' ? 'timeline' : 'locations')}>Send to Bottom of Archive</div>
                 </>
               )}
