@@ -271,8 +271,8 @@ export default function GameBoard() {
        if (data.timeline) setOpponentTimeline(data.timeline);
        if (data.locations) setOpponentLocations(data.locations);
        if (data.hero) setOpponentHeroCard(data.hero);
-       if (data.archiveSize !== undefined) setOpponentArchive(new Array(data.archiveSize).fill({}));
-       if (data.handSize !== undefined) setOpponentHand(new Array(data.handSize).fill({}));
+       if (data.archiveSize !== undefined) setOpponentArchive(new Array(data.archiveSize).fill({ faceDown: true }));
+       if (data.handSize !== undefined) setOpponentHand(new Array(data.handSize).fill({ faceDown: true }));
        if (data.dungeon) setOpponentDungeon(data.dungeon);
        if (data.voidZone) setOpponentVoidZone(data.voidZone);
        if (data.hp !== undefined) setOpponentHp(data.hp);
