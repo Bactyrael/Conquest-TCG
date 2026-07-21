@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { io } from 'socket.io-client';
 import { motion, AnimatePresence } from 'framer-motion';
 import Xarrow, { Xwrapper } from 'react-xarrows';
 import './GameBoard.css';
@@ -26,6 +27,16 @@ export default function GameBoard() {
   const [turnNumber, setTurnNumber] = useState(1);
   const [locationsPlayedThisTurn, setLocationsPlayedThisTurn] = useState(0);
   const [discardState, setDiscardState] = useState({ active: false, count: 0 });
+
+  // Multiplayer State
+  const [socket, setSocket] = useState(null);
+  const [multiplayerRole, setMultiplayerRole] = useState(null); // 'player1' or 'player2'
+  const [multiplayerRoom, setMultiplayerRoom] = useState(null);
+  const [multiplayerStatus, setMultiplayerStatus] = useState('disconnected'); // 'disconnected', 'waiting', 'connected'
+  const isOpponentConnected = multiplayerStatus === 'connected';
+  const preventNextSync = useRef(false);
+  const [opponentPhasePassTrigger, setOpponentPhasePassTrigger] = useState(0);
+
 
   // Automation: Reaction Timer & Dice
 
@@ -220,6 +231,91 @@ export default function GameBoard() {
     mode: 'all', // 'all' or 'topX'
     count: 0
   });
+
+
+  // --- MULTIPLAYER SETUP ---
+  useEffect(() => {
+    const newSocket = io('http://localhost:3001');
+    setSocket(newSocket);
+
+    newSocket.on('connect', () => {
+      console.log('Connected to server with ID:', newSocket.id);
+    });
+
+    newSocket.on('waiting', (data) => {
+      setMultiplayerStatus('waiting');
+    });
+
+    newSocket.on('match_found', (data) => {
+      setMultiplayerStatus('connected');
+      setMultiplayerRole(data.role);
+      setMultiplayerRoom(data.room);
+      console.log('Match found! Role:', data.role, 'Room:', data.room);
+      if (data.role === 'player1') {
+        setActivePlayer('player');
+      } else {
+        setActivePlayer('opponent');
+      }
+    });
+
+    newSocket.on('opponent_disconnected', () => {
+      setMultiplayerStatus('disconnected');
+      setMultiplayerRole(null);
+      setMultiplayerRoom(null);
+      alert("Opponent disconnected!");
+    });
+    
+    newSocket.on('sync_state', (data) => {
+       preventNextSync.current = true;
+       // Unpack data and set opponent states
+       if (data.timeline) setOpponentTimeline(data.timeline);
+       if (data.locations) setOpponentLocations(data.locations);
+       if (data.hero) setOpponentHeroCard(data.hero);
+       if (data.archiveSize !== undefined) setOpponentArchive(new Array(data.archiveSize).fill({}));
+       if (data.handSize !== undefined) setOpponentHand(new Array(data.handSize).fill({}));
+       if (data.dungeon) setOpponentDungeon(data.dungeon);
+       if (data.voidZone) setOpponentVoidZone(data.voidZone);
+       if (data.hp !== undefined) setOpponentHp(data.hp);
+       if (data.economy) setOpponentEconomy(data.economy);
+       if (data.arrows) setArrows(prev => {
+          // Merge arrows? Or just replace opponent arrows
+          return [...prev.filter(a => a.color !== 'blue'), ...data.arrows.map(a => ({...a, color: 'blue'}))];
+       });
+       // Wait a tick before allowing sync again
+       setTimeout(() => preventNextSync.current = false, 50);
+    });
+    
+    newSocket.on('pass_phase', () => {
+       setOpponentPhasePassTrigger(prev => prev + 1);
+    });
+
+    return () => newSocket.close();
+  }, []);
+
+
+  useEffect(() => {
+    if (!socket || multiplayerStatus !== 'connected' || preventNextSync.current) return;
+    
+    // Broadcast state to opponent
+    socket.emit('sync_state', {
+      timeline: timeline,
+      locations: playerLocations,
+      hero: heroCard,
+      archiveSize: archive.length,
+      handSize: hand.length,
+      dungeon: dungeon,
+      voidZone: voidZone,
+      hp: playerHp,
+      economy: playerEconomy,
+      arrows: arrows.filter(a => a.color !== 'blue') // only send my arrows
+    });
+  }, [timeline, playerLocations, heroCard, archive.length, hand.length, dungeon, voidZone, playerHp, playerEconomy, arrows, multiplayerStatus, socket]);
+
+  const connectToQueue = () => {
+    if (socket) {
+      socket.emit('join_queue');
+    }
+  };
 
   // Close context menu on global click
   useEffect(() => {
@@ -1038,7 +1134,16 @@ export default function GameBoard() {
     }
   });
 
-  const handlePhaseAdvance = () => {
+  useEffect(() => {
+    if (opponentPhasePassTrigger > 0) {
+      preventNextSync.current = true;
+      handlePhaseAdvance(true);
+      setTimeout(() => preventNextSync.current = false, 50);
+    }
+  }, [opponentPhasePassTrigger]);
+
+  const handlePhaseAdvance = (fromSocket = false) => {
+    if (socket && multiplayerStatus === 'connected' && !fromSocket) socket.emit('pass_phase');
     setArrows([]);
     if (discardState.active) {
       alert(`You must discard ${discardState.count} more card(s) before advancing!`);
@@ -1087,7 +1192,16 @@ export default function GameBoard() {
     <Xwrapper>
     <div className="game-board">
       
+
+      {/* MULTIPLAYER BAR */}
+      <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000, background: '#222', padding: '10px', borderRadius: '5px', color: '#fff', display: 'flex', gap: '10px', alignItems: 'center' }}>
+         {multiplayerStatus === 'disconnected' && <button onClick={connectToQueue} style={{ padding: '5px 10px', background: '#4CAF50', border: 'none', color: 'white', borderRadius: '3px', cursor: 'pointer' }}>Find Match</button>}
+         {multiplayerStatus === 'waiting' && <span>Waiting for opponent...</span>}
+         {multiplayerStatus === 'connected' && <span style={{ color: '#4CAF50' }}>Connected to {multiplayerRoom} ({multiplayerRole})</span>}
+      </div>
+
       {/* PHASE BAR */}
+
       <div className="phase-bar">
         <div className="turn-counter">
           Turn {turnNumber}
