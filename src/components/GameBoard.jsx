@@ -1188,17 +1188,29 @@ export default function GameBoard() {
     setCurrentPhase(nextPhaseId);
   };
 
+  if (multiplayerStatus !== 'connected') {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1a1a1a', color: '#fff', fontFamily: 'Inter, sans-serif' }}>
+        <h1 style={{ fontSize: '3rem', marginBottom: '2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Conquest TCG</h1>
+        {multiplayerStatus === 'disconnected' ? (
+           <button onClick={connectToQueue} style={{ padding: '15px 30px', fontSize: '1.5rem', background: '#4CAF50', border: 'none', color: 'white', borderRadius: '5px', cursor: 'pointer', transition: 'background 0.2s', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' }} onMouseOver={(e) => e.target.style.background = '#45a049'} onMouseOut={(e) => e.target.style.background = '#4CAF50'}>Find Match</button>
+        ) : (
+           <div style={{ fontSize: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+             <div style={{ width: '40px', height: '40px', border: '4px solid rgba(255,255,255,0.3)', borderRadius: '50%', borderTopColor: '#4CAF50', animation: 'spin 1s ease-in-out infinite' }} />
+             <span style={{ color: '#aaa' }}>Searching for opponent...</span>
+             <style>
+               {`@keyframes spin { to { transform: rotate(360deg); } }`}
+             </style>
+           </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <Xwrapper>
     <div className="game-board">
       
-
-      {/* MULTIPLAYER BAR */}
-      <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000, background: '#222', padding: '10px', borderRadius: '5px', color: '#fff', display: 'flex', gap: '10px', alignItems: 'center' }}>
-         {multiplayerStatus === 'disconnected' && <button onClick={connectToQueue} style={{ padding: '5px 10px', background: '#4CAF50', border: 'none', color: 'white', borderRadius: '3px', cursor: 'pointer' }}>Find Match</button>}
-         {multiplayerStatus === 'waiting' && <span>Waiting for opponent...</span>}
-         {multiplayerStatus === 'connected' && <span style={{ color: '#4CAF50' }}>Connected to {multiplayerRoom} ({multiplayerRole})</span>}
-      </div>
 
       {/* PHASE BAR */}
 
