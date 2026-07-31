@@ -1960,6 +1960,7 @@ export default function GameBoard() {
               <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
               
               <div className="context-menu-item" onClick={actionShuffleArchive}>Shuffle</div>
+              <div className="context-menu-item" onClick={actionMillToDungeon}>Mill to Dungeon</div>
               
               <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
 
