@@ -1980,7 +1980,7 @@ export default function GameBoard() {
               
               <div className="context-menu-item" onClick={actionShuffleArchive}>Shuffle</div>
               <div className="context-menu-item has-submenu">
-                  <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>Mill to Dungeon <span>? </span></div>
+                  <span>Mill to Dungeon</span> <span>? </span>
                   <div className="context-menu-submenu">
                     <div className="context-menu-item" onClick={actionMillToDungeon}>Mill 1 Card</div>
                     <div className="context-menu-item" onClick={actionMillMultipleToDungeon}>Mill Multiple Cards...</div>
