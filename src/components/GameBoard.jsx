@@ -864,6 +864,7 @@ export default function GameBoard() {
   };
 
   const actionReturnToHand = (card, source) => {
+    logEvent(`${playerName || 'Player 1'} returned a card from ${source} to Hand`);
     if (source === 'timeline') setTimeline(prev => prev.filter(c => c.uid !== card.uid));
     if (source === 'locations') setPlayerLocations(prev => prev.filter(c => c.uid !== card.uid));
     setHand(prev => [...prev, card]);
