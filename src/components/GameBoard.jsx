@@ -38,6 +38,7 @@ export default function GameBoard() {
   const [opponentName, setOpponentName] = useState('Opponent');
   const [chatLog, setChatLog] = useState([]);
   const [chatInput, setChatInput] = useState('');
+  const [activeChatTab, setActiveChatTab] = useState('chat');
 
   const logEvent = (text) => {
     const timestamp = new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -2110,9 +2111,12 @@ export default function GameBoard() {
 
             {/* Chat Log Section */}
             <div className="sidebar-section chat-section" style={{ flex: '1', display: 'flex', flexDirection: 'column', backgroundColor: '#1a1a1a', minHeight: '0' }}>
-               <h4 style={{ margin: 0, padding: '10px', borderBottom: '1px solid #333', background: '#222' }}>Messages</h4>
+               <div style={{ display: 'flex', borderBottom: '1px solid #333', background: '#222' }}>
+                  <div onClick={() => setActiveChatTab('chat')} style={{ flex: 1, padding: '10px', textAlign: 'center', cursor: 'pointer', background: activeChatTab === 'chat' ? '#333' : 'transparent', color: activeChatTab === 'chat' ? '#fff' : '#888', fontWeight: 'bold' }}>Chat</div>
+                  <div onClick={() => setActiveChatTab('system')} style={{ flex: 1, padding: '10px', textAlign: 'center', cursor: 'pointer', background: activeChatTab === 'system' ? '#333' : 'transparent', color: activeChatTab === 'system' ? '#fff' : '#888', fontWeight: 'bold' }}>System</div>
+               </div>
                <div className="chat-log" style={{ flex: '1', overflowY: 'auto', padding: '10px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  {chatLog.map((msg, idx) => (
+                  {chatLog.filter(msg => msg.type === activeChatTab).map((msg, idx) => (
                     <div key={idx} style={{ fontSize: '0.9rem', color: msg.type === 'system' ? '#8bc34a' : '#fff', wordBreak: 'break-word' }}>
                        <span style={{ color: '#888', fontSize: '0.8rem', marginRight: '5px' }}>[{msg.timestamp}]</span>
                        {msg.type === 'chat' && <strong style={{ color: msg.sender === (playerName || 'Player 1') ? '#4CAF50' : '#f44336' }}>{msg.sender}: </strong>}
@@ -2120,9 +2124,11 @@ export default function GameBoard() {
                     </div>
                   ))}
                </div>
-               <div className="chat-input" style={{ display: 'flex', borderTop: '1px solid #333' }}>
-                  <input type="text" value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendChat()} style={{ flex: '1', padding: '10px', background: '#222', border: 'none', color: '#fff', outline: 'none' }} placeholder="Say..." />
-               </div>
+               {activeChatTab === 'chat' && (
+                 <div className="chat-input" style={{ display: 'flex', borderTop: '1px solid #333' }}>
+                    <input type="text" value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendChat()} style={{ flex: '1', padding: '10px', background: '#222', border: 'none', color: '#fff', outline: 'none' }} placeholder="Say..." />
+                 </div>
+               )}
             </div>
         </div>
       </div>
