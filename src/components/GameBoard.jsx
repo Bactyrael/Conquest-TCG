@@ -686,9 +686,9 @@ export default function GameBoard() {
     e.stopPropagation();
 
     const menuWidth = 220;
-    let menuHeight = 250;
-    if (targetType === 'archive') menuHeight = 400;
-    if (targetType === 'card_hand') menuHeight = 450;
+      let menuHeight = 300;
+      if (targetType === 'archive') menuHeight = 550;
+      if (targetType === 'card_hand') menuHeight = 550;
     
     let x = e.clientX;
     let y = e.clientY;
