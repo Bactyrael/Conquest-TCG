@@ -748,6 +748,7 @@ export default function GameBoard() {
     if (!countStr) return;
     const count = parseInt(countStr, 10);
     if (isNaN(count) || count <= 0) return;
+    logEvent(`${playerName || 'Player 1'} drew ${count} cards.`);
 
     const newArchive = [...archive];
     const drawnCards = newArchive.splice(-count);
@@ -768,6 +769,7 @@ export default function GameBoard() {
         setDrawHistory(prev => prev.slice(0, -1));
         setArchive(prev => [...prev, cardToReturn]);
         setHand(prev => prev.filter(c => c.uid !== lastDrawnUid));
+        logEvent(`${playerName || 'Player 1'} returned a drawn card to the deck.`);
     }
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
@@ -1964,11 +1966,13 @@ export default function GameBoard() {
               <div className="context-menu-item" onClick={() => { logEvent(`${playerName || 'Player 1'} is viewing their library.`); setArchiveView({visible: true, mode: 'all', count: 0}); setContextMenu(prev=>({...prev, visible: false})); }}>View library</div>
               <div className="context-menu-item" onClick={() => { 
                 const count = parseInt(prompt("View top how many cards?", "3"), 10) || 3;
+                logEvent(`${playerName || 'Player 1'} is viewing the top ${count} cards of their library.`);
                 setArchiveView({visible: true, mode: 'topX', count}); 
                 setContextMenu(prev=>({...prev, visible: false})); 
               }}>View top cards of library...</div>
               <div className="context-menu-item" onClick={() => { 
                 const count = parseInt(prompt("View bottom how many cards?", "3"), 10) || 3;
+                logEvent(`${playerName || 'Player 1'} is viewing the bottom ${count} cards of their library.`);
                 setArchiveView({visible: true, mode: 'bottomX', count}); 
                 setContextMenu(prev=>({...prev, visible: false})); 
               }}>View bottom cards of library...</div>
@@ -1977,14 +1981,16 @@ export default function GameBoard() {
 
               <div className="context-menu-item" onClick={() => {
                  setArchiveModifiers(prev => ({ ...prev, alwaysRevealTop: !prev.alwaysRevealTop, alwaysLookAtTop: false }));
-                 setContextMenu(prev=>({...prev, visible: false})); 
+                  logEvent(`${playerName || 'Player 1'} toggled Reveal Top Card`);
+                  setContextMenu(prev=>({...prev, visible: false})); 
               }}>
                  {archiveModifiers.alwaysRevealTop ? 'Stop revealing top card' : 'Always reveal top card'}
               </div>
               
               <div className="context-menu-item" onClick={() => {
                  setArchiveModifiers(prev => ({ ...prev, alwaysLookAtTop: !prev.alwaysLookAtTop, alwaysRevealTop: false }));
-                 setContextMenu(prev=>({...prev, visible: false})); 
+                  logEvent(`${playerName || 'Player 1'} toggled Look at Top Card`);
+                  setContextMenu(prev=>({...prev, visible: false})); 
               }}>
                  {archiveModifiers.alwaysLookAtTop ? 'Stop looking at top card' : 'Always look at top card'}
               </div>
