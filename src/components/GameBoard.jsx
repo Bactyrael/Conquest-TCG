@@ -733,6 +733,7 @@ export default function GameBoard() {
   // Context Menu Actions
   const actionDrawCard = () => {
     if (archive.length === 0) return;
+    logEvent(`${playerName || 'Player 1'} drew a card.`);
     const newArchive = [...archive];
     const drawn = newArchive.pop();
     setArchive(newArchive);
@@ -772,12 +773,14 @@ export default function GameBoard() {
   };
 
   const actionShuffleArchive = () => {
+    logEvent(`${playerName || 'Player 1'} shuffled their deck.`);
     setArchive(prev => [...prev].sort(() => Math.random() - 0.5));
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
   const actionMillToDungeon = () => {
     if (archive.length === 0) return;
+    logEvent(`${playerName || 'Player 1'} milled a card to their Dungeon.`);
     const newArchive = [...archive];
     const topCard = newArchive.pop();
     setArchive(newArchive);
@@ -1133,15 +1136,19 @@ export default function GameBoard() {
     }
 
     if (targetZone === 'timeline') {
+      logEvent(`${playerName || 'Player 1'} played a card to the Timeline.`);
       setTimeline(prev => [...prev, cardToMove]);
       if (sourceZone === 'hand' || sourceZone === 'opponent-hand') {
          consumeEconomy(cardToMove, sourceZone === 'hand' ? 'player' : 'opponent');
          }
     } else if (targetZone === 'dungeon') {
+      logEvent(`${playerName || 'Player 1'} moved a card to the Dungeon.`);
       setDungeon(prev => [...prev, cardToMove]);
     } else if (targetZone === 'void') {
+      logEvent(`${playerName || 'Player 1'} moved a card to the Void.`);
       setVoidZone(prev => [...prev, cardToMove]);
     } else if (targetZone === 'locations') {
+      logEvent(`${playerName || 'Player 1'} played a Location.`);
       setPlayerLocations(prev => [...prev, cardToMove]);
       if (cardToMove.type === 'Location' && sourceZone === 'hand') setLocationsPlayedThisTurn(prev => prev + 1);
     } else if (targetZone === 'opponent-locations') {
@@ -1948,7 +1955,7 @@ export default function GameBoard() {
               
               <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
 
-              <div className="context-menu-item" onClick={() => { setArchiveView({visible: true, mode: 'all', count: 0}); setContextMenu(prev=>({...prev, visible: false})); }}>View library</div>
+              <div className="context-menu-item" onClick={() => { logEvent(`${playerName || 'Player 1'} is viewing their library.`); setArchiveView({visible: true, mode: 'all', count: 0}); setContextMenu(prev=>({...prev, visible: false})); }}>View library</div>
               <div className="context-menu-item" onClick={() => { 
                 const count = parseInt(prompt("View top how many cards?", "3"), 10) || 3;
                 setArchiveView({visible: true, mode: 'topX', count}); 
