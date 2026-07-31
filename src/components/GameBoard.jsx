@@ -871,6 +871,7 @@ export default function GameBoard() {
   };
 
   const actionRetrieveToHand = (card, source) => {
+    logEvent(`${playerName || 'Player 1'} retrieved a card from ${source} to Hand`);
     if (source === 'void') setVoidZone(prev => prev.filter(c => c.uid !== card.uid));
     if (source === 'dungeon') setDungeon(prev => prev.filter(c => c.uid !== card.uid));
     setHand(prev => [...prev, card]);
@@ -881,6 +882,7 @@ export default function GameBoard() {
   };
 
   const actionRetrieveToTimeline = (card, source) => {
+    logEvent(`${playerName || 'Player 1'} retrieved a card from ${source} to Timeline`);
     if (source === 'void') setVoidZone(prev => prev.filter(c => c.uid !== card.uid));
     if (source === 'dungeon') setDungeon(prev => prev.filter(c => c.uid !== card.uid));
     setTimeline(prev => [...prev, card]);
@@ -1006,18 +1008,21 @@ export default function GameBoard() {
   };
 
   const actionArchiveToHand = (card) => {
+    logEvent(`${playerName || 'Player 1'} moved a card from their Deck to Hand`);
     setArchive(prev => prev.filter(c => c.uid !== card.uid));
     setHand(prev => [...prev, card]);
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
   const actionArchiveToDungeon = (card) => {
+    logEvent(`${playerName || 'Player 1'} moved a card from their Deck to Dungeon`);
     setArchive(prev => prev.filter(c => c.uid !== card.uid));
     setDungeon(prev => [...prev, card]);
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
   const actionArchiveToVoid = (card) => {
+    logEvent(`${playerName || 'Player 1'} moved a card from their Deck to Void`);
     setArchive(prev => prev.filter(c => c.uid !== card.uid));
     setVoidZone(prev => [...prev, card]);
     setContextMenu(prev => ({ ...prev, visible: false }));
