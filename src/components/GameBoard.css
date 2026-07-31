@@ -1,8 +1,6 @@
 .game-board {
   display: flex;
-  flex-direction: row; 
-  height: calc(100vh - 66px); /* Viewport minus header */
-  margin: -2rem; /* Offset the 2rem padding from App.css */
+  flex-direction: row;
   background-color: var(--color-bg-base);
   color: var(--color-text-main);
   overflow: hidden;

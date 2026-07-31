@@ -1284,8 +1284,8 @@ export default function GameBoard() {
 
   return (
     <Xwrapper>
-      <div className="game-container" style={{ display: 'flex', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-        <div className="game-board-area" style={{ flex: '1', position: 'relative', overflow: 'hidden' }}>
+      <div className="game-container" style={{ display: 'flex', flex: 1, margin: '-2rem', height: 'calc(100% + 4rem)', overflow: 'hidden' }}>
+        <div className="game-board-area" style={{ flex: '1', position: 'relative', overflow: 'hidden', minWidth: 0 }}>
           <div className="game-board" style={{ height: '100%', overflow: 'auto' }}>
       
 
@@ -2080,7 +2080,7 @@ export default function GameBoard() {
         </div>
 
         {/* RIGHT SIDEBAR */}
-        <div className="right-sidebar" style={{ width: '350px', backgroundColor: '#111', borderLeft: '2px solid #333', display: 'flex', flexDirection: 'column', color: '#fff', fontFamily: 'Inter, sans-serif', zIndex: 50 }}>
+        <div className="right-sidebar" style={{ width: '350px', flexShrink: 0, backgroundColor: '#111', borderLeft: '2px solid #333', display: 'flex', flexDirection: 'column', color: '#fff', fontFamily: 'Inter, sans-serif', zIndex: 50 }}>
             {/* Card Info Section */}
             <div className="sidebar-section card-info-section" style={{ height: '500px', flexShrink: 0, borderBottom: '1px solid #333', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px', overflow: 'hidden' }}>
                {zoomedCard ? (

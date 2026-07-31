@@ -45,7 +45,10 @@ let roomCounter = 1;
 io.on('connection', (socket) => {
   console.log('Client connected:', socket.id);
 
-  socket.on('join_queue', () => {
+  socket.on('join_queue', (data) => {
+    const playerName = data?.playerName || 'Player';
+    socket.playerName = playerName; // Store it on the socket
+
     if (waitingPlayer) {
       // Match found!
       const roomName = `room_${roomCounter++}`;
@@ -53,15 +56,15 @@ io.on('connection', (socket) => {
       waitingPlayer.join(roomName);
       
       // Assign roles
-      waitingPlayer.emit('match_found', { role: 'player1', room: roomName });
-      socket.emit('match_found', { role: 'player2', room: roomName });
+      waitingPlayer.emit('match_found', { role: 'player1', room: roomName, opponentName: socket.playerName });
+      socket.emit('match_found', { role: 'player2', room: roomName, opponentName: waitingPlayer.playerName });
       
       console.log(`Matched ${waitingPlayer.id} and ${socket.id} in ${roomName}`);
       waitingPlayer = null;
     } else {
       waitingPlayer = socket;
       socket.emit('waiting', { message: 'Waiting for opponent...' });
-      console.log(`Player ${socket.id} waiting in queue`);
+      console.log(`Player ${socket.id} (${playerName}) waiting in queue`);
     }
   });
 
@@ -78,6 +81,20 @@ io.on('connection', (socket) => {
     const room = Array.from(socket.rooms).find(r => r !== socket.id);
     if (room) {
       socket.to(room).emit('pass_phase');
+    }
+  });
+
+  socket.on('chat_message', (data) => {
+    const room = Array.from(socket.rooms).find(r => r !== socket.id);
+    if (room) {
+      socket.to(room).emit('chat_message', data);
+    }
+  });
+
+  socket.on('game_event', (data) => {
+    const room = Array.from(socket.rooms).find(r => r !== socket.id);
+    if (room) {
+      socket.to(room).emit('game_event', data);
     }
   });
 

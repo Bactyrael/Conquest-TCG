@@ -1,0 +1,10 @@
+const fs = require('fs');
+let content = fs.readFileSync('src/components/GameBoard.jsx', 'utf8');
+content = content.replace(/className=\{\`hero-card-wrapper \$\{opponentHeroCard\?.isTapped \? 'tapped' : ''\}\`\}/g, 'id="opponent-hero" className={`hero-card-wrapper ${opponentHeroCard?.isTapped ? \'tapped\' : \'\'}`}');
+content = content.replace(/className=\{\`hero-card-wrapper \$\{heroCard\?.isTapped \? 'tapped' : ''\}\`\}/g, 'id="player-hero" className={`hero-card-wrapper ${heroCard?.isTapped ? \'tapped\' : \'\'}`}');
+content = content.replace(/<div className="timeline-card-wrapper"/g, '<div id={`card-${card.uid}`} className="timeline-card-wrapper"');
+content = content.replace(/className=\{\`timeline-card-wrapper/g, 'id={`card-${card.uid}`} className={`timeline-card-wrapper');
+content = content.replace(/className="location-slot active"/g, 'id={`card-${loc.uid}`} className="location-slot active"');
+content = content.replace(/className=\{\`location-slot active/g, 'id={`card-${loc.uid}`} className={`location-slot active');
+content = content.replace(/className="attached-card-wrapper"/g, 'id={`card-${attached.uid}`} className="attached-card-wrapper"');
+fs.writeFileSync('src/components/GameBoard.jsx', content);
