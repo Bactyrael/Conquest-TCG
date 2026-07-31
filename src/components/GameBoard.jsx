@@ -790,6 +790,25 @@ export default function GameBoard() {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };
 
+  const actionMillMultipleToDungeon = () => {
+    setContextMenu(prev => ({ ...prev, visible: false }));
+    const countStr = prompt("How many cards to mill?", "1");
+    if (!countStr) return;
+    const count = parseInt(countStr, 10);
+    if (isNaN(count) || count <= 0) return;
+    
+    if (archive.length === 0) return;
+    
+    setArchive(prev => {
+        const newArchive = [...prev];
+        const numToMill = Math.min(count, newArchive.length);
+        logEvent(`${playerName || 'Player 1'} milled ${numToMill} cards to their Dungeon.`);
+        const milled = newArchive.splice(-numToMill);
+        setDungeon(d => [...d, ...milled.reverse()]); 
+        return newArchive;
+    });
+  };
+
   const actionSendToVoid = (card, source) => {
     if (source === 'timeline') setTimeline(prev => prev.filter(c => c.uid !== card.uid));
     if (source === 'locations') setPlayerLocations(prev => prev.filter(c => c.uid !== card.uid));
@@ -1960,7 +1979,13 @@ export default function GameBoard() {
               <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
               
               <div className="context-menu-item" onClick={actionShuffleArchive}>Shuffle</div>
-              <div className="context-menu-item" onClick={actionMillToDungeon}>Mill to Dungeon</div>
+              <div className="context-menu-item has-submenu">
+                  <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>Mill to Dungeon <span>? </span></div>
+                  <div className="context-menu-submenu">
+                    <div className="context-menu-item" onClick={actionMillToDungeon}>Mill 1 Card</div>
+                    <div className="context-menu-item" onClick={actionMillMultipleToDungeon}>Mill Multiple Cards...</div>
+                  </div>
+                </div>
               
               <div style={{borderTop: '1px solid #444', margin: '0.25rem 0'}}></div>
 
