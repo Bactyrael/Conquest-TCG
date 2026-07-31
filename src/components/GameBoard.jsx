@@ -2079,6 +2079,7 @@ export default function GameBoard() {
           ))}
         </div>
 
+      </div>
         {/* RIGHT SIDEBAR */}
         <div className="right-sidebar" style={{ width: '350px', flexShrink: 0, backgroundColor: '#111', borderLeft: '2px solid #333', display: 'flex', flexDirection: 'column', color: '#fff', fontFamily: 'Inter, sans-serif', zIndex: 50 }}>
             {/* Card Info Section */}
@@ -2124,7 +2125,6 @@ export default function GameBoard() {
                </div>
             </div>
         </div>
-      </div>
       </div>
     </Xwrapper>
   );
