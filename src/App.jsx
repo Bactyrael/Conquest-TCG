@@ -9,6 +9,7 @@ import './App.css';
 function App() {
   const location = useLocation();
   const [currentUser, setCurrentUser] = useState(null);
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('tcg-token');
@@ -46,9 +47,19 @@ function App() {
           <Link to="/play" className={location.pathname === '/play' ? 'active' : ''}>Find Match</Link>
           
         </nav>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', position: 'relative' }}>
           <span style={{ color: 'var(--color-accent-gold)', fontWeight: 'bold' }}>Welcome, {currentUser}</span>
-          <button className="settings-btn" onClick={handleLogout}>LOGOUT</button>
+          <div className="account-dropdown-container">
+            <button className="settings-btn" onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)}>
+              ACCOUNT ▾
+            </button>
+            {isAccountMenuOpen && (
+              <div className="account-dropdown-menu">
+                <button className="account-dropdown-item" onClick={() => { setIsAccountMenuOpen(false); alert("Settings coming soon!"); }}>Settings</button>
+                <button className="account-dropdown-item" onClick={handleLogout}>Logout</button>
+              </div>
+            )}
+          </div>
         </div>
       </header>
       
