@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './Settings.css';
 
+const avatarOptions = [
+  '/avatars/avatar_knight.jpg',
+  '/avatars/avatar_mage.jpg',
+  '/avatars/avatar_rogue.jpg',
+  '/avatars/avatar_elf.jpg',
+  '/avatars/avatar_dwarf.jpg',
+  '/avatars/avatar_necromancer.jpg',
+  '/avatars/avatar_cleric.jpg',
+  '/avatars/avatar_barbarian.jpg',
+  '/avatars/avatar_dragonborn.jpg',
+  '/avatars/avatar_druid.jpg'
+];
+
 export default function Settings({ currentUser }) {
   const [profile, setProfile] = useState({
     email: '',
@@ -166,8 +179,18 @@ export default function Settings({ currentUser }) {
           <h3>Profile Information</h3>
           <form onSubmit={saveProfile}>
             <div className="form-group">
-              <label>Avatar URL</label>
-              <input type="text" name="avatar_url" value={profile.avatar_url} onChange={handleProfileChange} placeholder="https://..." />
+              <label>Avatar Selection</label>
+              <div className="avatar-grid">
+                {avatarOptions.map(avatar => (
+                  <img 
+                    key={avatar}
+                    src={avatar} 
+                    alt="Avatar option"
+                    className={`avatar-option ${profile.avatar_url === avatar ? 'selected' : ''}`}
+                    onClick={() => setProfile({ ...profile, avatar_url: avatar })}
+                  />
+                ))}
+              </div>
             </div>
             
             <div className="form-group">

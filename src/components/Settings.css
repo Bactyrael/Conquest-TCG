@@ -112,3 +112,31 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Avatar Selection Grid */
+.avatar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.avatar-option {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.avatar-option:hover {
+  transform: scale(1.1);
+}
+
+.avatar-option.selected {
+  border: 2px solid var(--color-accent-gold);
+  box-shadow: 0 0 10px var(--color-accent-gold);
+  transform: scale(1.1);
+}
