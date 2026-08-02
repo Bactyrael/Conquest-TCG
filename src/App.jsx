@@ -43,7 +43,7 @@ function App() {
         <h1>CONQUEST: BEASTS AND BOUNTIES</h1>
         <nav className="main-nav">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Deck Builder</Link>
-          <Link to="/play" className={location.pathname === '/play' ? 'active' : ''}>Play Area</Link>
+          <Link to="/play" className={location.pathname === '/play' ? 'active' : ''}>Find Match</Link>
           
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
