@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getBackendUrl } from '../utils/api';
 import './Settings.css';
 
 const avatarOptions = [
@@ -46,7 +47,7 @@ export default function Settings({ currentUser }) {
   
   const fetchProfile = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/user/profile', {
+      const res = await fetch('${getBackendUrl()}/api/user/profile', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('tcg-token')}`
         }
@@ -81,7 +82,7 @@ export default function Settings({ currentUser }) {
     setError('');
     
     try {
-      const res = await fetch('http://localhost:3001/api/user/profile', {
+      const res = await fetch('${getBackendUrl()}/api/user/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +108,7 @@ export default function Settings({ currentUser }) {
     }
     
     try {
-      const res = await fetch('http://localhost:3001/api/user/change-password', {
+      const res = await fetch('${getBackendUrl()}/api/user/change-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +139,7 @@ export default function Settings({ currentUser }) {
     }
     
     try {
-      const res = await fetch('http://localhost:3001/api/user/send-verification', {
+      const res = await fetch('${getBackendUrl()}/api/user/send-verification', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('tcg-token')}`
@@ -156,7 +157,7 @@ export default function Settings({ currentUser }) {
 
   const verifyEmail = async (token) => {
     try {
-      const res = await fetch(`http://localhost:3001/api/user/verify-email/${token}`);
+      const res = await fetch(`${getBackendUrl()}/api/user/verify-email/${token}`);
       if (!res.ok) throw new Error('Verification failed or expired.');
       setMessage('Email successfully verified!');
       setProfile(prev => ({ ...prev, is_email_verified: 1 }));

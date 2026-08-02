@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
+import { getSocketUrl } from '../utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import Xarrow, { Xwrapper } from 'react-xarrows';
 import './GameBoard.css';
@@ -262,7 +263,7 @@ export default function GameBoard({ currentUser }) {
 
   // --- MULTIPLAYER SETUP ---
   useEffect(() => {
-    const newSocket = io('http://localhost:3001');
+    const newSocket = io(getSocketUrl());
     setSocket(newSocket);
 
     newSocket.on('connect', () => {

@@ -92,6 +92,11 @@ const authenticateToken = (req, res, next) => {
 };
 
 
+
+// --- Static File Serving (Production) ---
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
+
 // --- Authentication Endpoints ---
 
 app.post('/api/register', (req, res) => {
@@ -270,6 +275,12 @@ io.on('connection', (socket) => {
     const room = Array.from(socket.rooms).find(r => r !== socket.id);
     if (room) socket.to(room).emit('opponent_disconnected');
   });
+});
+
+
+// --- React Router Fallback ---
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
 const PORT = 3001;

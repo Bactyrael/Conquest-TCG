@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getBackendUrl } from '../utils/api';
 import './Login.css';
 
 export default function Login({ onLogin }) {
@@ -26,7 +27,7 @@ export default function Login({ onLogin }) {
     const endpoint = isRegistering ? '/api/register' : '/api/login';
     
     try {
-      const response = await fetch(`http://localhost:3001${endpoint}`, {
+      const response = await fetch(`${getBackendUrl()}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
