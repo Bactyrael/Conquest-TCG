@@ -1,0 +1,92 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: var(--color-bg-dark);
+}
+
+.login-box {
+  background: var(--color-bg-panel);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-accent-gold);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.login-box h2 {
+  color: var(--color-accent-gold);
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 4px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-accent-gold);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-accent-gold);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.toggle-mode {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.toggle-mode button {
+  background: none;
+  border: none;
+  color: var(--color-accent-gold);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid #f44336;
+  color: #f44336;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}

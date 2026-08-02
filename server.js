@@ -5,6 +5,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import http from 'http';
 import { Server } from 'socket.io';
+import sqlite3 from 'sqlite3';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,6 +25,70 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 const dbPath = path.resolve(__dirname, 'src', 'data', 'cardDatabase.json');
+const sqliteDbPath = path.resolve(__dirname, 'src', 'data', 'database.sqlite');
+
+// Initialize SQLite database
+const db = new sqlite3.Database(sqliteDbPath, (err) => {
+  if (err) {
+    console.error('Error opening database', err.message);
+  } else {
+    console.log('Connected to the SQLite database.');
+    db.run(`CREATE TABLE IF NOT EXISTS users (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT UNIQUE NOT NULL,
+      password_hash TEXT NOT NULL
+    )`, (err) => {
+      if (err) console.error('Error creating users table', err.message);
+    });
+  }
+});
+
+const JWT_SECRET = 'super-secret-tcg-key-change-in-production'; // Basic secret for prototype
+
+// --- Authentication Endpoints ---
+
+app.post('/api/register', (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password are required' });
+  }
+
+  // Check if user exists
+  db.get('SELECT username FROM users WHERE username = ?', [username], (err, row) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    if (row) return res.status(400).json({ error: 'Username already exists' });
+
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+
+    db.run('INSERT INTO users (username, password_hash) VALUES (?, ?)', [username, hash], function(err) {
+      if (err) return res.status(500).json({ error: 'Failed to create user' });
+      
+      const token = jwt.sign({ id: this.lastID, username }, JWT_SECRET, { expiresIn: '7d' });
+      res.status(201).json({ success: true, token, username });
+    });
+  });
+});
+
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password are required' });
+  }
+
+  db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    if (!row) return res.status(401).json({ error: 'Invalid username or password' });
+
+    const isValid = bcrypt.compareSync(password, row.password_hash);
+    if (!isValid) return res.status(401).json({ error: 'Invalid username or password' });
+
+    const token = jwt.sign({ id: row.id, username: row.username }, JWT_SECRET, { expiresIn: '7d' });
+    res.json({ success: true, token, username: row.username });
+  });
+});
+
+// --- Existing Endpoints ---
 
 app.post('/api/save-cards', (req, res) => {
   try {

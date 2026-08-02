@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "concurrently": "^10.0.3",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "framer-motion": "^12.42.2",
+    "jsonwebtoken": "^9.0.3",
     "lucide-react": "^1.24.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -21,13 +23,19 @@
     "react-xarrows": "^2.0.2",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
+    "sqlite3": "^6.0.1",
     "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-react": "^8.0.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
     "vite": "^8.1.1"
+  },
+  "allowScripts": {
+    "sqlite3@6.0.1": true
   }
 }

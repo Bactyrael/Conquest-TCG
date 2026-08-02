@@ -14,7 +14,7 @@ const EconomyTracker = ({ economy }) => (
    </div>
 );
 
-export default function GameBoard() {
+export default function GameBoard({ currentUser }) {
   const [savedDecks, setSavedDecks] = useState({});
   const [heroCard, setHeroCard] = useState(null);
   const [annotationModal, setAnnotationModal] = useState({ active: false, cardUid: null, source: null, text: '' });
