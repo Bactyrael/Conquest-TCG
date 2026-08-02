@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import GameBoard from './components/GameBoard';
 import DeckBuilder from './components/DeckBuilder';
+import Settings from './components/Settings';
 
 import Login from './components/Login';
 import './App.css';
@@ -55,7 +56,7 @@ function App() {
             </button>
             {isAccountMenuOpen && (
               <div className="account-dropdown-menu">
-                <button className="account-dropdown-item" onClick={() => { setIsAccountMenuOpen(false); alert("Settings coming soon!"); }}>Settings</button>
+                <Link to="/settings" className="account-dropdown-item" style={{display: "block", textDecoration: "none"}} onClick={() => setIsAccountMenuOpen(false)}>Settings</Link>
                 <button className="account-dropdown-item" onClick={handleLogout}>Logout</button>
               </div>
             )}
@@ -66,7 +67,7 @@ function App() {
       <main className="game-area">
         <Routes>
           <Route path="/" element={<DeckBuilder currentUser={currentUser} />} />
-          <Route path="/play" element={<GameBoard currentUser={currentUser} />} />
+          <Route path="/play" element={<GameBoard currentUser={currentUser} />} />`n          <Route path="/settings" element={<Settings currentUser={currentUser} />} />
           
         </Routes>
       </main>
@@ -75,4 +76,5 @@ function App() {
 }
 
 export default App;
+
 
