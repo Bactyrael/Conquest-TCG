@@ -279,7 +279,7 @@ io.on('connection', (socket) => {
 
 
 // --- React Router Fallback ---
-app.get('*', (req, res) => {
+app.use( (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
@@ -287,3 +287,5 @@ const PORT = 3001;
 server.listen(PORT, () => {
   console.log(`Backend Server running on http://localhost:${PORT}`);
 });
+
+
