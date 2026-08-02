@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import GameBoard from './components/GameBoard';
 import DeckBuilder from './components/DeckBuilder';
-import CardEditor from './components/CardEditor';
+
 import Login from './components/Login';
 import './App.css';
 
@@ -44,7 +44,7 @@ function App() {
         <nav className="main-nav">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Deck Builder</Link>
           <Link to="/play" className={location.pathname === '/play' ? 'active' : ''}>Play Area</Link>
-          <Link to="/editor" className={location.pathname === '/editor' ? 'active' : ''}>Card Editor</Link>
+          
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <span style={{ color: 'var(--color-accent-gold)', fontWeight: 'bold' }}>Welcome, {currentUser}</span>
@@ -56,7 +56,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DeckBuilder currentUser={currentUser} />} />
           <Route path="/play" element={<GameBoard currentUser={currentUser} />} />
-          <Route path="/editor" element={<CardEditor />} />
+          
         </Routes>
       </main>
     </div>
@@ -64,3 +64,4 @@ function App() {
 }
 
 export default App;
+

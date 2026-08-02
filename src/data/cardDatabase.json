@@ -675,7 +675,12 @@
     },
     "rulesText": "A target gains disadvantage on attacks until the beginning of your next turn.",
     "effects": [
-      { "type": "apply_condition", "target": "selected", "condition": "disadvantage", "duration": 1 }
+      {
+        "type": "apply_condition",
+        "target": "selected",
+        "condition": "disadvantage",
+        "duration": 1
+      }
     ],
     "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
     "subtype": "Ability",
@@ -976,7 +981,12 @@
     },
     "rulesText": "A target gains invisibility until the end of their next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
     "effects": [
-      { "type": "apply_condition", "target": "selected", "condition": "invisibility", "duration": 1 }
+      {
+        "type": "apply_condition",
+        "target": "selected",
+        "condition": "invisibility",
+        "duration": 1
+      }
     ],
     "flavorText": "",
     "subtype": "Boon",
@@ -2234,7 +2244,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Channel Divinity → You may use your Con in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.\n\nWhenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
+    "rulesText": "Channel Divinity → You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.\n\nWhenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
     "rarity": "Common",
     "subtype": "1d6 + Con (Holy)",
     "originalArtFile": "Cleric Set.jpg"

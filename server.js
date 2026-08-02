@@ -90,11 +90,7 @@ app.post('/api/login', (req, res) => {
 
 // --- Existing Endpoints ---
 
-app.post('/api/save-cards', (req, res) => {
-  try {
-    const updatedCards = req.body;
-    if (!Array.isArray(updatedCards)) {
-      return res.status(400).json({ error: 'Expected an array of cards' });
+
     }
     
     fs.writeFileSync(dbPath, JSON.stringify(updatedCards, null, 2), 'utf8');
@@ -182,3 +178,4 @@ const PORT = 3001;
 server.listen(PORT, () => {
   console.log(`Backend Server running on http://localhost:${PORT}`);
 });
+
