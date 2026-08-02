@@ -28,8 +28,13 @@ export default function DeckBuilder() {
   }, []);
 
   const handleSaveDeck = () => {
-    if (deck.length === 0) {
-      alert("Cannot save an empty deck.");
+    if (deck.length !== 61) {
+      alert("A deck must contain exactly 61 cards (1 Hero and 60 other cards) to be saved.");
+      return;
+    }
+    const heroCount = deck.filter(c => c.type === 'Hero').length;
+    if (heroCount !== 1) {
+      alert("A deck must contain exactly 1 Hero card.");
       return;
     }
     if (!deckName.trim()) {
@@ -58,8 +63,8 @@ export default function DeckBuilder() {
   };
 
   const addToDeck = (card) => {
-    if (deck.length >= 60) {
-      alert("Maximum deck size reached (60 cards).");
+    if (deck.length >= 61) {
+      alert("Maximum deck size reached (61 cards).");
       return;
     }
     
@@ -194,7 +199,7 @@ export default function DeckBuilder() {
 
       <div className="deck-panel">
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '15px'}}>
-          <h2>Your Deck ({deck.length}/60)</h2>
+          <h2>Your Deck ({deck.length}/61)</h2>
           <div style={{display: 'flex', gap: '10px'}}>
             <input 
               type="text" 
