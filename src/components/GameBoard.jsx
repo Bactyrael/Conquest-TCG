@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getBackendUrl } from '../utils/api';
+// { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { getSocketUrl } from '../utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -362,10 +364,23 @@ export default function GameBoard({ currentUser }) {
   }, [contextMenu.visible]);
 
   useEffect(() => {
-    const loaded = localStorage.getItem('conquest-tcg-decks');
-    if (loaded) {
-      setSavedDecks(JSON.parse(loaded));
-    }
+    const fetchDecks = async () => {
+      try {
+        const token = localStorage.getItem('tcg-token');
+        if (!token) return;
+        
+        const res = await fetch(`${getBackendUrl()}/api/decks`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setSavedDecks(data);
+        }
+      } catch (e) {
+        console.error('Failed to load decks from server', e);
+      }
+    };
+    fetchDecks();
   }, []);
 
   const loadDeck = (e) => {
@@ -375,10 +390,11 @@ export default function GameBoard({ currentUser }) {
     let rawDeck = savedDecks[deckName] || [];
     
     // Sync with fresh database to grab updated image URLs
-    let freshDeck = rawDeck.map(c => {
-      const dbCard = cardDatabase.find(dbC => dbC.name === c.name);
-      return { ...(dbCard || c), uid: Math.random().toString() };
-    });
+    let freshDeck = rawDeck.map(cardName => {
+        const dbCard = cardDatabase.find(dbC => dbC.name === cardName);
+        if (!dbCard) return null;
+        return { ...dbCard, uid: Math.random().toString() };
+      }).filter(c => c !== null);
     
     // Find Hero
     const hero = freshDeck.find(c => c.type === 'Hero') || null;
