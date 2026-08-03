@@ -35,7 +35,7 @@ export default function GameBoard({ currentUser }) {
   const [multiplayerRoom, setMultiplayerRoom] = useState(null);
   const [multiplayerStatus, setMultiplayerStatus] = useState('disconnected'); // 'disconnected', 'waiting', 'connected'
 
-  const [playerName, setPlayerName] = useState('');
+  const [playerName, setPlayerName] = useState(localStorage.getItem('tcg-username') || 'Guest');
   const [opponentName, setOpponentName] = useState('Opponent');
   const [chatLog, setChatLog] = useState([]);
   const [chatInput, setChatInput] = useState('');
@@ -1261,9 +1261,8 @@ export default function GameBoard({ currentUser }) {
       <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1a1a1a', color: '#fff', fontFamily: 'Inter, sans-serif' }}>
         <h1 style={{ fontSize: '3rem', marginBottom: '2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Conquest TCG</h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '20px', alignItems: 'center' }}>
-           <label>Display Name</label>
-           <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} placeholder="Player 1" style={{ padding: '10px', fontSize: '1.2rem', borderRadius: '4px', border: '1px solid #555', background: '#333', color: '#fff', textAlign: 'center' }} />
-        </div>
+             <h3 style={{ margin: 0, color: '#aaa' }}>Playing as: <span style={{color: '#fff'}}>{playerName}</span></h3>
+          </div>
         
         {multiplayerStatus === 'disconnected' ? (
            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
