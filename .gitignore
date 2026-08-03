@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Temporary agent scripts
+*.cjs
+*.mjs
