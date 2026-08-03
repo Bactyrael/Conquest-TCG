@@ -50,6 +50,17 @@ const db = new sqlite3.Database(sqliteDbPath, (err) => {
       ];
       cols.forEach(col => {
         db.run(`ALTER TABLE users ADD COLUMN ${col}`, () => {});
+
+      db.run(`CREATE TABLE IF NOT EXISTS decks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        deck_name TEXT NOT NULL,
+        cards TEXT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id),
+        UNIQUE(user_id, deck_name)
+      )`, (err) => {
+        if (err) console.error('Error creating decks table', err.message);
+      });
       });
     });
   }
@@ -219,6 +230,64 @@ app.get('/api/user/verify-email/:token', (req, res) => {
   });
 });
 
+
+
+// --- Deck Endpoints ---
+
+app.get('/api/decks', authenticateToken, (req, res) => {
+  db.all('SELECT deck_name, cards FROM decks WHERE user_id = ?', [req.user.id], (err, rows) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    const decks = {};
+    rows.forEach(row => {
+      try {
+        decks[row.deck_name] = JSON.parse(row.cards);
+      } catch (e) {
+        console.error('Failed to parse deck cards');
+      }
+    });
+    res.json(decks);
+  });
+});
+
+app.post('/api/decks', authenticateToken, (req, res) => {
+  const { deck_name, cards } = req.body;
+  if (!deck_name || !cards || !Array.isArray(cards)) {
+    return res.status(400).json({ error: 'Invalid deck data' });
+  }
+
+  // Check limit (100 decks max)
+  db.get('SELECT COUNT(*) as count FROM decks WHERE user_id = ?', [req.user.id], (err, row) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    
+    // Check if updating an existing deck vs inserting new
+    db.get('SELECT id FROM decks WHERE user_id = ? AND deck_name = ?', [req.user.id, deck_name], (err, existing) => {
+      if (!existing && row.count >= 100) {
+        return res.status(400).json({ error: 'Maximum limit of 100 decks reached. Please delete a deck first.' });
+      }
+      
+      const cardsJson = JSON.stringify(cards);
+      if (existing) {
+        db.run('UPDATE decks SET cards = ? WHERE id = ?', [cardsJson, existing.id], (err) => {
+          if (err) return res.status(500).json({ error: 'Failed to update deck' });
+          res.json({ success: true });
+        });
+      } else {
+        db.run('INSERT INTO decks (user_id, deck_name, cards) VALUES (?, ?, ?)', [req.user.id, deck_name, cardsJson], (err) => {
+          if (err) return res.status(500).json({ error: 'Failed to save new deck' });
+          res.json({ success: true });
+        });
+      }
+    });
+  });
+});
+
+app.delete('/api/decks/:name', authenticateToken, (req, res) => {
+  const deckName = req.params.name;
+  db.run('DELETE FROM decks WHERE user_id = ? AND deck_name = ?', [req.user.id, deckName], (err) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    res.json({ success: true });
+  });
+});
 
 // --- Matchmaking / Socket Endpoints ---
 

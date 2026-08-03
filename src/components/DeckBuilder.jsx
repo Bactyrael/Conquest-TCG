@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getBackendUrl } from '../utils/api';
 import './DeckBuilder.css';
 import cardDatabase from '../data/cardDatabase.json';
 import Card from './Card';
@@ -21,13 +22,39 @@ export default function DeckBuilder() {
 
   useEffect(() => {
     setDb(cardDatabase);
-    const loaded = localStorage.getItem('conquest-tcg-decks');
-    if (loaded) {
-      setSavedDecks(JSON.parse(loaded));
-    }
+    const fetchDecks = async () => {
+      try {
+        const token = localStorage.getItem('tcg-token');
+        if (!token) return;
+        
+        const res = await fetch(`${getBackendUrl()}/api/decks`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setSavedDecks(data);
+        }
+      } catch (e) {
+        console.error('Failed to load decks from server', e);
+      }
+    };
+    fetchDecks();
   }, []);
 
-  const handleSaveDeck = () => {
+  const handleLoadDeck = (e) => {
+    const name = e.target.value;
+    if (!name) return;
+    
+    const rawDeckNames = savedDecks[name] || [];
+    const freshDeck = rawDeckNames.map(cardName => {
+      return db.find(dbC => dbC.name === cardName);
+    }).filter(c => c !== undefined);
+
+    setDeck(freshDeck);
+    setDeckName(name);
+  };
+
+  const handleSaveDeck = async () => {
     if (deck.length !== 61) {
       alert("A deck must contain exactly 61 cards (1 Hero and 60 other cards) to be saved.");
       return;
@@ -41,27 +68,37 @@ export default function DeckBuilder() {
       alert("Please enter a deck name.");
       return;
     }
-    const updatedDecks = { ...savedDecks, [deckName]: deck };
-    setSavedDecks(updatedDecks);
-    localStorage.setItem('conquest-tcg-decks', JSON.stringify(updatedDecks));
-    alert(`Deck "${deckName}" saved!`);
+
+    try {
+      const token = localStorage.getItem('tcg-token');
+      if (!token) {
+        alert('You must be logged in to save decks.');
+        return;
+      }
+
+      const cardNames = deck.map(c => c.name);
+
+      const res = await fetch(`${getBackendUrl()}/api/decks`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ deck_name: deckName, cards: cardNames })
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to save deck');
+      }
+
+      const updatedDecks = { ...savedDecks, [deckName]: cardNames };
+      setSavedDecks(updatedDecks);
+      alert(`Deck "${deckName}" saved!`);
+    } catch (e) {
+      alert(e.message);
+    }
   };
-
-  const handleLoadDeck = (e) => {
-    const name = e.target.value;
-    if (!name) return;
-    
-    // Map to fresh database to update any changed URLs
-    const rawDeck = savedDecks[name] || [];
-    const freshDeck = rawDeck.map(c => {
-      const dbCard = db.find(dbC => dbC.name === c.name);
-      return dbCard || c;
-    });
-
-    setDeck(freshDeck);
-    setDeckName(name);
-  };
-
   const addToDeck = (card) => {
     if (deck.length >= 61) {
       alert("Maximum deck size reached (61 cards).");
@@ -235,7 +272,33 @@ export default function DeckBuilder() {
         </div>
         <div className="deck-actions">
            <button className="save-deck-btn" onClick={handleSaveDeck}>Save Deck</button>
-           <button className="remove-btn" style={{padding: '0.8rem', background: '#d32f2f', color: '#fff'}} onClick={() => { if(window.confirm('Clear current deck?')) setDeck([]) }}>Clear Deck</button>
+           <button className="remove-btn" style={{padding: '0.8rem', background: '#d32f2f', color: '#fff'}} 
+              onClick={async () => { 
+                if(window.confirm('Delete this deck?')) {
+                  if (savedDecks[deckName]) {
+                    try {
+                      const res = await fetch(`${getBackendUrl()}/api/decks/${encodeURIComponent(deckName)}`, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': `Bearer ${localStorage.getItem('tcg-token')}` }
+                      });
+                      if (res.ok) {
+                        const newSaved = {...savedDecks};
+                        delete newSaved[deckName];
+                        setSavedDecks(newSaved);
+                        setDeck([]);
+                        alert('Deck deleted.');
+                      } else {
+                        const data = await res.json();
+                        alert(data.error || 'Failed to delete');
+                      }
+                    } catch(e) {
+                      alert('Error deleting deck');
+                    }
+                  } else {
+                    setDeck([]);
+                  }
+                }
+              }}>Clear / Delete</button>
         </div>
       </div>
 
