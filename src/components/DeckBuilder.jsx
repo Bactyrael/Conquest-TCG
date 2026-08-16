@@ -30,7 +30,8 @@ export default function DeckBuilder() {
         const res = await fetch(`${getBackendUrl()}/api/decks`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
-        if (res.ok) {
+        if (res.status === 401 || res.status === 403) { alert('Session expired.'); localStorage.removeItem('tcg-token'); window.location.reload(); return; }
+                        if (res.ok) {
           const data = await res.json();
           setSavedDecks(data);
         }
