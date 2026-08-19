@@ -1428,10 +1428,7 @@ export default function GameBoard({ currentUser }) {
             <div className="player-stats-vertical">
               <div className="stat-box hp">
                 HP: {opponentHp}
-                <div style={{display:'flex', gap:'5px', marginTop:'5px', justifyContent: 'center'}}>
-                   <button onClick={() => setOpponentHp(p => p - 1)} style={{width:'30px'}}>-</button>
-                   <button onClick={() => setOpponentHp(p => p + 1)} style={{width:'30px'}}>+</button>
-                </div>
+                
               </div>
               <EconomyTracker economy={opponentEconomy} />
             </div>
