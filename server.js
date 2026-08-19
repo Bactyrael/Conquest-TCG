@@ -129,6 +129,12 @@ app.post('/api/register', (req, res) => {
   });
 });
 
+
+app.get('/api/cards', (req, res) => {
+  const dbPath = path.resolve(__dirname, 'src/data/cardDatabase.json');
+  res.sendFile(dbPath);
+});
+
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
