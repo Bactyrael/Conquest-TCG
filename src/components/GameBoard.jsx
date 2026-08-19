@@ -4,37 +4,51 @@ import { getBackendUrl } from '../utils/api';
 import { io } from 'socket.io-client';
 import { getSocketUrl } from '../utils/api';
 import { motion, AnimatePresence } from 'framer-motion';
-import Xarrow, { Xwrapper } from 'react-xarrows';
+
 import './GameBoard.css';
 
 
-class ArrowErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-  componentDidCatch(error, errorInfo) {
-    console.error("Arrow crash caught:", error);
-    this.setState({ errorInfo });
-  }
-  render() {
-    if (this.state.hasError) { return <div style={{position: 'fixed', top: 90, left: 50, background: 'orange', color: 'white', zIndex: 9999, padding: '10px'}}>Xarrow crashed!</div>; }
-    return this.props.children; 
-  }
-}
 
 
 
-const SafeArrow = (props) => {
-   const startEl = document.getElementById(props.start);
-   const endEl = document.getElementById(props.end);
-   if (!startEl || !endEl) {
-       return <div style={{position: 'fixed', top: 50, left: 50, background: 'red', color: 'white', zIndex: 9999, padding: '10px'}}>Arrow missing DOM nodes: start={props.start} ({startEl ? 'yes' : 'no'}), end={props.end} ({endEl ? 'yes' : 'no'})</div>;
-   }
-   return <Xarrow {...props} />;
+
+const SimpleArrow = ({ start, end, color }) => {
+   const [pos, setPos] = React.useState(null);
+   
+   React.useEffect(() => {
+       const update = () => {
+           const startEl = document.getElementById(start);
+           const endEl = document.getElementById(end);
+           if (!startEl || !endEl) {
+               setPos(null);
+               return;
+           }
+           const sb = startEl.getBoundingClientRect();
+           const eb = endEl.getBoundingClientRect();
+           setPos({
+               x1: sb.left + sb.width / 2,
+               y1: sb.top + sb.height / 2,
+               x2: eb.left + eb.width / 2,
+               y2: eb.top + eb.height / 2,
+           });
+       };
+       update();
+       const interval = setInterval(update, 50); // Poll for animations
+       return () => clearInterval(interval);
+   }, [start, end]);
+   
+   if (!pos) return null;
+   
+   return (
+      <svg style={{position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 9999}}>
+         <defs>
+             <marker id={"arrowhead-" + color} markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+               <polygon points="0 0, 10 3.5, 0 7" fill={color} />
+             </marker>
+         </defs>
+         <line x1={pos.x1} y1={pos.y1} x2={pos.x2} y2={pos.y2} stroke={color} strokeWidth="4" markerEnd={"url(#arrowhead-" + color + ")"} />
+      </svg>
+   );
 };
 
 
@@ -1389,7 +1403,7 @@ export default function GameBoard({ currentUser }) {
   }
 
   return (
-    <Xwrapper>
+    
       <div className="game-container" style={{ display: 'flex', flex: 1, margin: '-2rem', height: 'calc(100% + 4rem)', overflow: 'hidden' }}>
         <div className="game-board-area" style={{ flex: '1', position: 'relative', overflow: 'hidden', minWidth: 0 }}>
           <div className="game-board" style={{ height: '100%', overflow: 'auto' }}>
@@ -2198,7 +2212,7 @@ export default function GameBoard({ currentUser }) {
 
     </div>
           {arrows.map(arrow => (
-              <ArrowErrorBoundary key={arrow.id}><SafeArrow key={arrow.id} start={arrow.startDomId} end={arrow.endDomId} color={arrow.color} strokeWidth={4} headSize={6} passProps={{style: {pointerEvents: 'none'}}} /></ArrowErrorBoundary>
+              <SimpleArrow key={arrow.id} start={arrow.startDomId} end={arrow.endDomId} color={arrow.color} />
           ))}
         </div>
 
@@ -2254,7 +2268,7 @@ export default function GameBoard({ currentUser }) {
             </div>
         </div>
       </div>
-    </Xwrapper>
+    
   );
 }
 
