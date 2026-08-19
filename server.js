@@ -326,6 +326,7 @@ io.on('connection', (socket) => {
       waitingPlayer = null;
     } else {
       waitingPlayer = socket;
+        socket.emit('waiting');
       socket.emit('waiting', { message: 'Waiting for opponent...' });
       console.log(`Player ${socket.id} (${playerName}) waiting in queue`);
     }

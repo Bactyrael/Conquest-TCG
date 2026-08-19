@@ -350,6 +350,7 @@ export default function GameBoard({ currentUser }) {
   const connectToQueue = () => {
     if (socket) {
       socket.emit('join_queue', { playerName: playerName || 'Player 1' });
+      setMultiplayerStatus('waiting');
     }
   };
 
