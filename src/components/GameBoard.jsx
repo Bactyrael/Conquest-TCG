@@ -358,7 +358,7 @@ export default function GameBoard({ currentUser }) {
     newSocket.on('sync_state', (data) => {
        preventNextSync.current = true;
        // Unpack data and set opponent states
-       if (data.timeline) setOpponentTimeline(data.timeline);
+       if (data.timeline) setTimeline(data.timeline);
        if (data.locations) setOpponentLocations(data.locations);
        if (data.hero) setOpponentHeroCard(data.hero);
        if (data.archiveSize !== undefined) setOpponentArchive(new Array(data.archiveSize).fill({ faceDown: true }));
@@ -1530,35 +1530,7 @@ export default function GameBoard({ currentUser }) {
       {/* TIMELINE AREA (Middle) */}
       <div className="timeline-area">
 
-           <div className="timeline-track opponent-track">
-              {opponentTimeline.length === 0 && <span style={{color: '#666'}}>Opponent Timeline</span>}
-              <AnimatePresence mode="popLayout">
-                {opponentTimeline.map((card) => (
-                  <motion.div 
-                    id={`card-${card.uid}`} className={`timeline-card-wrapper ${card.isTapped ? 'tapped' : ''}`}
-                    key={card.uid}
-                    onClick={() => handleTargetClick(card.uid, 'timeline')}
-                    initial={{ opacity: 0, scale: 0.5, y: -50 }}
-                    animate={{ opacity: 1, scale: 1, y: 0, rotate: card.isTapped ? 90 : 0 }}
-                    exit={{ opacity: 0, scale: 0, y: -50 }}
-                    layout
-                  >
-                    {card.counters > 0 && <div className="card-counter-badge">{card.counters}</div>}
-                    <Card data={card} />
-                    {card.attachedCards && card.attachedCards.map((attached, attachIdx) => (
-                        <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" 
-onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: card.uid, zone: 'opponent-timeline' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
-                            <Card data={attached} />
-                        </div>
-                    ))}
-                    <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(card); }}>🔍</button>
-                    {targetingState.active && targetingState.actionType !== 'bounce-location' && (
-                       <div className="target-overlay" onClick={() => handleTargetClick(card.uid, 'timeline')}>🎯 Target</div>
-                    )}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-           </div>
+           
 
          <div className="timeline-track"
               onDragOver={handleDragOver}
