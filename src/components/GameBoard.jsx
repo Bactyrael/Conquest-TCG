@@ -392,7 +392,8 @@ export default function GameBoard({ currentUser }) {
     
     // Sync with fresh database to grab updated image URLs
     let freshDeck = rawDeck.map(cardName => {
-        const dbCard = db.find(dbC => dbC.name === cardName);
+        const actualName = typeof cardName === 'string' ? cardName : cardName.name;
+        const dbCard = db.find(dbC => dbC.name === actualName);
         if (!dbCard) return null;
         return { ...dbCard, uid: Math.random().toString() };
       }).filter(c => c !== null);
@@ -421,10 +422,12 @@ export default function GameBoard({ currentUser }) {
     if (!deckName) return;
     
     let rawDeck = savedDecks[deckName] || [];
-    let freshDeck = rawDeck.map(c => {
-      const dbCard = db.find(dbC => dbC.name === c.name);
-      return { ...(dbCard || c), uid: Math.random().toString() };
-    });
+    let freshDeck = rawDeck.map(cardName => {
+        const actualName = typeof cardName === 'string' ? cardName : cardName.name;
+        const dbCard = db.find(dbC => dbC.name === actualName);
+        if (!dbCard) return null;
+        return { ...dbCard, uid: Math.random().toString() };
+      }).filter(c => c !== null);
     
     const hero = freshDeck.find(c => c.type === 'Hero') || null;
     setOpponentHeroCard(hero);

@@ -51,8 +51,11 @@ export default function DeckBuilder() {
     
     const rawDeckNames = savedDecks[name] || [];
     const freshDeck = rawDeckNames.map(cardName => {
-      return db.find(dbC => dbC.name === cardName);
-    }).filter(c => c !== undefined);
+        const actualName = typeof cardName === 'string' ? cardName : cardName.name;
+        const dbCard = db.find(dbC => dbC.name === actualName);
+        if (!dbCard) return null;
+        return { ...dbCard, uid: Math.random().toString() };
+      }).filter(c => c !== null);
 
     setDeck(freshDeck);
     setDeckName(name);
