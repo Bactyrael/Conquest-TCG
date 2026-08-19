@@ -352,7 +352,19 @@ io.on('connection', (socket) => {
     if (room) socket.to(room).emit('game_event', data);
   });
 
+
+  socket.on('reconnect_match', (data) => {
+    const { room, role } = data;
+    if (room) {
+       socket.join(room);
+       console.log(`Client ${socket.id} reconnected to room ${room} as ${role}`);
+       socket.emit('reconnect_success', { room, role });
+       socket.to(room).emit('opponent_reconnected');
+    }
+  });
+
   socket.on('disconnect', () => {
+
     console.log('Client disconnected:', socket.id);
     if (waitingPlayer && waitingPlayer.id === socket.id) waitingPlayer = null;
     const room = Array.from(socket.rooms).find(r => r !== socket.id);

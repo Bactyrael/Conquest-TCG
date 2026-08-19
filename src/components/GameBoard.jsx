@@ -83,6 +83,10 @@ export default function GameBoard({ currentUser }) {
   const [multiplayerRole, setMultiplayerRole] = useState(null); // 'player1' or 'player2'
   const [multiplayerRoom, setMultiplayerRoom] = useState(null);
   const [multiplayerStatus, setMultiplayerStatus] = useState('disconnected'); // 'disconnected', 'waiting', 'connected'
+    const [gameStarted, setGameStarted] = useState(false);
+    const [opponentConnected, setOpponentConnected] = useState(true);
+    const multiplayerRoomRef = useRef(null);
+    const multiplayerRoleRef = useRef(null);
 
   const [playerName, setPlayerName] = useState(localStorage.getItem('tcg-username') || 'Guest');
   const [opponentName, setOpponentName] = useState('Opponent');
@@ -326,9 +330,36 @@ export default function GameBoard({ currentUser }) {
     const newSocket = io(getSocketUrl());
     setSocket(newSocket);
 
-    newSocket.on('connect', () => {
-      console.log('Connected to server with ID:', newSocket.id);
-    });
+          newSocket.on('connect', () => {
+        console.log('Connected to server with ID:', newSocket.id);
+        if (multiplayerRoomRef.current) {
+            console.log("Attempting to reconnect to room:", multiplayerRoomRef.current);
+            newSocket.emit('reconnect_match', { room: multiplayerRoomRef.current, role: multiplayerRoleRef.current });
+        } else {
+            setMultiplayerStatus('disconnected');
+        }
+      });
+      
+      newSocket.on('disconnect', () => {
+         console.log('Disconnected from server!');
+         setMultiplayerStatus('disconnected');
+      });
+      
+      newSocket.on('reconnect_success', (data) => {
+         console.log('Reconnected successfully!');
+         setMultiplayerStatus('connected');
+         // Force sync state in a moment
+         setTimeout(() => preventNextSync.current = false, 100);
+      });
+      
+      newSocket.on('opponent_reconnected', () => {
+         console.log('Opponent reconnected!');
+         setOpponentConnected(true);
+         setChatLog(prev => [...prev, { type: 'system', text: 'Opponent reconnected!', timestamp: new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }) }]);
+         // Force sync state to give them the board
+         setTimeout(() => preventNextSync.current = false, 100);
+      });
+
 
     newSocket.on('waiting', (data) => {
       setMultiplayerStatus('waiting');
@@ -349,11 +380,9 @@ export default function GameBoard({ currentUser }) {
     });
 
     newSocket.on('opponent_disconnected', () => {
-      setMultiplayerStatus('disconnected');
-      setMultiplayerRole(null);
-      setMultiplayerRoom(null);
-      alert("Opponent disconnected!");
-    });
+        setOpponentConnected(false);
+        setChatLog(prev => [...prev, { type: 'system', text: 'Opponent disconnected. Waiting for them to reconnect...', timestamp: new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }) }]);
+      });
     
     newSocket.on('sync_state', (data) => {
        preventNextSync.current = true;
@@ -1341,7 +1370,8 @@ export default function GameBoard({ currentUser }) {
     setCurrentPhase(nextPhaseId);
   };
 
-  if (multiplayerStatus !== 'connected') {
+  if (!gameStarted) {
+    const isLobbyDisconnected = multiplayerStatus === 'disconnected';
     return (
       <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1a1a1a', color: '#fff', fontFamily: 'Inter, sans-serif' }}>
         <h1 style={{ fontSize: '3rem', marginBottom: '2rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Conquest TCG</h1>
@@ -1349,7 +1379,7 @@ export default function GameBoard({ currentUser }) {
              <h3 style={{ margin: 0, color: '#aaa' }}>Playing as: <span style={{color: '#fff'}}>{playerName}</span></h3>
           </div>
         
-        {multiplayerStatus === 'disconnected' ? (
+        {isLobbyDisconnected ? (
            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
              
              {/* Deck Selection */}
@@ -1404,7 +1434,18 @@ export default function GameBoard({ currentUser }) {
 
   return (
     
-      <div className="game-container" style={{ display: 'flex', flex: 1, margin: '-2rem', height: 'calc(100% + 4rem)', overflow: 'hidden' }}>
+            <>
+        {multiplayerStatus === 'disconnected' && (
+           <div style={{position: 'absolute', top: 0, left: 0, width: '100%', background: '#ff4444', color: '#fff', textAlign: 'center', padding: '8px', zIndex: 10000, fontWeight: 'bold'}}>
+              Disconnected from server. Attempting to reconnect...
+           </div>
+        )}
+        {multiplayerStatus === 'connected' && !opponentConnected && (
+           <div style={{position: 'absolute', top: 0, left: 0, width: '100%', background: '#ffaa00', color: '#000', textAlign: 'center', padding: '8px', zIndex: 10000, fontWeight: 'bold'}}>
+              Opponent disconnected. Waiting for them to reconnect...
+           </div>
+        )}
+        <div className="game-container" style={{ display: 'flex', flex: 1, margin: '-2rem', height: 'calc(100% + 4rem)', overflow: 'hidden' }}>
         <div className="game-board-area" style={{ flex: '1', position: 'relative', overflow: 'hidden', minWidth: 0 }}>
           <div className="game-board" style={{ height: '100%', overflow: 'auto' }}>
       
@@ -2272,7 +2313,9 @@ export default function GameBoard({ currentUser }) {
         </div>
       </div>
     
-  );
+  
+      </>
+);
 }
 
 
