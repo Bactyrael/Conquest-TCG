@@ -1545,8 +1545,16 @@ export default function GameBoard({ currentUser }) {
               <div className="stat-box hp">
                 HP: {playerHp}
                 <div style={{display:'flex', gap:'5px', marginTop:'5px', justifyContent: 'center'}}>
-                   <button onClick={() => setPlayerHp(p => p - 1)} style={{width:'30px'}}>-</button>
-                   <button onClick={() => setPlayerHp(p => p + 1)} style={{width:'30px'}}>+</button>
+                   <button onClick={() => {
+                     const next = playerHp - 1;
+                     setPlayerHp(next);
+                     logEvent(`${playerName || 'Player'} took damage! HP is now ${next}`);
+                   }} style={{width:'30px'}}>-</button>
+                   <button onClick={() => {
+                     const next = playerHp + 1;
+                     setPlayerHp(next);
+                     logEvent(`${playerName || 'Player'} healed! HP is now ${next}`);
+                   }} style={{width:'30px'}}>+</button>
                 </div>
               </div>
               <EconomyTracker economy={playerEconomy} />
