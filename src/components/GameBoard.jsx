@@ -191,11 +191,13 @@ export default function GameBoard({ currentUser }) {
         // Removed HP Reduction Logic for sandbox manual HP controls
         let advStr = options.advantage ? " (Advantage)" : (options.disadvantage ? " (Disadvantage)" : "");
         let defAdvStr = defAdvantage ? " (Advantage)" : (defDisadvantage ? " (Disadvantage)" : "");
+        let modStr = modValue ? ` [Mod: ${modValue > 0 ? '+' : ''}${modValue}]` : "";
+        let defModStr = defModValue ? ` [Mod: ${defModValue > 0 ? '+' : ''}${defModValue}]` : "";
 
         if (isDuel) {
-           logEvent(`${playerName || 'Player 1'} rolled ${finalDamage}${advStr} against ${opponentName || 'Player 2'}'s ${defFinalDamage}${defAdvStr}`);
+           logEvent(`${playerName || 'Player 1'} rolled ${finalDamage}${advStr}${modStr} against ${opponentName || 'Player 2'}'s ${defFinalDamage}${defAdvStr}${defModStr}`);
         } else {
-           logEvent(`${playerName || 'Player 1'} rolled a ${finalDamage}${advStr}`);
+           logEvent(`${playerName || 'Player 1'} rolled a ${finalDamage}${advStr}${modStr}`);
         }
         
         setTimeout(() => setDiceRoll(null), 4000);
