@@ -1908,7 +1908,7 @@ export default function GameBoard({ currentUser }) {
                     )}
                     {diceRoll.final && (
                       <div style={{fontSize: '48px', color: '#ff4500', fontWeight: 'bold', textShadow: '0 0 20px #ff4500'}}>
-                        {diceRoll.totalDamage} DAMAGE!
+                        {diceRoll.totalDamage}
                       </div>
                     )}
                  </div>
@@ -1958,7 +1958,7 @@ export default function GameBoard({ currentUser }) {
                        )}
                        {diceRoll.final && (
                          <div style={{fontSize: '48px', color: '#ff4500', fontWeight: 'bold', textShadow: '0 0 20px #ff4500'}}>
-                           {diceRoll.duelTotalDamage} DAMAGE!
+                           {diceRoll.duelTotalDamage}
                          </div>
                        )}
                     </div>
