@@ -189,6 +189,11 @@ export default function GameBoard({ currentUser }) {
         }));
         
         // Removed HP Reduction Logic for sandbox manual HP controls
+        if (isDuel) {
+           logEvent(`${playerName || 'Player 1'} rolled ${finalDamage} against ${opponentName || 'Player 2'}'s ${defFinalDamage}`);
+        } else {
+           logEvent(`${playerName || 'Player 1'} rolled a ${finalDamage}`);
+        }
         
         setTimeout(() => setDiceRoll(null), 4000);
       }
