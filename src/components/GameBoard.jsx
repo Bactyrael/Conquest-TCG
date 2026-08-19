@@ -1878,12 +1878,12 @@ export default function GameBoard({ currentUser }) {
             exit={{ opacity: 0, scale: 0.5 }}
           >
             <div className={`dice-container ${diceRoll.final ? 'final' : ''}`} style={{flexDirection: 'column', padding: '30px', background: 'rgba(0,0,0,0.85)', border: '4px solid #ffaa00', borderRadius: '16px'}}>
-              <h2 style={{color: '#ffaa00', textShadow: '0 0 10px #ffaa00', marginBottom: '10px', marginTop: 0}}>Attack Resolution</h2>
+              <h2 style={{color: '#ffaa00', textShadow: '0 0 10px #ffaa00', marginBottom: '10px', marginTop: 0}}>Dice Roll</h2>
               <div style={{display: 'flex', gap: '40px', alignItems: 'flex-start'}}>
                  
                  {/* Attacker Roll */}
                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    {diceRoll.duel && <h3 style={{color: '#ddd', marginTop: 0}}>Attacker</h3>}
+                    {diceRoll.duel && <h3 style={{color: '#ddd', marginTop: 0}}>Player 1</h3>}
                     <div style={{display: 'flex', gap: '30px', marginBottom: '15px', justifyContent: 'center'}}>
                       <div style={{display: 'flex', gap: '15px', flexDirection: 'column', alignItems: 'center'}}>
                          {diceRoll.final && diceRoll.results2 && <div style={{color: '#ffaa00', fontWeight: 'bold'}}>Chosen Roll</div>}
@@ -1933,7 +1933,7 @@ export default function GameBoard({ currentUser }) {
                  {/* Defender Roll (Duel) */}
                  {diceRoll.duel && (
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', borderLeft: '2px solid #555', paddingLeft: '40px'}}>
-                       <h3 style={{color: '#ddd', marginTop: 0}}>Defender</h3>
+                       <h3 style={{color: '#ddd', marginTop: 0}}>Player 2</h3>
                        <div style={{display: 'flex', gap: '30px', marginBottom: '15px', justifyContent: 'center'}}>
                          <div style={{display: 'flex', gap: '15px', flexDirection: 'column', alignItems: 'center'}}>
                             {diceRoll.final && diceRoll.duelResults2 && <div style={{color: '#ffaa00', fontWeight: 'bold'}}>Chosen Roll</div>}
