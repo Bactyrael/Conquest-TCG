@@ -625,6 +625,7 @@
 }
 
 .mini-hero:hover .board-zoom-btn,
+.hero-card-wrapper:hover .board-zoom-btn,
 .location-slot:hover .board-zoom-btn,
 .hand-card-wrapper:hover .board-zoom-btn,
 .timeline-mini-card:hover .board-zoom-btn {

@@ -1427,12 +1427,13 @@ export default function GameBoard({ currentUser }) {
                          ))}
                        </div>
                      )}
-                     {opponentHeroCard.attachedCards && opponentHeroCard.attachedCards.map((attached, attachIdx) => (
-                         <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: opponentHeroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
-                             <Card data={attached} />
-                         </div>
-                     ))}
-                     {currentPhase === 'combat' && activePlayer === 'opponent' && !targetingState.active && opponentAttacksThisTurn < 1 && opponentEconomy.action > 0 && (
+                                           {opponentHeroCard.attachedCards && opponentHeroCard.attachedCards.map((attached, attachIdx) => (
+                          <div key={attached.uid} id={`card-${attached.uid}`} className="attached-card-wrapper" onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, 'card_attached', { card: attached, parentUid: opponentHeroCard.uid, zone: 'hero' }) }} style={{ position: 'absolute', top: (attachIdx + 1) * -35, left: 0, zIndex: -(attachIdx + 1), width: '100%', height: '100%' }}>
+                              <Card data={attached} />
+                          </div>
+                      ))}
+                      <button className="board-zoom-btn" onClick={(e) => { e.stopPropagation(); setZoomedCard(opponentHeroCard); }}>🔍</button>
+{currentPhase === 'combat' && activePlayer === 'opponent' && !targetingState.active && opponentAttacksThisTurn < 1 && opponentEconomy.action > 0 && (
                         <div className="target-overlay" onClick={() => handleTargetClick('opponent-hero', 'hero')}>⚔️ Attack</div>
                      )}
                      {targetingState.active && targetingState.actionType !== 'bounce-location' && targetingState.sourceZone !== 'opponent-hero' && (
