@@ -33,7 +33,16 @@ export default function Card({ data }) {
         
         {/* Header */}
         <div className="card-header">
-          <div className="card-title">{data.name || 'Unknown'}</div>
+          <div 
+            className="card-title" 
+            style={{ 
+              fontSize: data.name ? `max(3.5cqi, min(7cqi, ${100 / data.name.length}cqi))` : '7cqi',
+              whiteSpace: data.name && data.name.length > 25 ? 'normal' : 'nowrap',
+              lineHeight: 1
+            }}
+          >
+            {data.name || 'Unknown'}
+          </div>
           {activeReqs.length > 0 && (
             <div className="card-reqs">
               {activeReqs.map(req => (
