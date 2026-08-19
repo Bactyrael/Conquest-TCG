@@ -132,7 +132,14 @@ app.post('/api/register', (req, res) => {
 
 app.get('/api/cards', (req, res) => {
   const dbPath = path.resolve(__dirname, 'src/data/cardDatabase.json');
-  res.sendFile(dbPath);
+  try {
+    const data = fs.readFileSync(dbPath, 'utf8');
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  } catch (err) {
+    console.error('Error reading card DB:', err);
+    res.status(500).json({ error: 'Failed to read card database' });
+  }
 });
 
 app.post('/api/login', (req, res) => {
