@@ -137,7 +137,7 @@ export default function DeckBuilder() {
   };
 
   const filteredDb = db.filter(c => {
-    const matchesName = c.name?.toLowerCase().includes(filter.toLowerCase()) || c.rawText?.toLowerCase().includes(filter.toLowerCase());
+    const matchesName = c.name?.toLowerCase().includes(filter.toLowerCase()) || (c.rawText || c.rulesText || '')?.toLowerCase().includes(filter.toLowerCase()) || (c.flavorText || '')?.toLowerCase().includes(filter.toLowerCase());
     
     let matchesType = false;
     if (typeFilter === 'All') matchesType = true;
@@ -169,7 +169,7 @@ export default function DeckBuilder() {
       
       matchesStats = activeStats.some(stat => {
         const hasReq = c.requirements && c.requirements[stat] > 0;
-        const textMatch = c.rawText?.toLowerCase().includes(statNames[stat]);
+        const textMatch = (c.rawText || c.rulesText || '')?.toLowerCase().includes(statNames[stat]) || (c.flavorText || '')?.toLowerCase().includes(statNames[stat]);
         const titleMatch = c.name?.toLowerCase().includes(statNames[stat]);
         return hasReq || textMatch || titleMatch;
       });
