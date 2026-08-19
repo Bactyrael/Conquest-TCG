@@ -158,11 +158,21 @@ export default function DeckBuilder() {
     let matchesStats = true;
     const activeStats = Object.keys(statFilters).filter(s => statFilters[s]);
     if (activeStats.length > 0) {
-      if (!c.requirements) {
-        matchesStats = false;
-      } else {
-        matchesStats = activeStats.some(stat => c.requirements[stat] > 0);
-      }
+      const statNames = {
+        str: 'strength',
+        dex: 'dexterity',
+        con: 'constitution',
+        int: 'intelligence',
+        wis: 'wisdom',
+        luc: 'luck'
+      };
+      
+      matchesStats = activeStats.some(stat => {
+        const hasReq = c.requirements && c.requirements[stat] > 0;
+        const textMatch = c.rawText?.toLowerCase().includes(statNames[stat]);
+        const titleMatch = c.name?.toLowerCase().includes(statNames[stat]);
+        return hasReq || textMatch || titleMatch;
+      });
     }
     
     return matchesName && matchesType && matchesStats;
