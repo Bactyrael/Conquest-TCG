@@ -18,43 +18,26 @@ class ArrowErrorBoundary extends React.Component {
   }
   componentDidCatch(error, errorInfo) {
     console.error("Arrow crash caught:", error);
+    this.setState({ errorInfo });
   }
   render() {
-    if (this.state.hasError) {
-      return null;
-    }
+    if (this.state.hasError) { return <div style={{position: 'fixed', top: 90, left: 50, background: 'orange', color: 'white', zIndex: 9999, padding: '10px'}}>Xarrow crashed!</div>; }
     return this.props.children; 
   }
 }
 
-const SafeArrow = (props) => {
-   const [canRender, setCanRender] = React.useState(false);
-   
-   React.useLayoutEffect(() => {
-      // Check if both elements exist
-      const startEl = document.getElementById(props.start);
-      const endEl = document.getElementById(props.end);
-      if (startEl && endEl) {
-         setCanRender(true);
-      } else {
-         // Maybe they will render soon, setup a short interval to check
-         const interval = setInterval(() => {
-            const startEl2 = document.getElementById(props.start);
-            const endEl2 = document.getElementById(props.end);
-            if (startEl2 && endEl2) {
-               setCanRender(true);
-               clearInterval(interval);
-            }
-         }, 100);
-         // Cleanup after 2 seconds if still not found
-         setTimeout(() => clearInterval(interval), 2000);
-         return () => clearInterval(interval);
-      }
-   }, [props.start, props.end]);
 
-   if (!canRender) return null;
+
+const SafeArrow = (props) => {
+   const startEl = document.getElementById(props.start);
+   const endEl = document.getElementById(props.end);
+   if (!startEl || !endEl) {
+       return <div style={{position: 'fixed', top: 50, left: 50, background: 'red', color: 'white', zIndex: 9999, padding: '10px'}}>Arrow missing DOM nodes: start={props.start} ({startEl ? 'yes' : 'no'}), end={props.end} ({endEl ? 'yes' : 'no'})</div>;
+   }
    return <Xarrow {...props} />;
 };
+
+
 
 import Card from './Card';
 
