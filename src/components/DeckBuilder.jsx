@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getBackendUrl } from '../utils/api';
 import './DeckBuilder.css';
-import cardDatabase from '../data/cardDatabase.json';
+
 import Card from './Card';
 
 export default function DeckBuilder() {
@@ -21,7 +21,10 @@ export default function DeckBuilder() {
   };
 
   useEffect(() => {
-    setDb(cardDatabase);
+    fetch(getBackendUrl() + '/api/cards')
+      .then(res => res.json())
+      .then(data => setDb(data))
+      .catch(err => console.error('Failed to load card db:', err));
     const fetchDecks = async () => {
       try {
         const token = localStorage.getItem('tcg-token');

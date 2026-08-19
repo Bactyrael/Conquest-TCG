@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Xarrow, { Xwrapper } from 'react-xarrows';
 import './GameBoard.css';
 import Card from './Card';
-import cardDatabase from '../data/cardDatabase.json';
+
 
 const EconomyTracker = ({ economy }) => (
    <div style={{ display: 'flex', gap: '5px', marginTop: '10px' }}>
@@ -247,6 +247,7 @@ export default function GameBoard({ currentUser }) {
   });
 
   // Context Menu State
+  const [db, setDb] = useState([]);
   const [contextMenu, setContextMenu] = useState({
     visible: false,
     x: 0,
@@ -391,7 +392,7 @@ export default function GameBoard({ currentUser }) {
     
     // Sync with fresh database to grab updated image URLs
     let freshDeck = rawDeck.map(cardName => {
-        const dbCard = cardDatabase.find(dbC => dbC.name === cardName);
+        const dbCard = db.find(dbC => dbC.name === cardName);
         if (!dbCard) return null;
         return { ...dbCard, uid: Math.random().toString() };
       }).filter(c => c !== null);
@@ -421,7 +422,7 @@ export default function GameBoard({ currentUser }) {
     
     let rawDeck = savedDecks[deckName] || [];
     let freshDeck = rawDeck.map(c => {
-      const dbCard = cardDatabase.find(dbC => dbC.name === c.name);
+      const dbCard = db.find(dbC => dbC.name === c.name);
       return { ...(dbCard || c), uid: Math.random().toString() };
     });
     
