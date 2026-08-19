@@ -366,6 +366,13 @@ export default function GameBoard({ currentUser }) {
   }, [contextMenu.visible]);
 
   useEffect(() => {
+    fetch(getBackendUrl() + '/api/cards')
+      .then(res => res.json())
+      .then(data => setDb(data))
+      .catch(err => console.error('Failed to load card db:', err));
+  }, []);
+
+  useEffect(() => {
     const fetchDecks = async () => {
       try {
         const token = localStorage.getItem('tcg-token');
