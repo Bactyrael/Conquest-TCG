@@ -368,7 +368,11 @@ export default function GameBoard({ currentUser }) {
     newSocket.on('match_found', (data) => {
       setMultiplayerStatus('connected');
       setMultiplayerRole(data.role);
-      setMultiplayerRoom(data.room);
+        multiplayerRoleRef.current = data.role;
+        setMultiplayerRoom(data.room);
+        multiplayerRoomRef.current = data.room;
+        setGameStarted(true);
+        setOpponentConnected(true);
       setOpponentName(data.opponentName || 'Player 2');
       setChatLog(prev => [...prev, { type: 'system', text: `Match started against ${data.opponentName || 'Player 2'}!`, timestamp: new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }) }]);
       console.log('Match found! Role:', data.role, 'Room:', data.room);
