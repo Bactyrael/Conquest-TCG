@@ -7,6 +7,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Xarrow, { Xwrapper } from 'react-xarrows';
 import './GameBoard.css';
 
+
+class ArrowErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.error("Arrow crash caught:", error);
+  }
+  render() {
+    if (this.state.hasError) {
+      return null;
+    }
+    return this.props.children; 
+  }
+}
+
 const SafeArrow = (props) => {
    const [canRender, setCanRender] = React.useState(false);
    
@@ -2195,7 +2215,7 @@ export default function GameBoard({ currentUser }) {
 
     </div>
           {arrows.map(arrow => (
-              <SafeArrow key={arrow.id} start={arrow.startDomId} end={arrow.endDomId} color={arrow.color} strokeWidth={4} headSize={6} passProps={{style: {pointerEvents: 'none'}}} />
+              <ArrowErrorBoundary key={arrow.id}><SafeArrow key={arrow.id} start={arrow.startDomId} end={arrow.endDomId} color={arrow.color} strokeWidth={4} headSize={6} passProps={{style: {pointerEvents: 'none'}}} /></ArrowErrorBoundary>
           ))}
         </div>
 
