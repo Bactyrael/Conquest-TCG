@@ -287,8 +287,8 @@ export default function GameBoard({ currentUser }) {
   const [opponentLocations, setOpponentLocations] = useState([]);
   const [opponentHeroCard, setOpponentHeroCard] = useState(null);
   
-  const [playerHp, setPlayerHp] = useState(20);
-  const [opponentHp, setOpponentHp] = useState(20);
+  const [playerHp, setPlayerHp] = useState(100);
+  const [opponentHp, setOpponentHp] = useState(100);
   const [playerAttacksThisTurn, setPlayerAttacksThisTurn] = useState(0);
   const [opponentAttacksThisTurn, setOpponentAttacksThisTurn] = useState(0);
   
@@ -542,7 +542,7 @@ export default function GameBoard({ currentUser }) {
     setOpponentDungeon([]);
     setOpponentVoidZone([]);
     setOpponentLocations([]);
-    setOpponentHp(20);
+    setOpponentHp(100);
   };
 
   const handleHeroAttack = (player) => {
