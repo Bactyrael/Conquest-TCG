@@ -835,3 +835,12 @@
   text-overflow: ellipsis;
   max-width: 100%;
 }
+
+.phase-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #333;
+  border-color: #555;
+  color: #888;
+}
+

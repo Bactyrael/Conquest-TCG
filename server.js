@@ -319,8 +319,9 @@ io.on('connection', (socket) => {
       socket.join(roomName);
       waitingPlayer.join(roomName);
       
-      waitingPlayer.emit('match_found', { role: 'player1', room: roomName, opponentName: socket.playerName });
-      socket.emit('match_found', { role: 'player2', room: roomName, opponentName: waitingPlayer.playerName });
+      const isWaitingPlayer1 = Math.random() < 0.5;
+      waitingPlayer.emit('match_found', { role: isWaitingPlayer1 ? 'player1' : 'player2', room: roomName, opponentName: socket.playerName });
+      socket.emit('match_found', { role: isWaitingPlayer1 ? 'player2' : 'player1', room: roomName, opponentName: waitingPlayer.playerName });
       
       console.log(`Matched ${waitingPlayer.id} and ${socket.id} in ${roomName}`);
       waitingPlayer = null;
@@ -337,9 +338,9 @@ io.on('connection', (socket) => {
     if (room) socket.to(room).emit('sync_state', data);
   });
   
-  socket.on('pass_phase', () => {
+  socket.on('pass_phase', (data) => {
     const room = Array.from(socket.rooms).find(r => r !== socket.id);
-    if (room) socket.to(room).emit('pass_phase');
+    if (room) socket.to(room).emit('pass_phase', { ...data, timestamp: Date.now() });
   });
 
   socket.on('chat_message', (data) => {
@@ -382,3 +383,5 @@ const PORT = 3001;
 server.listen(PORT, () => {
   console.log(`Backend Server running on http://localhost:${PORT}`);
 });
+
+

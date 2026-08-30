@@ -56,11 +56,11 @@ const SimpleArrow = ({ start, end, color }) => {
 import Card from './Card';
 
 
-const EconomyTracker = ({ economy }) => (
+const EconomyTracker = ({ economy, onToggle }) => (
    <div style={{ display: 'flex', gap: '5px', marginTop: '10px' }}>
-      <div style={{ padding: '2px 8px', borderRadius: '4px', background: economy.action > 0 ? '#4caf50' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>ACT</div>
-      <div style={{ padding: '2px 8px', borderRadius: '4px', background: economy.bonusAction > 0 ? '#2196f3' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>BON</div>
-      <div style={{ padding: '2px 8px', borderRadius: '4px', background: economy.reaction > 0 ? '#ff9800' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>RXN</div>
+      <div onClick={() => onToggle && onToggle('action')} style={{ cursor: onToggle ? 'pointer' : 'default', padding: '2px 8px', borderRadius: '4px', background: economy.action > 0 ? '#4caf50' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>ACT</div>
+      <div onClick={() => onToggle && onToggle('bonusAction')} style={{ cursor: onToggle ? 'pointer' : 'default', padding: '2px 8px', borderRadius: '4px', background: economy.bonusAction > 0 ? '#2196f3' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>BON</div>
+      <div onClick={() => onToggle && onToggle('reaction')} style={{ cursor: onToggle ? 'pointer' : 'default', padding: '2px 8px', borderRadius: '4px', background: economy.reaction > 0 ? '#ff9800' : '#555', color: 'white', fontSize: '0.7rem', fontWeight: 'bold' }}>RXN</div>
    </div>
 );
 
@@ -371,6 +371,7 @@ export default function GameBoard({ currentUser }) {
         multiplayerRoleRef.current = data.role;
         setMultiplayerRoom(data.room);
         multiplayerRoomRef.current = data.room;
+        setActivePlayer(data.role === 'player1' ? 'player' : 'opponent');
         setGameStarted(true);
         setOpponentConnected(true);
       setOpponentName(data.opponentName || 'Player 2');
@@ -411,8 +412,24 @@ export default function GameBoard({ currentUser }) {
     newSocket.on('chat_message', (msg) => { setChatLog(prev => [...prev, msg]); });
     newSocket.on('game_event', (msg) => { setChatLog(prev => [...prev, msg]); });
 
-    newSocket.on('pass_phase', () => {
-       setOpponentPhasePassTrigger(prev => prev + 1);
+    newSocket.on('pass_phase', (data) => {
+       if (data && data.exactState) {
+         setCurrentPhase(data.exactState.phase);
+         setActivePlayer(data.exactState.activePlayer === 'player' ? 'opponent' : 'player');
+         setTurnNumber(data.exactState.turnNumber);
+         setLocationsPlayedThisTurn(0);
+         setPlayerAttacksThisTurn(0);
+         setOpponentAttacksThisTurn(0);
+         if (data.exactState.activePlayer === 'player') {
+            setOpponentEconomy({ action: 1, bonusAction: 1, reaction: 1 });
+         } else {
+            setPlayerEconomy({ action: 1, bonusAction: 1, reaction: 1 });
+         }
+         preventNextSync.current = true;
+         setTimeout(() => preventNextSync.current = false, 50);
+       } else {
+         setOpponentPhasePassTrigger(prev => prev + 1);
+       }
     });
 
     return () => newSocket.close();
@@ -1328,30 +1345,32 @@ export default function GameBoard({ currentUser }) {
   }, [opponentPhasePassTrigger]);
 
   const handlePhaseAdvance = (fromSocket = false) => {
-    if (!fromSocket) logEvent(`${playerName || 'Player'} passed the phase.`);
-    if (socket && multiplayerStatus === 'connected' && !fromSocket) socket.emit('pass_phase');
+    if (fromSocket) return; // Prevent loop
+    
     setArrows([]);
     if (discardState.active) {
-      alert(`You must discard ${discardState.count} more card(s) before advancing!`);
+      alert('You must discard ' + discardState.count + ' more card(s) before advancing!');
       return;
     }
 
     const currentIndex = phases.findIndex(p => p.id === currentPhase);
     
     if (currentIndex === phases.length - 1) {
-      // Check hand size limit before passing turn
       const activeHand = activePlayer === 'player' ? hand : opponentHand;
       if (activeHand.length > 7) {
          setDiscardState({ active: true, count: activeHand.length - 7 });
-         return; // Pause passing until resolved
+         return; 
       }
     }
 
     let nextPhaseId;
+    let nextActivePlayer = activePlayer;
+    let nextTurnNumber = turnNumber;
+
     if (currentIndex === phases.length - 1) {
-      // Passing from End phase -> Change active player and go to upkeep
-      const nextActivePlayer = activePlayer === 'player' ? 'opponent' : 'player';
-      const nextTurnNumber = activePlayer === 'opponent' ? turnNumber + 1 : turnNumber;
+      nextActivePlayer = activePlayer === 'player' ? 'opponent' : 'player';
+      const isEndOfRound = (multiplayerRoleRef.current === 'player1' && activePlayer === 'opponent') || (multiplayerRoleRef.current === 'player2' && activePlayer === 'player');
+      nextTurnNumber = isEndOfRound ? turnNumber + 1 : turnNumber;
       
       setActivePlayer(nextActivePlayer);
       setLocationsPlayedThisTurn(0);
@@ -1364,14 +1383,23 @@ export default function GameBoard({ currentUser }) {
          setOpponentEconomy({ action: 1, bonusAction: 1, reaction: 1 });
       }
       nextPhaseId = phases[0].id;
-      if (activePlayer === 'opponent') setTurnNumber(nextTurnNumber);
-      
-      
+      if (isEndOfRound) setTurnNumber(nextTurnNumber);
     } else {
       nextPhaseId = phases[currentIndex + 1].id;
     }
 
     setCurrentPhase(nextPhaseId);
+    
+    logEvent((playerName || 'Player') + ' passed the phase.');
+    if (socket && multiplayerStatus === 'connected') {
+      socket.emit('pass_phase', {
+        exactState: {
+          phase: nextPhaseId,
+          activePlayer: nextActivePlayer,
+          turnNumber: nextTurnNumber
+        }
+      });
+    }
   };
 
   if (!gameStarted) {
@@ -1460,7 +1488,7 @@ export default function GameBoard({ currentUser }) {
         <div className="turn-counter">
           Turn {turnNumber}
         </div>
-        <button className="phase-btn pass-btn" onClick={handlePhaseAdvance}>
+        <button className="phase-btn pass-btn" onClick={() => handlePhaseAdvance()} disabled={activePlayer !== 'player'}>
           🔄 Pass
         </button>
         <div className="phase-list">
@@ -1675,7 +1703,7 @@ export default function GameBoard({ currentUser }) {
                    }} style={{width:'30px'}}>+</button>
                 </div>
               </div>
-              <EconomyTracker economy={playerEconomy} />
+              <EconomyTracker economy={playerEconomy} onToggle={(type) => setPlayerEconomy(prev => ({ ...prev, [type]: prev[type] > 0 ? 0 : 1 }))} />
             </div>
 
             <div className="location-zone"
