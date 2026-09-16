@@ -2315,7 +2315,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Rage → Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4. While enraged, attacker's have advantage against you.",
+    "rulesText": "Rage: [USE] Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4. While enraged, attacker's have advantage against you.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Barbarian Set.jpg",
@@ -2336,7 +2336,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Bardic Inspiration → Gain an Inspiration Die equal to or less than one of your stats.  Gain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
+    "rulesText": "Bardic Inspiration: [USE] Gain an Inspiration Die equal to or less than one of your stats.  Gain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Bard Set.jpg",
@@ -2357,7 +2357,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Channel Divinity → You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round. Whenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
+    "rulesText": "Channel Divinity: [USE] You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round. Whenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Cleric Set.jpg",
@@ -2378,7 +2378,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Aetheric → If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less of any stat for each Elemental Counter you control.",
+    "rulesText": "Aetheric: [USE] If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less of any stat for each Elemental Counter you control.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Conjurer Set.png",
@@ -2399,7 +2399,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Wild Resurgence → Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
+    "rulesText": "Wild Resurgence: [USE] Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Druid Set.jpg",
@@ -2420,7 +2420,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Master at Arms → Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
+    "rulesText": "Master at Arms: [USE] Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Fighter Set.jpg",
@@ -2441,7 +2441,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Burial Rite → Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
+    "rulesText": "Burial Rite: [USE] Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Necromancer Set.png",
@@ -2462,7 +2462,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Martial Arts → Gain an Inspiration Die equal to or less than your Dex.  Gain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
+    "rulesText": "Martial Arts: [USE] Gain an Inspiration Die equal to or less than your Dex.  Gain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Monk Set.jpg",
@@ -2483,12 +2483,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Radiant Strikes → Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
+    "rulesText": "Radiant Strikes: [USE] Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Paladin Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Con (Holy)"
+    "damage": "1d8 + Int (Magic)"
   },
   {
     "id": "118",
@@ -2504,7 +2504,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "No Prey, No Pay → If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
+    "rulesText": "No Prey, No Pay: [USE] If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Pirate Set.png",
@@ -2525,7 +2525,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deft Explorer → Look at the top card of your Archive. If it is a Location card, you may draw it. After playing a Location card, your next attack or Act card has advantage until the end of your turn.",
+    "rulesText": "Deft Explorer: [USE] Look at the top card of your Archive. If it is a Location card, you may draw it. After playing a Location card, your next attack or Act card has advantage until the end of your turn.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Ranger Set.jpg",
@@ -2546,7 +2546,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Font of Magic → Gain an Inspiration Die equal to or less than your Int.  If you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
+    "rulesText": "Font of Magic: [USE] Gain an Inspiration Die equal to or less than your Int.  If you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Sorcerer Set.jpg",
@@ -2567,7 +2567,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Sneak Attack → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.) Your critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
+    "rulesText": "Sneak Attack: [USE] Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.) Your critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Rogue Set.jpg",
@@ -2588,7 +2588,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Eldritch Invocation → Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
+    "rulesText": "Eldritch Invocation: [USE] Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Warlock Set.jpg",
@@ -2609,7 +2609,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Malignance → You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round. Whenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
+    "rulesText": "Malignance: [USE] You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round. Whenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Witch Set.jpeg",
@@ -2630,7 +2630,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Spell Mastery → Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less of a chosen stat.",
+    "rulesText": "Spell Mastery: [USE] Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less of a chosen stat.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Wizard Set.jpg",
