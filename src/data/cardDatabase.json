@@ -866,7 +866,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Amplify Magic.png",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "041",
@@ -887,7 +887,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Aria of Accuracy.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "042",
@@ -908,7 +908,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Bark Skin.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "043",
@@ -929,7 +929,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Beast Bond.jpg",
-    "cost": "4"
+    "cost": "4 Stamina"
   },
   {
     "id": "044",
@@ -950,7 +950,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Divine Favor.jpg",
-    "cost": "4"
+    "cost": "4 Mana"
   },
   {
     "id": "045",
@@ -971,7 +971,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Ensorcell.jpg",
-    "cost": "4"
+    "cost": "4 Mana"
   },
   {
     "id": "046",
@@ -992,7 +992,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Gambit.jpg",
-    "cost": "2"
+    "cost": "2 Stamina"
   },
   {
     "id": "047",
@@ -1011,7 +1011,7 @@
     "rulesText": "Grant another target +2 defense and resilience until the end of their next turn. If they took damage during the duration of this effect, gain a 1d4 Inspiration Die.",
     "subtype": "Boon",
     "rarity": "Common",
-    "cost": "4"
+    "cost": "4 Stamina"
   },
   {
     "id": "048",
@@ -1040,7 +1040,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Invisibility.jpg",
-    "cost": "3"
+    "cost": "3 Mana"
   },
   {
     "id": "049",
@@ -1061,7 +1061,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Fog Cloud.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "050",
@@ -1082,7 +1082,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Pass Without Trace.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "051",
@@ -1103,7 +1103,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "See Red.jpg",
-    "cost": "2"
+    "cost": "2 Stamina"
   },
   {
     "id": "052",
@@ -1124,7 +1124,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Song of Favor.jpg",
-    "cost": "4"
+    "cost": "4 Stamina"
   },
   {
     "id": "053",
@@ -1145,7 +1145,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Splash the Pot.jpg",
-    "cost": "3"
+    "cost": "3 Stamina"
   },
   {
     "id": "054",
@@ -1166,7 +1166,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Stealth.jpg",
-    "cost": "3"
+    "cost": "3 Stamina"
   },
   {
     "id": "055",
@@ -1187,7 +1187,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Blight.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "056",
@@ -1208,7 +1208,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Blind.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "057",
@@ -1229,7 +1229,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Buffet.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "058",
@@ -1250,7 +1250,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Burn.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "059",
@@ -1271,7 +1271,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Charm.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "060",
@@ -1292,7 +1292,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Chill.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "061",
@@ -1313,7 +1313,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Confuse.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "062",
@@ -1334,7 +1334,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Deafen.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "063",
@@ -1355,7 +1355,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Drench.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "064",
@@ -1376,7 +1376,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Castigation.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "065",
@@ -1397,7 +1397,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Bleed.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "066",
@@ -1418,7 +1418,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Sever.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "067",
@@ -1439,7 +1439,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Sunder.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "068",
@@ -1460,7 +1460,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Curse.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "069",
@@ -1481,7 +1481,7 @@
     "subtype": "Curse",
     "rarity": "Common",
     "originalArtFile": "Wound.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "070",
@@ -1754,7 +1754,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Absorb Elements.jpg",
-    "cost": "4"
+    "cost": "4 Mana"
   },
   {
     "id": "083",
@@ -1942,7 +1942,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Bless.jpg",
-    "cost": "3"
+    "cost": "3 Mana"
   },
   {
     "id": "092",
@@ -1963,7 +1963,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Heroism.jpg",
-    "cost": "5"
+    "cost": "5 Mana"
   },
   {
     "id": "093",
@@ -1984,7 +1984,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Iron Skin.jpg",
-    "cost": "2"
+    "cost": "2 Stamina"
   },
   {
     "id": "094",
@@ -2005,7 +2005,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Rallying Anthem.jpg",
-    "cost": "5"
+    "cost": "5 Stamina"
   },
   {
     "id": "095",
@@ -2026,7 +2026,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Sancturary.png",
-    "cost": "4"
+    "cost": "4 Mana"
   },
   {
     "id": "096",
@@ -2047,7 +2047,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Spiked Growth.jpg",
-    "cost": "3"
+    "cost": "3 Mana"
   },
   {
     "id": "097",
@@ -2068,7 +2068,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Superstition.jpg",
-    "cost": "4"
+    "cost": "4 Stamina"
   },
   {
     "id": "098",
@@ -2089,7 +2089,7 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Wind Wall.jpg",
-    "cost": "4"
+    "cost": "4 Mana"
   },
   {
     "id": "099",
@@ -2173,7 +2173,7 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Disarming Ditty.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Stamina"
   },
   {
     "id": "103",
@@ -2315,12 +2315,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Rage → Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4.\n\nWhile enraged, attacker's have advantage against you.",
+    "rulesText": "Rage → Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4. While enraged, attacker's have advantage against you.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Barbarian Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Str (Blunt)"
+    "damage": "1d8 + Str (Slashing)"
   },
   {
     "id": "110",
@@ -2336,7 +2336,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Bardic Inspiration → Gain an Inspiration Die equal to or less than one of your stats. \n\nGain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
+    "rulesText": "Bardic Inspiration → Gain an Inspiration Die equal to or less than one of your stats.  Gain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Bard Set.jpg",
@@ -2357,7 +2357,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Channel Divinity → You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.\n\nWhenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
+    "rulesText": "Channel Divinity → You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round. Whenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Cleric Set.jpg",
@@ -2378,7 +2378,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Aetheric → If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter.\n\nSpells require 1 less of any stat for each Elemental Counter you control.",
+    "rulesText": "Aetheric → If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less of any stat for each Elemental Counter you control.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Conjurer Set.png",
@@ -2420,7 +2420,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Master at Arms → Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). \n\nOn a critical hit, deal +2 additional damage.",
+    "rulesText": "Master at Arms → Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Fighter Set.jpg",
@@ -2462,7 +2462,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Martial Arts → Gain an Inspiration Die equal to or less than your Dex. \n\nGain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
+    "rulesText": "Martial Arts → Gain an Inspiration Die equal to or less than your Dex.  Gain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Monk Set.jpg",
@@ -2525,7 +2525,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deft Explorer → Look at the top card of your Archive. If it is a Location card, you may draw it.\n\nAfter playing a Location card, your next attack or Act card has advantage until the end of your turn.",
+    "rulesText": "Deft Explorer → Look at the top card of your Archive. If it is a Location card, you may draw it. After playing a Location card, your next attack or Act card has advantage until the end of your turn.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Ranger Set.jpg",
@@ -2546,7 +2546,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Font of Magic → Gain an Inspiration Die equal to or less than your Int. \n\nIf you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
+    "rulesText": "Font of Magic → Gain an Inspiration Die equal to or less than your Int.  If you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Sorcerer Set.jpg",
@@ -2567,7 +2567,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Sneak Attack → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.)\n\nYour critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
+    "rulesText": "Sneak Attack → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.) Your critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Rogue Set.jpg",
@@ -2609,7 +2609,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Malignance → You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round.\n\nWhenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
+    "rulesText": "Malignance → You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round. Whenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Witch Set.jpeg",
@@ -2630,7 +2630,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Spell Mastery → Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed.\n\nAct cards performed from anywhere other than your hand require two less of a chosen stat.",
+    "rulesText": "Spell Mastery → Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less of a chosen stat.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Wizard Set.jpg",
@@ -2644,7 +2644,7 @@
     "subtype": "",
     "rarity": "Common",
     "cost": "0",
-    "rulesText": "",
+    "rulesText": "[USE] Add one [Mana] to your resource pool.",
     "flavorText": "",
     "image": "mana_crystal.jpg"
   },
@@ -2655,7 +2655,7 @@
     "subtype": "",
     "rarity": "Common",
     "cost": "0",
-    "rulesText": "",
+    "rulesText": "[USE] Add one [Stamina] to your resource pool.",
     "flavorText": ""
   }
 ]

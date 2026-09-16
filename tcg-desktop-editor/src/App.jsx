@@ -1,97 +1,199 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-const AutoShrinkTextarea = ({ value, onChange, className, placeholder, style, onOptimalSizeChange, forcedSize }) => {
-  const ref = useRef(null);
+const parseRichTextHTML = (text) => {
+  return text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\[USE\]/gi, '<img src="/icons/use.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
+    .replace(/\[MANA\]/gi, '<img src="/icons/mana.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
+    .replace(/\[STAMINA\]/gi, '<img src="/icons/stamina.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
+    .replace(/\n/g, '<br/>');
+};
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    
-    // Bulletproof measuring using an off-screen div
-    const style = window.getComputedStyle(el);
-    const measureDiv = document.createElement('div');
-    measureDiv.style.width = `${el.clientWidth}px`;
-    measureDiv.style.padding = style.padding;
-    measureDiv.style.fontFamily = style.fontFamily;
-    measureDiv.style.lineHeight = style.lineHeight;
-    measureDiv.style.wordWrap = 'break-word';
-    measureDiv.style.whiteSpace = 'pre-wrap';
-    measureDiv.style.position = 'absolute';
-    measureDiv.style.visibility = 'hidden';
-    measureDiv.innerText = el.value || el.placeholder || ' ';
-    document.body.appendChild(measureDiv);
-    
-    let currentSize = 24; // Max font size 24px
-    measureDiv.style.fontSize = `${currentSize}px`;
-    
-    while (measureDiv.scrollHeight > el.clientHeight && currentSize > 8) {
-      currentSize -= 0.5;
-      measureDiv.style.fontSize = `${currentSize}px`;
-    }
-    
-    document.body.removeChild(measureDiv);
-    
-    if (onOptimalSizeChange) {
-      onOptimalSizeChange(currentSize);
-    }
-    
-    // If a forced size is provided, apply it immediately
-    if (forcedSize) {
-      el.style.fontSize = `${forcedSize}px`;
-    }
-  }, [value, style?.flex, forcedSize]);
+const RichTextTextarea = ({ value, onChange, className, placeholder, style, forcedSize }) => {
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <textarea 
-      ref={ref}
-      className={className} 
-      placeholder={placeholder} 
-      value={value} 
-      onChange={onChange}
-      style={{ ...style, fontSize: forcedSize ? `${forcedSize}px` : undefined }}
-    />
+    <div className={className} style={{ ...style, position: 'relative' }}>
+      <textarea 
+        placeholder={placeholder} 
+        value={value} 
+        onChange={onChange}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        style={{ 
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%', 
+          height: '100%', 
+          resize: 'none', 
+          background: 'transparent',
+          color: 'inherit',
+          fontFamily: 'inherit',
+          lineHeight: 'inherit',
+          border: 'none',
+          outline: 'none',
+          padding: 0,
+          margin: 0,
+          zIndex: 2,
+          opacity: isFocused ? 1 : 0,
+          fontSize: forcedSize ? `${forcedSize}px` : undefined
+        }}
+      />
+      <div 
+        style={{
+          width: '100%',
+          pointerEvents: 'none',
+          zIndex: 1,
+          whiteSpace: 'pre-wrap',
+          wordWrap: 'break-word',
+          fontSize: forcedSize ? `${forcedSize}px` : undefined,
+          color: (value ? 'inherit' : 'rgba(255,255,255,0.5)'),
+          opacity: isFocused ? 0 : 1
+        }}
+        dangerouslySetInnerHTML={{ __html: parseRichTextHTML(value || placeholder || '') }}
+      />
+    </div>
+  );
+};
+
+const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
+  const boxRef = useRef(null);
+  const [optimalSize, setOptimalSize] = useState(20);
+
+  useEffect(() => {
+    const box = boxRef.current;
+    if (!box) return;
+
+    // 1. Temporarily hide contents so the flexbox shrinks to its true bounded height
+    const originalDisplays = Array.from(box.children).map(c => c.style.display);
+    Array.from(box.children).forEach(c => c.style.display = 'none');
+    const trueAvailableHeight = box.clientHeight;
+    Array.from(box.children).forEach((c, i) => c.style.display = originalDisplays[i]);
+
+    const computed = window.getComputedStyle(box);
+    const measureBox = document.createElement('div');
+    measureBox.style.width = `${box.clientWidth}px`;
+    measureBox.style.padding = computed.padding;
+    measureBox.style.boxSizing = computed.boxSizing;
+    measureBox.style.display = 'flex';
+    measureBox.style.flexDirection = 'column';
+    measureBox.style.gap = '4px';
+    measureBox.style.position = 'absolute';
+    measureBox.style.visibility = 'hidden';
+
+    const rulesWrap = document.createElement('div');
+    rulesWrap.style.whiteSpace = 'pre-wrap';
+    rulesWrap.style.wordWrap = 'break-word';
+    rulesWrap.innerHTML = parseRichTextHTML(activeCard?.rulesText || 'Card rules...');
+    
+    const flavorWrap = document.createElement('div');
+    flavorWrap.style.whiteSpace = 'pre-wrap';
+    flavorWrap.style.wordWrap = 'break-word';
+    flavorWrap.style.fontStyle = 'italic';
+    flavorWrap.innerHTML = parseRichTextHTML(activeCard?.flavorText || 'Flavor text...');
+
+    measureBox.appendChild(rulesWrap);
+    if (activeCard?.flavorText) {
+      const hr = document.createElement('hr');
+      hr.style.margin = '4px 10%';
+      hr.style.border = 'none';
+      hr.style.borderTop = '1px solid rgba(255, 255, 255, 0.3)';
+      measureBox.appendChild(hr);
+      measureBox.appendChild(flavorWrap);
+    }
+    document.body.appendChild(measureBox);
+
+    let currentSize = 20;
+    rulesWrap.style.fontSize = `${currentSize}px`;
+    flavorWrap.style.fontSize = `${currentSize}px`;
+
+    while (measureBox.scrollHeight > trueAvailableHeight && currentSize > 8) {
+      currentSize -= 0.5;
+      rulesWrap.style.fontSize = `${currentSize}px`;
+      flavorWrap.style.fontSize = `${currentSize}px`;
+    }
+
+    document.body.removeChild(measureBox);
+    setOptimalSize(currentSize);
+  }, [activeCard?.rulesText, activeCard?.flavorText]);
+
+  return (
+    <div className="card-text-box" ref={boxRef} style={{ gap: '4px' }}>
+      <RichTextTextarea 
+        className="editable-field card-rules" 
+        placeholder="Card rules..."
+        value={activeCard?.rulesText || ''}
+        onChange={(e) => setActiveCard({...activeCard, rulesText: e.target.value})}
+        style={{ flex: '0 1 auto' }}
+        forcedSize={optimalSize}
+      />
+      {activeCard?.flavorText && (
+        <>
+          <hr className="text-divider" style={{ margin: '4px 10%' }} />
+          <RichTextTextarea 
+            className="editable-field card-flavor" 
+            placeholder="Flavor text..."
+            value={activeCard?.flavorText || ''}
+            onChange={(e) => setActiveCard({...activeCard, flavorText: e.target.value})}
+            style={{ flex: '0 1 auto' }}
+            forcedSize={optimalSize}
+          />
+        </>
+      )}
+    </div>
   );
 };
 
 const CostField = ({ cost, onChange }) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
-  const renderCost = (costString) => {
-    if (!costString || costString.startsWith('0')) return null;
-    const match = costString.match(/^(\d+)\s*(Mana|Stamina)$/i);
+  const renderDisplay = () => {
+    if (!cost || cost === '0') return null;
+    const match = cost.match(/^(\d+)\s*(Mana|Stamina)$/i);
     if (match) {
       const amount = match[1];
       const type = match[2].toLowerCase();
       return (
-        <div className="cost-display">
+        <div className="cost-display" style={{ display: 'flex', gap: '4px', alignItems: 'center', justifyContent: 'flex-end' }}>
           <span className="cost-amount">{amount}</span>
           <img src={`/icons/${type}.jpg`} className="cost-icon" alt={type} />
         </div>
       );
     }
-    return costString;
+    return <span className="cost-amount">{cost}</span>;
   };
 
-  if (isEditing) {
-    return (
+  return (
+    <div className="card-cost" style={{ position: 'relative', width: '90px', zIndex: 10 }}>
       <input 
-        className="editable-field card-cost" 
+        className="editable-field" 
+        style={{ 
+          width: '100%', 
+          textAlign: 'right',
+          opacity: isFocused ? 1 : 0,
+          position: 'relative',
+          zIndex: 2,
+          padding: '4px',
+          background: 'transparent',
+          border: 'none',
+          color: '#fff',
+          fontWeight: 'bold'
+        }}
         value={cost || ''}
         onChange={e => onChange(e.target.value)}
-        onBlur={() => setIsEditing(false)}
-        autoFocus
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        placeholder="Cost"
       />
-    );
-  }
-
-  return (
-    <div 
-      className="editable-field card-cost" 
-      onClick={() => setIsEditing(true)}
-      style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}
-    >
-      {renderCost(cost)}
+      {!isFocused && (
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', padding: '4px', textAlign: 'right', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
+          {renderDisplay()}
+        </div>
+      )}
     </div>
   );
 };
@@ -101,10 +203,6 @@ function App() {
   const [activeCard, setActiveCard] = useState(null);
   const [images, setImages] = useState([]);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
-  const [rulesSize, setRulesSize] = useState(24);
-  const [flavorSize, setFlavorSize] = useState(24);
-  
-  const sharedFontSize = Math.min(rulesSize, flavorSize);
 
   React.useEffect(() => {
     // Fetch cards
@@ -144,6 +242,8 @@ function App() {
     return matched || '';
   };
 
+  const [notification, setNotification] = useState('');
+
   useEffect(() => {
     if (activeCard) {
       setCards(prev => prev.map(c => c.id === activeCard.id ? activeCard : c));
@@ -157,10 +257,14 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cards)
       });
-      if (res.ok) alert('Cards saved successfully!');
+      if (res.ok) {
+        setNotification('Saved successfully!');
+        setTimeout(() => setNotification(''), 3000);
+      }
     } catch (e) {
       console.error(e);
-      alert('Failed to save cards');
+      setNotification('Failed to save');
+      setTimeout(() => setNotification(''), 3000);
     }
   };
 
@@ -203,6 +307,7 @@ function App() {
           <button className="tool-btn" onClick={handleAddCard} title="New Card">📄</button>
           <button className="tool-btn" onClick={handleSave} title="Save Cards">💾</button>
           <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>🗑️</button>
+          {notification && <span style={{ color: 'lime', marginLeft: '10px', fontSize: '12px', fontWeight: 'bold' }}>{notification}</span>}
         </div>
         <div className="toolbar-section">
           <button className="tool-btn"><b>B</b></button>
@@ -231,15 +336,19 @@ function App() {
             {activeCard ? (
               <div className="card-preview">
                 <div className="card-frame">
-                  <input 
-                    className="editable-field card-name" 
-                    value={activeCard?.name || ''}
-                    onChange={(e) => setActiveCard({...activeCard, name: e.target.value})}
-                  />
-                  <CostField 
-                    cost={activeCard?.cost || ''}
-                    onChange={(newCost) => setActiveCard({...activeCard, cost: newCost})}
-                  />
+                  <div className="card-top-bar">
+                    <input 
+                      className="editable-field card-name" 
+                      value={activeCard?.name || ''}
+                      onChange={(e) => setActiveCard({...activeCard, name: e.target.value})}
+                    />
+                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && (
+                      <CostField 
+                        cost={activeCard?.cost || ''}
+                        onChange={(newCost) => setActiveCard({...activeCard, cost: newCost})}
+                      />
+                    )}
+                  </div>
                   <div className="card-art-placeholder" onClick={() => setIsImageModalOpen(true)}>
                     {getCardImage(activeCard) ? (
                       <img src={`http://localhost:3002/cards/generated/${getCardImage(activeCard)}`} alt="art" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -309,26 +418,7 @@ function App() {
                       </select>
                     )}
                   </div>
-                  <div className="card-text-box">
-                    <AutoShrinkTextarea 
-                      className="editable-field card-rules" 
-                      placeholder="Card rules..."
-                      value={activeCard?.rulesText || ''}
-                      onChange={(e) => setActiveCard({...activeCard, rulesText: e.target.value})}
-                      style={{ flex: activeCard?.rulesText ? 2 : 0.5 }}
-                      onOptimalSizeChange={setRulesSize}
-                      forcedSize={sharedFontSize}
-                    />
-                    <AutoShrinkTextarea 
-                      className="editable-field card-flavor" 
-                      placeholder="Flavor text..."
-                      value={activeCard?.flavorText || ''}
-                      onChange={(e) => setActiveCard({...activeCard, flavorText: e.target.value})}
-                      style={{ flex: activeCard?.flavorText ? 1 : 0.2 }}
-                      onOptimalSizeChange={setFlavorSize}
-                      forcedSize={sharedFontSize}
-                    />
-                  </div>
+                  <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
                   <div className="card-bottom">
                     <input className="editable-field card-artist" defaultValue="Bactyrael" />
                     {activeCard?.type === 'Hero' && (
