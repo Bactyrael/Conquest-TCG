@@ -21,6 +21,18 @@ function createWindow() {
     },
     { label: 'Cards', submenu: [{ label: 'New Card' }] },
     { label: 'Format', submenu: [{ label: 'Style...' }] },
+    { 
+      label: 'Text', 
+      submenu: [
+        { label: 'Bold Reference: **text**', enabled: false },
+        { label: 'Italic Reference: *text*', enabled: false },
+        { type: 'separator' },
+        { label: 'Symbol References:', enabled: false },
+        { label: 'Use / Tap Symbol: [USE]', enabled: false },
+        { label: 'Mana Crystal: [MANA]', enabled: false },
+        { label: 'Stamina Crystal: [STAMINA]', enabled: false }
+      ]
+    },
     { label: 'Window', submenu: [{ role: 'minimize' }, { role: 'zoom' }, { role: 'toggledevtools' }] },
     { label: 'Help', submenu: [{ label: 'About Beasts and Bounties Editor' }] }
   ];
