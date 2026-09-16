@@ -17,7 +17,8 @@
     "rarity": "Common",
     "rulesText": "Deal 1d10 plus your Dexterity modifier in Slashing damage to a target.",
     "flavorText": "",
-    "originalArtFile": "Blade Dance.png"
+    "originalArtFile": "Blade Dance.png",
+    "cost": "5 Stamina"
   },
   {
     "id": "001",
@@ -37,7 +38,8 @@
     "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Duel.jpg"
+    "originalArtFile": "Duel.jpg",
+    "cost": "4 Stamina"
   },
   {
     "id": "002",
@@ -57,7 +59,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Giant Stomp.png"
+    "originalArtFile": "Giant Stomp.png",
+    "cost": "6 Stamina"
   },
   {
     "id": "003",
@@ -77,7 +80,8 @@
     "flavorText": "“In chaos there is also opportunity.” — Stug",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Onslaught.png"
+    "originalArtFile": "Onslaught.png",
+    "cost": "6 Stamina"
   },
   {
     "id": "004",
@@ -97,7 +101,8 @@
     "flavorText": "“I have no desire to mar my blade; I will end you with the utmost efficiency.” — Shadow Chuson",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Slice and Dice.jpg"
+    "originalArtFile": "Slice and Dice.jpg",
+    "cost": "4 Stamina"
   },
   {
     "id": "005",
@@ -117,7 +122,8 @@
     "flavorText": "“The dead don’t desire revenge.” — Merkil, the Slayer",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Stab and Jab.jpg"
+    "originalArtFile": "Stab and Jab.jpg",
+    "cost": "4 Stamina"
   },
   {
     "id": "006",
@@ -137,7 +143,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Titanic Volley.png"
+    "originalArtFile": "Titanic Volley.png",
+    "cost": "6 Stamina"
   },
   {
     "id": "007",
@@ -157,7 +164,8 @@
     "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "War Cry.jpg"
+    "originalArtFile": "War Cry.jpg",
+    "cost": "4 Stamina"
   },
   {
     "id": "008",
@@ -177,7 +185,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Acid Splash.png"
+    "originalArtFile": "Acid Splash.png",
+    "cost": "3 Mana"
   },
   {
     "id": "009",
@@ -197,7 +206,8 @@
     "flavorText": "By the roar of Fragor’s mighty voice, the skies shatter and strike with thunderous wrath.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Boom.jpg"
+    "originalArtFile": "Boom.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "010",
@@ -217,7 +227,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Chain Lightning.jpg"
+    "originalArtFile": "Chain Lightning.jpg",
+    "cost": "6 Mana"
   },
   {
     "id": "011",
@@ -237,7 +248,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Cone of Cold.png"
+    "originalArtFile": "Cone of Cold.png",
+    "cost": "5 Mana"
   },
   {
     "id": "012",
@@ -257,7 +269,8 @@
     "flavorText": "By the will of Gramen, earth rise and nature grasp ensnare all who tread upon it.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Entangle.jpg"
+    "originalArtFile": "Entangle.jpg",
+    "cost": "5 Mana"
   },
   {
     "id": "013",
@@ -277,7 +290,8 @@
     "flavorText": "By the burning will of Caeles, fire be both my forge and fury.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Fire Ball.png"
+    "originalArtFile": "Fire Ball.png",
+    "cost": "4 Mana"
   },
   {
     "id": "014",
@@ -297,7 +311,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Fissure.png"
+    "originalArtFile": "Fissure.png",
+    "cost": "6 Mana"
   },
   {
     "id": "015",
@@ -317,7 +332,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Geyser.png"
+    "originalArtFile": "Geyser.png",
+    "cost": "6 Mana"
   },
   {
     "id": "016",
@@ -337,7 +353,8 @@
     "flavorText": "By Volucris’ breath, the winds stir and sweep all before me with boundless force.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Gust.jpg"
+    "originalArtFile": "Gust.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "017",
@@ -357,7 +374,8 @@
     "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Heal.jpg"
+    "originalArtFile": "Heal.jpg",
+    "cost": "5 Mana"
   },
   {
     "id": "018",
@@ -377,7 +395,8 @@
     "flavorText": "By the radiant grace of Spirabilis, let pure light pierce the darkness and smite with divine fury.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Holy Bolt.jpg"
+    "originalArtFile": "Holy Bolt.jpg",
+    "cost": "2 Mana"
   },
   {
     "id": "019",
@@ -397,7 +416,8 @@
     "flavorText": "By the chilling breath of Gelus, let frost pierce air and strike with icy precision.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Ice Bolt.jpg"
+    "originalArtFile": "Ice Bolt.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "020",
@@ -417,7 +437,8 @@
     "flavorText": "By Fulmen’s crackling fury, unleash judgment and strike with lightning’s swift wrath.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Lightning Bolt.png"
+    "originalArtFile": "Lightning Bolt.png",
+    "cost": "4 Mana"
   },
   {
     "id": "021",
@@ -437,7 +458,8 @@
     "flavorText": "By Inludo’s hand, let arcane fury fly!",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Magic Bolt.jpg"
+    "originalArtFile": "Magic Bolt.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "022",
@@ -457,7 +479,8 @@
     "flavorText": "By Inludo’s arcane will, ethereal forces take flight and strike true with mystic barrage.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Magic Missile.jpg"
+    "originalArtFile": "Magic Missile.jpg",
+    "cost": "5 Mana"
   },
   {
     "id": "023",
@@ -477,7 +500,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Meteor Shower.jpg"
+    "originalArtFile": "Meteor Shower.jpg",
+    "cost": "6 Mana"
   },
   {
     "id": "024",
@@ -497,7 +521,8 @@
     "flavorText": "By Mamel’s unshakable strength, ground tremble and fracture under the weight of unquestionable might.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Quake.jpg"
+    "originalArtFile": "Quake.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "025",
@@ -517,7 +542,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Radiance.png"
+    "originalArtFile": "Radiance.png",
+    "cost": "4 Mana"
   },
   {
     "id": "026",
@@ -537,7 +563,8 @@
     "flavorText": "By Gramen’s nurturing embrace, vitality of nature flow and restore life’s essence anew.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Rejuvenate.jpg"
+    "originalArtFile": "Rejuvenate.jpg",
+    "cost": "6 Mana"
   },
   {
     "id": "027",
@@ -557,7 +584,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Restoration.jpg"
+    "originalArtFile": "Restoration.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "028",
@@ -577,7 +605,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Squall.png"
+    "originalArtFile": "Squall.png",
+    "cost": "5 Mana"
   },
   {
     "id": "029",
@@ -597,7 +626,8 @@
     "flavorText": "By Mortuus’ chilling shadow, dread seep into the hearts of the living and paralyze their very souls.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Terror.png"
+    "originalArtFile": "Terror.png",
+    "cost": "3 Mana"
   },
   {
     "id": "030",
@@ -617,7 +647,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Thunderclap.png"
+    "originalArtFile": "Thunderclap.png",
+    "cost": "6 Mana"
   },
   {
     "id": "031",
@@ -637,7 +668,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Voidstorm.png"
+    "originalArtFile": "Voidstorm.png",
+    "cost": "5 Mana"
   },
   {
     "id": "032",
@@ -657,7 +689,8 @@
     "flavorText": "By Squama’s turbulent will, raging waters converge and crash down upon my foes with merciless force.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Water Ball.jpg"
+    "originalArtFile": "Water Ball.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "033",
@@ -685,7 +718,8 @@
     "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Battle Cry.jpg"
+    "originalArtFile": "Battle Cry.jpg",
+    "cost": "3 Stamina"
   },
   {
     "id": "034",
@@ -705,7 +739,8 @@
     "flavorText": "“Every being that stirs in the realm carries a tale of enchantment and intrigue, weaving timeless legends of adventure and transformation with each step it takes.” — Talpit, the Ranger",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Hunters Mark.jpg"
+    "originalArtFile": "Hunters Mark.jpg",
+    "cost": "5 Stamina"
   },
   {
     "id": "035",
@@ -725,7 +760,8 @@
     "flavorText": "“Only in times where failure is a possibility does the quest for wisdom through mistakes become a necessity.” — Koreghar, the Prosperous",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Inspire.jpg"
+    "originalArtFile": "Inspire.jpg",
+    "cost": "3 Stamina"
   },
   {
     "id": "036",
@@ -745,7 +781,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Instruction.jpg"
+    "originalArtFile": "Instruction.jpg",
+    "cost": "3 Stamina"
   },
   {
     "id": "037",
@@ -765,7 +802,8 @@
     "flavorText": "When all is lost, having nothing to lose opens the door to endless possibilities.",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Luck of the Draw.jpg"
+    "originalArtFile": "Luck of the Draw.jpg",
+    "cost": "6 Stamina"
   },
   {
     "id": "038",
@@ -785,7 +823,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Taunt.jpg"
+    "originalArtFile": "Taunt.jpg",
+    "cost": "3 Stamina"
   },
   {
     "id": "039",
@@ -805,7 +844,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Surge.jpg"
+    "originalArtFile": "Surge.jpg",
+    "cost": "4 Stamina"
   },
   {
     "id": "040",
@@ -825,7 +865,8 @@
     "flavorText": "“True potential emerges when one looks beyond the confines of reality.” — Dragon Emperor Galilecies",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Amplify Magic.png"
+    "originalArtFile": "Amplify Magic.png",
+    "cost": "5"
   },
   {
     "id": "041",
@@ -845,7 +886,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Aria of Accuracy.jpg"
+    "originalArtFile": "Aria of Accuracy.jpg",
+    "cost": "5"
   },
   {
     "id": "042",
@@ -865,7 +907,8 @@
     "flavorText": "By Gramen’s sacred roots, I entwine myself in nature’s embrace, wrapping my form in sturdy armor of bark and vine.",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Bark Skin.jpg"
+    "originalArtFile": "Bark Skin.jpg",
+    "cost": "5"
   },
   {
     "id": "043",
@@ -885,7 +928,8 @@
     "flavorText": "“My foes are merely friends who have yet to realize it.” — Grove Tender Iosis",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Beast Bond.jpg"
+    "originalArtFile": "Beast Bond.jpg",
+    "cost": "4"
   },
   {
     "id": "044",
@@ -905,7 +949,8 @@
     "flavorText": "“Power is not a burden but a gift, bestowed to uplift those in need.” — Venia, the Aspect of Charity",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Divine Favor.jpg"
+    "originalArtFile": "Divine Favor.jpg",
+    "cost": "4"
   },
   {
     "id": "045",
@@ -925,7 +970,8 @@
     "flavorText": "“Drawing power from the mundane is an easy feat for those who can wield the arcane.” — Patheldar, the Meek",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Ensorcell.jpg"
+    "originalArtFile": "Ensorcell.jpg",
+    "cost": "4"
   },
   {
     "id": "046",
@@ -945,7 +991,8 @@
     "flavorText": "“Fortune is the favorable outcome that arises when careful strategy meets a timely opportunity.” — Mothang, the Long-Sleeved",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Gambit.jpg"
+    "originalArtFile": "Gambit.jpg",
+    "cost": "2"
   },
   {
     "id": "047",
@@ -963,7 +1010,8 @@
     },
     "rulesText": "Grant another target +2 defense and resilience until the end of their next turn. If they took damage during the duration of this effect, gain a 1d4 Inspiration Die.",
     "subtype": "Boon",
-    "rarity": "Common"
+    "rarity": "Common",
+    "cost": "4"
   },
   {
     "id": "048",
@@ -991,7 +1039,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Invisibility.jpg"
+    "originalArtFile": "Invisibility.jpg",
+    "cost": "3"
   },
   {
     "id": "049",
@@ -1011,7 +1060,8 @@
     "flavorText": "By Inludo’s deception, shroud the realm in mystic fog, cloaking the world in shadow and mirth.",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Fog Cloud.jpg"
+    "originalArtFile": "Fog Cloud.jpg",
+    "cost": "5"
   },
   {
     "id": "050",
@@ -1031,7 +1081,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Pass Without Trace.jpg"
+    "originalArtFile": "Pass Without Trace.jpg",
+    "cost": "5"
   },
   {
     "id": "051",
@@ -1051,7 +1102,8 @@
     "flavorText": "“In the frenzy, all strikes grow ferocious, and every blow finds its mark.” — Dormund Greis",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "See Red.jpg"
+    "originalArtFile": "See Red.jpg",
+    "cost": "2"
   },
   {
     "id": "052",
@@ -1071,7 +1123,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Song of Favor.jpg"
+    "originalArtFile": "Song of Favor.jpg",
+    "cost": "4"
   },
   {
     "id": "053",
@@ -1091,7 +1144,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Splash the Pot.jpg"
+    "originalArtFile": "Splash the Pot.jpg",
+    "cost": "3"
   },
   {
     "id": "054",
@@ -1111,7 +1165,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Stealth.jpg"
+    "originalArtFile": "Stealth.jpg",
+    "cost": "3"
   },
   {
     "id": "055",
@@ -1131,7 +1186,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Blight.jpg"
+    "originalArtFile": "Blight.jpg",
+    "cost": "5"
   },
   {
     "id": "056",
@@ -1151,7 +1207,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Blind.jpg"
+    "originalArtFile": "Blind.jpg",
+    "cost": "5"
   },
   {
     "id": "057",
@@ -1171,7 +1228,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Buffet.jpg"
+    "originalArtFile": "Buffet.jpg",
+    "cost": "5"
   },
   {
     "id": "058",
@@ -1191,7 +1249,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Burn.jpg"
+    "originalArtFile": "Burn.jpg",
+    "cost": "5"
   },
   {
     "id": "059",
@@ -1211,7 +1270,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Charm.jpg"
+    "originalArtFile": "Charm.jpg",
+    "cost": "5"
   },
   {
     "id": "060",
@@ -1231,7 +1291,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Chill.jpg"
+    "originalArtFile": "Chill.jpg",
+    "cost": "5"
   },
   {
     "id": "061",
@@ -1251,7 +1312,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Confuse.jpg"
+    "originalArtFile": "Confuse.jpg",
+    "cost": "5"
   },
   {
     "id": "062",
@@ -1271,7 +1333,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Deafen.jpg"
+    "originalArtFile": "Deafen.jpg",
+    "cost": "5"
   },
   {
     "id": "063",
@@ -1291,7 +1354,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Drench.jpg"
+    "originalArtFile": "Drench.jpg",
+    "cost": "5"
   },
   {
     "id": "064",
@@ -1311,7 +1375,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Castigation.jpg"
+    "originalArtFile": "Castigation.jpg",
+    "cost": "5"
   },
   {
     "id": "065",
@@ -1331,7 +1396,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Bleed.jpg"
+    "originalArtFile": "Bleed.jpg",
+    "cost": "5"
   },
   {
     "id": "066",
@@ -1351,7 +1417,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Sever.jpg"
+    "originalArtFile": "Sever.jpg",
+    "cost": "5"
   },
   {
     "id": "067",
@@ -1371,7 +1438,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Sunder.jpg"
+    "originalArtFile": "Sunder.jpg",
+    "cost": "5"
   },
   {
     "id": "068",
@@ -1391,7 +1459,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Curse.jpg"
+    "originalArtFile": "Curse.jpg",
+    "cost": "5"
   },
   {
     "id": "069",
@@ -1411,7 +1480,8 @@
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
-    "originalArtFile": "Wound.jpg"
+    "originalArtFile": "Wound.jpg",
+    "cost": "5"
   },
   {
     "id": "070",
@@ -1431,7 +1501,8 @@
     "flavorText": "“Only the wise should dare to manipulate fate, lest you find yourself contemplating eternity.” — Fraus, of the Fae Court",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Ascertain.jpg"
+    "originalArtFile": "Ascertain.jpg",
+    "cost": "2 Mana"
   },
   {
     "id": "071",
@@ -1451,7 +1522,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Augury.jpg"
+    "originalArtFile": "Augury.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "072",
@@ -1471,7 +1543,8 @@
     "flavorText": "“The college of Straness teaches many things, but plundering the future is not among them.” — Oaken, the Sage Scroll",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Conveyance.jpg"
+    "originalArtFile": "Conveyance.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "073",
@@ -1491,7 +1564,8 @@
     "flavorText": "“How can you long for something, never knowing what it might have been?” — Miluina, Aspect of Greed",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Early Withdrawl.jpg"
+    "originalArtFile": "Early Withdrawl.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "074",
@@ -1511,7 +1585,8 @@
     "flavorText": "“From the ruins of the old, the earth breathes anew—fertile, untamed, and waiting to be claimed.” — Antorius, Thunder of the Mountain",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Earthen Bounty.jpg"
+    "originalArtFile": "Earthen Bounty.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "075",
@@ -1531,7 +1606,8 @@
     "flavorText": "“The greatest delights come from the most preposterous things.” — Stropha, of the Fae Count",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Faerie Fire.jpg"
+    "originalArtFile": "Faerie Fire.jpg",
+    "cost": "5 Mana"
   },
   {
     "id": "076",
@@ -1551,7 +1627,8 @@
     "flavorText": "“Victory is decided long before the battle begins.”— Freysa",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Forethought.jpg"
+    "originalArtFile": "Forethought.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "077",
@@ -1571,7 +1648,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Guidance.jpg"
+    "originalArtFile": "Guidance.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "078",
@@ -1591,7 +1669,8 @@
     "flavorText": "“In the dance of intellect, each spark of insight draws forth new visions, yet with each revelation, we must relinquish the old.” — Lesuvius, the Mentalist",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Juxtaposition.jpg"
+    "originalArtFile": "Juxtaposition.jpg",
+    "cost": "2 Mana"
   },
   {
     "id": "079",
@@ -1611,7 +1690,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Teleportation.jpg"
+    "originalArtFile": "Teleportation.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "080",
@@ -1631,7 +1711,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Tutelage.jpg"
+    "originalArtFile": "Tutelage.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "081",
@@ -1651,7 +1732,8 @@
     "flavorText": "“With patience and toil, the wilds yield to our vision, and a new haven is born.” — Grove Tender Iosis",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Verdant Pathfinding.jpg"
+    "originalArtFile": "Verdant Pathfinding.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "082",
@@ -1671,7 +1753,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Absorb Elements.jpg"
+    "originalArtFile": "Absorb Elements.jpg",
+    "cost": "4"
   },
   {
     "id": "083",
@@ -1691,7 +1774,8 @@
     "flavorText": "Sometimes, all it takes is a sprinkle of luck and a dash of magic to turn things around.",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Ace in the Hole.jpg"
+    "originalArtFile": "Ace in the Hole.jpg",
+    "cost": "2 Stamina"
   },
   {
     "id": "084",
@@ -1710,7 +1794,8 @@
     "rulesText": "Roll one additional weapon damage die when determining the extra damage for a critical hit.",
     "flavorText": "It doesn’t happen by chance and demands immense skill and combat prowess to achieve.",
     "subtype": "Ability",
-    "rarity": "Common"
+    "rarity": "Common",
+    "cost": "2 Stamina"
   },
   {
     "id": "085",
@@ -1730,7 +1815,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Celerity.jpg"
+    "originalArtFile": "Celerity.jpg",
+    "cost": "3 Stamina"
   },
   {
     "id": "086",
@@ -1750,7 +1836,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Counter.jpg"
+    "originalArtFile": "Counter.jpg",
+    "cost": "2 Stamina"
   },
   {
     "id": "087",
@@ -1770,7 +1857,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Dodge.jpg"
+    "originalArtFile": "Dodge.jpg",
+    "cost": "3 Stamina"
   },
   {
     "id": "088",
@@ -1790,7 +1878,8 @@
     "flavorText": "The only truth about luck is that it dances like a fickle breeze, forever changing its course.",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "No Dice.jpg"
+    "originalArtFile": "No Dice.jpg",
+    "cost": "2 Stamina"
   },
   {
     "id": "089",
@@ -1810,7 +1899,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Parry.jpg"
+    "originalArtFile": "Parry.jpg",
+    "cost": "2 Stamina"
   },
   {
     "id": "090",
@@ -1830,7 +1920,8 @@
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
-    "originalArtFile": "Riposte.jpg"
+    "originalArtFile": "Riposte.jpg",
+    "cost": "2 Stamina"
   },
   {
     "id": "091",
@@ -1850,7 +1941,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Bless.jpg"
+    "originalArtFile": "Bless.jpg",
+    "cost": "3"
   },
   {
     "id": "092",
@@ -1870,7 +1962,8 @@
     "flavorText": "“Fear not, for I am by your side; be unafraid, for I shall be your guide.” — Navitas, the Aspect of Diligence",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Heroism.jpg"
+    "originalArtFile": "Heroism.jpg",
+    "cost": "5"
   },
   {
     "id": "093",
@@ -1890,7 +1983,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Iron Skin.jpg"
+    "originalArtFile": "Iron Skin.jpg",
+    "cost": "2"
   },
   {
     "id": "094",
@@ -1910,7 +2004,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Rallying Anthem.jpg"
+    "originalArtFile": "Rallying Anthem.jpg",
+    "cost": "5"
   },
   {
     "id": "095",
@@ -1930,7 +2025,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Sancturary.png"
+    "originalArtFile": "Sancturary.png",
+    "cost": "4"
   },
   {
     "id": "096",
@@ -1950,7 +2046,8 @@
     "flavorText": "By the will of Mamel, the earth shall rise in vengeance; let every attack against me invoke the fury of stone",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Spiked Growth.jpg"
+    "originalArtFile": "Spiked Growth.jpg",
+    "cost": "3"
   },
   {
     "id": "097",
@@ -1970,7 +2067,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Superstition.jpg"
+    "originalArtFile": "Superstition.jpg",
+    "cost": "4"
   },
   {
     "id": "098",
@@ -1990,7 +2088,8 @@
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
-    "originalArtFile": "Wind Wall.jpg"
+    "originalArtFile": "Wind Wall.jpg",
+    "cost": "4"
   },
   {
     "id": "099",
@@ -2010,7 +2109,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Abolish.jpg"
+    "originalArtFile": "Abolish.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "100",
@@ -2030,7 +2130,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Counter Spell.jpg"
+    "originalArtFile": "Counter Spell.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "101",
@@ -2050,7 +2151,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Cure.jpg"
+    "originalArtFile": "Cure.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "102",
@@ -2070,7 +2172,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Disarming Ditty.jpg"
+    "originalArtFile": "Disarming Ditty.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "103",
@@ -2090,7 +2193,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Dispel.jpg"
+    "originalArtFile": "Dispel.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "104",
@@ -2110,7 +2214,8 @@
     "flavorText": "Whispers coil through your mind like shadows, twisting your thoughts and unraveling your courage with every breath.",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Dissonant Whispers.jpg"
+    "originalArtFile": "Dissonant Whispers.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "105",
@@ -2130,7 +2235,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Energy Shield.jpg"
+    "originalArtFile": "Energy Shield.jpg",
+    "cost": "3 Mana"
   },
   {
     "id": "106",
@@ -2150,7 +2256,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Mass Dispel.jpg"
+    "originalArtFile": "Mass Dispel.jpg",
+    "cost": "7 Mana"
   },
   {
     "id": "107",
@@ -2170,7 +2277,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Silence.jpg"
+    "originalArtFile": "Silence.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "108",
@@ -2190,7 +2298,8 @@
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
-    "originalArtFile": "Warp.jpg"
+    "originalArtFile": "Warp.jpg",
+    "cost": "4 Mana"
   },
   {
     "id": "109",
@@ -2209,7 +2318,8 @@
     "rulesText": "Rage → Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4.\n\nWhile enraged, attacker's have advantage against you.",
     "rarity": "Common",
     "subtype": "1d8 + Str (Blunt)",
-    "originalArtFile": "Barbarian Set.jpg"
+    "originalArtFile": "Barbarian Set.jpg",
+    "cost": "0"
   },
   {
     "id": "110",
@@ -2228,7 +2338,8 @@
     "rulesText": "Bardic Inspiration → Gain an Inspiration Die equal to or less than one of your stats. \n\nGain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
     "rarity": "Common",
     "subtype": "1d6 + Lck (Thunder)",
-    "originalArtFile": "Bard Set.jpg"
+    "originalArtFile": "Bard Set.jpg",
+    "cost": "0"
   },
   {
     "id": "111",
@@ -2247,7 +2358,8 @@
     "rulesText": "Channel Divinity → You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.\n\nWhenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
     "rarity": "Common",
     "subtype": "1d6 + Con (Holy)",
-    "originalArtFile": "Cleric Set.jpg"
+    "originalArtFile": "Cleric Set.jpg",
+    "cost": "0"
   },
   {
     "id": "112",
@@ -2266,7 +2378,8 @@
     "rulesText": "Aetheric → If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter.\n\nSpells require 1 less of any stat for each Elemental Counter you control.",
     "rarity": "Common",
     "subtype": "1d4 + Int (Fire)",
-    "originalArtFile": "Conjurer Set.png"
+    "originalArtFile": "Conjurer Set.png",
+    "cost": "0"
   },
   {
     "id": "113",
@@ -2285,7 +2398,8 @@
     "rulesText": "Wild Resurgence → Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
     "rarity": "Common",
     "subtype": "Attack: 1d6 + Wis (Nature)",
-    "originalArtFile": "Druid Set.jpg"
+    "originalArtFile": "Druid Set.jpg",
+    "cost": "0"
   },
   {
     "id": "114",
@@ -2304,7 +2418,8 @@
     "rulesText": "Master at Arms → Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). \n\nOn a critical hit, deal +2 additional damage.",
     "rarity": "Common",
     "subtype": "1d8 + Dex (Slashing)",
-    "originalArtFile": "Fighter Set.jpg"
+    "originalArtFile": "Fighter Set.jpg",
+    "cost": "0"
   },
   {
     "id": "115",
@@ -2323,7 +2438,8 @@
     "rulesText": "Burial Rite → Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
     "subtype": "1d8 + Wis (Dark)",
-    "originalArtFile": "Necromancer Set.png"
+    "originalArtFile": "Necromancer Set.png",
+    "cost": "0"
   },
   {
     "id": "116",
@@ -2342,7 +2458,8 @@
     "rulesText": "Martial Arts → Gain an Inspiration Die equal to or less than your Dex. \n\nGain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
     "rarity": "Common",
     "subtype": "2d4 + Dex (Blunt)",
-    "originalArtFile": "Monk Set.jpg"
+    "originalArtFile": "Monk Set.jpg",
+    "cost": "0"
   },
   {
     "id": "117",
@@ -2361,7 +2478,8 @@
     "rulesText": "Radiant Strikes → Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
     "rarity": "Common",
     "subtype": "1d8 + Con (Holy)",
-    "originalArtFile": "Paladin Set.jpg"
+    "originalArtFile": "Paladin Set.jpg",
+    "cost": "0"
   },
   {
     "id": "118",
@@ -2380,7 +2498,8 @@
     "rulesText": "No Prey, No Pay → If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
     "rarity": "Common",
     "subtype": "1d4 + Lck (Piercing)",
-    "originalArtFile": "Pirate Set.png"
+    "originalArtFile": "Pirate Set.png",
+    "cost": "0"
   },
   {
     "id": "119",
@@ -2399,7 +2518,8 @@
     "rulesText": "Deft Explorer → Look at the top card of your Archive. If it is a Location card, you may draw it.\n\nAfter playing a Location card, your next attack or Act card has advantage until the end of your turn.",
     "rarity": "Common",
     "subtype": "1d8 + Lck (Piercing)",
-    "originalArtFile": "Ranger Set.jpg"
+    "originalArtFile": "Ranger Set.jpg",
+    "cost": "0"
   },
   {
     "id": "120",
@@ -2418,7 +2538,8 @@
     "rulesText": "Font of Magic → Gain an Inspiration Die equal to or less than your Int. \n\nIf you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
     "rarity": "Common",
     "subtype": "1d6 + Int (Magic)",
-    "originalArtFile": "Sorcerer Set.jpg"
+    "originalArtFile": "Sorcerer Set.jpg",
+    "cost": "0"
   },
   {
     "id": "121",
@@ -2437,7 +2558,8 @@
     "rulesText": "Sneak Attack → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.)\n\nYour critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
     "rarity": "Common",
     "subtype": "2d4 + Lck (Piercing)",
-    "originalArtFile": "Rogue Set.jpg"
+    "originalArtFile": "Rogue Set.jpg",
+    "cost": "0"
   },
   {
     "id": "122",
@@ -2456,7 +2578,8 @@
     "rulesText": "Eldritch Invocation → Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
     "rarity": "Common",
     "subtype": "1d4 + Wis (Dark)",
-    "originalArtFile": "Warlock Set.jpg"
+    "originalArtFile": "Warlock Set.jpg",
+    "cost": "0"
   },
   {
     "id": "123",
@@ -2475,7 +2598,8 @@
     "rulesText": "Malignance → You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round.\n\nWhenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
     "rarity": "Common",
     "subtype": "1d6 + Wis (Dark)",
-    "originalArtFile": "Witch Set.jpeg"
+    "originalArtFile": "Witch Set.jpeg",
+    "cost": "0"
   },
   {
     "id": "124",
@@ -2494,7 +2618,8 @@
     "rulesText": "Spell Mastery → Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed.\n\nAct cards performed from anywhere other than your hand require two less of a chosen stat.",
     "rarity": "Common",
     "subtype": "1d8 + Int (Magic)",
-    "originalArtFile": "Wizard Set.jpg"
+    "originalArtFile": "Wizard Set.jpg",
+    "cost": "0"
   },
   {
     "id": "125",
@@ -2513,7 +2638,8 @@
     "rulesText": "Gain +1 Strength.",
     "flavorText": "The roar of the crowd fuels both ambition and might.",
     "rarity": "Common",
-    "originalArtFile": "Strength Stat Card.jpg"
+    "originalArtFile": "Strength Stat Card.jpg",
+    "cost": "0"
   },
   {
     "id": "126",
@@ -2532,7 +2658,8 @@
     "rulesText": "Gain +1 Dexterity.",
     "flavorText": "The stream teaches those who listen to move swiftly, like water over stone.",
     "rarity": "Common",
-    "originalArtFile": "Dexterity Stat Card.jpg"
+    "originalArtFile": "Dexterity Stat Card.jpg",
+    "cost": "0"
   },
   {
     "id": "127",
@@ -2551,7 +2678,8 @@
     "rulesText": "Gain +1 Constitution.",
     "flavorText": "The stones of the fortress may crack, but they never fall.",
     "rarity": "Common",
-    "originalArtFile": "Constitution Stat Card.jpg"
+    "originalArtFile": "Constitution Stat Card.jpg",
+    "cost": "0"
   },
   {
     "id": "128",
@@ -2570,7 +2698,8 @@
     "rulesText": "Gain +1 Intelligence.",
     "flavorText": "These grand repositories of knowledge have stood the test of time.",
     "rarity": "Common",
-    "originalArtFile": "Intelligence Stat Card.jpg"
+    "originalArtFile": "Intelligence Stat Card.jpg",
+    "cost": "0"
   },
   {
     "id": "129",
@@ -2589,7 +2718,8 @@
     "rulesText": "Gain +1 Wisdom.",
     "flavorText": "Ancient wisdom reverberates through the ages, speaking to those who listen.",
     "rarity": "Common",
-    "originalArtFile": "Wisdom Stat Card.jpg"
+    "originalArtFile": "Wisdom Stat Card.jpg",
+    "cost": "0"
   },
   {
     "id": "130",
@@ -2608,7 +2738,8 @@
     "rulesText": "Gain +1 Luck.",
     "flavorText": "Gold and riches can change fortunes in an instant.",
     "rarity": "Common",
-    "originalArtFile": "Luck Stat Card.jpg"
+    "originalArtFile": "Luck Stat Card.jpg",
+    "cost": "0"
   },
   {
     "id": "131",
@@ -2627,7 +2758,8 @@
     "rulesText": "When Athenaeum of Acumen enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Intelligence and Wisdom.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Archive of Enlightenment.jpg"
+    "originalArtFile": "Archive of Enlightenment.jpg",
+    "cost": "0"
   },
   {
     "id": "132",
@@ -2646,7 +2778,8 @@
     "rulesText": "→ Sacrifice this Location card, search your Archive for a common Location card, put it onto the battlefield, then shuffle.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Cartographers Post.jpg"
+    "originalArtFile": "Cartographers Post.jpg",
+    "cost": "0"
   },
   {
     "id": "133",
@@ -2665,7 +2798,8 @@
     "rulesText": "When Citadel of Resilience enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Intelligence.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Citadel of Resilience.jpg"
+    "originalArtFile": "Citadel of Resilience.jpg",
+    "cost": "0"
   },
   {
     "id": "134",
@@ -2684,7 +2818,8 @@
     "rulesText": "When Coliseum of Willpower enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Constitution.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Coliseum of Willpower.jpg"
+    "originalArtFile": "Coliseum of Willpower.jpg",
+    "cost": "0"
   },
   {
     "id": "135",
@@ -2703,7 +2838,8 @@
     "rulesText": "When Crossroads of Chance enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Luck.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Crossroads of Chance.jpg"
+    "originalArtFile": "Crossroads of Chance.jpg",
+    "cost": "0"
   },
   {
     "id": "136",
@@ -2722,7 +2858,8 @@
     "rulesText": "When Forge of Endurance enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Strength and Constitution.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Forge of Endurance.jpg"
+    "originalArtFile": "Forge of Endurance.jpg",
+    "cost": "0"
   },
   {
     "id": "137",
@@ -2741,7 +2878,8 @@
     "rulesText": "When Garden of Insight enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Wisdom.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Garden of Insight.jpg"
+    "originalArtFile": "Garden of Insight.jpg",
+    "cost": "0"
   },
   {
     "id": "138",
@@ -2760,7 +2898,8 @@
     "rulesText": "When Hall of Strategy enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Intelligence.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Hall of Strategy.jpg"
+    "originalArtFile": "Hall of Strategy.jpg",
+    "cost": "0"
   },
   {
     "id": "139",
@@ -2779,7 +2918,8 @@
     "rulesText": "When Labyrinth of Serendipity enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Intelligence and Luck.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Labyrinth of Serendipity.jpg"
+    "originalArtFile": "Labyrinth of Serendipity.jpg",
+    "cost": "0"
   },
   {
     "id": "140",
@@ -2798,7 +2938,8 @@
     "rulesText": "When Pit of Fortune enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Luck.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Pit of Fortune.jpg"
+    "originalArtFile": "Pit of Fortune.jpg",
+    "cost": "0"
   },
   {
     "id": "141",
@@ -2817,7 +2958,8 @@
     "rulesText": "When Sanctum of Valor enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Wisdom.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Sanctum of Valor.jpg"
+    "originalArtFile": "Sanctum of Valor.jpg",
+    "cost": "0"
   },
   {
     "id": "142",
@@ -2836,7 +2978,8 @@
     "rulesText": "When Shrine of Finesse enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Wisdom.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Shrine of Finesse.jpg"
+    "originalArtFile": "Shrine of Finesse.jpg",
+    "cost": "0"
   },
   {
     "id": "143",
@@ -2855,7 +2998,8 @@
     "rulesText": "When Temple of Destiny enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Wisdom and Luck.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Temple of Destiny.jpg"
+    "originalArtFile": "Temple of Destiny.jpg",
+    "cost": "0"
   },
   {
     "id": "144",
@@ -2874,7 +3018,8 @@
     "rulesText": "When Tower of Ingenuity enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Intelligence.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Tower of Ingenuity.jpg"
+    "originalArtFile": "Tower of Ingenuity.jpg",
+    "cost": "0"
   },
   {
     "id": "145",
@@ -2893,7 +3038,8 @@
     "rulesText": "When Training Grounds enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Strength and Dexterity.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Training Grounds.jpg"
+    "originalArtFile": "Training Grounds.jpg",
+    "cost": "0"
   },
   {
     "id": "146",
@@ -2912,6 +3058,7 @@
     "rulesText": "When Vault of Providence enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Luck.",
     "flavorText": "",
     "rarity": "Uncommon",
-    "originalArtFile": "Vault of Providence.jpg"
+    "originalArtFile": "Vault of Providence.jpg",
+    "cost": "0"
   }
 ]
