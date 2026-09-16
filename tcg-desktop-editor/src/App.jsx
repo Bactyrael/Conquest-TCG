@@ -144,14 +144,65 @@ function App() {
     return matched || '';
   };
 
+  useEffect(() => {
+    if (activeCard) {
+      setCards(prev => prev.map(c => c.id === activeCard.id ? activeCard : c));
+    }
+  }, [activeCard]);
+
+  const handleSave = async () => {
+    try {
+      const res = await fetch('http://localhost:3002/api/save-cards', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(cards)
+      });
+      if (res.ok) alert('Cards saved successfully!');
+    } catch (e) {
+      console.error(e);
+      alert('Failed to save cards');
+    }
+  };
+
+  const handleAddCard = () => {
+    let nextId = "000";
+    if (cards.length > 0) {
+      const maxId = Math.max(...cards.map(c => parseInt(c.id, 10) || 0));
+      nextId = (maxId + 1).toString().padStart(3, '0');
+    }
+    const newCard = {
+      id: nextId,
+      name: 'New Card',
+      type: 'Action',
+      subtype: '',
+      rarity: 'Common',
+      cost: '0',
+      damage: '',
+      rulesText: '',
+      flavorText: ''
+    };
+    setCards(prev => [...prev, newCard]);
+    setActiveCard(newCard);
+  };
+
+  const handleDeleteCard = () => {
+    if (!activeCard) return;
+    if (!window.confirm(`Are you sure you want to delete ${activeCard.name}?`)) return;
+    setCards(prev => {
+      const newCards = prev.filter(c => c.id !== activeCard.id);
+      setTimeout(() => setActiveCard(newCards.length > 0 ? newCards[0] : null), 0);
+      return newCards;
+    });
+  };
+
   return (
     <div className="mse-container">
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">
-          <button className="tool-btn">📄</button>
-          <button className="tool-btn">📂</button>
-          <button className="tool-btn">💾</button>
+          <button className="tool-btn" onClick={handleAddCard} title="New Card">📄</button>
+          <button className="tool-btn" onClick={handleSave} title="Save Cards">💾</button>
+          <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>🗑️</button>
         </div>
         <div className="toolbar-section">
           <button className="tool-btn"><b>B</b></button>
@@ -196,14 +247,68 @@ function App() {
                       'Double-click to set image'
                     )}
                   </div>
-                  <input 
-                    className="editable-field card-type" 
-                    value={`${activeCard?.type || ''} ${activeCard?.subtype ? '— ' + activeCard.subtype : ''}`}
-                    onChange={(e) => {
-                      const parts = e.target.value.split('—').map(p => p.trim());
-                      setActiveCard({...activeCard, type: parts[0] || '', subtype: parts[1] || ''})
-                    }}
-                  />
+                  <div className="editable-field card-type" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <select 
+                      className="type-select"
+                      value={activeCard?.type || ''} 
+                      onChange={(e) => {
+                        const newType = e.target.value;
+                        const actionTypes = ['Action', 'Bonus Action', 'Reaction'];
+                        const shouldClear = !(actionTypes.includes(activeCard?.type) && actionTypes.includes(newType));
+                        setActiveCard({...activeCard, type: newType, ...(shouldClear ? {subtype: ''} : {})});
+                      }}
+                    >
+                      <option value="Action">Action</option>
+                      <option value="Bonus Action">Bonus Action</option>
+                      <option value="Reaction">Reaction</option>
+                      <option value="Hero">Hero</option>
+                      <option value="Resource">Resource</option>
+                      <option value="Item">Item</option>
+                      <option value="Equipment">Equipment</option>
+                    </select>
+                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && <span>—</span>}
+                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && (
+                      <select 
+                        className="type-select"
+                        value={activeCard?.subtype || ''} 
+                        onChange={(e) => setActiveCard({...activeCard, subtype: e.target.value})}
+                      >
+                        <option value="">None</option>
+                        {['Action', 'Bonus Action', 'Reaction'].includes(activeCard?.type) && (
+                          <>
+                            <option value="Ability">Ability</option>
+                            <option value="Spell">Spell</option>
+                            <option value="Boon">Boon</option>
+                            <option value="Curse">Curse</option>
+                          </>
+                        )}
+                        {activeCard?.type === 'Equipment' && (
+                          <>
+                            <option value="Helm">Helm</option>
+                            <option value="Amulet">Amulet</option>
+                            <option value="Shoulders">Shoulders</option>
+                            <option value="Cloak">Cloak</option>
+                            <option value="Chest">Chest</option>
+                            <option value="Wrist">Wrist</option>
+                            <option value="Gloves">Gloves</option>
+                            <option value="Belt">Belt</option>
+                            <option value="Pants">Pants</option>
+                            <option value="Boots">Boots</option>
+                            <option value="Main-hand">Main-hand</option>
+                            <option value="Off-hand">Off-hand</option>
+                            <option value="Left Ring">Left Ring</option>
+                            <option value="Right Ring">Right Ring</option>
+                          </>
+                        )}
+                        {activeCard?.type === 'Item' && (
+                          <>
+                            <option value="Consumable">Consumable</option>
+                            <option value="Trinket">Trinket</option>
+                          </>
+                        )}
+                      </select>
+                    )}
+                  </div>
                   <div className="card-text-box">
                     <AutoShrinkTextarea 
                       className="editable-field card-rules" 
@@ -226,7 +331,14 @@ function App() {
                   </div>
                   <div className="card-bottom">
                     <input className="editable-field card-artist" defaultValue="Bactyrael" />
-                    <input className="editable-field card-number" value={activeCard?.id || ''} readOnly />
+                    {activeCard?.type === 'Hero' && (
+                      <input 
+                        className="editable-field card-damage" 
+                        value={activeCard?.damage || ''} 
+                        placeholder="e.g. 1d8 + Str"
+                        onChange={(e) => setActiveCard({...activeCard, damage: e.target.value})}
+                      />
+                    )}
                   </div>
                 </div>
               </div>

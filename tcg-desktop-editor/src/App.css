@@ -272,10 +272,11 @@ body {
   font-size: 10px;
 }
 
-.card-number {
-  width: 60px;
+.card-damage {
+  width: 140px;
   text-align: right;
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 .card-notes {
@@ -390,4 +391,21 @@ body {
 
 .image-option:hover img {
   border-color: blue;
+}
+
+.type-select {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-shadow: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.type-select option {
+  background: #333;
+  color: #fff;
+  text-shadow: none;
 }

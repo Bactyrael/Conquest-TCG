@@ -2317,9 +2317,10 @@
     },
     "rulesText": "Rage → Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4.\n\nWhile enraged, attacker's have advantage against you.",
     "rarity": "Common",
-    "subtype": "1d8 + Str (Blunt)",
+    "subtype": "",
     "originalArtFile": "Barbarian Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d8 + Str (Blunt)"
   },
   {
     "id": "110",
@@ -2337,9 +2338,10 @@
     },
     "rulesText": "Bardic Inspiration → Gain an Inspiration Die equal to or less than one of your stats. \n\nGain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
     "rarity": "Common",
-    "subtype": "1d6 + Lck (Thunder)",
+    "subtype": "",
     "originalArtFile": "Bard Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d6 + Lck (Thunder)"
   },
   {
     "id": "111",
@@ -2357,9 +2359,10 @@
     },
     "rulesText": "Channel Divinity → You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round.\n\nWhenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
     "rarity": "Common",
-    "subtype": "1d6 + Con (Holy)",
+    "subtype": "",
     "originalArtFile": "Cleric Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d6 + Con (Holy)"
   },
   {
     "id": "112",
@@ -2377,9 +2380,10 @@
     },
     "rulesText": "Aetheric → If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter.\n\nSpells require 1 less of any stat for each Elemental Counter you control.",
     "rarity": "Common",
-    "subtype": "1d4 + Int (Fire)",
+    "subtype": "",
     "originalArtFile": "Conjurer Set.png",
-    "cost": "0"
+    "cost": "0",
+    "damage": " 1d4 + Int (Fire)"
   },
   {
     "id": "113",
@@ -2397,9 +2401,10 @@
     },
     "rulesText": "Wild Resurgence → Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
     "rarity": "Common",
-    "subtype": "Attack: 1d6 + Wis (Nature)",
+    "subtype": "",
     "originalArtFile": "Druid Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d6 + Wis (Nature)"
   },
   {
     "id": "114",
@@ -2417,9 +2422,10 @@
     },
     "rulesText": "Master at Arms → Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). \n\nOn a critical hit, deal +2 additional damage.",
     "rarity": "Common",
-    "subtype": "1d8 + Dex (Slashing)",
+    "subtype": "",
     "originalArtFile": "Fighter Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d8 + Dex (Slashing)"
   },
   {
     "id": "115",
@@ -2437,9 +2443,10 @@
     },
     "rulesText": "Burial Rite → Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
-    "subtype": "1d8 + Wis (Dark)",
+    "subtype": "",
     "originalArtFile": "Necromancer Set.png",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d8 + Wis (Dark)"
   },
   {
     "id": "116",
@@ -2457,9 +2464,10 @@
     },
     "rulesText": "Martial Arts → Gain an Inspiration Die equal to or less than your Dex. \n\nGain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
     "rarity": "Common",
-    "subtype": "2d4 + Dex (Blunt)",
+    "subtype": "",
     "originalArtFile": "Monk Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "2d4 + Dex (Blunt)"
   },
   {
     "id": "117",
@@ -2477,9 +2485,10 @@
     },
     "rulesText": "Radiant Strikes → Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
     "rarity": "Common",
-    "subtype": "1d8 + Con (Holy)",
+    "subtype": "",
     "originalArtFile": "Paladin Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d8 + Con (Holy)"
   },
   {
     "id": "118",
@@ -2497,9 +2506,10 @@
     },
     "rulesText": "No Prey, No Pay → If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
     "rarity": "Common",
-    "subtype": "1d4 + Lck (Piercing)",
+    "subtype": "",
     "originalArtFile": "Pirate Set.png",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d4 + Lck (Piercing)"
   },
   {
     "id": "119",
@@ -2517,9 +2527,10 @@
     },
     "rulesText": "Deft Explorer → Look at the top card of your Archive. If it is a Location card, you may draw it.\n\nAfter playing a Location card, your next attack or Act card has advantage until the end of your turn.",
     "rarity": "Common",
-    "subtype": "1d8 + Lck (Piercing)",
+    "subtype": "",
     "originalArtFile": "Ranger Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d8 + Lck (Piercing)"
   },
   {
     "id": "120",
@@ -2537,9 +2548,10 @@
     },
     "rulesText": "Font of Magic → Gain an Inspiration Die equal to or less than your Int. \n\nIf you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
     "rarity": "Common",
-    "subtype": "1d6 + Int (Magic)",
+    "subtype": "",
     "originalArtFile": "Sorcerer Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": " 1d6 + Int (Magic)"
   },
   {
     "id": "121",
@@ -2557,9 +2569,10 @@
     },
     "rulesText": "Sneak Attack → Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.)\n\nYour critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
     "rarity": "Common",
-    "subtype": "2d4 + Lck (Piercing)",
+    "subtype": "",
     "originalArtFile": "Rogue Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": " 2d4 + Lck (Piercing)"
   },
   {
     "id": "122",
@@ -2577,9 +2590,10 @@
     },
     "rulesText": "Eldritch Invocation → Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
     "rarity": "Common",
-    "subtype": "1d4 + Wis (Dark)",
+    "subtype": "",
     "originalArtFile": "Warlock Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d4 + Wis (Dark)"
   },
   {
     "id": "123",
@@ -2597,9 +2611,10 @@
     },
     "rulesText": "Malignance → You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round.\n\nWhenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
     "rarity": "Common",
-    "subtype": "1d6 + Wis (Dark)",
+    "subtype": "",
     "originalArtFile": "Witch Set.jpeg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d6 + Wis (Dark)"
   },
   {
     "id": "124",
@@ -2617,448 +2632,30 @@
     },
     "rulesText": "Spell Mastery → Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed.\n\nAct cards performed from anywhere other than your hand require two less of a chosen stat.",
     "rarity": "Common",
-    "subtype": "1d8 + Int (Magic)",
+    "subtype": "",
     "originalArtFile": "Wizard Set.jpg",
-    "cost": "0"
+    "cost": "0",
+    "damage": "1d8 + Int (Magic)"
   },
   {
-    "id": "125",
-    "name": "Arena of Strength",
-    "type": "Location",
-    "imageUrl": "/cards/templates/125.jpg",
-    "rawText": "a OY\nArena of Strength\n— = - iE —\nPe —\nZa TZ ~ SN\ndL . 20% — 2 =) Nee\nLocation - Common ~~ \\g\nGain+1Strength.\n\"The roar of the crowd fuels both\nambition and might.\"\nPI Holder Art #\n. @ Place Holder Ar y\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "Gain +1 Strength.",
-    "flavorText": "The roar of the crowd fuels both ambition and might.",
+    "id": "147",
+    "name": "Mana Crystal",
+    "type": "Resource",
+    "subtype": "",
     "rarity": "Common",
-    "originalArtFile": "Strength Stat Card.jpg",
-    "cost": "0"
+    "cost": "0",
+    "rulesText": "",
+    "flavorText": "",
+    "image": "mana_crystal.jpg"
   },
   {
-    "id": "126",
-    "name": "Stream of Dexterity",
-    "type": "Location",
-    "imageUrl": "/cards/templates/126.jpg",
-    "rawText": "a TY\nFu\nZot). =»\n1 a ) Fa |\n# rg»\nISAT aTay oe\nie Nay\n7 A\ni \\ F\n—n -< Sa BAYA —\nLocation ommon 14 my\nGain +1 Dexterity \\ A\n\"The stream teaches those who listen\nito move swiftly, like water over stone.\"\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "Gain +1 Dexterity.",
-    "flavorText": "The stream teaches those who listen to move swiftly, like water over stone.",
+    "id": "148",
+    "name": "Stamina Crystal",
+    "type": "Resource",
+    "subtype": "",
     "rarity": "Common",
-    "originalArtFile": "Dexterity Stat Card.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "127",
-    "name": "Fortress of Constitution",
-    "type": "Location",
-    "imageUrl": "/cards/templates/127.jpg",
-    "rawText": "a OY\n4 } .\n. ; = EN\nAd \\ H A A\nAX oN 3\n' 3 Law “ ]\n§ [ LE i i y |\n| 3 | eat = 5 Ee\nLegation - Common : \\\n) +1 ay #\n\"The stones of the ortress may crack,\nbut they never fall.\" ar\nBE coe ———\n: Place Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "Gain +1 Constitution.",
-    "flavorText": "The stones of the fortress may crack, but they never fall.",
-    "rarity": "Common",
-    "originalArtFile": "Constitution Stat Card.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "128",
-    "name": "Library of Intelligence",
-    "type": "Location",
-    "imageUrl": "/cards/templates/128.jpg",
-    "rawText": "4 A\n~~\n\\ gph {brary of Intelligence\n») £ 57 A >\nN) AT ; \"\n> CN — Fi\n== = 2 adn a EE\n—\n0 i iol (Ro wow wi 7 1\nd : malig Rian I [7 =2.8 nf}\n= hit gil es Tie | 3 ft.\n| on - Common — - —\nni+1 Intelligence. = 1\n1 Nin y ——\n“Fhese-grand repositories of knowledge\nhave stood i= = —\nEB 7 >= a\n@ Place Holder Art #\n| 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "Gain +1 Intelligence.",
-    "flavorText": "These grand repositories of knowledge have stood the test of time.",
-    "rarity": "Common",
-    "originalArtFile": "Intelligence Stat Card.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "129",
-    "name": "Cavern of Wisdom",
-    "type": "Location",
-    "imageUrl": "/cards/templates/129.jpg",
-    "rawText": "r TY\ni | Z gl\n= ern of Wisdom”\nSE —\nCx =\nAS ie\n= / |\nLY | ! -\n- \\\nES\n- I}\n- - , \\\non - mon AN\nGain +1 Wisdom. \\\n\"Ancient wisdom opis ugh\nthe ages, speaking to those who fisten.”\n— [ET KK = 2\nCad FETE =\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "Gain +1 Wisdom.",
-    "flavorText": "Ancient wisdom reverberates through the ages, speaking to those who listen.",
-    "rarity": "Common",
-    "originalArtFile": "Wisdom Stat Card.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "130",
-    "name": "Treasure of Luck",
-    "type": "Location",
-    "imageUrl": "/cards/templates/130.jpg",
-    "rawText": "a Bh\nTreasure of Luck 4\nBEY »\ne hel R\n= ony OS a tA,\nag (B-34 A\nER be oS EK\nLocation - Common “0 ‘P\nGainet1 uo q | ||. - u\n\"Gold andiriches can change fortunes in\naninstant” == :\n: : I\n= —- An a [|\nLD _-\nRE Fo TT\nPI Holder Art #\n9 ace Holder Ar y\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "Gain +1 Luck.",
-    "flavorText": "Gold and riches can change fortunes in an instant.",
-    "rarity": "Common",
-    "originalArtFile": "Luck Stat Card.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "131",
-    "name": "Athenaeum of Acumen",
-    "type": "Location",
-    "imageUrl": "/cards/templates/131.jpg",
-    "rawText": "a OY\n¥ a\n|! Athenaeum of Acumen | v\nA ) -\n\n{ [\nA i I] a | A F.\n“il fERaRE BY\nRY] r #\nRY Nh. VERE Z| 2\nLocation - Uncommon\nWhen Athenaeum of Acumen enters\nthe battlefield, return another Location\ncard you control to its owner's hand.\nGain +1 Intelligence and Wisdom.\nf / /f I 4\ny\n(4\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Athenaeum of Acumen enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Intelligence and Wisdom.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Archive of Enlightenment.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "132",
-    "name": "Cartographer's Post",
-    "type": "Location",
-    "imageUrl": "/cards/templates/132.jpg",
-    "rawText": "a TY\nLocation - Uncommon\n—s Sacrifice this Location card, search\nyour Archive for a common Location\ncard, put it onto the battlefield, then\nshuffle.\n@ Place Holder Art\n\n| 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "→ Sacrifice this Location card, search your Archive for a common Location card, put it onto the battlefield, then shuffle.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Cartographers Post.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "133",
-    "name": "Citadel of Resilience",
-    "type": "Location",
-    "imageUrl": "/cards/templates/133.jpg",
-    "rawText": "a TY\nCitadel of Resilience\nLM\nTyr\n3] (iii ¥\nnoe LJ\n» - 1\nLocation - Uncommon i =\nWhen Citadel of Resili enters the\nbattlefield, return er Location card\nyou control owner's hand.\nGain + titution and Intelligence.\npe\n(4\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Citadel of Resilience enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Intelligence.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Citadel of Resilience.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "134",
-    "name": "Coliseum of Willpower",
-    "type": "Location",
-    "imageUrl": "/cards/templates/134.jpg",
-    "rawText": "a OY\nColiseum of Willpower\nA\ni\nA)\n| pi\nhel\nwm\nI Nd\nal 1\n; ed L EE\nLocation - Uncommon\nWhen Coliseum of Willpower enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Dexterity and Constitution.\nil -— TT —————\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Coliseum of Willpower enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Constitution.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Coliseum of Willpower.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "135",
-    "name": "Crossroads of Chance",
-    "type": "Location",
-    "imageUrl": "/cards/templates/135.jpg",
-    "rawText": "a OY\nads y\npe He,\n=r i i\nWAL\nI 1\n= els >»\nLocation - Uncommon “\nWhen Crossroads of Chance enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Dexterity and Luck.\nfF -\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Crossroads of Chance enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Luck.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Crossroads of Chance.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "136",
-    "name": "Forge of Endurance",
-    "type": "Location",
-    "imageUrl": "/cards/templates/136.jpg",
-    "rawText": "a Bh\nForge\ni\nA id\nre . Je -»\nLocation - Uncommon\nWhen Forge of Endurance enters the\nbattlefield, return another Location card\nyou control to its er's hand.\nGain +1 Streng ;\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Forge of Endurance enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Strength and Constitution.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Forge of Endurance.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "137",
-    "name": "Garden of Insight",
-    "type": "Location",
-    "imageUrl": "/cards/templates/137.jpg",
-    "rawText": "a TY\n9% / of Insight\noN ¥en\nAX ’\nJEP CE\nSd -\nTAN )\n. 3 BS [38\nSS\n\\ TN\nLocation - Uncommon\nWhen Garden of Insight enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Constitution and Wisdom.\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Garden of Insight enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Wisdom.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Garden of Insight.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "138",
-    "name": "Hall of Strategy",
-    "type": "Location",
-    "imageUrl": "/cards/templates/138.jpg",
-    "rawText": "a TY\n1 |\n| | | WA |\n: t\nLocation - Uncommon\nWhen Hall of b+ enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Strength and Intelligence.\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Hall of Strategy enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Intelligence.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Hall of Strategy.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "139",
-    "name": "Labyrinth of Serendipity",
-    "type": "Location",
-    "imageUrl": "/cards/templates/139.jpg",
-    "rawText": "r TY\nab i of Sere dipity\ngy |\nNAL) W Vf\n| ¢ Vd i A\nbh es\n=. ~~\nLocation - Uncommon ==\nWhen Labyrinth of Serendipity enters\nthe battlefield, return another Location\ncard you control to its ounel ag. <\nGain +1 Intelligence and Luck.\npnp\n—\nPlace Holder Art #\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Labyrinth of Serendipity enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Intelligence and Luck.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Labyrinth of Serendipity.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "140",
-    "name": "Pit of Fortune",
-    "type": "Location",
-    "imageUrl": "/cards/templates/140.jpg",
-    "rawText": "a TY\nPit of Fortune\n1\n! a q ]\nRFR\nLocation - Uncommo!\nWhen Pit of Fortune enters the\nbattlefield, return another Location card\nyou control to it hand.\nGain +1 Strengt Luck.\nLN\n|\nPlace Holder Art\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Pit of Fortune enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Luck.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Pit of Fortune.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "141",
-    "name": "Sanctum of Valor",
-    "type": "Location",
-    "imageUrl": "/cards/templates/141.jpg",
-    "rawText": "r TY\nSanctum of Valor\n' 3\nSa\nANE i\nyh |\nwe\nLocation - Uncommon\nWhen Sanctum of Valor s the\nbattlefield, return anothe rd\nyou control to its owner” {\"\nmy +1 Strength a i\n. @ Place Holder Art # p\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Sanctum of Valor enters the battlefield, return another Location card you control to its owner’s hand. \n\nGain +1 Strength and Wisdom.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Sanctum of Valor.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "142",
-    "name": "Shrine of Finesse",
-    "type": "Location",
-    "imageUrl": "/cards/templates/142.jpg",
-    "rawText": "a ) TY\nShrine of Finesse\nPp\" ve\n|\n-\nps’ 3\nLocation - Uncommon\nWhen Shrine of Finesse enters the\nbattlefield, return another Location card\nyou control to its owner's hand.\nGain +1 Dexterity and Wisdom.\nPlace Holder Art\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Shrine of Finesse enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Wisdom.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Shrine of Finesse.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "143",
-    "name": "Temple of Destiny",
-    "type": "Location",
-    "imageUrl": "/cards/templates/143.jpg",
-    "rawText": "a Bh\nTe\n|e iE “if\n4 cod =) ' 1\nLocation - Uncommon\nWhen Temple of Destiny enters the\nbattlefield, return er Location card\nyou control to hand.\nGain +1 Wisd\nPI Holder Art #\n. @ Place Holder Ar y\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Temple of Destiny enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Wisdom and Luck.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Temple of Destiny.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "144",
-    "name": "Tower of Ingenuity",
-    "type": "Location",
-    "imageUrl": "/cards/templates/144.jpg",
-    "rawText": "a TY\nTower of Ingenuity\n|\n3 0\npy 5\npn\n5, A\nLocation - Uncommon\nWhen Tower of Ingenuity enters the\nbattlefield, return another Location card\nyou control to its owner's hand. s\nGain +1 Dexterity and Intelligence. |\nPlace Holder Art\n| 9 4\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Tower of Ingenuity enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Dexterity and Intelligence.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Tower of Ingenuity.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "145",
-    "name": "Training Grounds",
-    "type": "Location",
-    "imageUrl": "/cards/templates/145.jpg",
-    "rawText": "\\\nES\nLo Cd On - Jnc J ;\n\nhen Training Grotmdsertersther =.\ndvhen Iraig ing LEE EE NE\nbattlefield, return another Location card”\nyou control to its owners hand. ~~\nGain +1 Str gth and Dexerit ot To\nA RP mn 5g\n3 » £ :\n@ Place Holder Art\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Training Grounds enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Strength and Dexterity.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Training Grounds.jpg",
-    "cost": "0"
-  },
-  {
-    "id": "146",
-    "name": "Vault of Providence",
-    "type": "Location",
-    "imageUrl": "/cards/templates/146.jpg",
-    "rawText": "a OY\nVault of Provide\nP\n§ | |\n|\npi | ; I\n| | \\\nry \\\nCR |\nL 3 i\nLocation - Uncommon = I A HN\nHi q\nRu of Providence en rs the\nattlefield, return another Lpetion card\nyou control to its owner's hand.\nGain +1 Constitution and Luck.\nPI Holder Art #\n. @ Place Holder Ar p\n",
-    "requirements": {
-      "str": 0,
-      "dex": 0,
-      "con": 0,
-      "int": 0,
-      "wis": 0,
-      "luc": 0
-    },
-    "rulesText": "When Vault of Providence enters the battlefield, return another Location card you control to its owner’s hand.\n\nGain +1 Constitution and Luck.",
-    "flavorText": "",
-    "rarity": "Uncommon",
-    "originalArtFile": "Vault of Providence.jpg",
-    "cost": "0"
+    "cost": "0",
+    "rulesText": "",
+    "flavorText": ""
   }
 ]
