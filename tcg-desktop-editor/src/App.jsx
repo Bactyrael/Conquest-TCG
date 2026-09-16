@@ -356,66 +356,80 @@ function App() {
                       'Double-click to set image'
                     )}
                   </div>
-                  <div className="editable-field card-type" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <select 
-                      className="type-select"
-                      value={activeCard?.type || ''} 
-                      onChange={(e) => {
-                        const newType = e.target.value;
-                        const actionTypes = ['Action', 'Bonus Action', 'Reaction'];
-                        const shouldClear = !(actionTypes.includes(activeCard?.type) && actionTypes.includes(newType));
-                        setActiveCard({...activeCard, type: newType, ...(shouldClear ? {subtype: ''} : {})});
-                      }}
-                    >
-                      <option value="Action">Action</option>
-                      <option value="Bonus Action">Bonus Action</option>
-                      <option value="Reaction">Reaction</option>
-                      <option value="Hero">Hero</option>
-                      <option value="Resource">Resource</option>
-                      <option value="Item">Item</option>
-                      <option value="Equipment">Equipment</option>
-                    </select>
-                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && <span>—</span>}
-                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && (
+                  <div className="editable-field card-type" style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-start' }}>
+                    <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
                       <select 
                         className="type-select"
-                        value={activeCard?.subtype || ''} 
-                        onChange={(e) => setActiveCard({...activeCard, subtype: e.target.value})}
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
+                        value={activeCard?.type || ''} 
+                        onChange={(e) => {
+                          const newType = e.target.value;
+                          const actionTypes = ['Action', 'Bonus Action', 'Reaction'];
+                          const shouldClear = !(actionTypes.includes(activeCard?.type) && actionTypes.includes(newType));
+                          setActiveCard({...activeCard, type: newType, ...(shouldClear ? {subtype: ''} : {})});
+                        }}
                       >
-                        <option value="">None</option>
-                        {['Action', 'Bonus Action', 'Reaction'].includes(activeCard?.type) && (
-                          <>
-                            <option value="Ability">Ability</option>
-                            <option value="Spell">Spell</option>
-                            <option value="Boon">Boon</option>
-                            <option value="Curse">Curse</option>
-                          </>
-                        )}
-                        {activeCard?.type === 'Equipment' && (
-                          <>
-                            <option value="Helm">Helm</option>
-                            <option value="Amulet">Amulet</option>
-                            <option value="Shoulders">Shoulders</option>
-                            <option value="Cloak">Cloak</option>
-                            <option value="Chest">Chest</option>
-                            <option value="Wrist">Wrist</option>
-                            <option value="Gloves">Gloves</option>
-                            <option value="Belt">Belt</option>
-                            <option value="Pants">Pants</option>
-                            <option value="Boots">Boots</option>
-                            <option value="Main-hand">Main-hand</option>
-                            <option value="Off-hand">Off-hand</option>
-                            <option value="Left Ring">Left Ring</option>
-                            <option value="Right Ring">Right Ring</option>
-                          </>
-                        )}
-                        {activeCard?.type === 'Item' && (
-                          <>
-                            <option value="Consumable">Consumable</option>
-                            <option value="Trinket">Trinket</option>
-                          </>
-                        )}
+                        <option value="Action">Action</option>
+                        <option value="Bonus Action">Bonus Action</option>
+                        <option value="Reaction">Reaction</option>
+                        <option value="Hero">Hero</option>
+                        <option value="Resource">Resource</option>
+                        <option value="Item">Item</option>
+                        <option value="Equipment">Equipment</option>
                       </select>
+                      <span style={{ pointerEvents: 'none', whiteSpace: 'nowrap' }}>
+                        {activeCard?.type || 'Type'}
+                      </span>
+                    </div>
+                    
+                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && <span>—</span>}
+                    
+                    {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && (
+                      <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                        <select 
+                          className="type-select"
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
+                          value={activeCard?.subtype || ''} 
+                          onChange={(e) => setActiveCard({...activeCard, subtype: e.target.value})}
+                        >
+                          <option value="">None</option>
+                          {['Action', 'Bonus Action', 'Reaction'].includes(activeCard?.type) && (
+                            <>
+                              <option value="Ability">Ability</option>
+                              <option value="Spell">Spell</option>
+                              <option value="Boon">Boon</option>
+                              <option value="Curse">Curse</option>
+                            </>
+                          )}
+                          {activeCard?.type === 'Equipment' && (
+                            <>
+                              <option value="Helm">Helm</option>
+                              <option value="Amulet">Amulet</option>
+                              <option value="Shoulders">Shoulders</option>
+                              <option value="Cloak">Cloak</option>
+                              <option value="Chest">Chest</option>
+                              <option value="Wrist">Wrist</option>
+                              <option value="Gloves">Gloves</option>
+                              <option value="Belt">Belt</option>
+                              <option value="Pants">Pants</option>
+                              <option value="Boots">Boots</option>
+                              <option value="Main-hand">Main-hand</option>
+                              <option value="Off-hand">Off-hand</option>
+                              <option value="Left Ring">Left Ring</option>
+                              <option value="Right Ring">Right Ring</option>
+                            </>
+                          )}
+                          {activeCard?.type === 'Item' && (
+                            <>
+                              <option value="Consumable">Consumable</option>
+                              <option value="Trinket">Trinket</option>
+                            </>
+                          )}
+                        </select>
+                        <span style={{ pointerEvents: 'none', whiteSpace: 'nowrap' }}>
+                          {activeCard?.subtype || 'None'}
+                        </span>
+                      </div>
                     )}
                   </div>
                   <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />

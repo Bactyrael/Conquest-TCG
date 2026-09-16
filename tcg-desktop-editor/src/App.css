@@ -429,6 +429,9 @@ body {
   text-shadow: inherit;
   cursor: pointer;
   outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .type-select option {
   background: #333;
