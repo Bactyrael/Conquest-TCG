@@ -128,7 +128,7 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
         placeholder="Card rules..."
         value={activeCard?.rulesText || ''}
         onChange={(e) => setActiveCard({...activeCard, rulesText: e.target.value})}
-        style={{ flex: '0 1 auto' }}
+        style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
         forcedSize={optimalSize}
       />
       {activeCard?.flavorText && (
@@ -139,7 +139,7 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
             placeholder="Flavor text..."
             value={activeCard?.flavorText || ''}
             onChange={(e) => setActiveCard({...activeCard, flavorText: e.target.value})}
-            style={{ flex: '0 1 auto' }}
+            style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             forcedSize={optimalSize}
           />
         </>
