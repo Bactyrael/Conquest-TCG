@@ -88,12 +88,14 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
     const rulesWrap = document.createElement('div');
     rulesWrap.style.whiteSpace = 'pre-wrap';
     rulesWrap.style.wordWrap = 'break-word';
+    rulesWrap.style.lineHeight = '1.15';
     rulesWrap.innerHTML = parseRichTextHTML(activeCard?.rulesText || 'Card rules...');
     
     const flavorWrap = document.createElement('div');
     flavorWrap.style.whiteSpace = 'pre-wrap';
     flavorWrap.style.wordWrap = 'break-word';
     flavorWrap.style.fontStyle = 'italic';
+    flavorWrap.style.lineHeight = '1.15';
     flavorWrap.innerHTML = parseRichTextHTML(activeCard?.flavorText || 'Flavor text...');
 
     measureBox.appendChild(rulesWrap);
