@@ -285,6 +285,7 @@ body {
   resize: none;
   overflow: hidden;
   min-height: 0;
+  line-height: 1.15;
 }
 
 .card-flavor {
