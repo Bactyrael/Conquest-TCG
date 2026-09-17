@@ -89,6 +89,8 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
     rulesWrap.style.whiteSpace = 'pre-wrap';
     rulesWrap.style.wordWrap = 'break-word';
     rulesWrap.style.lineHeight = '1.15';
+    rulesWrap.style.padding = '2px';
+    rulesWrap.style.border = '1px solid transparent';
     rulesWrap.innerHTML = parseRichTextHTML(activeCard?.rulesText || 'Card rules...');
     
     const flavorWrap = document.createElement('div');
@@ -96,6 +98,8 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
     flavorWrap.style.wordWrap = 'break-word';
     flavorWrap.style.fontStyle = 'italic';
     flavorWrap.style.lineHeight = '1.15';
+    flavorWrap.style.padding = '2px';
+    flavorWrap.style.border = '1px solid transparent';
     flavorWrap.innerHTML = parseRichTextHTML(activeCard?.flavorText || 'Flavor text...');
 
     measureBox.appendChild(rulesWrap);
