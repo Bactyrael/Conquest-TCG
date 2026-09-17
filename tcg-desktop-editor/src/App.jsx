@@ -351,7 +351,7 @@ function App() {
                   </div>
                   <div className="card-art-placeholder" onClick={() => setIsImageModalOpen(true)}>
                     {getCardImage(activeCard) ? (
-                      <img src={`http://localhost:3002/cards/generated/${getCardImage(activeCard)}`} alt="art" />
+                      <img src={`http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${Date.now()}`} alt="art" />
                     ) : (
                       'Double-click to set image'
                     )}
