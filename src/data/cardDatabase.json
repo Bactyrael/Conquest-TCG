@@ -77,7 +77,7 @@
       "luc": 0
     },
     "rulesText": "During your next combat this turn, you may attack twice.",
-    "flavorText": "“In chaos there is also opportunity.” — Stug",
+    "flavorText": "“In chaos there is also opportunity.” - Stug",
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Onslaught.png",
@@ -2488,7 +2488,8 @@
     "subtype": "",
     "originalArtFile": "Paladin Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Int (Magic)"
+    "damage": "1d8 + Int (Magic)",
+    "image": "marius.jpg"
   },
   {
     "id": "118",
