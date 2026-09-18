@@ -252,6 +252,7 @@ function App() {
   };
 
   const [notification, setNotification] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     if (activeCard) {
@@ -361,7 +362,13 @@ function App() {
           <button className="tool-btn"><i>I</i></button>
         </div>
         <div className="toolbar-section">
-          <input type="text" placeholder="Search for cards..." className="search-bar" />
+          <input 
+            type="text" 
+            placeholder="Search for cards..." 
+            className="search-bar" 
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+          />
         </div>
       </div>
 
