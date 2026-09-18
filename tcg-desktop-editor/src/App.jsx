@@ -210,6 +210,8 @@ function App() {
   const [activeCard, setActiveCard] = useState(null);
   const [images, setImages] = useState([]);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [copiedCard, setCopiedCard] = useState(null);
+  const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
 
   React.useEffect(() => {
     // Fetch cards
@@ -311,6 +313,24 @@ function App() {
       setTimeout(() => setActiveCard(newCards.length > 0 ? newCards[0] : null), 0);
       return newCards;
     });
+  };
+
+  const handleCopyCard = () => {
+    if (activeCard) {
+      setCopiedCard({ ...activeCard });
+    }
+  };
+
+  const handlePasteCard = () => {
+    if (!copiedCard) return;
+    let nextId = "000";
+    if (cards.length > 0) {
+      const maxId = Math.max(...cards.map(c => parseInt(c.id, 10) || 0));
+      nextId = (maxId + 1).toString().padStart(3, '0');
+    }
+    const newCard = { ...copiedCard, id: nextId, name: copiedCard.name + ' (Copy)' };
+    setCards(prev => [...prev, newCard]);
+    setActiveCard(newCard);
   };
 
   return (
@@ -479,7 +499,14 @@ function App() {
         </div>
 
         {/* Right Side: Sortable Card List */}
-        <div className="right-pane" style={{ overflowY: 'auto' }}>
+        <div 
+          className="right-pane" 
+          style={{ overflowY: 'auto' }}
+          onContextMenu={(e) => {
+            e.preventDefault();
+            setContextMenu({ visible: true, x: e.pageX, y: e.pageY });
+          }}
+        >
           <table className="card-table">
             <thead>
               <tr>
@@ -490,21 +517,27 @@ function App() {
                 <th>#</th>
               </tr>
             </thead>
-            <tbody>
-              {cards.map((c, i) => (
-                <tr 
-                  key={c.id || i} 
-                  className={activeCard && activeCard.id === c.id ? 'selected' : ''}
-                  onClick={() => setActiveCard(c)}
-                >
-                  <td>{c.name}</td>
-                  <td>{c.cost}</td>
-                  <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''}</td>
-                  <td className={`rarity-${c.rarity || 'common'}`}>{c.rarity || 'common'}</td>
-                  <td>{c.id}</td>
-                </tr>
-              ))}
-            </tbody>
+              <tbody>
+                {cards.map((c, i) => (
+                  <tr 
+                    key={c.id || i} 
+                    className={activeCard && activeCard.id === c.id ? 'selected' : ''}
+                    onClick={() => setActiveCard(c)}
+                    onContextMenu={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveCard(c);
+                      setContextMenu({ visible: true, x: e.pageX, y: e.pageY });
+                    }}
+                  >
+                    <td>{c.name}</td>
+                    <td>{c.cost}</td>
+                    <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''}</td>
+                    <td className={`rarity-${c.rarity || 'common'}`}>{c.rarity || 'common'}</td>
+                    <td>{c.id}</td>
+                  </tr>
+                ))}
+              </tbody>
           </table>
         </div>
       </div>
@@ -514,6 +547,7 @@ function App() {
         Welcome to Beasts and Bounties Set Editor
       </div>
 
+      {/* Image Selection Modal */}
       {isImageModalOpen && (
         <div className="modal-overlay" onClick={() => setIsImageModalOpen(false)}>
           <div className="image-modal" onClick={e => e.stopPropagation()}>
@@ -528,6 +562,17 @@ function App() {
             </div>
             <button onClick={() => setIsImageModalOpen(false)}>Close</button>
           </div>
+        </div>
+      )}
+
+      {/* Context Menu */}
+      {contextMenu.visible && (
+        <div className="context-menu" style={{ top: contextMenu.y, left: contextMenu.x }}>
+          <div className={`context-menu-item ${!activeCard ? 'disabled' : ''}`} onClick={handleCopyCard}>Copy Card</div>
+          <div className={`context-menu-item ${!copiedCard ? 'disabled' : ''}`} onClick={handlePasteCard}>Paste Card</div>
+          <div className="context-menu-divider"></div>
+          <div className="context-menu-item" onClick={handleAddCard}>New Card</div>
+          <div className={`context-menu-item ${!activeCard ? 'disabled' : ''}`} onClick={handleDeleteCard} style={{color: '#ff4444'}}>Delete Card</div>
         </div>
       )}
     </div>
