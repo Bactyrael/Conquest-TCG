@@ -9,6 +9,7 @@ const parseRichTextHTML = (text) => {
     .replace(/\[USE\]/gi, '<img src="/icons/use.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
     .replace(/\[MANA\]/gi, '<img src="/icons/mana.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
     .replace(/\[STAMINA\]/gi, '<img src="/icons/stamina.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
+    .replace(/\[GENERIC\]/gi, '<img src="/icons/generic.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
     .replace(/\n/g, '<br/>');
 };
 
@@ -159,7 +160,7 @@ const CostField = ({ cost, onChange }) => {
 
   const renderDisplay = () => {
     if (!cost || cost === '0') return null;
-    const match = cost.match(/^(\d+)\s*(Mana|Stamina)$/i);
+    const match = cost.match(/^(\d+)\s*(Mana|Stamina|Generic)$/i);
     if (match) {
       const amount = match[1];
       const type = match[2].toLowerCase();
