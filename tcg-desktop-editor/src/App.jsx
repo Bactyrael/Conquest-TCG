@@ -256,7 +256,7 @@ function App() {
       setCards(prev => prev.map(c => c.id === activeCard.id ? activeCard : c));
       // Auto-scroll the list to the selected card so newly created cards are visible
       setTimeout(() => {
-        const selectedRow = document.querySelector('.card-list tr.selected');
+        const selectedRow = document.querySelector('.card-table tr.selected');
         if (selectedRow) {
           selectedRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
@@ -479,14 +479,13 @@ function App() {
         </div>
 
         {/* Right Side: Sortable Card List */}
-        <div className="right-pane">
+        <div className="right-pane" style={{ overflowY: 'auto' }}>
           <table className="card-table">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Resource Cost</th>
                 <th>Type</th>
-                <th>P/T</th>
                 <th>Rarity</th>
                 <th>#</th>
               </tr>
@@ -501,7 +500,6 @@ function App() {
                   <td>{c.name}</td>
                   <td>{c.cost}</td>
                   <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''}</td>
-                  <td></td>
                   <td className={`rarity-${c.rarity || 'common'}`}>{c.rarity || 'common'}</td>
                   <td>{c.id}</td>
                 </tr>

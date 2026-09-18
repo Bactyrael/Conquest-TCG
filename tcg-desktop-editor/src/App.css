@@ -350,6 +350,9 @@ body {
   padding: 2px 5px;
   text-align: left;
   font-weight: normal;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .card-table td {
