@@ -348,8 +348,8 @@ body {
   border-bottom: 1px solid #ccc;
   border-right: 1px solid #ccc;
   padding: 2px 5px;
-  text-align: left;
-  font-weight: normal;
+  text-align: center;
+  font-weight: bold;
   position: sticky;
   top: 0;
   z-index: 10;
