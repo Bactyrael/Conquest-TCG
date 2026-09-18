@@ -254,6 +254,13 @@ function App() {
   useEffect(() => {
     if (activeCard) {
       setCards(prev => prev.map(c => c.id === activeCard.id ? activeCard : c));
+      // Auto-scroll the list to the selected card so newly created cards are visible
+      setTimeout(() => {
+        const selectedRow = document.querySelector('.card-list tr.selected');
+        if (selectedRow) {
+          selectedRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 50);
     }
   }, [activeCard]);
 
