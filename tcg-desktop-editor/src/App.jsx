@@ -333,6 +333,19 @@ function App() {
     setActiveCard(newCard);
   };
 
+  const filteredCards = cards.filter(c => {
+    if (!searchTerm) return true;
+    const term = searchTerm.toLowerCase();
+    return (
+      (c.name && c.name.toLowerCase().includes(term)) ||
+      (c.rulesText && c.rulesText.toLowerCase().includes(term)) ||
+      (c.flavorText && c.flavorText.toLowerCase().includes(term)) ||
+      (c.type && c.type.toLowerCase().includes(term)) ||
+      (c.subtype && c.subtype.toLowerCase().includes(term)) ||
+      (c.cost && c.cost.toLowerCase().includes(term))
+    );
+  });
+
   return (
     <div className="mse-container" onClick={() => setContextMenu(prev => ({ ...prev, visible: false }))}>
       {/* Toolbar */}
@@ -522,7 +535,7 @@ function App() {
               </tr>
             </thead>
               <tbody>
-                {cards.map((c, i) => (
+                {filteredCards.map((c, i) => (
                   <tr 
                     key={c.id || i} 
                     className={activeCard && activeCard.id === c.id ? 'selected' : ''}
