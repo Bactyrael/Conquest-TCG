@@ -379,10 +379,6 @@ function App() {
         <div className="left-pane">
           <div className="tabs">
             <div className="tab active">Cards</div>
-            <div className="tab">Style</div>
-            <div className="tab">Set info</div>
-            <div className="tab">Keywords</div>
-            <div className="tab">Statistics</div>
           </div>
           
           <div className="card-editor-area">
