@@ -334,7 +334,7 @@ function App() {
   };
 
   return (
-    <div className="mse-container">
+    <div className="mse-container" onClick={() => setContextMenu(prev => ({ ...prev, visible: false }))}>
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">
@@ -504,7 +504,11 @@ function App() {
           style={{ overflowY: 'auto' }}
           onContextMenu={(e) => {
             e.preventDefault();
-            setContextMenu({ visible: true, x: e.pageX, y: e.pageY });
+            const menuHeight = 180;
+            const menuWidth = 160;
+            const x = e.pageX + menuWidth > window.innerWidth ? window.innerWidth - menuWidth - 10 : e.pageX;
+            const y = e.pageY + menuHeight > window.innerHeight ? window.innerHeight - menuHeight - 10 : e.pageY;
+            setContextMenu({ visible: true, x, y });
           }}
         >
           <table className="card-table">
@@ -527,7 +531,11 @@ function App() {
                       e.preventDefault();
                       e.stopPropagation();
                       setActiveCard(c);
-                      setContextMenu({ visible: true, x: e.pageX, y: e.pageY });
+                      const menuHeight = 180;
+                      const menuWidth = 160;
+                      const x = e.pageX + menuWidth > window.innerWidth ? window.innerWidth - menuWidth - 10 : e.pageX;
+                      const y = e.pageY + menuHeight > window.innerHeight ? window.innerHeight - menuHeight - 10 : e.pageY;
+                      setContextMenu({ visible: true, x, y });
                     }}
                   >
                     <td>{c.name}</td>
