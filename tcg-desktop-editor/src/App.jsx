@@ -468,8 +468,7 @@ function App() {
                                 <option value="Boots">Boots</option>
                                 <option value="Main-hand">Main-hand</option>
                                 <option value="Off-hand">Off-hand</option>
-                                <option value="Left Ring">Left Ring</option>
-                                <option value="Right Ring">Right Ring</option>
+                                <option value="Ring">Ring</option>
                               </>
                             )}
                             {activeCard?.type === 'Item' && (

@@ -15,7 +15,7 @@
     },
     "subtype": "Ability",
     "rarity": "Common",
-    "rulesText": "Deal 1d10 plus your Dexterity modifier in Slashing damage to a target.",
+    "rulesText": "Deal 1d10 plus your Dexterity in Slashing damage to a target.",
     "flavorText": "",
     "originalArtFile": "Blade Dance.png",
     "cost": "5 Stamina"
@@ -55,7 +55,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Strength modifier in Blunt damage to a target.",
+    "rulesText": "Deal 1d12 plus your Strength in Blunt damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -97,7 +97,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Dexterity modifier in Slashing damage to a target.",
+    "rulesText": "Deal 1d8 plus your Dexterity in Slashing damage to a target.",
     "flavorText": "“I have no desire to mar my blade; I will end you with the utmost efficiency.” — Shadow Chuson",
     "subtype": "Ability",
     "rarity": "Common",
@@ -118,7 +118,7 @@
       "wis": 0,
       "luc": 4
     },
-    "rulesText": "Deal 2d4 plus your Luck modifier in Piercing damage to a target.",
+    "rulesText": "Deal 2d4 plus your Luck in Piercing damage to a target.",
     "flavorText": "“The dead don’t desire revenge.” — Merkil, the Slayer",
     "subtype": "Ability",
     "rarity": "Common",
@@ -139,7 +139,7 @@
       "wis": 0,
       "luc": 6
     },
-    "rulesText": "Deal 3d4 plus your Luck modifier in Slashing damage to a target.",
+    "rulesText": "Deal 3d4 plus your Luck in Slashing damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -160,7 +160,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Strength modifier in Blunt damage to a target.",
+    "rulesText": "Deal 1d8 plus your Strength in Blunt damage to a target.",
     "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
     "subtype": "Ability",
     "rarity": "Common",
@@ -181,7 +181,7 @@
       "wis": 1,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Constitution modifier in Nature damage.",
+    "rulesText": "Deal 1d6 plus your Constitution in Nature damage.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -202,7 +202,7 @@
       "wis": 1,
       "luc": 3
     },
-    "rulesText": "Deal 2d4 plus your Luck modifier in Thunder damage to a target.",
+    "rulesText": "Deal 2d4 plus your Luck in Thunder damage to a target.",
     "flavorText": "By the roar of Fragor’s mighty voice, the skies shatter and strike with thunderous wrath.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -223,7 +223,7 @@
       "wis": 0,
       "luc": 4
     },
-    "rulesText": "Deal 3d4 plus your Luck modifier in Lightning damage to a target.",
+    "rulesText": "Deal 3d4 plus your Luck in Lightning damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -244,7 +244,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Strength modifier in Ice damage to a target.",
+    "rulesText": "Deal 1d10 plus your Strength in Ice damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -265,7 +265,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Constitution modifier in Nature damage to a target.",
+    "rulesText": "Deal 1d10 plus your Constitution in Nature damage to a target.",
     "flavorText": "By the will of Gramen, earth rise and nature grasp ensnare all who tread upon it.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -286,7 +286,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Strength modifier in Fire damage to a target.",
+    "rulesText": "Deal 1d8 plus your Strength in Fire damage to a target.",
     "flavorText": "By the burning will of Caeles, fire be both my forge and fury.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -307,7 +307,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Constitution modifier in Earth damage to a target.",
+    "rulesText": "Deal 1d12 plus your Constitution in Earth damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -328,7 +328,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Dexterity modifier in Water damage to a target.",
+    "rulesText": "Deal 1d12 plus your Dexterity in Water damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -349,7 +349,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Dexterity modifier in Air damage to a target.",
+    "rulesText": "Deal 1d6 plus your Dexterity in Air damage to a target.",
     "flavorText": "By Volucris’ breath, the winds stir and sweep all before me with boundless force.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -370,7 +370,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Restore 1d4 plus your Constitution modifier in Hit Points to a target.",
+    "rulesText": "Restore 1d4 plus your Constitution in Hit Points to a target.",
     "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -391,7 +391,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d4 plus your Constitution modifier in Holy damage to a target.",
+    "rulesText": "Deal 1d4 plus your Constitution in Holy damage to a target.",
     "flavorText": "By the radiant grace of Spirabilis, let pure light pierce the darkness and smite with divine fury.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -412,7 +412,7 @@
       "wis": 1,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Strength modifier in Ice damage to a target.",
+    "rulesText": "Deal 1d8 plus your Strength in Ice damage to a target.",
     "flavorText": "By the chilling breath of Gelus, let frost pierce air and strike with icy precision.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -433,7 +433,7 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "Deal 2d4 plus your Luck modifier in Lightning damage to a target.",
+    "rulesText": "Deal 2d4 plus your Luck in Lightning damage to a target.",
     "flavorText": "By Fulmen’s crackling fury, unleash judgment and strike with lightning’s swift wrath.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -454,7 +454,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Intelligence modifier in Magic damage to a target.",
+    "rulesText": "Deal 1d8 plus your Intelligence in Magic damage to a target.",
     "flavorText": "By Inludo’s hand, let arcane fury fly!",
     "subtype": "Spell",
     "rarity": "Common",
@@ -475,7 +475,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Intelligence modifier in Magic damage to a target.",
+    "rulesText": "Deal 1d10 plus your Intelligence in Magic damage to a target.",
     "flavorText": "By Inludo’s arcane will, ethereal forces take flight and strike true with mystic barrage.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -496,7 +496,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Strength modifier in Fire damage to a target.",
+    "rulesText": "Deal 1d12 plus your Strength in Fire damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -517,7 +517,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Constitution modifier in Earth damage to a target.",
+    "rulesText": "Deal 1d6 plus your Constitution in Earth damage to a target.",
     "flavorText": "By Mamel’s unshakable strength, ground tremble and fracture under the weight of unquestionable might.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -538,7 +538,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 2d4 plus your Constitution modifier in Holy damage to a target.",
+    "rulesText": "Deal 2d4 plus your Constitution in Holy damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -559,7 +559,7 @@
       "wis": 4,
       "luc": 0
     },
-    "rulesText": "Restore 1d4 plus your Wisdom modifier in Hit Points to a target.",
+    "rulesText": "Restore 1d4 plus your Wisdom in Hit Points to a target.",
     "flavorText": "By Gramen’s nurturing embrace, vitality of nature flow and restore life’s essence anew.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -601,7 +601,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Dexterity modifier in Air damage to a target.",
+    "rulesText": "Deal 1d10 plus your Dexterity in Air damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -622,7 +622,7 @@
       "wis": 3,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Wisdom modifier in Dark damage to a target.",
+    "rulesText": "Deal 1d6 plus your Wisdom in Dark damage to a target.",
     "flavorText": "By Mortuus’ chilling shadow, dread seep into the hearts of the living and paralyze their very souls.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -643,7 +643,7 @@
       "wis": 2,
       "luc": 4
     },
-    "rulesText": "Deal 3d4 plus your Luck modifier in Thunder damage to a target.",
+    "rulesText": "Deal 3d4 plus your Luck in Thunder damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -664,7 +664,7 @@
       "wis": 5,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Wisdom modifier in Dark damage to a target.",
+    "rulesText": "Deal 1d10 plus your Wisdom in Dark damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -685,7 +685,7 @@
       "wis": 1,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Dexterity modifier in Water damage to a target.",
+    "rulesText": "Deal 1d6 plus your Dexterity in Water damage to a target.",
     "flavorText": "By Squama’s turbulent will, raging waters converge and crash down upon my foes with merciless force.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -756,7 +756,7 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "A target gains an Inspiration Die less than or equal to their highest modifier. (e.g., if you have a Luck modifier of five, you would gain a 1d4 Inspiration Die.)",
+    "rulesText": "A target gains an Inspiration Die less than or equal to their highest attribute. (e.g., if you have a Luck score of five, you would gain a 1d4 Inspiration Die.)",
     "flavorText": "“Only in times where failure is a possibility does the quest for wisdom through mistakes become a necessity.” — Koreghar, the Prosperous",
     "subtype": "Ability",
     "rarity": "Common",
@@ -1540,7 +1540,7 @@
       "luc": 0
     },
     "rulesText": "Draw two cards from the top of your Archive.",
-    "flavorText": "“The college of Straness teaches many things, but plundering the future is not among them.” — Oaken, the Sage Scroll",
+    "flavorText": "“The college of Straness teaches many things, plundering the future is not among them.” — Oaken, the Sage Scroll",
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Conveyance.jpg",
@@ -1581,7 +1581,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a common Location card, reveal it, and put it into your hand. Then, shuffle your Archive.",
+    "rulesText": "Search your Archive for a common Resource card, reveal it, and put it into your hand. Then, shuffle your Archive.",
     "flavorText": "“From the ruins of the old, the earth breathes anew—fertile, untamed, and waiting to be claimed.” — Antorius, Thunder of the Mountain",
     "subtype": "Spell",
     "rarity": "Common",
@@ -1686,7 +1686,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a common Location card and put it onto the battlefield. As an additional cost, shuffle a Location card into your Archive.",
+    "rulesText": "Search your Archive for a common Resource card and put it onto the battlefield. As an additional cost, shuffle a Resource card into your Archive.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -1728,7 +1728,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a common Location card, reveal it, and put it onto the battlefield. Then, shuffle your Archive.",
+    "rulesText": "Search your Archive for a common Resource card, reveal it, and put it onto the battlefield. Then, shuffle your Archive.",
     "flavorText": "“With patience and toil, the wilds yield to our vision, and a new haven is born.” — Grove Tender Iosis",
     "subtype": "Spell",
     "rarity": "Common",
@@ -1770,7 +1770,7 @@
       "wis": 0,
       "luc": 2
     },
-    "rulesText": "Use your Luck modifier instead of another stat for a saving throw you make.",
+    "rulesText": "Use your Luck instead of another attribute for a saving throw you make.",
     "flavorText": "Sometimes, all it takes is a sprinkle of luck and a dash of magic to turn things around.",
     "subtype": "Ability",
     "rarity": "Common",
@@ -1958,7 +1958,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the beginning of their next turn, a target gains temporary Hit Points equal to their Constitution modifier and is immune to Fright.",
+    "rulesText": "Until the beginning of their next turn, a target gains temporary Hit Points equal to their Constitution and is immune to Fright.",
     "flavorText": "“Fear not, for I am by your side; be unafraid, for I shall be your guide.” — Navitas, the Aspect of Diligence",
     "subtype": "Boon",
     "rarity": "Common",
@@ -2021,7 +2021,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the beginning of their next turn, attacks and Act cards against a target require a (DC 8 plus half the performer’s Constitution, rounded down) Constitution saving throw to succeed. On a failed saving throw, the attacker must target another with that attack or Act card.",
+    "rulesText": "Until the beginning of their next turn, attacks and Act cards against a target require a (DC 8 plus the performer’s Constitution) Constitution saving throw to succeed. On a failed saving throw, the attacker must target another with that attack or Act card.",
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Common",
@@ -2231,7 +2231,7 @@
       "wis": 3,
       "luc": 0
     },
-    "rulesText": "Reduce damage from a single source by an amount equal to your Wisdom modifier. (This damage reduction is not affected by Resistance or Vulnerability.)",
+    "rulesText": "Reduce damage from a single source by an amount equal to your Wisdom. (This damage reduction is not affected by Resistance or Vulnerability.)",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2315,12 +2315,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Rage: [USE] Until the beginning of your next turn, your attacks deal +2 damage. If you have advantage, it instead deals +4. While enraged, attacker's have advantage against you.",
+    "rulesText": "[stamina][Stamina][use] Until the beginning of your next turn enrage, your attacks deal +2 damage. If you have advantage, they instead deal +4. While enraged, attacker's have advantage against you.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Barbarian Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Str (Slashing)"
+    "damage": "1d8 + Str (Slashing)",
+    "notes": ""
   },
   {
     "id": "110",
@@ -2336,7 +2337,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Bardic Inspiration: [USE] Gain an Inspiration Die equal to or less than one of your stats.  Gain +1 defense and resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
+    "rulesText": "[stamina][stamina][use] Gain an Inspiration Die equal to or less than one of your Attributes. Gain +1 Defense and Resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Bard Set.jpg",
@@ -2357,12 +2358,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Channel Divinity: [USE] You may use your Constitution in place of any other stat when meeting the total stat requirement of the next Boon you perform this round. Whenever you perform a Boon card, restore 1 Hit Point to the target for each point of Constitution required to perform that card.",
+    "rulesText": "Whenever you perform your first Boon card each turn, restore 1 Hit Point to the target for each [mana] or [stamina] required to perform that card.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Cleric Set.jpg",
     "cost": "0",
-    "damage": "1d6 + Con (Holy)"
+    "damage": "1d6 + Con (Holy)",
+    "notes": "free cast equal to con?"
   },
   {
     "id": "112",
@@ -2378,7 +2380,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Aetheric: [USE] If the next Spell you perform this round has a total stat requirement higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less of any stat for each Elemental Counter you control.",
+    "rulesText": "Once per turn, if a Spell you perform has a [mana] cost higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less [mana] for each Elemental Counter you control.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Conjurer Set.png",
@@ -2399,7 +2401,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Wild Resurgence: [USE] Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
+    "rulesText": "[USE] Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Druid Set.jpg",
@@ -2420,7 +2422,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Master at Arms: [USE] Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g., a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
+    "rulesText": "[stamina][stamina][stamina] Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g. a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Fighter Set.jpg",
@@ -2441,7 +2443,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Burial Rite: [USE] Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its stat requirements by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
+    "rulesText": "[use] Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its resource cost by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Necromancer Set.png",
@@ -2462,7 +2464,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Martial Arts: [USE] Gain an Inspiration Die equal to or less than your Dex.  Gain critical range by +1 for each step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.)",
+    "rulesText": "[stamina][stamina][USE] Gain an Inspiration Die equal to or less than your Dexterity.  Gain critical range by +1 for each step of that Inspiration Die (e.g. +1 for a 1d4, +2 for a 1d6, etc.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Monk Set.jpg",
@@ -2483,7 +2485,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Radiant Strikes: [USE] Until the start of your next turn, your damage rolls are Holy and deal +1 damage for every 2 Constitution you have.",
+    "rulesText": "Your damage rolls ignore 1 resilience for every 2 Intelligence you have.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Paladin Set.jpg",
@@ -2505,12 +2507,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "No Prey, No Pay: [USE] If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use your Luck in place of any other stat when meeting the total stat requirement of attached cards.",
+    "rulesText": "If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use [stamina] in place of any other resource cost when performing attached cards.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Pirate Set.png",
     "cost": "0",
-    "damage": "1d4 + Lck (Piercing)"
+    "damage": "1d4 + Lck (Piercing)",
+    "image": "avery.jpg"
   },
   {
     "id": "119",
@@ -2526,12 +2529,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deft Explorer: [USE] Look at the top card of your Archive. If it is a Location card, you may draw it. After playing a Location card, your next attack or Act card has advantage until the end of your turn.",
+    "rulesText": "[USE] Look at the top card of your Archive. If it is a Resource card, you may draw it. After playing a Resource card, your next attack or Act card has advantage until the end of your turn.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Ranger Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Lck (Piercing)"
+    "damage": "1d8 + Lck (Piercing)",
+    "image": "viona.jpg"
   },
   {
     "id": "120",
@@ -2547,7 +2551,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Font of Magic: [USE] Gain an Inspiration Die equal to or less than your Int.  If you already have an Inspiration Die, you may increase its size by 1 step (e.g., 1d4 to 1d6, max 1d20).",
+    "rulesText": "[mana][mana][USE] Gain an Inspiration Die equal to or less than your Intelligence. If you already have an Inspiration Die, you may increase its size by 1 step (e.g. 1d4 to 1d6, max 1d20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Sorcerer Set.jpg",
@@ -2568,12 +2572,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Sneak Attack: [USE] Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.) Your critical hit range is increased by 2 while attacking from stealth (e.g., 18–20).",
+    "rulesText": "[stamina][stamina][USE] Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.) Your critical range is increased by 2 while attacking from stealth.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Rogue Set.jpg",
     "cost": "0",
-    "damage": " 2d4 + Lck (Piercing)"
+    "damage": " 2d4 + Lck (Piercing)",
+    "image": "leif.jpg"
   },
   {
     "id": "122",
@@ -2589,12 +2594,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Eldritch Invocation: [USE] Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
+    "rulesText": "[mana][mana][USE] Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Warlock Set.jpg",
     "cost": "0",
-    "damage": "1d4 + Wis (Dark)"
+    "damage": "1d4 + Wis (Dark)",
+    "image": "malakar.jpg"
   },
   {
     "id": "123",
@@ -2610,7 +2616,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Malignance: [USE] You may use your Wisdom in place of any other stat when meeting the total stat requirement of the next Curse you perform this round. Whenever you perform a Curse, deal Dark damage to each cursed target equal to half the card’s total stat requirement (rounded down).",
+    "rulesText": "The first curse you perform each turn deals Dark damage to each cursed target equal to half the card’s total [mana] cost (rounded down).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Witch Set.jpeg",
@@ -2631,7 +2637,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Spell Mastery: [USE] Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less of a chosen stat.",
+    "rulesText": "[USE] Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less mana.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Wizard Set.jpg",
@@ -2657,6 +2663,84 @@
     "rarity": "Common",
     "cost": "0",
     "rulesText": "[USE] Add one [Stamina] to your resource pool.",
+    "flavorText": ""
+  },
+  {
+    "id": "149",
+    "name": "Belt of Giant Strength",
+    "type": "Equipment",
+    "subtype": "Belt",
+    "rarity": "Common",
+    "cost": "6 Generic",
+    "damage": "",
+    "rulesText": "Your Strength is increased by +3.",
+    "flavorText": ""
+  },
+  {
+    "id": "150",
+    "name": "Caspian Clutches",
+    "type": "Equipment",
+    "subtype": "Gloves",
+    "rarity": "Common",
+    "cost": "6 generic",
+    "damage": "",
+    "rulesText": "Your Luck is increased by +3.",
+    "flavorText": "",
+    "image": "caspian_clutches.jpg"
+  },
+  {
+    "id": "151",
+    "name": "Evergreen",
+    "type": "Equipment",
+    "subtype": "Helm",
+    "rarity": "Common",
+    "cost": "6 generic",
+    "damage": "",
+    "rulesText": "Your Wisdom is increased by +3.",
+    "flavorText": ""
+  },
+  {
+    "id": "152",
+    "name": "Starveil",
+    "type": "Equipment",
+    "subtype": "Helm",
+    "rarity": "Common",
+    "cost": "6 generic",
+    "damage": "",
+    "rulesText": "Your Intelligence is increased by +3.",
+    "flavorText": ""
+  },
+  {
+    "id": "153",
+    "name": "Dragon Riders",
+    "type": "Equipment",
+    "subtype": "Boots",
+    "rarity": "Common",
+    "cost": "6 generic",
+    "damage": "",
+    "rulesText": "Your Dexterity is increased by +3.",
+    "flavorText": ""
+  },
+  {
+    "id": "154",
+    "name": "Heartcord",
+    "type": "Equipment",
+    "subtype": "Chest",
+    "rarity": "Common",
+    "cost": "6 generic",
+    "damage": "",
+    "rulesText": "Your Constitution is increased by +3.",
+    "flavorText": ""
+  },
+  {
+    "id": "155",
+    "name": "Ring of Protection",
+    "type": "Equipment",
+    "subtype": "Ring",
+    "rarity": "Common",
+    "cost": "2 Generic",
+    "damage": "",
+    "rulesText": "Your Defense is increased by +1.",
     "flavorText": ""
   }
 ]
