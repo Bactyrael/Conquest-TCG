@@ -10,6 +10,9 @@ const parseRichTextHTML = (text) => {
     .replace(/\[MANA\]/gi, '<img src="/icons/mana.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
     .replace(/\[STAMINA\]/gi, '<img src="/icons/stamina.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
     .replace(/\[GENERIC\]/gi, '<img src="/icons/generic.jpg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;border-radius:50%;margin:0 2px;box-shadow:0 0 2px black;" />')
+    .replace(/\[ACTION\]/gi, '<img src="/icons/action.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
+    .replace(/\[BONUS(?: ACTION)?\]/gi, '<img src="/icons/bonus.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
+    .replace(/\[REACTION\]/gi, '<img src="/icons/reaction.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
     .replace(/\n/g, '<br/>');
 };
 
