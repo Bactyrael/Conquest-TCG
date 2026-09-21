@@ -313,6 +313,7 @@ function App() {
             if (f.tagName.toLowerCase() === 'input') {
               const div = clonedDoc.createElement('div');
               div.className = f.className;
+              div.style.cssText = f.style.cssText; // preserve inline styles like opacity: 0
               div.style.border = 'none';
               div.innerText = f.value || f.placeholder || '';
               f.parentNode.replaceChild(div, f);
