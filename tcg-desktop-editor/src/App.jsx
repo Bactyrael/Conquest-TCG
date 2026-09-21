@@ -306,15 +306,16 @@ function App() {
           const textareas = frame.querySelectorAll('textarea');
           textareas.forEach(ta => ta.style.display = 'none');
           
-          // Remove dashed borders and replace inputs with perfect-rendering divs
+          // Replace inputs with perfect-rendering divs and remove dashed borders on text boxes
           const fields = frame.querySelectorAll('.editable-field');
           fields.forEach(f => {
-            f.style.border = 'none';
+            if (f.classList.contains('card-rules') || f.classList.contains('card-flavor')) {
+              f.style.border = 'none';
+            }
             if (f.tagName.toLowerCase() === 'input') {
               const div = clonedDoc.createElement('div');
               div.className = f.className;
               div.style.cssText = f.style.cssText; // preserve inline styles like opacity: 0
-              div.style.border = 'none';
               div.innerText = f.value || f.placeholder || '';
               f.parentNode.replaceChild(div, f);
             }
