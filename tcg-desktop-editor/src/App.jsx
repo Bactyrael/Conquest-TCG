@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import html2canvas from 'html2canvas';
 import './App.css';
 
 const parseRichTextHTML = (text) => {
@@ -288,6 +289,32 @@ function App() {
     }
   };
 
+  const handleExportCard = async () => {
+    if (!activeCard) return;
+    const element = document.querySelector('.card-frame');
+    if (!element) return;
+    
+    try {
+      setNotification('Exporting...');
+      const canvas = await html2canvas(element, { 
+        useCORS: true, 
+        scale: 2, 
+        backgroundColor: null 
+      });
+      const dataUrl = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = `${activeCard.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.png`;
+      link.href = dataUrl;
+      link.click();
+      setNotification('Exported!');
+      setTimeout(() => setNotification(''), 3000);
+    } catch (e) {
+      console.error("Export failed", e);
+      setNotification('Export failed');
+      setTimeout(() => setNotification(''), 3000);
+    }
+  };
+
   const handleAddCard = () => {
     let nextId = "000";
     if (cards.length > 0) {
@@ -355,9 +382,10 @@ function App() {
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">
-          <button className="tool-btn" onClick={handleAddCard} title="New Card">📄</button>
-          <button className="tool-btn" onClick={handleSave} title="Save Cards">💾</button>
-          <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>🗑️</button>
+            <button className="tool-btn" onClick={handleAddCard} title="New Card">➕</button>
+            <button className="tool-btn" onClick={handleSave} title="Save Cards">💾</button>
+            <button className="tool-btn" onClick={handleExportCard} title="Export Card Image">📷</button>
+            <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>🗑️</button>
           {notification && <span style={{ color: 'lime', marginLeft: '10px', fontSize: '12px', fontWeight: 'bold' }}>{notification}</span>}
         </div>
         <div className="toolbar-section">
