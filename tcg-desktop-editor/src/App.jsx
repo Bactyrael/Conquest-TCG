@@ -299,7 +299,26 @@ function App() {
       const canvas = await html2canvas(element, { 
         useCORS: true, 
         scale: 2, 
-        backgroundColor: null 
+        backgroundColor: null,
+        onclone: (clonedDoc) => {
+          const frame = clonedDoc.querySelector('.card-frame');
+          // Hide all textareas (the rich text div is underneath them)
+          const textareas = frame.querySelectorAll('textarea');
+          textareas.forEach(ta => ta.style.display = 'none');
+          
+          // Remove dashed borders and replace inputs with perfect-rendering divs
+          const fields = frame.querySelectorAll('.editable-field');
+          fields.forEach(f => {
+            f.style.border = 'none';
+            if (f.tagName.toLowerCase() === 'input') {
+              const div = clonedDoc.createElement('div');
+              div.className = f.className;
+              div.style.border = 'none';
+              div.innerText = f.value || f.placeholder || '';
+              f.parentNode.replaceChild(div, f);
+            }
+          });
+        }
       });
       const dataUrl = canvas.toDataURL('image/png');
       const link = document.createElement('a');
