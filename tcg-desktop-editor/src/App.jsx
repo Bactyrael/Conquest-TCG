@@ -461,7 +461,7 @@ function App() {
                       )}
                     </div>
 
-                    <div className="editable-field card-type" style={{ display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-start' }}>
+                    <div className="editable-field card-type" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}><div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
                         <select 
                           className="type-select"
@@ -536,19 +536,20 @@ function App() {
                         </div>
                       )}
                     </div>
-                  </div>
-                  <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
-                  <div className="card-bottom" style={{ position: 'relative' }}>
-                    <input className="editable-field card-artist" defaultValue="Bactyrael" />
                     
-                    <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', bottom: '2px', pointerEvents: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', pointerEvents: 'none' }}>
                       <img 
                         src={`/icons/rarity-${(activeCard?.rarity || 'common').toLowerCase()}.svg`} 
                         alt="Rarity" 
-                        style={{ width: '16px', height: '16px', filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' }} 
+                        style={{ width: '16px', height: '16px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))' }} 
                       />
                     </div>
 
+                  </div>
+                  <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
+                  <div className="card-bottom">
+                    <input className="editable-field card-artist" defaultValue="Bactyrael" />
+                    
                     {activeCard?.type === 'Hero' && (
                       <input 
                         className="editable-field card-damage" 
