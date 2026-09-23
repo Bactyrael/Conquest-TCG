@@ -546,7 +546,8 @@ function App() {
                     </div>
 
                   </div>
-                  <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
+                </div>
+                <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
                   <div className="card-bottom">
                     <input className="editable-field card-artist" defaultValue="Bactyrael" />
                     
