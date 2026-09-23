@@ -555,6 +555,22 @@ function App() {
               <div style={{padding: '20px'}}>Loading...</div>
             )}
             
+            {activeCard && (
+              <div className="card-settings" style={{ padding: '10px 20px', display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <label style={{ fontWeight: 'bold' }}>Rarity:</label>
+                <select 
+                  value={activeCard.rarity || 'Common'} 
+                  onChange={(e) => setActiveCard({...activeCard, rarity: e.target.value})}
+                  style={{ padding: '4px', background: '#333', color: '#fff', border: '1px solid #555' }}
+                >
+                  <option value="Common">Common</option>
+                  <option value="Uncommon">Uncommon</option>
+                  <option value="Rare">Rare</option>
+                  <option value="Legendary">Legendary</option>
+                </select>
+              </div>
+            )}
+
             <div className="card-notes">
               <label>Developer Notes (Not printed):</label>
               <textarea 
