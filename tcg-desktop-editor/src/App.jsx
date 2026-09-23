@@ -538,8 +538,17 @@ function App() {
                     </div>
                   </div>
                   <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
-                  <div className="card-bottom">
+                  <div className="card-bottom" style={{ position: 'relative' }}>
                     <input className="editable-field card-artist" defaultValue="Bactyrael" />
+                    
+                    <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', bottom: '2px', pointerEvents: 'none' }}>
+                      <img 
+                        src={`/icons/rarity-${(activeCard?.rarity || 'common').toLowerCase()}.svg`} 
+                        alt="Rarity" 
+                        style={{ width: '16px', height: '16px', filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.5))' }} 
+                      />
+                    </div>
+
                     {activeCard?.type === 'Hero' && (
                       <input 
                         className="editable-field card-damage" 
@@ -624,7 +633,10 @@ function App() {
                     <td>{c.name}</td>
                     <td>{c.cost}</td>
                     <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''}</td>
-                    <td className={`rarity-${c.rarity || 'common'}`}>{c.rarity || 'common'}</td>
+                    <td className={`rarity-${(c.rarity || 'common').toLowerCase()}`} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <img src={`/icons/rarity-${(c.rarity || 'common').toLowerCase()}.svg`} style={{ width: '12px', height: '12px' }} />
+                      {c.rarity || 'Common'}
+                    </td>
                     <td>{c.id}</td>
                   </tr>
                 ))}
