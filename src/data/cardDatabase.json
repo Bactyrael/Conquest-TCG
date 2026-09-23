@@ -2315,7 +2315,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][Stamina][use] Until the beginning of your next turn enrage, your attacks deal +2 damage. If you have advantage, they instead deal +4. While enraged, attacker's have advantage against you.",
+    "rulesText": "[stamina][Stamina][use]: Until the beginning of your next turn Enrage, your attacks deal +2 damage. If you have Advantage, they instead deal +4. While Enraged, attacker's have Advantage against you.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Barbarian Set.jpg",
@@ -2337,7 +2337,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][stamina][use] Gain an Inspiration Die equal to or less than one of your Attributes. Gain +1 Defense and Resilience until the end of your turn, for every step of that Inspiration Die (e.g., +1 for a 1d4, +2 for a 1d6, etc.).",
+    "rulesText": "[use]: A target gains an Inspiration Die equal to or less than your Luck (minimum 1d4).\n\nWhen a Hero uses an Inspiration Die you control, you may spend [Stamina][Stamina] to increase the step of another Inspiration Die once (up to 1d20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Bard Set.jpg",
@@ -2401,7 +2401,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE] Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
+    "rulesText": "[USE]: Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Druid Set.jpg",
@@ -2422,12 +2422,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][stamina][stamina] Until the beginning of your next turn, your attack rolls can't be lower than half their maximum value (e.g. a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
+    "rulesText": "[stamina][stamina][stamina]: Until the beginning of your next turn, your Attack rolls can't be lower than half their maximum value (e.g. a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Fighter Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Dex (Slashing)"
+    "damage": "2d4 + Dex (Slashing)"
   },
   {
     "id": "115",
@@ -2443,7 +2443,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[use] Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its resource cost by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
+    "rulesText": "[use]: Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its resource cost by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Necromancer Set.png",
@@ -2464,7 +2464,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][stamina][USE] Gain an Inspiration Die equal to or less than your Dexterity.  Gain critical range by +1 for each step of that Inspiration Die (e.g. +1 for a 1d4, +2 for a 1d6, etc.)",
+    "rulesText": "[Stamina][Stamina][Reaction]: As a Reaction, when you are targeted by a damaging roll you may reduce the incoming damage by 1d4 plus Dexterity. If you reduce incoming damage to 0, redirect damage back at the Attacker. ",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Monk Set.jpg",
@@ -2491,7 +2491,8 @@
     "originalArtFile": "Paladin Set.jpg",
     "cost": "0",
     "damage": "1d8 + Int (Magic)",
-    "image": "marius.jpg"
+    "image": "marius.jpg",
+    "notes": "Add aura cards and change his passive to benefit using them?"
   },
   {
     "id": "118",
@@ -2512,7 +2513,7 @@
     "subtype": "",
     "originalArtFile": "Pirate Set.png",
     "cost": "0",
-    "damage": "1d4 + Lck (Piercing)",
+    "damage": "1d8 + Lck (Piercing)",
     "image": "avery.jpg"
   },
   {
@@ -2529,12 +2530,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE] Look at the top card of your Archive. If it is a Resource card, you may draw it. After playing a Resource card, your next attack or Act card has advantage until the end of your turn.",
+    "rulesText": "[USE]: Look at the top card of your Archive. If it is a Resource card, you may draw it. After playing a Resource card, your next Attack or Act card has Advantage until the end of your turn.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Ranger Set.jpg",
     "cost": "0",
-    "damage": "1d8 + Lck (Piercing)",
+    "damage": "1d8 + Dex (Piercing)",
     "image": "viona.jpg"
   },
   {
@@ -2551,7 +2552,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[mana][mana][USE] Gain an Inspiration Die equal to or less than your Intelligence. If you already have an Inspiration Die, you may increase its size by 1 step (e.g. 1d4 to 1d6, max 1d20).",
+    "rulesText": "[mana][mana][USE]: Gain an Inspiration Die equal to or less than your Intelligence (minimum 1d4). If you already have an Inspiration Die, you may increase its size by 1 step (e.g. 1d4 to 1d6, max 1d20).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Sorcerer Set.jpg",
@@ -2572,7 +2573,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][stamina][USE] Gain stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a stealthed target have disadvantage.) Your critical range is increased by 2 while attacking from stealth.",
+    "rulesText": "[stamina][stamina][USE]: Gain Stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a Stealthed target have Disadvantage.) Your Critical Range is increased by +2 while attacking from Stealth.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Rogue Set.jpg",
@@ -2594,7 +2595,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[mana][mana][USE] Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
+    "rulesText": "[mana][mana][USE]: Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Warlock Set.jpg",
@@ -2616,7 +2617,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "The first curse you perform each turn deals Dark damage to each cursed target equal to half the card’s total [mana] cost (rounded down).",
+    "rulesText": "The first Curse you perform each turn deals Dark damage to each Cursed target equal to half the card’s total [mana] cost (rounded down).",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Witch Set.jpeg",
@@ -2637,7 +2638,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE] Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less mana.",
+    "rulesText": "[USE]: Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less mana.",
     "rarity": "Common",
     "subtype": "",
     "originalArtFile": "Wizard Set.jpg",
@@ -2741,6 +2742,39 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your Defense is increased by +1.",
+    "flavorText": ""
+  },
+  {
+    "id": "156",
+    "name": "Skull Band",
+    "type": "Equipment",
+    "subtype": "Ring",
+    "rarity": "Common",
+    "cost": "2 Generic",
+    "damage": "",
+    "rulesText": "If your Hit Points would be reduced to 0, instead they are reduced to 1. Void Skull Band after it triggers.",
+    "flavorText": ""
+  },
+  {
+    "id": "157",
+    "name": "Elderwood Ring",
+    "type": "Equipment",
+    "subtype": "Ring",
+    "rarity": "Common",
+    "cost": "2 Generic",
+    "damage": "",
+    "rulesText": "Your Resilience is increased by +1.",
+    "flavorText": ""
+  },
+  {
+    "id": "158",
+    "name": "Dagger",
+    "type": "Equipment",
+    "subtype": "Off-hand",
+    "rarity": "Common",
+    "cost": "2 Generic",
+    "damage": "",
+    "rulesText": "Your critical hits can not roll below half their value.",
     "flavorText": ""
   }
 ]

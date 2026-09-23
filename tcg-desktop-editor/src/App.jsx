@@ -564,7 +564,7 @@ function App() {
                   style={{ padding: '4px', background: '#333', color: '#fff', border: '1px solid #555' }}
                 >
                   <option value="Common">Common</option>
-                  <option value="Uncommon">Uncommon</option>
+                  <option value="Magic">Magic</option>
                   <option value="Rare">Rare</option>
                   <option value="Legendary">Legendary</option>
                 </select>
