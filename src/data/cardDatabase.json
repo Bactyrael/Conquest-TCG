@@ -2785,7 +2785,7 @@
     "rarity": "Magic",
     "cost": "2 Mana",
     "damage": "",
-    "rulesText": "[concentration]: Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage.",
+    "rulesText": "Concentration [Concentration]: [Mana][Mana] Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage. (Pay this Act card's resource cost at the beginning of each Upkeep or remove it. While this Act card is in play, you cannot regain any [action],[bonus], or [reaction] required to play it.)",
     "flavorText": ""
   }
 ]
