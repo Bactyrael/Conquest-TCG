@@ -399,6 +399,41 @@ function App() {
     );
   });
 
+  const handleSort = (key) => {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const rarityTiers = { 'common': 1, 'magic': 2, 'rare': 3, 'legendary': 4 };
+
+  const sortedCards = [...filteredCards].sort((a, b) => {
+    let aVal = a[sortConfig.key] || '';
+    let bVal = b[sortConfig.key] || '';
+
+    if (sortConfig.key === 'id' || sortConfig.key === 'cost') {
+      aVal = parseInt(aVal, 10) || 0;
+      bVal = parseInt(bVal, 10) || 0;
+    } else if (sortConfig.key === 'rarity') {
+      aVal = rarityTiers[String(aVal).toLowerCase()] || 0;
+      bVal = rarityTiers[String(bVal).toLowerCase()] || 0;
+    } else {
+      aVal = String(aVal).toLowerCase();
+      bVal = String(bVal).toLowerCase();
+    }
+
+    if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
+    if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  const renderSortArrow = (key) => {
+    if (sortConfig.key !== key) return null;
+    return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
+  };
+
   return (
     <div className="mse-container" onClick={() => setContextMenu(prev => ({ ...prev, visible: false }))}>
       {/* Toolbar */}
@@ -610,15 +645,15 @@ function App() {
           <table className="card-table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Resource Cost</th>
-                <th>Type</th>
-                <th>Rarity</th>
-                <th>#</th>
+                <th onClick={() => handleSort('name')} style={{cursor: 'pointer', userSelect: 'none'}}>Name{renderSortArrow('name')}</th>
+                <th onClick={() => handleSort('cost')} style={{cursor: 'pointer', userSelect: 'none'}}>Resource Cost{renderSortArrow('cost')}</th>
+                <th onClick={() => handleSort('type')} style={{cursor: 'pointer', userSelect: 'none'}}>Type{renderSortArrow('type')}</th>
+                <th onClick={() => handleSort('rarity')} style={{cursor: 'pointer', userSelect: 'none'}}>Rarity{renderSortArrow('rarity')}</th>
+                <th onClick={() => handleSort('id')} style={{cursor: 'pointer', userSelect: 'none'}}>#{renderSortArrow('id')}</th>
               </tr>
             </thead>
               <tbody>
-                {filteredCards.map((c, i) => (
+                {sortedCards.map((c, i) => (
                   <tr 
                     key={c.id || i} 
                     className={activeCard && activeCard.id === c.id ? 'selected' : ''}
