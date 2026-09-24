@@ -561,10 +561,8 @@ function App() {
                               <>
                                 <option value="Helm">Helm</option>
                                 <option value="Amulet">Amulet</option>
-                                <option value="Shoulders">Shoulders</option>
-                                <option value="Cloak">Cloak</option>
+                                
                                 <option value="Chest">Chest</option>
-                                <option value="Wrist">Wrist</option>
                                 <option value="Gloves">Gloves</option>
                                 <option value="Belt">Belt</option>
                                 <option value="Pants">Pants</option>
@@ -739,6 +737,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
