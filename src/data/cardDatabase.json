@@ -2780,12 +2780,56 @@
   {
     "id": "159",
     "name": "Aura of Thorns",
-    "type": "Bonus Action",
+    "type": "Action",
     "subtype": "Aura",
     "rarity": "Magic",
     "cost": "2 Mana",
     "damage": "",
-    "rulesText": "Concentration [Concentration]: [Mana][Mana] Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage. (Pay this Act card's resource cost at the beginning of each Upkeep or remove it. While this Act card is in play, you cannot regain any [action],[bonus], or [reaction] required to play it.)",
+    "rulesText": "Concentration: Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage. (Pay this card's [Action] and [Mana] cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "160",
+    "name": "Aura of Meditation",
+    "type": "Bonus Action",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "3 Mana",
+    "damage": "",
+    "rulesText": "Concentration: The [Mana] cost of Spell cards you and allies cast is reduced by [1]. (Pay this card's [Bonus] and [Mana] cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "161",
+    "name": "Aura of Vigor",
+    "type": "Bonus Action",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "3 Stamina",
+    "damage": "",
+    "rulesText": "Concentration: The [Stamina] cost of Ability cards you and allies perform is reduced by [1]. (Pay this card's [Bonus] and [Stamina] cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "162",
+    "name": "Aura of Salvation",
+    "type": "Bonus Action",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "4 Mana",
+    "damage": "",
+    "rulesText": "Concentration: You and allies gain [2] Resilience. (Pay this card's [Bonus] and [Mana] cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "163",
+    "name": "Aura of Defiance",
+    "type": "Bonus Action",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "4 Stamina",
+    "damage": "",
+    "rulesText": "Concentration: You and allies gain [2] Defense. (Pay this card's [Bonus] and [Stamina] cost at the beginning of each Upkeep or remove it)",
     "flavorText": ""
   }
 ]
