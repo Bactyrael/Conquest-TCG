@@ -554,6 +554,7 @@ function App() {
                                 <option value="Boon">Boon</option>
                                 <option value="Curse">Curse</option>
                                   <option value="Aura">Aura</option>
+                                  <option value="Condition">Condition</option>
                               </>
                             )}
                             {activeCard?.type === 'Equipment' && (
@@ -738,6 +739,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
