@@ -58,7 +58,7 @@
     "rulesText": "Deal 1d12 plus your Strength in Blunt damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Giant Stomp.png",
     "cost": "6 Stamina"
   },
@@ -79,7 +79,7 @@
     "rulesText": "During your next combat this turn, you may attack twice.",
     "flavorText": "“In chaos there is also opportunity.” - Stug",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Onslaught.png",
     "cost": "6 Stamina"
   },
@@ -142,7 +142,7 @@
     "rulesText": "Deal 3d4 plus your Luck in Slashing damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Titanic Volley.png",
     "cost": "6 Stamina"
   },
@@ -226,7 +226,7 @@
     "rulesText": "Deal 3d4 plus your Luck in Lightning damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Chain Lightning.jpg",
     "cost": "6 Mana"
   },
@@ -478,7 +478,7 @@
     "rulesText": "Deal 1d10 plus your Intelligence in Magic damage to a target.",
     "flavorText": "By Inludo’s arcane will, ethereal forces take flight and strike true with mystic barrage.",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Magic Missile.jpg",
     "cost": "5 Mana"
   },
@@ -541,7 +541,7 @@
     "rulesText": "Deal 2d4 plus your Constitution in Holy damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Radiance.png",
     "cost": "4 Mana"
   },
@@ -583,7 +583,7 @@
     "rulesText": "Remove a target Curse, then restore 4 Hit Points.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Restoration.jpg",
     "cost": "4 Mana"
   },
@@ -738,7 +738,7 @@
     "rulesText": "A target loses 1d6 defense until the end of the turn.  (This effect cannot reduce defense below 0.)",
     "flavorText": "“Every being that stirs in the realm carries a tale of enchantment and intrigue, weaving timeless legends of adventure and transformation with each step it takes.” — Talpit, the Ranger",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Hunters Mark.jpg",
     "cost": "5 Stamina"
   },
@@ -780,7 +780,7 @@
     "rulesText": "Search your Archive for an Ability card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Instruction.jpg",
     "cost": "3 Stamina"
   },
@@ -801,7 +801,7 @@
     "rulesText": "Independently roll a 1d4, 1d6, 1d8, 1d10, 1d12, and 1d20. For each Die that critically hits, gain +1 to critical range until the end of your turn, and apply that critical range to the next die rolled. Draw a card for each die that results in a critical hit.",
     "flavorText": "When all is lost, having nothing to lose opens the door to endless possibilities.",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Luck of the Draw.jpg",
     "cost": "6 Stamina"
   },
@@ -843,7 +843,7 @@
     "rulesText": "A target gains one additional Action until the end of their next turn.",
     "flavorText": "",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Surge.jpg",
     "cost": "4 Stamina"
   },
@@ -864,7 +864,7 @@
     "rulesText": "Increase the total number of dice rolled on a target’s next Act card by 1. (Adds an additional die to the roll. e.g., if you roll 1d4, it becomes 2d4.)",
     "flavorText": "“True potential emerges when one looks beyond the confines of reality.” — Dragon Emperor Galilecies",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Amplify Magic.png",
     "cost": "5 Mana"
   },
@@ -885,7 +885,7 @@
     "rulesText": "Spend an Inspiration Die to grant another target +1 damage on their next attack. If the attack results in a critical hit they may roll the Inspiration Die and add its value as extra damage.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Aria of Accuracy.jpg",
     "cost": "5 Stamina"
   },
@@ -927,7 +927,7 @@
     "rulesText": "A target cannot attack you and gains advantage on attacks until the end of their next turn.",
     "flavorText": "“My foes are merely friends who have yet to realize it.” — Grove Tender Iosis",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Beast Bond.jpg",
     "cost": "4 Stamina"
   },
@@ -990,7 +990,7 @@
     "rulesText": "Until the end of their next turn, a target draws a card for each attack or Act card they perform that results in a critical hit.",
     "flavorText": "“Fortune is the favorable outcome that arises when careful strategy meets a timely opportunity.” — Mothang, the Long-Sleeved",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Gambit.jpg",
     "cost": "2 Stamina"
   },
@@ -1038,7 +1038,7 @@
     ],
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Invisibility.jpg",
     "cost": "3 Mana"
   },
@@ -1059,7 +1059,7 @@
     "rulesText": "All targets gain invisibility until the beginning of your next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
     "flavorText": "By Inludo’s deception, shroud the realm in mystic fog, cloaking the world in shadow and mirth.",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Fog Cloud.jpg",
     "cost": "5 Mana"
   },
@@ -1080,7 +1080,7 @@
     "rulesText": "All targets gain stealth until your next turn. Stealth ends if they attack. (Attacks against stealthed targets have disadvantage.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Pass Without Trace.jpg",
     "cost": "5 Stamina"
   },
@@ -1122,7 +1122,7 @@
     "rulesText": "Grant a target a 1d4 Inspiration Die until the end of their next turn. If another Hero uses that Die, you gain a 1d4 Inspiration Die.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Song of Favor.jpg",
     "cost": "4 Stamina"
   },
@@ -1140,10 +1140,10 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "Until the end of their next turn, a target’s attacks and Act cards gain +2 critical range. (Critical range reduces the dice roll required to achieve a critical hit.)",
+    "rulesText": "Until the end of their next turn, a target’s Attacks and Act cards gain Critical Range +2. (Critical range reduces the dice roll required to achieve a critical hit.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Splash the Pot.jpg",
     "cost": "3 Stamina"
   },
@@ -1164,7 +1164,7 @@
     "rulesText": "A target gains stealth until your next turn. Stealth ends if they attack. (Attacks against stealthed targets have disadvantage.)",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Stealth.jpg",
     "cost": "3 Stamina"
   },
@@ -1521,7 +1521,7 @@
     "rulesText": "Search your Archive for a Curse card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Augury.jpg",
     "cost": "3 Mana"
   },
@@ -1563,7 +1563,7 @@
     "rulesText": "Draw a card for every three Wisdom you have.",
     "flavorText": "“How can you long for something, never knowing what it might have been?” — Miluina, Aspect of Greed",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Early Withdrawl.jpg",
     "cost": "3 Mana"
   },
@@ -1605,7 +1605,7 @@
     "rulesText": "A target loses 1d6 resilience until the end of the turn. (This effect cannot reduce Resilience below 0.)",
     "flavorText": "“The greatest delights come from the most preposterous things.” — Stropha, of the Fae Count",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Faerie Fire.jpg",
     "cost": "5 Mana"
   },
@@ -1647,7 +1647,7 @@
     "rulesText": "Search your Archive for a Boon card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Guidance.jpg",
     "cost": "3 Mana"
   },
@@ -1668,7 +1668,7 @@
     "rulesText": "For every two points of Intelligence you possess, draw one card, then discard one card for every two cards drawn this way.",
     "flavorText": "“In the dance of intellect, each spark of insight draws forth new visions, yet with each revelation, we must relinquish the old.” — Lesuvius, the Mentalist",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Juxtaposition.jpg",
     "cost": "2 Mana"
   },
@@ -1689,7 +1689,7 @@
     "rulesText": "Search your Archive for a common Resource card and put it onto the battlefield. As an additional cost, shuffle a Resource card into your Archive.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Teleportation.jpg",
     "cost": "3 Mana"
   },
@@ -1710,7 +1710,7 @@
     "rulesText": "Search your Archive for a Spell card, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Tutelage.jpg",
     "cost": "3 Mana"
   },
@@ -1794,7 +1794,7 @@
     "rulesText": "Roll one additional weapon damage die when determining the extra damage for a critical hit.",
     "flavorText": "It doesn’t happen by chance and demands immense skill and combat prowess to achieve.",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Magic",
     "cost": "2 Stamina"
   },
   {
@@ -1877,7 +1877,7 @@
     "rulesText": "A target roll with advantage now has disadvantage instead. (The lower of the two rolls must be used.)",
     "flavorText": "The only truth about luck is that it dances like a fickle breeze, forever changing its course.",
     "subtype": "Ability",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "No Dice.jpg",
     "cost": "2 Stamina"
   },
@@ -1961,7 +1961,7 @@
     "rulesText": "Until the beginning of their next turn, a target gains temporary Hit Points equal to their Constitution and is immune to Fright.",
     "flavorText": "“Fear not, for I am by your side; be unafraid, for I shall be your guide.” — Navitas, the Aspect of Diligence",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Heroism.jpg",
     "cost": "5 Mana"
   },
@@ -2003,7 +2003,7 @@
     "rulesText": "Spend an Inspiration Die to grant advantage on another target’s saving throw. If their saving throw succeeds, gain a 1d4 Inspiration Die.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Rallying Anthem.jpg",
     "cost": "5 Stamina"
   },
@@ -2024,7 +2024,7 @@
     "rulesText": "Until the beginning of their next turn, attacks and Act cards against a target require a (DC 8 plus the performer’s Constitution) Constitution saving throw to succeed. On a failed saving throw, the attacker must target another with that attack or Act card.",
     "flavorText": "",
     "subtype": "Boon",
-    "rarity": "Common",
+    "rarity": "Magic",
     "originalArtFile": "Sancturary.png",
     "cost": "4 Mana"
   },
@@ -2255,7 +2255,7 @@
     "rulesText": "Remove all Boons and Curses, then draw a card for each removed this way.",
     "flavorText": "",
     "subtype": "Spell",
-    "rarity": "Common",
+    "rarity": "Rare",
     "originalArtFile": "Mass Dispel.jpg",
     "cost": "7 Mana"
   },
@@ -2316,7 +2316,7 @@
       "luc": 0
     },
     "rulesText": "[stamina][Stamina][use]: Until the beginning of your next turn Enrage, your attacks deal +2 damage. If you have Advantage, they instead deal +4. While Enraged, attacker's have Advantage against you.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Barbarian Set.jpg",
     "cost": "0",
@@ -2338,7 +2338,7 @@
       "luc": 0
     },
     "rulesText": "[use]: A target gains an Inspiration Die equal to or less than your Luck (minimum 1d4).\n\nWhen a Hero uses an Inspiration Die you control, you may spend [Stamina][Stamina] to increase the step of another Inspiration Die once (up to 1d20).",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Bard Set.jpg",
     "cost": "0",
@@ -2359,12 +2359,12 @@
       "luc": 0
     },
     "rulesText": "Whenever you perform your first Boon card each turn, restore 1 Hit Point to the target for each [mana] or [stamina] required to perform that card.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Cleric Set.jpg",
     "cost": "0",
     "damage": "1d6 + Con (Holy)",
-    "notes": "free cast equal to con?"
+    "notes": ""
   },
   {
     "id": "112",
@@ -2381,7 +2381,7 @@
       "luc": 0
     },
     "rulesText": "Once per turn, if a Spell you perform has a [mana] cost higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less [mana] for each Elemental Counter you control.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Conjurer Set.png",
     "cost": "0",
@@ -2402,7 +2402,7 @@
       "luc": 0
     },
     "rulesText": "[USE]: Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Druid Set.jpg",
     "cost": "0",
@@ -2423,7 +2423,7 @@
       "luc": 0
     },
     "rulesText": "[stamina][stamina][stamina]: Until the beginning of your next turn, your Attack rolls can't be lower than half their maximum value (e.g. a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Fighter Set.jpg",
     "cost": "0",
@@ -2444,7 +2444,7 @@
       "luc": 0
     },
     "rulesText": "[use]: Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its resource cost by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Necromancer Set.png",
     "cost": "0",
@@ -2465,7 +2465,7 @@
       "luc": 0
     },
     "rulesText": "[Stamina][Stamina][Reaction]: As a Reaction, when you are targeted by a damaging roll you may reduce the incoming damage by 1d4 plus Dexterity. If you reduce incoming damage to 0, redirect damage back at the Attacker. ",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Monk Set.jpg",
     "cost": "0",
@@ -2485,8 +2485,8 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Your damage rolls ignore 1 resilience for every 2 Intelligence you have.",
-    "rarity": "Common",
+    "rulesText": "Your damage rolls ignore 1 Resilience for every Aura you sustain.",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Paladin Set.jpg",
     "cost": "0",
@@ -2509,7 +2509,7 @@
       "luc": 0
     },
     "rulesText": "If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use [stamina] in place of any other resource cost when performing attached cards.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Pirate Set.png",
     "cost": "0",
@@ -2531,7 +2531,7 @@
       "luc": 0
     },
     "rulesText": "[USE]: Look at the top card of your Archive. If it is a Resource card, you may draw it. After playing a Resource card, your next Attack or Act card has Advantage until the end of your turn.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Ranger Set.jpg",
     "cost": "0",
@@ -2553,7 +2553,7 @@
       "luc": 0
     },
     "rulesText": "[mana][mana][USE]: Gain an Inspiration Die equal to or less than your Intelligence (minimum 1d4). If you already have an Inspiration Die, you may increase its size by 1 step (e.g. 1d4 to 1d6, max 1d20).",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Sorcerer Set.jpg",
     "cost": "0",
@@ -2574,7 +2574,7 @@
       "luc": 0
     },
     "rulesText": "[stamina][stamina][USE]: Gain Stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a Stealthed target have Disadvantage.) Your Critical Range is increased by +2 while attacking from Stealth.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Rogue Set.jpg",
     "cost": "0",
@@ -2596,7 +2596,7 @@
       "luc": 0
     },
     "rulesText": "[mana][mana][USE]: Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Warlock Set.jpg",
     "cost": "0",
@@ -2618,7 +2618,7 @@
       "luc": 0
     },
     "rulesText": "The first Curse you perform each turn deals Dark damage to each Cursed target equal to half the card’s total [mana] cost (rounded down).",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Witch Set.jpeg",
     "cost": "0",
@@ -2639,7 +2639,7 @@
       "luc": 0
     },
     "rulesText": "[USE]: Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less mana.",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "subtype": "",
     "originalArtFile": "Wizard Set.jpg",
     "cost": "0",
@@ -2671,7 +2671,7 @@
     "name": "Belt of Giant Strength",
     "type": "Equipment",
     "subtype": "Belt",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "cost": "6 Generic",
     "damage": "",
     "rulesText": "Your Strength is increased by +3.",
@@ -2682,7 +2682,7 @@
     "name": "Caspian Clutches",
     "type": "Equipment",
     "subtype": "Gloves",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Luck is increased by +3.",
@@ -2694,7 +2694,7 @@
     "name": "Evergreen",
     "type": "Equipment",
     "subtype": "Helm",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Wisdom is increased by +3.",
@@ -2705,7 +2705,7 @@
     "name": "Starveil",
     "type": "Equipment",
     "subtype": "Helm",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Intelligence is increased by +3.",
@@ -2716,7 +2716,7 @@
     "name": "Dragon Riders",
     "type": "Equipment",
     "subtype": "Boots",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Dexterity is increased by +3.",
@@ -2727,7 +2727,7 @@
     "name": "Heartcord",
     "type": "Equipment",
     "subtype": "Chest",
-    "rarity": "Common",
+    "rarity": "Legendary",
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Constitution is increased by +3.",
@@ -2738,7 +2738,7 @@
     "name": "Ring of Protection",
     "type": "Equipment",
     "subtype": "Ring",
-    "rarity": "Common",
+    "rarity": "Magic",
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your Defense is increased by +1.",
@@ -2749,7 +2749,7 @@
     "name": "Skull Band",
     "type": "Equipment",
     "subtype": "Ring",
-    "rarity": "Common",
+    "rarity": "Rare",
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "If your Hit Points would be reduced to 0, instead they are reduced to 1. Void Skull Band after it triggers.",
@@ -2760,7 +2760,7 @@
     "name": "Elderwood Ring",
     "type": "Equipment",
     "subtype": "Ring",
-    "rarity": "Common",
+    "rarity": "Magic",
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your Resilience is increased by +1.",
@@ -2775,6 +2775,17 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your critical hits can not roll below half their value.",
+    "flavorText": ""
+  },
+  {
+    "id": "159",
+    "name": "Aura of Thorns",
+    "type": "Bonus Action",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "2 Mana",
+    "damage": "",
+    "rulesText": "[concentration]: Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage.",
     "flavorText": ""
   }
 ]
