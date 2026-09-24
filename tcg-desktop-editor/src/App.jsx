@@ -220,7 +220,7 @@ function App() {
 
   React.useEffect(() => {
     // Fetch cards
-    fetch('http://localhost:3002/api/cards')
+    fetch('http://localhost:3002/api/cards', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data.success && data.cards.length > 0) {
@@ -231,7 +231,7 @@ function App() {
       .catch(err => console.error("Failed to load cards", err));
 
     // Fetch images
-    fetch('http://localhost:3002/api/images')
+    fetch('http://localhost:3002/api/images', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -240,6 +240,17 @@ function App() {
       })
       .catch(err => console.error("Failed to load images", err));
   }, []);
+
+  const refreshImages = () => {
+    fetch('http://localhost:3002/api/images', { cache: 'no-store' })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setImages(data.images);
+        }
+      })
+      .catch(err => console.error("Failed to load images", err));
+  };
 
   const handleSelectImage = (img) => {
     setActiveCard({...activeCard, image: img});
@@ -703,7 +714,10 @@ function App() {
                 </div>
               ))}
             </div>
-            <button onClick={() => setIsImageModalOpen(false)}>Close</button>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '15px', justifyContent: 'flex-end' }}>
+                <button onClick={refreshImages} style={{ padding: '8px 16px', background: '#3498db', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Refresh Images</button>
+                <button onClick={() => setIsImageModalOpen(false)} style={{ padding: '8px 16px', cursor: 'pointer' }}>Close</button>
+              </div>
           </div>
         </div>
       )}
@@ -723,3 +737,5 @@ function App() {
 }
 
 export default App;
+
+
