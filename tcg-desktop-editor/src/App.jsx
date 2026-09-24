@@ -14,6 +14,7 @@ const parseRichTextHTML = (text) => {
     .replace(/\[ACTION\]/gi, '<img src="/icons/action.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
     .replace(/\[BONUS(?: ACTION)?\]/gi, '<img src="/icons/bonus.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
     .replace(/\[REACTION\]/gi, '<img src="/icons/reaction.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
+      .replace(/\[CONCENTRATION\]/gi, '<img src="/icons/concentration.svg" style="width:1.2em;height:1.2em;vertical-align:-0.2em;margin:0 2px;" />')
     .replace(/\n/g, '<br/>');
 };
 
