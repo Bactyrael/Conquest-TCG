@@ -504,6 +504,7 @@ function App() {
                                 <option value="Spell">Spell</option>
                                 <option value="Boon">Boon</option>
                                 <option value="Curse">Curse</option>
+                                  <option value="Aura">Aura</option>
                               </>
                             )}
                             {activeCard?.type === 'Equipment' && (
