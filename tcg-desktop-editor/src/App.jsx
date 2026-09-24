@@ -258,6 +258,7 @@ function App() {
 
   const [notification, setNotification] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
 
   useEffect(() => {
     if (activeCard) {
