@@ -518,7 +518,8 @@ body {
 
 /* Keyword Text styling (e.g. {Indestructible}) */
 .keyword-text {
-  font-weight: 700;
+  font-style: italic;
   font-variant: small-caps;
   letter-spacing: 0.5px;
 }
+
