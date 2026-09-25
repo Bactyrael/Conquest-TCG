@@ -515,3 +515,10 @@ body {
   line-height: 1;
   font-family: 'Times New Roman', serif;
 }
+
+/* Keyword Text styling (e.g. {Indestructible}) */
+.keyword-text {
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.5px;
+}
