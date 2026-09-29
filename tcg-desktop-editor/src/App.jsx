@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import './App.css';
 
@@ -495,7 +495,7 @@ function App() {
                         value={activeCard?.name || ''}
                         onChange={(e) => setActiveCard({...activeCard, name: e.target.value})}
                       />
-                      {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && (
+                      {activeCard?.type !== 'Resource' && (
                         <CostField 
                           cost={activeCard?.cost || ''}
                           onChange={(newCost) => setActiveCard({...activeCard, cost: newCost})}
@@ -539,7 +539,7 @@ function App() {
                       
                       {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && <span>—</span>}
                       
-                      {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && (
+                      {activeCard?.type !== 'Resource' && (
                         <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
                           <select 
                             className="type-select"
@@ -577,6 +577,28 @@ function App() {
                               <>
                                 <option value="Consumable">Consumable</option>
                                 <option value="Trinket">Trinket</option>
+                              </>
+                            )}
+                            {activeCard?.type === 'Hero' && (
+                              <>
+                                <option value="Alchemist">Alchemist</option>
+                                <option value="Archon">Archon</option>
+                                <option value="Berserker">Berserker</option>
+                                <option value="Disciple">Disciple</option>
+                                <option value="Herald">Herald</option>
+                                <option value="Invoker">Invoker</option>
+                                <option value="Justicar">Justicar</option>
+                                <option value="Mage">Mage</option>
+                                <option value="Mesmer">Mesmer</option>
+                                <option value="Necromancer">Necromancer</option>
+                                <option value="Occultist">Occultist</option>
+                                <option value="Prowler">Prowler</option>
+                                <option value="Shaman">Shaman</option>
+                                <option value="Swashbuckler">Swashbuckler</option>
+                                <option value="Tracker">Tracker</option>
+                                <option value="Vanguard">Vanguard</option>
+                                <option value="Warden">Warden</option>
+                                <option value="Wyrd">Wyrd</option>
                               </>
                             )}
                           </select>
@@ -738,6 +760,11 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
 
 
 
