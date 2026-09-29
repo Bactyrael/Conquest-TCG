@@ -537,7 +537,7 @@ function App() {
                         </span>
                       </div>
                       
-                      {activeCard?.type !== 'Hero' && activeCard?.type !== 'Resource' && <span>—</span>}
+                      {activeCard?.type !== 'Resource' && <span>-</span>}
                       
                       {activeCard?.type !== 'Resource' && (
                         <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
@@ -760,6 +760,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 
