@@ -427,7 +427,10 @@ function App() {
     let aVal = a[sortConfig.key] || '';
     let bVal = b[sortConfig.key] || '';
 
-    if (sortConfig.key === 'id' || sortConfig.key === 'cost') {
+    if (sortConfig.key === 'type') {
+      aVal = (`${a.type || ''} ${a.subtype || ''}`).toLowerCase();
+      bVal = (`${b.type || ''} ${b.subtype || ''}`).toLowerCase();
+    } else if (sortConfig.key === 'id' || sortConfig.key === 'cost') {
       aVal = parseInt(aVal, 10) || 0;
       bVal = parseInt(bVal, 10) || 0;
     } else if (sortConfig.key === 'rarity') {
@@ -440,7 +443,8 @@ function App() {
 
     if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
     if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
-    return 0;
+    
+    return (parseInt(a.id, 10) || 0) - (parseInt(b.id, 10) || 0);
   });
 
   const renderSortArrow = (key) => {
@@ -760,6 +764,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
