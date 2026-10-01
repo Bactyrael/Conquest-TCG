@@ -512,17 +512,17 @@ function App() {
                     
                     <div className="card-art-placeholder" onClick={() => setIsImageModalOpen(true)}>
                       {getCardImage(activeCard) ? (
-                        <img 
-  src={`http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${Date.now()}`} 
-  alt="art" 
-  style={{
-    objectFit: 'cover',
-    objectPosition: `${activeCard.artX ?? 50}% ${activeCard.artY ?? 50}%`,
-    transform: `scale(${(activeCard.artZoom ?? 100) / 100})`,
-    transformOrigin: 'center center'
-  }}
-/>
-                      ) : (
+                          <div 
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              backgroundImage: `url(http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${Date.now()})`,
+                              backgroundSize: `${activeCard.artZoom ?? 100}% auto`,
+                              backgroundPosition: `${activeCard.artX ?? 50}% ${activeCard.artY ?? 50}%`,
+                              backgroundRepeat: 'no-repeat'
+                            }}
+                          />
+                        ) : (
                         'Double-click to set image'
                       )}
                     </div>
