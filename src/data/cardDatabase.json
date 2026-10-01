@@ -139,7 +139,7 @@
       "wis": 0,
       "luc": 6
     },
-    "rulesText": "Deal 3d4 plus your Luck in Slashing damage to a target.",
+    "rulesText": "Deal 3d4 plus your Luck in Piercing damage to a target.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Magic",
@@ -181,12 +181,13 @@
       "wis": 1,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Constitution in Nature damage.",
+    "rulesText": "Deal 1d6 plus your Wisdom in Nature damage. If this Spell deals damage to Hit Points, destroy target Equipment.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Acid Splash.png",
-    "cost": "3 Mana"
+    "cost": "7 Mana",
+    "notes": ""
   },
   {
     "id": "009",
@@ -202,7 +203,7 @@
       "wis": 1,
       "luc": 3
     },
-    "rulesText": "Deal 2d4 plus your Luck in Thunder damage to a target.",
+    "rulesText": "Deal 2d4 plus your Intelligence in Thunder damage to a target.",
     "flavorText": "By the roar of Fragor’s mighty voice, the skies shatter and strike with thunderous wrath.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -223,7 +224,7 @@
       "wis": 0,
       "luc": 4
     },
-    "rulesText": "Deal 3d4 plus your Luck in Lightning damage to a target.",
+    "rulesText": "Deal 3d4 plus your Intelligence in Lightning damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -244,7 +245,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Strength in Ice damage to a target.",
+    "rulesText": "Deal 1d10 plus your Intelligence in Ice damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -265,7 +266,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Constitution in Nature damage to a target.",
+    "rulesText": "Deal 1d10 plus your Wisdom in Nature damage to a target.",
     "flavorText": "By the will of Gramen, earth rise and nature grasp ensnare all who tread upon it.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -286,7 +287,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Strength in Fire damage to a target.",
+    "rulesText": "Deal 1d8 plus your Intelligence in Fire damage to a target.",
     "flavorText": "By the burning will of Caeles, fire be both my forge and fury.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -307,12 +308,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Constitution in Earth damage to a target.",
+    "rulesText": "Deal 1d6 plus your Intelligence in Earth damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Fissure.png",
-    "cost": "6 Mana"
+    "cost": "3 Mana"
   },
   {
     "id": "015",
@@ -328,7 +329,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Dexterity in Water damage to a target.",
+    "rulesText": "Deal 1d12 plus your Intelligence in Water damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -349,7 +350,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Dexterity in Air damage to a target.",
+    "rulesText": "Deal 1d6 plus your Intelligence in Air damage to a target.",
     "flavorText": "By Volucris’ breath, the winds stir and sweep all before me with boundless force.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -375,7 +376,7 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Heal.jpg",
-    "cost": "5 Mana"
+    "cost": "4 Mana"
   },
   {
     "id": "018",
@@ -391,7 +392,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d4 plus your Constitution in Holy damage to a target.",
+    "rulesText": "Deal 1d4 plus your Wisdom in Holy damage to a target.",
     "flavorText": "By the radiant grace of Spirabilis, let pure light pierce the darkness and smite with divine fury.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -412,7 +413,7 @@
       "wis": 1,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Strength in Ice damage to a target.",
+    "rulesText": "Deal 1d8 plus your Intelligence in Ice damage to a target.",
     "flavorText": "By the chilling breath of Gelus, let frost pierce air and strike with icy precision.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -433,7 +434,7 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "Deal 2d4 plus your Luck in Lightning damage to a target.",
+    "rulesText": "Deal 2d4 plus your Intelligence in Lightning damage to a target.",
     "flavorText": "By Fulmen’s crackling fury, unleash judgment and strike with lightning’s swift wrath.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -454,7 +455,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d8 plus your Intelligence in Magic damage to a target.",
+    "rulesText": "Deal 1d8 plus your Wisdom in Magic damage to a target.",
     "flavorText": "By Inludo’s hand, let arcane fury fly!",
     "subtype": "Spell",
     "rarity": "Common",
@@ -475,7 +476,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Intelligence in Magic damage to a target.",
+    "rulesText": "Deal 1d10 plus your Wisdom in Magic damage to a target.",
     "flavorText": "By Inludo’s arcane will, ethereal forces take flight and strike true with mystic barrage.",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -496,7 +497,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d12 plus your Strength in Fire damage to a target.",
+    "rulesText": "Deal 1d12 plus your Intelligence in Fire damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -517,12 +518,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Constitution in Earth damage to a target.",
+    "rulesText": "Deal 1d12 plus your Intelligence in Earth damage to a target.",
     "flavorText": "By Mamel’s unshakable strength, ground tremble and fracture under the weight of unquestionable might.",
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Quake.jpg",
-    "cost": "3 Mana"
+    "cost": "6 Mana"
   },
   {
     "id": "025",
@@ -538,7 +539,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 2d4 plus your Constitution in Holy damage to a target.",
+    "rulesText": "Deal 2d4 plus your Wisdom in Holy damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -559,7 +560,7 @@
       "wis": 4,
       "luc": 0
     },
-    "rulesText": "Restore 1d4 plus your Wisdom in Hit Points to a target.",
+    "rulesText": "Restore 1d6 plus your Constitution in Hit Points to a target.",
     "flavorText": "By Gramen’s nurturing embrace, vitality of nature flow and restore life’s essence anew.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -580,7 +581,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Remove a target Curse, then restore 4 Hit Points.",
+    "rulesText": "Remove a Condition or Curse from a target, then restore 1d4 Hit Points to your target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -601,7 +602,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Deal 1d10 plus your Dexterity in Air damage to a target.",
+    "rulesText": "Deal 1d10 plus your Intelligence in Air damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -643,7 +644,7 @@
       "wis": 2,
       "luc": 4
     },
-    "rulesText": "Deal 3d4 plus your Luck in Thunder damage to a target.",
+    "rulesText": "Deal 3d4 plus your Intelligence in Thunder damage to a target.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -685,7 +686,7 @@
       "wis": 1,
       "luc": 0
     },
-    "rulesText": "Deal 1d6 plus your Dexterity in Water damage to a target.",
+    "rulesText": "Deal 1d6 plus your Intelligence in Water damage to a target.",
     "flavorText": "By Squama’s turbulent will, raging waters converge and crash down upon my foes with merciless force.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -756,7 +757,7 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "A target gains an Inspiration Die less than or equal to their highest attribute. (e.g., if you have a Luck score of five, you would gain a 1d4 Inspiration Die.)",
+    "rulesText": "A target gains an Inspiration Die with a size no greater than your highest Attribute.",
     "flavorText": "“Only in times where failure is a possibility does the quest for wisdom through mistakes become a necessity.” — Koreghar, the Prosperous",
     "subtype": "Ability",
     "rarity": "Common",
@@ -777,7 +778,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for an Ability card, reveal it, then shuffle your Archive and place that card on top.",
+    "rulesText": "Search your Archive for an Ability, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Magic",
@@ -882,7 +883,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Spend an Inspiration Die to grant another target +1 damage on their next attack. If the attack results in a critical hit they may roll the Inspiration Die and add its value as extra damage.",
+    "rulesText": "Spend an Inspiration Die to grant another target Critical Range +1 on their next Attack. On a Critical Hit, they may roll the Inspiration Die and add its result as additional damage.",
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Magic",
@@ -945,7 +946,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Divine Favor cannot critically hit.)",
+    "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Additional damage cannot critically hit.)",
     "flavorText": "“Power is not a burden but a gift, bestowed to uplift those in need.” — Venia, the Aspect of Charity",
     "subtype": "Boon",
     "rarity": "Common",
@@ -966,7 +967,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Magic damage with their attacks. (Ensorcell cannot critically hit.)",
+    "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Magic damage with their attacks. (Additional damage cannot critically hit.)",
     "flavorText": "“Drawing power from the mundane is an easy feat for those who can wield the arcane.” — Patheldar, the Meek",
     "subtype": "Boon",
     "rarity": "Common",
@@ -987,7 +988,7 @@
       "wis": 0,
       "luc": 2
     },
-    "rulesText": "Until the end of their next turn, a target draws a card for each attack or Act card they perform that results in a critical hit.",
+    "rulesText": "Until the end of their next turn, a target draws a card for each Attack or Act card they perform that results in a critical hit.",
     "flavorText": "“Fortune is the favorable outcome that arises when careful strategy meets a timely opportunity.” — Mothang, the Long-Sleeved",
     "subtype": "Boon",
     "rarity": "Magic",
@@ -1008,7 +1009,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Grant another target +2 defense and resilience until the end of their next turn. If they took damage during the duration of this effect, gain a 1d4 Inspiration Die.",
+    "rulesText": "Grant another target +2 Defense and Resilience until the end of their next turn. The first time they take damage during this time, gain a 1d4 Inspiration Die.",
     "subtype": "Boon",
     "rarity": "Common",
     "cost": "4 Stamina"
@@ -1027,7 +1028,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target gains invisibility until the end of their next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
+    "rulesText": "A target gains invisibility until the end of their next turn. It ends if they use an Act card. (Act cards have disadvantage against invisible targets.)",
     "effects": [
       {
         "type": "apply_condition",
@@ -1056,7 +1057,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "All targets gain invisibility until the beginning of your next turn. It ends if they use an Act card. (Act cards targeting an invisible unit have disadvantage.)",
+    "rulesText": "All targets gain invisibility until the beginning of your next turn. It ends if they use an Act card. (Act cards have disadvantage against invisible targets.)",
     "flavorText": "By Inludo’s deception, shroud the realm in mystic fog, cloaking the world in shadow and mirth.",
     "subtype": "Boon",
     "rarity": "Rare",
@@ -1119,7 +1120,7 @@
       "wis": 0,
       "luc": 4
     },
-    "rulesText": "Grant a target a 1d4 Inspiration Die until the end of their next turn. If another Hero uses that Die, you gain a 1d4 Inspiration Die.",
+    "rulesText": "Grant a target a 1d4 Inspiration Die until the end of their next turn. When another Hero uses that Die, gain a 1d4 Inspiration Die.",
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Magic",
@@ -1140,7 +1141,7 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "Until the end of their next turn, a target’s Attacks and Act cards gain Critical Range +2. (Critical range reduces the dice roll required to achieve a critical hit.)",
+    "rulesText": "Until the end of their next turn, a target’s Attacks and Act cards gain Critical Range +2. (Critical Range reduces the dice roll required to achieve a Critical Hit.)",
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Rare",
@@ -1182,7 +1183,7 @@
       "wis": 3,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Constitution saving throw or become blighted (Vulnerable to Divine damage types “Dark, Holy, Magic, and Nature”).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Constitution saving throw or become Blighted (Vulnerable to Divine damage types “Dark, Holy, Magic, and Nature”).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1203,9 +1204,9 @@
       "wis": 0,
       "luc": 3
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Intelligence saving throw or become blinded (Cannot use Reactions on attacks).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Intelligence saving throw or become Blinded (Cannot use Reactions against Attacks).",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Blind.jpg",
     "cost": "5 Stamina"
@@ -1224,7 +1225,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Intelligence saving throw or become buffeted (Non-Physical damage sources roll with advantage against you).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Intelligence saving throw or become Buffeted (Non-Physical damage sources roll with Advantage against you).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1233,7 +1234,7 @@
   },
   {
     "id": "058",
-    "name": "Burn",
+    "name": "Brand",
     "type": "Bonus Action",
     "imageUrl": "/cards/templates/058.jpg",
     "rawText": "a OY\nBurn\n(\nBY\n[] Ll X\nBonus A urse\nERE\nA target must succeed a (DC 8 plus half\nthe performer's Srength, rounded |\ndo igence saving throw or ji\nto\nental damage types: Air, Earth,\nFire, Ice, Lightning, Thunder, and Water).\nPI Holder Art #\n. @ Place Holder Ar y\n",
@@ -1245,7 +1246,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Intelligence saving throw or become burned (Vulnerable to Elemental damage types: Air, Earth, Fire, Ice, Lightning, Thunder, and Water).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Intelligence saving throw or become Branded (Vulnerable to Elemental damage types: Air, Earth, Fire, Ice, Lightning, Thunder, and Water).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1266,7 +1267,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Constitution, rounded down) Constitution saving throw or become charmed (Roll with disadvantage on Act cards).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Constitution, rounded down) Constitution saving throw or become Charmed (Roll with Disadvantage on Act cards).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1287,9 +1288,9 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Strength saving throw or become chilled (Can only perform one Act card per turn).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Strength saving throw or become Chilled (Can only perform one Act card per turn).",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Chill.jpg",
     "cost": "5 Mana"
@@ -1308,7 +1309,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Intelligence, rounded down) Intelligence saving throw or become confused (Saving throws and contests have their difficulty class increased by 2).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Intelligence, rounded down) Intelligence saving throw or become Confused (Saving Throws and Contests have their Difficulty Class increased by +2).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1329,9 +1330,9 @@
       "wis": 2,
       "luc": 3
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Wisdom saving throw or become deafened (Cannot use Reactions on Act cards).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Wisdom saving throw or become Deafened (Cannot use Reactions on Act cards).",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Deafen.jpg",
     "cost": "5 Stamina"
@@ -1350,9 +1351,9 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Wisdom saving throw or become drenched (All damage dealt is reduced by 2).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Wisdom saving throw or become Drenched (All damage dealt is reduced by -2).",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Drench.jpg",
     "cost": "5 Mana"
@@ -1371,7 +1372,7 @@
       "wis": 5,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Wisdom saving throw or become frightened (Roll with disadvantage on attacks).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Wisdom saving throw or become Frightened (Roll with Disadvantage on attacks).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1392,9 +1393,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Dexterity saving throw or become ruptured (Vulnerable to Physical damage types “Bludgeoning, Piercing, and Slashing”).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Dexterity, rounded down) Dexterity saving throw or become Ruptured (Vulnerable to Physical damage types “Bludgeoning, Piercing, and Slashing”).",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Bleed.jpg",
     "cost": "5 Stamina"
@@ -1413,9 +1414,9 @@
       "wis": 0,
       "luc": 5
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Luck saving throw or become severed (Lose and cannot gain resistance to Physical damage types “Bludgeoning, Piercing, and Slashing”).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Luck, rounded down) Luck saving throw or become Severed (Lose and cannot gain resistance to Physical damage types “Bludgeoning, Piercing, and Slashing”).",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Sever.jpg",
     "cost": "5 Stamina"
@@ -1434,7 +1435,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Constitution, rounded down) Intelligence saving throw or become sundered (Lose and cannot gain resistance to Elemental damage types “Air, Earth, Fire, Ice, Lightning, Thunder, and Water”).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Constitution, rounded down) Intelligence saving throw or become Sundered (Lose and cannot gain resistance to Elemental damage types “Air, Earth, Fire, Ice, Lightning, Thunder, and Water”).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1455,7 +1456,7 @@
       "wis": 5,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Wisdom saving throw or become tormented (Lose and cannot gain resistance to Divine damage types. “Dark, Holy, Magic, and Nature”).",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Wisdom, rounded down) Wisdom saving throw or become Tormented (Lose and cannot gain resistance to Divine damage types. “Dark, Holy, Magic, and Nature”).",
     "flavorText": "",
     "subtype": "Curse",
     "rarity": "Common",
@@ -1476,9 +1477,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become wounded (Physical damage sources roll with advantage against you “Bludgeoning, Piercing, and Slashing”.)",
+    "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become Wounded (Physical damage sources roll with Advantage against you (“Bludgeoning, Piercing, and Slashing”.)",
     "flavorText": "",
-    "subtype": "Curse",
+    "subtype": "Condition",
     "rarity": "Common",
     "originalArtFile": "Wound.jpg",
     "cost": "5 Stamina"
@@ -1518,7 +1519,7 @@
       "wis": 3,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a Curse card, reveal it, then shuffle your Archive and place that card on top.",
+    "rulesText": "Search your Archive for a Curse, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -1581,7 +1582,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a common Resource card, reveal it, and put it into your hand. Then, shuffle your Archive.",
+    "rulesText": "Search your Archive for a Resource, reveal it, and put it into your hand. Then, shuffle your Archive.",
     "flavorText": "“From the ruins of the old, the earth breathes anew—fertile, untamed, and waiting to be claimed.” — Antorius, Thunder of the Mountain",
     "subtype": "Spell",
     "rarity": "Common",
@@ -1644,7 +1645,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a Boon card, reveal it, then shuffle your Archive and place that card on top.",
+    "rulesText": "Search your Archive for a Boon, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Rare",
@@ -1686,7 +1687,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a common Resource card and put it onto the battlefield. As an additional cost, shuffle a Resource card into your Archive.",
+    "rulesText": "Search your Archive for a Resource and put it onto the battlefield. As an additional cost, shuffle a Resource into your Archive.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Rare",
@@ -1707,7 +1708,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a Spell card, reveal it, then shuffle your Archive and place that card on top.",
+    "rulesText": "Search your Archive for a Spell, reveal it, then shuffle your Archive and place that card on top.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -1728,7 +1729,7 @@
       "wis": 2,
       "luc": 0
     },
-    "rulesText": "Search your Archive for a common Resource card, reveal it, and put it onto the battlefield. Then, shuffle your Archive.",
+    "rulesText": "Search your Archive for a common Resource, reveal it, and put it onto the battlefield. Then, shuffle your Archive.",
     "flavorText": "“With patience and toil, the wilds yield to our vision, and a new haven is born.” — Grove Tender Iosis",
     "subtype": "Spell",
     "rarity": "Common",
@@ -1770,7 +1771,7 @@
       "wis": 0,
       "luc": 2
     },
-    "rulesText": "Use your Luck instead of another attribute for a saving throw you make.",
+    "rulesText": "Use your Luck instead of another Attribute for a Saving Throw you make.",
     "flavorText": "Sometimes, all it takes is a sprinkle of luck and a dash of magic to turn things around.",
     "subtype": "Ability",
     "rarity": "Common",
@@ -1791,7 +1792,7 @@
       "wis": 0,
       "luc": 2
     },
-    "rulesText": "Roll one additional weapon damage die when determining the extra damage for a critical hit.",
+    "rulesText": "Roll one additional damage die when determining the extra damage for a critical hit.",
     "flavorText": "It doesn’t happen by chance and demands immense skill and combat prowess to achieve.",
     "subtype": "Ability",
     "rarity": "Magic",
@@ -1811,7 +1812,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Your next Act card that requires an Action can be performed at Reaction speed. (You must still use an Action as required by the Act card.)",
+    "rulesText": "Your next Ability that requires a Bonus Action can be performed at Reaction speed. (You must still use a Bonus Action as required by the Act card.)",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -1832,7 +1833,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 2 plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+    "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -1853,7 +1854,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 3 plus a target’s Dexterity). If successful, gain resistance and negate the effects of any Act card from that target.",
+    "rulesText": "Make a contest against a (DC of [3] plus a target’s Dexterity). If successful, gain resistance and negate the effects of any Act card from that target.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -1895,7 +1896,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 2 plus an attacker’s Dexterity). If successful, gain resistance to the damage and negate the effects of that attack.",
+    "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Dexterity). If successful, gain resistance to the damage and negate the effects of that Attack.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -2000,7 +2001,7 @@
       "wis": 3,
       "luc": 0
     },
-    "rulesText": "Spend an Inspiration Die to grant advantage on another target’s saving throw. If their saving throw succeeds, gain a 1d4 Inspiration Die.",
+    "rulesText": "Spend an Inspiration Die to grant another target Advantage on a Saving Throw. If the Saving Throw succeeds, gain a 1d4 Inspiration Die.",
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Magic",
@@ -2021,7 +2022,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the beginning of their next turn, attacks and Act cards against a target require a (DC 8 plus the performer’s Constitution) Constitution saving throw to succeed. On a failed saving throw, the attacker must target another with that attack or Act card.",
+    "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 8 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
     "flavorText": "",
     "subtype": "Boon",
     "rarity": "Magic",
@@ -2126,7 +2127,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 2 plus a target’s Intelligence). If successful, remove the target Hero’s Action from the Timeline.",
+    "rulesText": "Make a contest against a (DC of [2] plus a target’s Intelligence). If successful, remove the target Hero’s Spell from the Timeline.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2147,7 +2148,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Remove a target Curse.",
+    "rulesText": "Remove a target Condition.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2168,7 +2169,7 @@
       "wis": 4,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 2 plus an attacker’s Wisdom). On success, their attack rolls with disadvantage. You may spend an Inspiration Die to reduce their critical range by 1 for that attack.",
+    "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Wisdom). On success, their Attack rolls have Disadvantage. You may spend an Inspiration Die to reduce the Attacker's Critical Range by 1.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2210,7 +2211,7 @@
       "wis": 4,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 2 plus a target’s Wisdom). If successful, remove the target Hero’s Reaction from the Timeline.",
+    "rulesText": "Make a contest against a (DC of [2] plus a target’s Wisdom). If successful, remove the target Hero’s Ability from the Timeline.",
     "flavorText": "Whispers coil through your mind like shadows, twisting your thoughts and unraveling your courage with every breath.",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2273,7 +2274,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Make a contest against a (DC of 2 plus a target’s Constitution). If successful, remove the target Hero’s Bonus Action from the Timeline.",
+    "rulesText": "Make a contest against a (DC of [2] plus a target’s Constitution). If successful, remove the target Hero’s Boon or Curse from the Timeline.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2294,7 +2295,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Your next Act card that requires a Bonus Action can be performed at Reaction speed. (You must still use a Bonus Action as required by the Act card.)",
+    "rulesText": "Your next Spell that requires a Bonus Action can be performed at Reaction speed. (You must still use a Bonus Action as required by the Act card.)",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2315,9 +2316,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][Stamina][use]: Until the beginning of your next turn Enrage, your attacks deal +2 damage. If you have Advantage, they instead deal +4. While Enraged, attacker's have Advantage against you.",
+    "rulesText": "Your Attacks deal +2 damage. This bonus is doubled while you have Advantage.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Berserker",
     "originalArtFile": "Barbarian Set.jpg",
     "cost": "0",
     "damage": "1d8 + Str (Slashing)",
@@ -2337,9 +2338,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[use]: A target gains an Inspiration Die equal to or less than your Luck (minimum 1d4).\n\nWhen a Hero uses an Inspiration Die you control, you may spend [Stamina][Stamina] to increase the step of another Inspiration Die once (up to 1d20).",
+    "rulesText": "[USE]: Create an Inspiration Die with a size no greater than your Luck (minimum 1d4). You may spend [Stamina][Stamina] to give a target Hero an Inspiration Die you control.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Herald",
     "originalArtFile": "Bard Set.jpg",
     "cost": "0",
     "damage": "1d6 + Lck (Thunder)"
@@ -2358,9 +2359,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Whenever you perform your first Boon card each turn, restore 1 Hit Point to the target for each [mana] or [stamina] required to perform that card.",
+    "rulesText": "The first time each turn you perform a Boon, restore 1 Hit Point to its target for each [Mana] or [Stamina] in its cost.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Invoker",
     "originalArtFile": "Cleric Set.jpg",
     "cost": "0",
     "damage": "1d6 + Con (Holy)",
@@ -2380,12 +2381,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Once per turn, if a Spell you perform has a [mana] cost higher than the number of Elemental Counters you control, gain an Elemental Counter. Spells require 1 less [mana] for each Elemental Counter you control.",
+    "rulesText": "If a Spell you perform costs more [Mana] than the number of Elemental Counters you control, gain an Elemental Counter. Spells cost [1] less [Mana] for each Elemental Counter spent while casting them.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Mage",
     "originalArtFile": "Conjurer Set.png",
     "cost": "0",
-    "damage": " 1d4 + Int (Fire)"
+    "damage": " 1d4 + Int (Fire)",
+    "notes": ""
   },
   {
     "id": "113",
@@ -2401,12 +2403,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE]: Mill a card, you may perform an Act card from the Dungeon. The Act card you choose moves to the Void after being performed. (The Act card moves to the Void even if it cannot be performed.)",
+    "rulesText": "[USE]: Mill a card. Choose a Spell in your Dungeon. You may cast it, then move it to the Void, even if it could not resolve.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Warden",
     "originalArtFile": "Druid Set.jpg",
     "cost": "0",
-    "damage": "1d6 + Wis (Nature)"
+    "damage": "1d6 + Wis (Nature)",
+    "notes": ""
   },
   {
     "id": "114",
@@ -2422,9 +2425,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][stamina][stamina]: Until the beginning of your next turn, your Attack rolls can't be lower than half their maximum value (e.g. a 1 on a d4 becomes a 2). On a critical hit, deal +2 additional damage.",
+    "rulesText": "[Stamina][Stamina][Bonus]: Until the beginning of your next turn, your Attack rolls cannot be lower than half their maximum value. On a Critical Hit, deal +2 damage.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Vanguard",
     "originalArtFile": "Fighter Set.jpg",
     "cost": "0",
     "damage": "2d4 + Dex (Slashing)"
@@ -2443,9 +2446,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[use]: Discard up to three cards. Then, you may Void an Act card from the Dungeon to perform it, reducing its resource cost by one for each card discarded. (It moves to the Void even if it couldn’t be performed.)",
+    "rulesText": "[USE]: Discard up to three cards. Then, you may play an Act card from the Dungeon, reducing its resource cost by [1] for each card discarded. Move that Act card to the Void after it resolves, even if it could not resolve.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Necromancer",
     "originalArtFile": "Necromancer Set.png",
     "cost": "0",
     "damage": "1d8 + Wis (Dark)"
@@ -2464,9 +2467,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[Stamina][Stamina][Reaction]: As a Reaction, when you are targeted by a damaging roll you may reduce the incoming damage by 1d4 plus Dexterity. If you reduce incoming damage to 0, redirect damage back at the Attacker. ",
+    "rulesText": "Gain a Ki counter whenever you Attack. Ability cards cost [1] less [Stamina] for each Ki counter spent while performing them.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Disciple",
     "originalArtFile": "Monk Set.jpg",
     "cost": "0",
     "damage": "2d4 + Dex (Blunt)"
@@ -2485,14 +2488,14 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Your damage rolls ignore 1 Resilience for every Aura you sustain.",
+    "rulesText": "The Concentration cost of Auras are reduced by [1] for each Aura you control.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Justicar",
     "originalArtFile": "Paladin Set.jpg",
     "cost": "0",
     "damage": "1d8 + Int (Magic)",
     "image": "marius.jpg",
-    "notes": "Add aura cards and change his passive to benefit using them?"
+    "notes": ""
   },
   {
     "id": "118",
@@ -2508,9 +2511,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "If you damage a Hero this round, you may void the top card of their Archive. If it’s an Act card, attach it to your Hero. You may use [stamina] in place of any other resource cost when performing attached cards.",
+    "rulesText": "When you damage a Hero, you may look at the top card of their Archive and play it if it is an Act card. You may pay its resource cost with [Stamina] instead.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Swashbuckler",
     "originalArtFile": "Pirate Set.png",
     "cost": "0",
     "damage": "1d8 + Lck (Piercing)",
@@ -2530,9 +2533,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE]: Look at the top card of your Archive. If it is a Resource card, you may draw it. After playing a Resource card, your next Attack or Act card has Advantage until the end of your turn.",
+    "rulesText": "[USE]: Look at the top card of your Archive. If it is a Resource card, you may draw it. After you play a Resource card, your next Attack or Act card has Advantage.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Tracker",
     "originalArtFile": "Ranger Set.jpg",
     "cost": "0",
     "damage": "1d8 + Dex (Piercing)",
@@ -2552,12 +2555,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[mana][mana][USE]: Gain an Inspiration Die equal to or less than your Intelligence (minimum 1d4). If you already have an Inspiration Die, you may increase its size by 1 step (e.g. 1d4 to 1d6, max 1d20).",
+    "rulesText": "[Bonus][USE]: Add [Mana][Mana] to your resource pool. It can only be spent on Spells.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Archon",
     "originalArtFile": "Sorcerer Set.jpg",
     "cost": "0",
-    "damage": " 1d6 + Int (Magic)"
+    "damage": " 1d6 + Int (Magic)",
+    "notes": ""
   },
   {
     "id": "121",
@@ -2573,13 +2577,14 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[stamina][stamina][USE]: Gain Stealth until the beginning of next turn. Stealth ends if you attack. (Attacks against a Stealthed target have Disadvantage.) Your Critical Range is increased by +2 while attacking from Stealth.",
+    "rulesText": "[Stamina][Stamina][USE]: Gain Stealth until the beginning of your next turn. Stealth ends when you Attack. Attacks against you have Disadvantage while Stealthed. Your Critical Range increases by [2] while Stealthed.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Prowler",
     "originalArtFile": "Rogue Set.jpg",
     "cost": "0",
     "damage": " 2d4 + Lck (Piercing)",
-    "image": "leif.jpg"
+    "image": "leif.jpg",
+    "notes": "give a less powerful keyword"
   },
   {
     "id": "122",
@@ -2595,9 +2600,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[mana][mana][USE]: Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, you may instead draw two cards.",
+    "rulesText": "[Mana][Mana][USE]: Void a card from your hand, then draw a card from the top of your Archive. If the voided card was an Act card, draw two cards instead.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Occultist",
     "originalArtFile": "Warlock Set.jpg",
     "cost": "0",
     "damage": "1d4 + Wis (Dark)",
@@ -2617,9 +2622,9 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "The first Curse you perform each turn deals Dark damage to each Cursed target equal to half the card’s total [mana] cost (rounded down).",
+    "rulesText": "Elemental Spells you cast use Wisdom instead of their normal Attribute.",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Shaman",
     "originalArtFile": "Witch Set.jpeg",
     "cost": "0",
     "damage": "1d6 + Wis (Dark)"
@@ -2638,33 +2643,34 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE]: Attach an Act card from your hand to Sundrian. You may perform attached Act cards. Attached Act cards move to the Void when performed. Act cards performed from anywhere other than your hand require two less mana.",
+    "rulesText": "[USE]: Attach a Spell card from your hand to Sundrian. You may cast attached Act cards. Act cards cast from anywhere other than your hand cost [2] less [Mana].",
     "rarity": "Legendary",
-    "subtype": "",
+    "subtype": "Alchemist",
     "originalArtFile": "Wizard Set.jpg",
     "cost": "0",
     "damage": "1d8 + Int (Magic)"
   },
   {
     "id": "147",
-    "name": "Mana Crystal",
+    "name": "Blue Crystal",
     "type": "Resource",
     "subtype": "",
     "rarity": "Common",
     "cost": "0",
-    "rulesText": "[USE] Add one [Mana] to your resource pool.",
+    "rulesText": "[USE]: Add [Mana] to your resource pool.\n\nGain +1 Intelligence.",
     "flavorText": "",
-    "image": "mana_crystal.jpg"
+    "image": "blue_crystal.jpg"
   },
   {
     "id": "148",
-    "name": "Stamina Crystal",
+    "name": "Green Crystal",
     "type": "Resource",
     "subtype": "",
     "rarity": "Common",
     "cost": "0",
-    "rulesText": "[USE] Add one [Stamina] to your resource pool.",
-    "flavorText": ""
+    "rulesText": "[USE]: Add [Mana] to your resource pool.\n\nGain +1 Dexterity.",
+    "flavorText": "",
+    "image": "green_crystal.jpg"
   },
   {
     "id": "149",
@@ -2785,7 +2791,7 @@
     "rarity": "Magic",
     "cost": "2 Mana",
     "damage": "",
-    "rulesText": "Concentration: Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage. (Pay this card's [Action] and [Mana] cost at the beginning of each Upkeep or remove it)",
+    "rulesText": "Heroes that Attack you or your allies take 1d4 plus Intelligence magic damage. (Pay this card's [Action] and [Mana] Concentration cost at the beginning of each Upkeep or remove it)",
     "flavorText": ""
   },
   {
@@ -2796,7 +2802,7 @@
     "rarity": "Magic",
     "cost": "3 Mana",
     "damage": "",
-    "rulesText": "Concentration: The [Mana] cost of Spell cards you and allies cast is reduced by [1]. (Pay this card's [Bonus] and [Mana] cost at the beginning of each Upkeep or remove it)",
+    "rulesText": "The [Mana] cost of Spells you and allies cast is reduced by [1]. (Pay this card's [Bonus] and [Mana] Concentration cost at the beginning of each Upkeep or remove it)",
     "flavorText": ""
   },
   {
@@ -2807,7 +2813,7 @@
     "rarity": "Magic",
     "cost": "3 Stamina",
     "damage": "",
-    "rulesText": "Concentration: The [Stamina] cost of Ability cards you and allies perform is reduced by [1]. (Pay this card's [Bonus] and [Stamina] cost at the beginning of each Upkeep or remove it)",
+    "rulesText": "The [Stamina] cost of Abilities you and allies perform is reduced by [1]. (Pay this card's [Bonus] and [Stamina] Concentration cost at the beginning of each Upkeep or remove it)",
     "flavorText": ""
   },
   {
@@ -2818,7 +2824,7 @@
     "rarity": "Magic",
     "cost": "4 Mana",
     "damage": "",
-    "rulesText": "Concentration: You and allies gain [2] Resilience. (Pay this card's [Bonus] and [Mana] cost at the beginning of each Upkeep or remove it)",
+    "rulesText": "You and allies gain [2] Resilience. (Pay this card's [Bonus] and [Mana] Concentration cost at the beginning of each Upkeep or remove it)",
     "flavorText": ""
   },
   {
@@ -2829,7 +2835,349 @@
     "rarity": "Magic",
     "cost": "4 Stamina",
     "damage": "",
-    "rulesText": "Concentration: You and allies gain [2] Defense. (Pay this card's [Bonus] and [Stamina] cost at the beginning of each Upkeep or remove it)",
+    "rulesText": "You and allies gain [2] Defense. (Pay this card's [Bonus] and [Stamina] Concentration cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "164",
+    "name": "Aura of Cleansing",
+    "type": "Reaction",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "3 Mana",
+    "damage": "",
+    "rulesText": "You and allies gain Advantage on Saving Throws against Curses. (Pay this card's [Reaction] and [Mana] Concentration cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "165",
+    "name": "Aura of Concentration",
+    "type": "Reaction",
+    "subtype": "Aura",
+    "rarity": "Magic",
+    "cost": "2 Mana",
+    "damage": "",
+    "rulesText": "You and allies gain Advantage on Contests. (Pay this card's [Reaction] and [Mana] Concentration cost at the beginning of each Upkeep or remove it)",
+    "flavorText": ""
+  },
+  {
+    "id": "166",
+    "name": "Broken Crown",
+    "type": "Equipment",
+    "subtype": "Helm",
+    "rarity": "Magic",
+    "cost": "2 generic",
+    "damage": "",
+    "rulesText": "the difficulty class (DC) of your Curses is increased by [1].",
+    "flavorText": ""
+  },
+  {
+    "id": "167",
+    "name": "Iron Helm",
+    "type": "Equipment",
+    "subtype": "Helm",
+    "rarity": "Common",
+    "cost": "2 generic",
+    "damage": "",
+    "rulesText": "Your Defense is increased by +1.",
+    "flavorText": ""
+  },
+  {
+    "id": "168",
+    "name": "Silver Gauntlets",
+    "type": "Equipment",
+    "subtype": "Gloves",
+    "rarity": "Magic",
+    "cost": "2 generic",
+    "damage": "",
+    "rulesText": "When determining whether a damaging roll is a Critical Hit, treat the lowest face of each Damage Die as the Critical Hit result instead of the highest face.",
+    "flavorText": ""
+  },
+  {
+    "id": "169",
+    "name": "Lion's Amulet",
+    "type": "Equipment",
+    "subtype": "Amulet",
+    "rarity": "Rare",
+    "cost": "2 generic",
+    "damage": "",
+    "rulesText": "Inspiration Die you control can not roll below half their value.",
+    "flavorText": ""
+  },
+  {
+    "id": "170",
+    "name": "Bone Armor",
+    "type": "Equipment",
+    "subtype": "Chest",
+    "rarity": "Rare",
+    "cost": "5 generic",
+    "damage": "",
+    "rulesText": "You have Resistance to the first instance of Dark damage you take each turn.",
+    "flavorText": ""
+  },
+  {
+    "id": "171",
+    "name": "Mammoth Treads",
+    "type": "Equipment",
+    "subtype": "Boots",
+    "rarity": "Magic",
+    "cost": "2 generic",
+    "damage": "",
+    "rulesText": "You have Advantage on Strength Saving Throws.",
+    "flavorText": ""
+  },
+  {
+    "id": "172",
+    "name": "Mountain Climbers",
+    "type": "Equipment",
+    "subtype": "Pants",
+    "rarity": "Rare",
+    "cost": "5 generic",
+    "damage": "",
+    "rulesText": "You have Resistance to the first instance of Ice damage you take each turn.",
+    "flavorText": ""
+  },
+  {
+    "id": "173",
+    "name": "Quiver",
+    "type": "Equipment",
+    "subtype": "Off-hand",
+    "rarity": "Common",
+    "cost": "2 Generic",
+    "damage": "",
+    "rulesText": "Your Critical Range is increased by [1].",
+    "flavorText": ""
+  },
+  {
+    "id": "174",
+    "name": "Borrowed Power",
+    "type": "Bonus Action",
+    "imageUrl": "/cards/templates/080.jpg",
+    "rawText": "a OY\nTutelage\nry |\nBonus Action - Spell\nSearch your Archive for a Spell card,\nPees it, then shuffle your Archive and\nplace that card on top. \\\n+ ARR\nPI Holder Art #\n. @ Place Holder Ar y\n",
+    "requirements": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 3,
+      "wis": 0,
+      "luc": 0
+    },
+    "rulesText": "Search your Archive for an Equipment, reveal it, then shuffle your Archive and place that card on top.",
+    "flavorText": "",
+    "subtype": "Ability",
+    "rarity": "Magic",
+    "originalArtFile": "Tutelage.jpg",
+    "cost": "3 Stamina"
+  },
+  {
+    "id": "175",
+    "name": "Disarm",
+    "type": "Reaction",
+    "subtype": "Ability",
+    "rarity": "Common",
+    "cost": "3 Stamina",
+    "damage": "",
+    "rulesText": "Return a target Equipment card to its owners hand.",
+    "flavorText": ""
+  },
+  {
+    "id": "176",
+    "name": "Reparation",
+    "type": "Bonus Action",
+    "subtype": "Spell",
+    "rarity": "Common",
+    "cost": "5 Mana",
+    "damage": "",
+    "rulesText": "Return an Equipment card from your Dungeon to play.",
+    "flavorText": ""
+  },
+  {
+    "id": "177",
+    "name": "Repair",
+    "type": "Bonus Action",
+    "subtype": "Ability",
+    "rarity": "Common",
+    "cost": "5 Stamina",
+    "damage": "",
+    "rulesText": "Return an Equipment card from your Dungeon to play.",
+    "flavorText": ""
+  },
+  {
+    "id": "178",
+    "name": "Rapier",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "4 Generic",
+    "damage": "",
+    "rulesText": "When a Hero fails to deal Hit Point damage to you, you may use your Reaction to Opportunity Attack them without adding modifier.",
+    "flavorText": "",
+    "notes": "Redo artwork"
+  },
+  {
+    "id": "179",
+    "name": "Kite Shield",
+    "type": "Equipment",
+    "subtype": "Off-hand",
+    "rarity": "Common",
+    "cost": "2 Generic",
+    "damage": "",
+    "rulesText": "You gain Advantage on Contests that have a [Stamina] cost.",
+    "flavorText": "",
+    "notes": "Redo artwork"
+  },
+  {
+    "id": "180",
+    "name": "Crystal Ball",
+    "type": "Equipment",
+    "subtype": "Off-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You gain Advantage on Contests that have a [Mana] cost.",
+    "flavorText": "",
+    "notes": "Redo artwork"
+  },
+  {
+    "id": "181",
+    "name": "Deflecting Blow",
+    "type": "Reaction",
+    "imageUrl": "/cards/templates/090.jpg",
+    "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
+    "requirements": {
+      "str": 2,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "luc": 0
+    },
+    "rulesText": "You may reduce incoming damage by 1d4 plus Dexterity. If you reduce incoming damage to 0, redirect damage back at the Attacker. ",
+    "flavorText": "",
+    "subtype": "Ability",
+    "rarity": "Common",
+    "originalArtFile": "Riposte.jpg",
+    "cost": "4 Stamina"
+  },
+  {
+    "id": "182",
+    "name": "Red Crystal",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Mana] to your resource pool.\n\nGain +1 Strength.",
+    "flavorText": "",
+    "image": "red_crystal.jpg"
+  },
+  {
+    "id": "183",
+    "name": "Orange Crystal",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Mana] to your resource pool.\n\nGain +1 Constitution.",
+    "flavorText": "",
+    "image": "orange_crystal.jpg"
+  },
+  {
+    "id": "184",
+    "name": "Purple Crystal",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Mana] to your resource pool.\n\nGain +1 Wisdom.",
+    "flavorText": "",
+    "image": "purple_crystal.jpg"
+  },
+  {
+    "id": "185",
+    "name": "Yellow Crystal",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Mana] to your resource pool.\n\nGain +1 Luck.",
+    "flavorText": "",
+    "image": "yellow_crystal.jpg"
+  },
+  {
+    "id": "186",
+    "name": "Blue Essence",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Intelligence.",
+    "flavorText": "",
+    "image": "blue_essence.jpg"
+  },
+  {
+    "id": "187",
+    "name": "Green Essence",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Dexterity.",
+    "flavorText": "",
+    "image": "green_essence.jpg"
+  },
+  {
+    "id": "188",
+    "name": "Red Essence",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+    "flavorText": "",
+    "image": "red_essence.jpg"
+  },
+  {
+    "id": "189",
+    "name": "Orange Essence",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Constitution.",
+    "flavorText": "",
+    "image": "orange_essence.jpg"
+  },
+  {
+    "id": "190",
+    "name": "Purple Essence",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Wisdom.",
+    "flavorText": "",
+    "image": "purple_essence.jpg"
+  },
+  {
+    "id": "191",
+    "name": "Yellow Essence",
+    "type": "Resource",
+    "subtype": "",
+    "rarity": "Common",
+    "cost": "0",
+    "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Luck.",
+    "flavorText": "",
+    "image": "yellow_essence.jpg"
+  },
+  {
+    "id": "192",
+    "name": "Bag of Holding",
+    "type": "Equipment",
+    "subtype": "Off-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You have no maximum hand size.",
     "flavorText": ""
   }
 ]
