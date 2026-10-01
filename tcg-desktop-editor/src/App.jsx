@@ -450,7 +450,7 @@ function App() {
 
   const renderSortArrow = (key) => {
     if (sortConfig.key !== key) return null;
-    return sortConfig.direction === 'asc' ? ' ?' : ' ?';
+    return sortConfig.direction === 'asc' ? ' \u25B2' : ' \u25BC';
   };
 
   return (
@@ -458,10 +458,10 @@ function App() {
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">
-            <button className="tool-btn" onClick={handleAddCard} title="New Card">?</button>
-            <button className="tool-btn" onClick={handleSave} title="Save Cards">??</button>
-            <button className="tool-btn" onClick={handleExportCard} title="Export Card Image">??</button>
-            <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>???</button>
+            <button className="tool-btn" onClick={handleAddCard} title="New Card">{"\u2795"}</button>
+            <button className="tool-btn" onClick={handleSave} title="Save Cards">{"\uD83D\uDCBE"}</button>
+            <button className="tool-btn" onClick={handleExportCard} title="Export Card Image">{"\uD83D\uDDBC\uFE0F"}</button>
+            <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>{"\uD83D\uDDD1\uFE0F"}</button>
           {notification && <span style={{ color: 'lime', marginLeft: '10px', fontSize: '12px', fontWeight: 'bold' }}>{notification}</span>}
         </div>
         <div className="toolbar-section">
