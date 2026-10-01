@@ -18,7 +18,10 @@
     "rulesText": "Deal 1d10 plus your Dexterity in Slashing damage to a target.",
     "flavorText": "",
     "originalArtFile": "Blade Dance.png",
-    "cost": "5 Stamina"
+    "cost": "5 Stamina",
+    "artZoom": 100,
+    "artX": 54,
+    "artY": 27
   },
   {
     "id": "001",
@@ -39,7 +42,8 @@
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Duel.jpg",
-    "cost": "4 Stamina"
+    "cost": "4 Stamina",
+    "artY": 36
   },
   {
     "id": "002",
@@ -60,7 +64,8 @@
     "subtype": "Ability",
     "rarity": "Magic",
     "originalArtFile": "Giant Stomp.png",
-    "cost": "6 Stamina"
+    "cost": "6 Stamina",
+    "artY": 80
   },
   {
     "id": "003",
@@ -81,7 +86,8 @@
     "subtype": "Ability",
     "rarity": "Rare",
     "originalArtFile": "Onslaught.png",
-    "cost": "6 Stamina"
+    "cost": "6 Stamina",
+    "artY": 20
   },
   {
     "id": "004",
@@ -102,7 +108,8 @@
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Slice and Dice.jpg",
-    "cost": "4 Stamina"
+    "cost": "4 Stamina",
+    "artY": 27
   },
   {
     "id": "005",
@@ -123,7 +130,8 @@
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Stab and Jab.jpg",
-    "cost": "4 Stamina"
+    "cost": "4 Stamina",
+    "artY": 14
   },
   {
     "id": "006",
@@ -165,7 +173,8 @@
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "War Cry.jpg",
-    "cost": "4 Stamina"
+    "cost": "4 Stamina",
+    "artY": 24
   },
   {
     "id": "008",
@@ -208,7 +217,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Boom.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 44
   },
   {
     "id": "010",
@@ -250,7 +260,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Cone of Cold.png",
-    "cost": "5 Mana"
+    "cost": "5 Mana",
+    "artY": 28
   },
   {
     "id": "012",
@@ -271,7 +282,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Entangle.jpg",
-    "cost": "5 Mana"
+    "cost": "5 Mana",
+    "artY": 17
   },
   {
     "id": "013",
@@ -292,7 +304,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Fire Ball.png",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 63
   },
   {
     "id": "014",
@@ -313,7 +326,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Fissure.png",
-    "cost": "3 Mana"
+    "cost": "3 Mana",
+    "artY": 32
   },
   {
     "id": "015",
@@ -334,7 +348,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Geyser.png",
-    "cost": "6 Mana"
+    "cost": "6 Mana",
+    "artY": 17
   },
   {
     "id": "016",
@@ -355,7 +370,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Gust.jpg",
-    "cost": "3 Mana"
+    "cost": "3 Mana",
+    "artY": 28
   },
   {
     "id": "017",
@@ -376,7 +392,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Heal.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 70
   },
   {
     "id": "018",
@@ -397,7 +414,9 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Holy Bolt.jpg",
-    "cost": "2 Mana"
+    "cost": "2 Mana",
+    "artZoom": 100,
+    "artY": 43
   },
   {
     "id": "019",
@@ -418,7 +437,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Ice Bolt.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 16
   },
   {
     "id": "020",
@@ -439,7 +459,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Lightning Bolt.png",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 44
   },
   {
     "id": "021",
@@ -460,7 +481,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Magic Bolt.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 43
   },
   {
     "id": "022",
@@ -502,7 +524,10 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Meteor Shower.jpg",
-    "cost": "6 Mana"
+    "cost": "6 Mana",
+    "artY": 100,
+    "artZoom": 100,
+    "artX": 50
   },
   {
     "id": "024",
@@ -523,7 +548,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Quake.jpg",
-    "cost": "6 Mana"
+    "cost": "6 Mana",
+    "artY": 8
   },
   {
     "id": "025",
@@ -544,7 +570,8 @@
     "subtype": "Spell",
     "rarity": "Magic",
     "originalArtFile": "Radiance.png",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 76
   },
   {
     "id": "026",
@@ -565,7 +592,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Rejuvenate.jpg",
-    "cost": "6 Mana"
+    "cost": "6 Mana",
+    "artY": 71
   },
   {
     "id": "027",
@@ -586,7 +614,8 @@
     "subtype": "Spell",
     "rarity": "Magic",
     "originalArtFile": "Restoration.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 57
   },
   {
     "id": "028",
@@ -607,7 +636,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Squall.png",
-    "cost": "5 Mana"
+    "cost": "5 Mana",
+    "artY": 51
   },
   {
     "id": "029",
@@ -628,7 +658,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Terror.png",
-    "cost": "3 Mana"
+    "cost": "3 Mana",
+    "artY": 84
   },
   {
     "id": "030",
@@ -649,7 +680,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Thunderclap.png",
-    "cost": "6 Mana"
+    "cost": "6 Mana",
+    "artY": 36
   },
   {
     "id": "031",
@@ -670,7 +702,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Voidstorm.png",
-    "cost": "5 Mana"
+    "cost": "5 Mana",
+    "artY": 42
   },
   {
     "id": "032",
@@ -691,7 +724,8 @@
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Water Ball.jpg",
-    "cost": "3 Mana"
+    "cost": "3 Mana",
+    "artY": 47
   },
   {
     "id": "033",
@@ -720,7 +754,8 @@
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Battle Cry.jpg",
-    "cost": "3 Stamina"
+    "cost": "3 Stamina",
+    "artY": 37
   },
   {
     "id": "034",
@@ -741,7 +776,8 @@
     "subtype": "Ability",
     "rarity": "Magic",
     "originalArtFile": "Hunters Mark.jpg",
-    "cost": "5 Stamina"
+    "cost": "5 Stamina",
+    "artY": 32
   },
   {
     "id": "035",
@@ -783,7 +819,8 @@
     "subtype": "Ability",
     "rarity": "Magic",
     "originalArtFile": "Instruction.jpg",
-    "cost": "3 Stamina"
+    "cost": "3 Stamina",
+    "artY": 41
   },
   {
     "id": "037",
@@ -804,7 +841,8 @@
     "subtype": "Ability",
     "rarity": "Rare",
     "originalArtFile": "Luck of the Draw.jpg",
-    "cost": "6 Stamina"
+    "cost": "6 Stamina",
+    "artY": 37
   },
   {
     "id": "038",
@@ -825,7 +863,8 @@
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Taunt.jpg",
-    "cost": "3 Stamina"
+    "cost": "3 Stamina",
+    "artY": 46
   },
   {
     "id": "039",
@@ -846,7 +885,8 @@
     "subtype": "Ability",
     "rarity": "Magic",
     "originalArtFile": "Surge.jpg",
-    "cost": "4 Stamina"
+    "cost": "4 Stamina",
+    "artY": 25
   },
   {
     "id": "040",
@@ -888,7 +928,8 @@
     "subtype": "Boon",
     "rarity": "Magic",
     "originalArtFile": "Aria of Accuracy.jpg",
-    "cost": "5 Stamina"
+    "cost": "5 Stamina",
+    "artY": 32
   },
   {
     "id": "042",
@@ -909,7 +950,8 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Bark Skin.jpg",
-    "cost": "5 Mana"
+    "cost": "5 Mana",
+    "artY": 26
   },
   {
     "id": "043",
@@ -951,7 +993,8 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Divine Favor.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 49
   },
   {
     "id": "045",
@@ -972,7 +1015,8 @@
     "subtype": "Boon",
     "rarity": "Common",
     "originalArtFile": "Ensorcell.jpg",
-    "cost": "4 Mana"
+    "cost": "4 Mana",
+    "artY": 34
   },
   {
     "id": "046",
@@ -993,7 +1037,8 @@
     "subtype": "Boon",
     "rarity": "Magic",
     "originalArtFile": "Gambit.jpg",
-    "cost": "2 Stamina"
+    "cost": "2 Stamina",
+    "artY": 10
   },
   {
     "id": "047",
@@ -1012,7 +1057,8 @@
     "rulesText": "Grant another target +2 Defense and Resilience until the end of their next turn. The first time they take damage during this time, gain a 1d4 Inspiration Die.",
     "subtype": "Boon",
     "rarity": "Common",
-    "cost": "4 Stamina"
+    "cost": "4 Stamina",
+    "artY": 59
   },
   {
     "id": "048",
@@ -1041,7 +1087,8 @@
     "subtype": "Boon",
     "rarity": "Magic",
     "originalArtFile": "Invisibility.jpg",
-    "cost": "3 Mana"
+    "cost": "3 Mana",
+    "artY": 43
   },
   {
     "id": "049",
