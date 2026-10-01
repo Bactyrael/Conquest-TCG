@@ -631,7 +631,7 @@ function App() {
                       <img 
                         src={`/icons/rarity-${(activeCard?.rarity || 'common').toLowerCase()}.svg`} 
                         alt="Rarity" 
-                        style={{ width: '16px', height: '16px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))' }} 
+                        style={{ width: '12px', height: '12px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))' }} 
                       />
                     </div>
 
