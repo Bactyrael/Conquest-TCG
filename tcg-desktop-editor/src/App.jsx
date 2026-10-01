@@ -216,6 +216,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [activeCard, setActiveCard] = useState(null);
   const [activeTab, setActiveTab] = useState('card');
+  const [imageVersion, setImageVersion] = useState(Date.now());
   const [images, setImages] = useState([]);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [copiedCard, setCopiedCard] = useState(null);
@@ -245,6 +246,7 @@ function App() {
   }, []);
 
   const refreshImages = () => {
+    setImageVersion(Date.now());
     fetch('http://localhost:3002/api/images', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
@@ -516,7 +518,7 @@ function App() {
                             style={{
                               width: '100%',
                               height: '100%',
-                              backgroundImage: `url(http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${Date.now()})`,
+                              backgroundImage: `url(http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${imageVersion})`,
                               backgroundSize: `${activeCard.artZoom ?? 100}% auto`,
                               backgroundPosition: `${activeCard.artX ?? 50}% ${activeCard.artY ?? 50}%`,
                               backgroundRepeat: 'no-repeat'
