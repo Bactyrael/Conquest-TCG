@@ -449,7 +449,7 @@ function App() {
 
   const renderSortArrow = (key) => {
     if (sortConfig.key !== key) return null;
-    return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
+    return sortConfig.direction === 'asc' ? ' ?' : ' ?';
   };
 
   return (
@@ -457,10 +457,10 @@ function App() {
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">
-            <button className="tool-btn" onClick={handleAddCard} title="New Card">➕</button>
-            <button className="tool-btn" onClick={handleSave} title="Save Cards">💾</button>
-            <button className="tool-btn" onClick={handleExportCard} title="Export Card Image">📷</button>
-            <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>🗑️</button>
+            <button className="tool-btn" onClick={handleAddCard} title="New Card">?</button>
+            <button className="tool-btn" onClick={handleSave} title="Save Cards">??</button>
+            <button className="tool-btn" onClick={handleExportCard} title="Export Card Image">??</button>
+            <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>???</button>
           {notification && <span style={{ color: 'lime', marginLeft: '10px', fontSize: '12px', fontWeight: 'bold' }}>{notification}</span>}
         </div>
         <div className="toolbar-section">
@@ -509,7 +509,16 @@ function App() {
                     
                     <div className="card-art-placeholder" onClick={() => setIsImageModalOpen(true)}>
                       {getCardImage(activeCard) ? (
-                        <img src={`http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${Date.now()}`} alt="art" />
+                        <img 
+  src={`http://localhost:3002/cards/generated/${getCardImage(activeCard)}?t=${Date.now()}`} 
+  alt="art" 
+  style={{
+    objectFit: 'cover',
+    objectPosition: `${activeCard.artX ?? 50}% ${activeCard.artY ?? 50}%`,
+    transform: `scale(${(activeCard.artZoom ?? 100) / 100})`,
+    transformOrigin: 'center center'
+  }}
+/>
                       ) : (
                         'Double-click to set image'
                       )}
@@ -643,19 +652,38 @@ function App() {
             )}
             
             {activeCard && (
-              <div className="card-settings" style={{ padding: '10px 20px', display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <label style={{ fontWeight: 'bold' }}>Rarity:</label>
-                <select 
-                  value={activeCard.rarity || 'Common'} 
-                  onChange={(e) => setActiveCard({...activeCard, rarity: e.target.value})}
-                  style={{ padding: '4px', background: '#333', color: '#fff', border: '1px solid #555' }}
-                >
-                  <option value="Common">Common</option>
-                  <option value="Magic">Magic</option>
-                  <option value="Rare">Rare</option>
-                  <option value="Legendary">Legendary</option>
-                </select>
-              </div>
+              <div className="card-settings" style={{ padding: '10px 20px', display: 'flex', flexDirection: 'column', gap: '15px', alignItems: 'flex-start' }}>
+  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+    <label style={{ fontWeight: 'bold' }}>Rarity:</label>
+    <select 
+      value={activeCard.rarity || 'Common'} 
+      onChange={(e) => setActiveCard({...activeCard, rarity: e.target.value})}
+      style={{ padding: '4px', background: '#333', color: '#fff', border: '1px solid #555' }}
+    >
+      <option value="Common">Common</option>
+      <option value="Magic">Magic</option>
+      <option value="Rare">Rare</option>
+      <option value="Legendary">Legendary</option>
+    </select>
+  </div>
+  
+  <div style={{ background: '#222', padding: '10px', borderRadius: '6px', border: '1px solid #444', fontSize: '12px', width: '100%', boxSizing: 'border-box' }}>
+    <label style={{ fontWeight: 'bold', display: 'block', marginBottom: '10px', color: '#ddd' }}>Art Adjustments (Pan & Zoom)</label>
+    <div style={{ display: 'grid', gridTemplateColumns: '40px 1fr 30px', gap: '8px', alignItems: 'center', marginBottom: '8px' }}>
+      <span style={{color: '#aaa'}}>Pan X</span>
+      <input type="range" min="0" max="100" value={activeCard.artX ?? 50} onChange={(e) => setActiveCard({...activeCard, artX: parseInt(e.target.value)})} />
+      <span style={{color: '#aaa'}}>{activeCard.artX ?? 50}%</span>
+      
+      <span style={{color: '#aaa'}}>Pan Y</span>
+      <input type="range" min="0" max="100" value={activeCard.artY ?? 50} onChange={(e) => setActiveCard({...activeCard, artY: parseInt(e.target.value)})} />
+      <span style={{color: '#aaa'}}>{activeCard.artY ?? 50}%</span>
+      
+      <span style={{color: '#aaa'}}>Zoom</span>
+      <input type="range" min="100" max="300" value={activeCard.artZoom ?? 100} onChange={(e) => setActiveCard({...activeCard, artZoom: parseInt(e.target.value)})} />
+      <span style={{color: '#aaa'}}>{activeCard.artZoom ?? 100}%</span>
+    </div>
+  </div>
+</div>
             )}
 
             <div className="card-notes">
@@ -764,6 +792,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
 
 
 
