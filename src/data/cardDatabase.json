@@ -2338,7 +2338,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE]: Create an Inspiration Die with a size no greater than your Luck (minimum 1d4). You may spend [Stamina][Stamina] to give a target Hero an Inspiration Die you control.",
+    "rulesText": "[USE]: Create an Inspiration Die with a size no greater than your Luck (minimum 1d4, maximum 1d20). You may spend [Stamina][Stamina] to give a target Hero an Inspiration Die you control.",
     "rarity": "Legendary",
     "subtype": "Herald",
     "originalArtFile": "Bard Set.jpg",
@@ -2446,7 +2446,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[USE]: Discard up to three cards. Then, you may play an Act card from the Dungeon, reducing its resource cost by [1] for each card discarded. Move that Act card to the Void after it resolves, even if it could not resolve.",
+    "rulesText": "[USE]: Look at the top three cards of your Archive. Draw one of them and discard the others.",
     "rarity": "Legendary",
     "subtype": "Necromancer",
     "originalArtFile": "Necromancer Set.png",
@@ -2555,7 +2555,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[Bonus][USE]: Add [Mana][Mana] to your resource pool. It can only be spent on Spells.",
+    "rulesText": "[USE]: Add [Mana][Mana] to your resource pool. It can only be spent on Spells.",
     "rarity": "Legendary",
     "subtype": "Archon",
     "originalArtFile": "Sorcerer Set.jpg",
@@ -2577,14 +2577,14 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "[Stamina][Stamina][USE]: Gain Stealth until the beginning of your next turn. Stealth ends when you Attack. Attacks against you have Disadvantage while Stealthed. Your Critical Range increases by [2] while Stealthed.",
+    "rulesText": "Your Attacks and Abilities have Advantage against targets affected by a Condition you inflicted.",
     "rarity": "Legendary",
     "subtype": "Prowler",
     "originalArtFile": "Rogue Set.jpg",
     "cost": "0",
     "damage": " 2d4 + Lck (Piercing)",
     "image": "leif.jpg",
-    "notes": "give a less powerful keyword"
+    "notes": ""
   },
   {
     "id": "122",
