@@ -689,6 +689,12 @@ function App() {
                     <input type="range" min="100" max="300" value={activeCard.artZoom ?? 100} onChange={(e) => setActiveCard({...activeCard, artZoom: parseInt(e.target.value)})} />
                     <span style={{color: '#aaa'}}>{activeCard.artZoom ?? 100}%</span>
                   </div>
+                    <button 
+                      onClick={() => setActiveCard({...activeCard, artX: 50, artY: 50, artZoom: 100})}
+                      style={{ marginTop: '10px', width: '100%', padding: '6px', background: '#333', color: '#ddd', border: '1px solid #555', borderRadius: '4px', cursor: 'pointer' }}
+                    >
+                      Reset Art
+                    </button>
                 </div>
               </div>
             )}
