@@ -503,6 +503,7 @@ function App() {
                         className="editable-field card-name" 
                         value={activeCard?.name || ''}
                         onChange={(e) => setActiveCard({...activeCard, name: e.target.value})}
+                          style={{ textAlign: (activeCard?.type === 'Resource' || activeCard?.type === 'Hero') ? 'center' : 'left' }}
                       />
                       {activeCard?.type !== 'Resource' && activeCard?.type !== 'Hero' && (
                           <CostField 
@@ -802,6 +803,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
