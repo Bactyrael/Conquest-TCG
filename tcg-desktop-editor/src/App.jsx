@@ -504,8 +504,8 @@ function App() {
                         value={activeCard?.name || ''}
                         onChange={(e) => setActiveCard({...activeCard, name: e.target.value})}
                       />
-                      {activeCard?.type !== 'Resource' && (
-                        <CostField 
+                      {activeCard?.type !== 'Resource' && activeCard?.type !== 'Hero' && (
+                          <CostField 
                           cost={activeCard?.cost || ''}
                           onChange={(newCost) => setActiveCard({...activeCard, cost: newCost})}
                         />
