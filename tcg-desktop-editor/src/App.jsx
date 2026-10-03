@@ -634,9 +634,8 @@ function App() {
                                   onChange={(e) => setActiveCard({...activeCard, tertiaryType: e.target.value})}
                                 >
                                   <option value="">None</option>
-                                  <option value="Boon">Boon</option>
-                                  <option value="Curse">Curse</option>
-                                  <option value="Condition">Condition</option>
+                                    <option value="Buff">Buff</option>
+                                    <option value="Debuff">Debuff</option>
                                   <option value="Concentration">Concentration</option>
                                   <option value="Channel">Channel</option>
                                 </select>
