@@ -625,6 +625,26 @@ function App() {
                           </span>
                         </div>
                       )}
+                        {activeCard?.type !== 'Resource' && activeCard?.type !== 'Hero' && activeCard?.type !== 'Item' && activeCard?.type !== 'Equipment' && (
+                          <>
+                            {activeCard?.tertiaryType ? <span>-</span> : <span style={{opacity: 0.5}}>-</span>}
+                            <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                              <select 
+                                className="type-select"
+                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
+                                value={activeCard?.tertiaryType || ''} 
+                                onChange={(e) => setActiveCard({...activeCard, tertiaryType: e.target.value})}
+                              >
+                                <option value="">None</option>
+                                <option value="Concentration">Concentration</option>
+                                <option value="Channel">Channel</option>
+                              </select>
+                              <span style={{ pointerEvents: 'none', whiteSpace: 'nowrap', opacity: activeCard?.tertiaryType ? 1 : 0.5 }}>
+                                {activeCard?.tertiaryType || '+ Status'}
+                              </span>
+                            </div>
+                          </>
+                        )}
                     </div>
                     
                     <div style={{ display: 'flex', alignItems: 'center', pointerEvents: 'none' }}>
