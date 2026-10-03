@@ -657,7 +657,8 @@ function App() {
             )}
             
             {activeTab === 'card' && activeCard && (
-              <div className="card-settings" style={{ padding: '10px 20px', display: 'flex', gap: '10px', alignItems: 'center' }}>
+              <div className="card-settings" style={{ padding: '10px 20px', display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <label style={{ fontWeight: 'bold' }}>Rarity:</label>
                 <select 
                   value={activeCard.rarity || 'Common'} 
@@ -670,7 +671,18 @@ function App() {
                   <option value="Legendary">Legendary</option>
                 </select>
               </div>
-            )}
+            
+                  <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '15px' }}>
+                    <label style={{ fontWeight: 'bold', color: '#aaa', fontSize: '12px' }}>Flavor Text:</label>
+                    <textarea 
+                      value={activeCard.flavorText || ''}
+                      onChange={(e) => setActiveCard({...activeCard, flavorText: e.target.value})}
+                      placeholder="Enter flavor text here..."
+                      style={{ width: '100%', height: '60px', padding: '8px', background: '#222', color: '#ddd', border: '1px solid #444', borderRadius: '4px', resize: 'vertical', fontFamily: 'inherit', fontSize: '13px', boxSizing: 'border-box' }}
+                    />
+                  </div>
+                </div>
+              )}
 
             {activeTab === 'art' && activeCard && (
               <div className="card-settings" style={{ padding: '10px 20px', display: 'flex', flexDirection: 'column', gap: '15px', alignItems: 'flex-start' }}>
@@ -808,6 +820,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
