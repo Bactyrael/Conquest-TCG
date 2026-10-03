@@ -543,3 +543,6 @@ body {
 
 
 
+
+.tertiary-placeholder { opacity: 0; transition: opacity 0.2s; }
+.card-type:hover .tertiary-placeholder { opacity: 0.5; }
