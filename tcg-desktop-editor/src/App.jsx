@@ -567,15 +567,12 @@ function App() {
                           >
                             <option value="">None</option>
                             {['Action', 'Bonus Action', 'Reaction'].includes(activeCard?.type) && (
-                              <>
-                                <option value="Ability">Ability</option>
-                                <option value="Spell">Spell</option>
-                                <option value="Boon">Boon</option>
-                                <option value="Curse">Curse</option>
+                                <>
+                                  <option value="Ability">Ability</option>
+                                  <option value="Spell">Spell</option>
                                   <option value="Aura">Aura</option>
-                                  <option value="Condition">Condition</option>
-                              </>
-                            )}
+                                </>
+                              )}
                             {activeCard?.type === 'Equipment' && (
                               <>
                                 <option value="Helm">Helm</option>
@@ -636,6 +633,9 @@ function App() {
                                   onChange={(e) => setActiveCard({...activeCard, tertiaryType: e.target.value})}
                                 >
                                   <option value="">None</option>
+                                  <option value="Boon">Boon</option>
+                                  <option value="Curse">Curse</option>
+                                  <option value="Condition">Condition</option>
                                   <option value="Concentration">Concentration</option>
                                   <option value="Channel">Channel</option>
                                 </select>
