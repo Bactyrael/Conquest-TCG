@@ -412,6 +412,7 @@ function App() {
       (c.flavorText && c.flavorText.toLowerCase().includes(term)) ||
       (c.type && c.type.toLowerCase().includes(term)) ||
       (c.subtype && c.subtype.toLowerCase().includes(term)) ||
+        (c.tertiaryType && c.tertiaryType.toLowerCase().includes(term)) ||
       (c.cost && c.cost.toLowerCase().includes(term))
     );
   });
@@ -431,8 +432,8 @@ function App() {
     let bVal = b[sortConfig.key] || '';
 
     if (sortConfig.key === 'type') {
-      aVal = (`${a.type || ''} ${a.subtype || ''}`).toLowerCase();
-      bVal = (`${b.type || ''} ${b.subtype || ''}`).toLowerCase();
+      aVal = (`${a.type || ''} ${a.subtype || ''} ${a.tertiaryType || ''}`).toLowerCase();
+        bVal = (`${b.type || ''} ${b.subtype || ''} ${b.tertiaryType || ''}`).toLowerCase();
     } else if (sortConfig.key === 'id' || sortConfig.key === 'cost') {
       aVal = parseInt(aVal, 10) || 0;
       bVal = parseInt(bVal, 10) || 0;
@@ -786,7 +787,7 @@ function App() {
                   >
                     <td>{c.name}</td>
                     <td>{c.cost}</td>
-                    <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''}</td>
+                    <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''} {c.tertiaryType ? `- ${c.tertiaryType}` : ''}</td>
                     <td className={`rarity-${(c.rarity || 'common').toLowerCase()}`} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <img src={`/icons/rarity-${(c.rarity || 'common').toLowerCase()}.svg`} style={{ width: '12px', height: '12px' }} />
                       {c.rarity || 'Common'}
@@ -840,6 +841,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
