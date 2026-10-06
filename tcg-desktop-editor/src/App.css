@@ -163,10 +163,10 @@ body {
   background: #000;
 }
 
-.card-artist, .card-damage {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+.card-artist-box, .card-damage {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
@@ -177,7 +177,7 @@ body {
   box-sizing: border-box;
 }
 
-.card-artist, .card-damage {
+.card-artist-box, .card-damage {
   border-radius: 6px;
 }
 
@@ -316,13 +316,41 @@ body {
   flex: 0 0 24px;
 }
 
-.card-artist {
-  width: 120px;
-  font-size: 10px;
-  height: 20px;
-  line-height: 20px;
-  padding: 0 10px;
+.card-artist-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 124px;
+  height: 22px;
+  padding: 0 6px 0 7px;
   box-sizing: border-box;
+}
+
+.artist-icon {
+  width: 12px;
+  height: 12px;
+  color: #c9a857;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+.card-artist-input {
+  flex: 1;
+  min-width: 0;
+  font-size: 10px;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 2px;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #ddd;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.card-artist-input:hover, .card-artist-input:focus {
+  color: #fff;
 }
 
 .card-damage {

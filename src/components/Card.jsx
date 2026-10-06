@@ -74,7 +74,13 @@ export default function Card({ data }) {
 
         {/* Footer */}
         <div className="card-footer">
-          <div className="card-artist">{data.artist ? `Illus. ${data.artist}` : 'No Artist'}</div>
+          <div className="card-artist">
+            <svg className="artist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m14 11 4.5-4.5a2.12 2.12 0 0 0-3-3L11 8" />
+              <path d="M9 10a4 4 0 0 0-5 5c0 1.5 1 2.5 2 3 .5.25 1 .5 1.5.5s1-.25 1.5-.5c1-.5 2-1.5 2-3a4 4 0 0 0-2-5Z" />
+            </svg>
+            <span>{data.artist ? data.artist : 'Bactyrael'}</span>
+          </div>
           
           {/* Stats for Heroes/Units */}
           {data.type === 'Hero' && data.stats && (

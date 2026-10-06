@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import './App.css';
 
@@ -659,7 +659,18 @@ function App() {
                 </div>
                 <UnifiedTextMeasurer activeCard={activeCard} setActiveCard={setActiveCard} />
                   <div className="card-bottom">
-                    <input className="editable-field card-artist" defaultValue="Bactyrael" />
+                    <div className="card-artist-box">
+                      <svg className="artist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m14 11 4.5-4.5a2.12 2.12 0 0 0-3-3L11 8" />
+                        <path d="M9 10a4 4 0 0 0-5 5c0 1.5 1 2.5 2 3 .5.25 1 .5 1.5.5s1-.25 1.5-.5c1-.5 2-1.5 2-3a4 4 0 0 0-2-5Z" />
+                      </svg>
+                      <input 
+                        className="editable-field card-artist-input" 
+                        defaultValue="Bactyrael" 
+                        title="Artist Signature"
+                        placeholder="Artist"
+                      />
+                    </div>
                     
                     {activeCard?.type === 'Hero' && (
                       <input 
