@@ -333,7 +333,17 @@ function App() {
             if (f.tagName.toLowerCase() === 'input') {
               const div = clonedDoc.createElement('div');
               div.className = f.className;
-              div.style.cssText = f.style.cssText; // preserve inline styles like opacity: 0
+              // Copy computed style properties to ensure 1:1 match in html2canvas export
+              const computed = window.getComputedStyle(f);
+              div.style.cssText = f.style.cssText;
+              div.style.fontStyle = computed.fontStyle;
+              div.style.fontSize = computed.fontSize;
+              div.style.lineHeight = computed.lineHeight;
+              div.style.color = computed.color;
+              div.style.letterSpacing = computed.letterSpacing;
+              div.style.textShadow = computed.textShadow;
+              div.style.background = 'transparent';
+              div.style.border = 'none';
               div.innerText = f.value || f.placeholder || '';
               f.parentNode.replaceChild(div, f);
             }
