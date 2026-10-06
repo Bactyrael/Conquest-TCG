@@ -683,12 +683,22 @@ function App() {
                     </div>
                     
                     {activeCard?.type === 'Hero' && (
-                      <input 
-                        className="editable-field card-damage" 
-                        value={activeCard?.damage || ''} 
-                        placeholder="e.g. 1d8 + Str"
-                        onChange={(e) => setActiveCard({...activeCard, damage: e.target.value})}
-                      />
+                      <div className="card-damage-box">
+                        <svg className="dice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m12 2 8 4.5v11L12 22l-8-4.5v-11L12 2Z" />
+                          <path d="m12 2 8 15.5" />
+                          <path d="M12 2 4 17.5" />
+                          <path d="M4 6.5 20 12" />
+                          <path d="m20 6.5-16 5.5" />
+                        </svg>
+                        <input 
+                          className="editable-field card-damage-input" 
+                          value={activeCard?.damage || ''} 
+                          placeholder="e.g. 1d8 + Str"
+                          title="Hero Attack / Damage Dice"
+                          onChange={(e) => setActiveCard({...activeCard, damage: e.target.value})}
+                        />
+                      </div>
                     )}
                   </div>
                 </div>
