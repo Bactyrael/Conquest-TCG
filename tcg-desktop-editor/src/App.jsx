@@ -442,8 +442,8 @@ function App() {
     let bVal = b[sortConfig.key] || '';
 
     if (sortConfig.key === 'type') {
-      aVal = (`${a.type || ''} ${a.subtype || ''} ${a.tertiaryType || ''}`).toLowerCase();
-        bVal = (`${b.type || ''} ${b.subtype || ''} ${b.tertiaryType || ''}`).toLowerCase();
+      aVal = (`${a.type || ''} ${a.subtype || ''}`).trim().toLowerCase();
+      bVal = (`${b.type || ''} ${b.subtype || ''}`).trim().toLowerCase();
     } else if (sortConfig.key === 'id' || sortConfig.key === 'cost') {
       aVal = parseInt(aVal, 10) || 0;
       bVal = parseInt(bVal, 10) || 0;
