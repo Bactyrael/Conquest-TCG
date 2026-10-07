@@ -335,12 +335,12 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Intelligence) or take 1d6 plus Intelligence Earth damage. On a successful save, targets take half damage.",
+    "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 2d6 plus Intelligence Earth damage. On a successful save, targets take half damage.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Common",
     "originalArtFile": "Fissure.png",
-    "cost": "3 Mana",
+    "cost": "6 Mana",
     "artY": 0,
     "artZoom": 113
   },
@@ -789,13 +789,14 @@
       "wis": 0,
       "luc": 5
     },
-    "rulesText": "A target loses 1d6 defense until the end of the turn.",
+    "rulesText": "A target loses 1d6 Defense until the end of the turn.",
     "flavorText": "“Every being that stirs in the realm carries a tale of enchantment and intrigue, weaving timeless legends of adventure and transformation with each step it takes.” — Talpit, the Ranger",
     "subtype": "Ability",
     "rarity": "Magic",
     "originalArtFile": "Hunters Mark.jpg",
     "cost": "5 Stamina",
-    "artY": 72
+    "artY": 72,
+    "tertiaryType": "Debuff"
   },
   {
     "id": "035",
@@ -1726,13 +1727,14 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "A target loses 1d6 resilience until the end of the turn. (This effect cannot reduce Resilience below 0.)",
+    "rulesText": "A target loses 1d6 Resilience until the end of the turn.",
     "flavorText": "“The greatest delights come from the most preposterous things.” — Stropha, of the Fae Count",
     "subtype": "Spell",
     "rarity": "Magic",
     "originalArtFile": "Faerie Fire.jpg",
     "cost": "5 Mana",
-    "artY": 79
+    "artY": 79,
+    "tertiaryType": "Debuff"
   },
   {
     "id": "076",
@@ -2094,14 +2096,16 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the beginning of their next turn, a target gains temporary Hit Points equal to their Constitution and is immune to Fright.",
+    "rulesText": "Until the beginning of their next turn, a target gains temporary Hit Points equal to your Constitution and is immune to Fright.",
     "flavorText": "“Fear not, for I am by your side; be unafraid, for I shall be your guide.” — Navitas, the Aspect of Diligence",
     "subtype": "Spell",
     "rarity": "Magic",
     "originalArtFile": "Heroism.jpg",
     "cost": "5 Mana",
-    "artY": 76,
-    "tertiaryType": "Buff"
+    "artY": 100,
+    "tertiaryType": "Buff",
+    "artX": 50,
+    "artZoom": 100
   },
   {
     "id": "093",
@@ -2163,7 +2167,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 8 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
+    "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 10 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
     "flavorText": "",
     "subtype": "Spell",
     "rarity": "Magic",
@@ -2186,7 +2190,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Until the end of their next turn, whenever a target is attacked, their attacker takes 1d8 Earth damage.",
+    "rulesText": "Until the end of their next turn, whenever a target is Attacked, their Attacker takes 1d8 Earth damage.",
     "flavorText": "By the will of Mamel, the earth shall rise in vengeance; let every attack against me invoke the fury of stone",
     "subtype": "Spell",
     "rarity": "Common",
@@ -2473,7 +2477,7 @@
     "cost": "0",
     "damage": "1d8 + Str (Slashing)",
     "notes": "",
-    "artY": 78
+    "artY": 79
   },
   {
     "id": "110",
@@ -2642,7 +2646,7 @@
     "originalArtFile": "Monk Set.jpg",
     "cost": "0",
     "damage": "2d4 + Dex (Blunt)",
-    "artY": 28,
+    "artY": 62,
     "artX": 50,
     "artZoom": 100
   },
@@ -2856,27 +2860,27 @@
   },
   {
     "id": "149",
-    "name": "Belt of Giant Strength",
+    "name": "Belt of Demon Strength",
     "type": "Equipment",
     "subtype": "Belt",
     "rarity": "Legendary",
     "cost": "6 Generic",
     "damage": "",
     "rulesText": "Your Strength is increased by +3.",
-    "flavorText": "",
+    "flavorText": "An elaborate belt of leather, adorned with a demonic visage at its clasp. Those who wear it are said to feel a demon's strength stir within them.",
     "artZoom": 119
   },
   {
     "id": "150",
-    "name": "Caspian Clutches",
+    "name": "Corsair Clutches",
     "type": "Equipment",
     "subtype": "Gloves",
     "rarity": "Legendary",
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Luck is increased by +3.",
-    "flavorText": "",
-    "image": "caspian_clutches.jpg"
+    "flavorText": "Stitched from the sails and rigging of ships lost upon distant seas, these gloves carry the fortune of sailors who found their way home.",
+    "image": "corsair_clutches.jpg"
   },
   {
     "id": "151",
@@ -2887,7 +2891,7 @@
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Wisdom is increased by +3.",
-    "flavorText": "",
+    "flavorText": "Braided from living wood and crowned with ever-growing leaves, it carries the quiet wisdom of the forest. Though its branches may bend, they are never broken.",
     "artY": 67
   },
   {
@@ -2899,7 +2903,7 @@
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Intelligence is increased by +3.",
-    "flavorText": "",
+    "flavorText": "Woven from threads said to have fallen from the night sky, the veil reveals patterns hidden beyond mortal sight. Those who gaze through it seldom see the world quite the same again.",
     "artY": 25
   },
   {
@@ -2911,7 +2915,7 @@
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Dexterity is increased by +3.",
-    "flavorText": "",
+    "flavorText": "Fashioned from the scales of a dragon, these boots retain the lightness of creatures born to dance upon the wind. Those who wear them move with a grace that belies their weight.",
     "artY": 36
   },
   {
@@ -2923,7 +2927,7 @@
     "cost": "6 generic",
     "damage": "",
     "rulesText": "Your Constitution is increased by +3.",
-    "flavorText": "",
+    "flavorText": "Woven from the sinew and heart of a legendary beast, it still carries the vitality of the creature from which it was made.",
     "artY": 25
   },
   {
@@ -2935,7 +2939,7 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your Defense is increased by +1.",
-    "flavorText": ""
+    "flavorText": "A simple ring worn by those who fear the blade."
   },
   {
     "id": "156",
@@ -2946,8 +2950,9 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "If your Hit Points would be reduced to 0, instead they are reduced to 1. Void Skull Band after it triggers.",
-    "flavorText": "",
-    "artY": 54
+    "flavorText": "It will cheat death once. Afterward, only dust remains.",
+    "artY": 50,
+    "artZoom": 111
   },
   {
     "id": "157",
@@ -2958,7 +2963,7 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your Resilience is increased by +1.",
-    "flavorText": "",
+    "flavorText": "Carved from the heartwood of an ancient tree, its rings were counted long before men learned to count their years. Those who wear it are said to endure as the forest does.",
     "artY": 74
   },
   {
@@ -2970,7 +2975,7 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your critical hits can not roll below half their value.",
-    "flavorText": ""
+    "flavorText": "Small enough to hide beneath a sleeve, sharp enough to find the heart between armor. A skilled hand needs no second chance."
   },
   {
     "id": "159",
@@ -3068,8 +3073,8 @@
     "rarity": "Magic",
     "cost": "2 generic",
     "damage": "",
-    "rulesText": "the difficulty class (DC) of your Debuffs is increased by [1].",
-    "flavorText": "",
+    "rulesText": "the Difficulty Class (DC) of your Debuffs is increased by [1].",
+    "flavorText": "Once a symbol of sovereignty, its shattered crest now bears the weight of a fallen kingdom. Yet even broken, a crown commands respect.",
     "artY": 68
   },
   {
@@ -3081,7 +3086,7 @@
     "cost": "2 generic",
     "damage": "",
     "rulesText": "Your Defense is increased by +1.",
-    "flavorText": "",
+    "flavorText": "Simple iron, shaped by a practiced hand. It offers no glory to its wearer, only the quiet promise of another battle survived.",
     "artY": 56
   },
   {
@@ -3093,7 +3098,7 @@
     "cost": "2 generic",
     "damage": "",
     "rulesText": "When determining whether a damaging roll is a Critical Hit, treat the lowest face of each Damage Die as the Critical Hit result instead of the highest face.",
-    "flavorText": "",
+    "flavorText": "Silver blessed beneath a moonless sky, these gauntlets turn fortune upon its head. In their grasp, even the weakest blow may find its destined mark.",
     "artY": 58
   },
   {
@@ -3105,7 +3110,7 @@
     "cost": "2 generic",
     "damage": "",
     "rulesText": "Inspiration Die you control can not roll below half their value.",
-    "flavorText": "",
+    "flavorText": "Carved in the likeness of a proud lion, its golden eyes seem to follow those who bear it. Courage, once kindled, is not so easily extinguished.",
     "artY": 64
   },
   {
@@ -3117,7 +3122,7 @@
     "cost": "5 generic",
     "damage": "",
     "rulesText": "You have Resistance to the first instance of Dark damage you take each turn.",
-    "flavorText": ""
+    "flavorText": "White bones bound together by ancient rites, still warm with the power that shaped them. Darkness finds little purchase upon what death has already claimed."
   },
   {
     "id": "171",
@@ -3128,7 +3133,7 @@
     "cost": "2 generic",
     "damage": "",
     "rulesText": "You have Advantage on Strength Saving Throws.",
-    "flavorText": ""
+    "flavorText": "Made for feet that once followed the oldest giants across the frozen earth. Even the heaviest force struggles to move one who wears them."
   },
   {
     "id": "172",
@@ -3139,7 +3144,7 @@
     "cost": "5 generic",
     "damage": "",
     "rulesText": "You have Resistance to the first instance of Ice damage you take each turn.",
-    "flavorText": "",
+    "flavorText": "The cold does not kill all at once. It waits patiently for the warmth to leave you.\n",
     "artY": 83
   },
   {
@@ -3151,7 +3156,7 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "Your Critical Range is increased by [1].",
-    "flavorText": ""
+    "flavorText": "Each arrow is fletched for a single purpose: to find the smallest weakness and make it matter."
   },
   {
     "id": "174",
@@ -3196,7 +3201,7 @@
     "cost": "5 Mana",
     "damage": "",
     "rulesText": "Return an Equipment card from your Dungeon to play.",
-    "flavorText": ""
+    "flavorText": "With a whisper of mana, even an empty vessel may hold its former power once more."
   },
   {
     "id": "177",
@@ -3207,7 +3212,7 @@
     "cost": "5 Stamina",
     "damage": "",
     "rulesText": "Return an Equipment card from your Dungeon to play.",
-    "flavorText": "",
+    "flavorText": "Steel may bend and armor may break, but a master smith need only hear the hammer ring to know what can be made whole again.",
     "artY": 19
   },
   {
@@ -3219,9 +3224,9 @@
     "cost": "4 Generic",
     "damage": "",
     "rulesText": "When a Hero fails to deal Hit Point damage to you, you may use your Reaction to Opportunity Attack them without adding modifier.",
-    "flavorText": "",
+    "flavorText": "The finest duelists need only an opening, and a failed strike is opening enough.",
     "notes": "Redo artwork",
-    "artY": 100
+    "artY": 45
   },
   {
     "id": "179",
@@ -3232,7 +3237,7 @@
     "cost": "2 Generic",
     "damage": "",
     "rulesText": "You gain Advantage on Contests that have a [Stamina] cost.",
-    "flavorText": "",
+    "flavorText": "Forged for those who stand when others falter, its broad face turns aside more than steel. In the hands of a steadfast warrior, even a desperate struggle may be endured.",
     "notes": "Redo artwork",
     "artY": 62
   },
@@ -3245,7 +3250,7 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You gain Advantage on Contests that have a [Mana] cost.",
-    "flavorText": "",
+    "flavorText": "Within its depths, countless possibilities drift like stars upon a midnight sea. Those who learn to read their paths are rarely caught by surprise.",
     "notes": "Redo artwork",
     "artY": 63
   },
@@ -3393,7 +3398,7 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You have no maximum hand size.",
-    "flavorText": ""
+    "flavorText": "No one has ever found the bottom. Those who have tried returned with things they never remembered losing."
   },
   {
     "id": "193",
@@ -3453,7 +3458,8 @@
     "damage": "",
     "rulesText": "Until the end of their next turn, a target deals an additional 1d20 in Lightning damage with their Attacks. (Additional damage cannot critically hit.)",
     "flavorText": "",
-    "tertiaryType": "Buff"
+    "tertiaryType": "Buff",
+    "artY": 31
   },
   {
     "id": "200",
@@ -3594,9 +3600,9 @@
     "type": "Action",
     "subtype": "Spell",
     "rarity": "Common",
-    "cost": "6 Mana",
+    "cost": "3 Mana",
     "damage": "",
-    "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 2d6 plus Intelligence Earth damage. On a successful save, targets take half damage.",
+    "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Intelligence) or take 1d6 plus Intelligence Earth damage. On a successful save, targets take half damage.",
     "flavorText": ""
   },
   {
@@ -3665,7 +3671,84 @@
     "cost": "5 Mana",
     "damage": "",
     "rulesText": "Choose a target Equipment. Each turn, the owner may return that Equipment to hand or take 1d4 plus your Intelligence in Fire damage. (Pay this card's [Action] and [Mana] Concentration costs or remove it.)",
-    "flavorText": "",
+    "flavorText": "At first, the warmth is comforting. Then the metal begins to glow.",
     "tertiaryType": "Concentration"
+  },
+  {
+    "id": "220",
+    "name": "Search the Armory",
+    "type": "Bonus Action",
+    "subtype": "Ability",
+    "rarity": "Common",
+    "cost": "5 Stamina",
+    "damage": "",
+    "rulesText": "Look at the top 5 cards of your Archive. You may reveal an Equipment card and put it into your hand. Put the remaining cards on the bottom of your Archive in any order.",
+    "flavorText": "There is no time to admire the craftsmanship. Somewhere among the treasures lies exactly what is needed."
+  },
+  {
+    "id": "221",
+    "name": "Executioner's Axe",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "0",
+    "damage": "",
+    "rulesText": "When you score a Critical Hit, deal additional damage equal to your Strength.",
+    "flavorText": ""
+  },
+  {
+    "id": "222",
+    "name": "Moonblade",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "0",
+    "damage": "",
+    "rulesText": "When you score a Critical Hit, you may Ascertain [2]. (Ascertain [2]: Look at the top two cards of your Archive. You may place any number of them on the bottom of your Archive and the rest on top in any order.)",
+    "flavorText": ""
+  },
+  {
+    "id": "223",
+    "name": "Sageblade",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "0",
+    "damage": "",
+    "rulesText": "You may use Intelligence in place of your Attack modifier.",
+    "flavorText": ""
+  },
+  {
+    "id": "224",
+    "name": "Stormcaller",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "0",
+    "damage": "",
+    "rulesText": "Whenever you deal Lightning or Thunder damage, you may draw a card.",
+    "flavorText": ""
+  },
+  {
+    "id": "225",
+    "name": "Graveblade",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "0",
+    "damage": "",
+    "rulesText": "Whenever you deal Dark damage, you may return a card from your Dungeon to your hand.",
+    "flavorText": ""
+  },
+  {
+    "id": "226",
+    "name": "Kingslayer",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "0",
+    "damage": "",
+    "rulesText": "Your Attacks have Advantage against Heroes with more Hit Points than you.",
+    "flavorText": ""
   }
 ]

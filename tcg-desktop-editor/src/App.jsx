@@ -458,6 +458,13 @@ function App() {
     if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
     if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
     
+    // Secondary fallback: Alphabetical by card name
+    const nameA = String(a.name || '').toLowerCase();
+    const nameB = String(b.name || '').toLowerCase();
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+
+    // Tertiary fallback: Card ID
     return (parseInt(a.id, 10) || 0) - (parseInt(b.id, 10) || 0);
   });
 
