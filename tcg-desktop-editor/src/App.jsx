@@ -162,52 +162,55 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
   );
 };
 
-const parseCostTokens = (costStr) => {
+const parseCostGroups = (costStr) => {
   if (!costStr) return [];
   const str = costStr.trim();
   if (!str || str === '0') return [];
 
-  // Check legacy format like "6 Stamina", "4 Mana", "3 Generic"
+  // Match legacy/explicit format like "6 Stamina", "4 Mana", "3 Generic"
   const legacyMatch = str.match(/^(\d+)\s*(Mana|Stamina|Generic)$/i);
   if (legacyMatch) {
-    const count = parseInt(legacyMatch[1], 10);
-    const type = legacyMatch[2].toLowerCase();
-    return Array(count).fill(type);
+    return [{
+      type: legacyMatch[2].toLowerCase(),
+      count: parseInt(legacyMatch[1], 10)
+    }];
   }
 
-  // Parse letter-by-letter: M -> mana, S -> stamina, G -> generic
-  const tokens = [];
-  for (const char of str.toUpperCase()) {
-    if (char === 'M') tokens.push('mana');
-    else if (char === 'S') tokens.push('stamina');
-    else if (char === 'G') tokens.push('generic');
+  // Parse strings with numbers and letters or letter sequences:
+  // e.g. "2G 3M", "10M", "MMM" -> count letters or numbers preceding letters
+  const groups = [];
+  const regex = /(\d+)?\s*([MSGmsg])/g;
+  let match;
+  let hasMatches = false;
+
+  while ((match = regex.exec(str)) !== null) {
+    hasMatches = true;
+    const num = match[1] ? parseInt(match[1], 10) : 1;
+    const letter = match[2].toUpperCase();
+    const type = letter === 'M' ? 'mana' : (letter === 'S' ? 'stamina' : 'generic');
+    
+    // If the same type already exists at the end, merge counts
+    if (groups.length > 0 && groups[groups.length - 1].type === type) {
+      groups[groups.length - 1].count += num;
+    } else {
+      groups.push({ type, count: num });
+    }
   }
-  return tokens;
+
+  // Fallback: If pure number was entered without letters (e.g. "4"), default to generic
+  if (!hasMatches && /^\d+$/.test(str)) {
+    return [{ type: 'generic', count: parseInt(str, 10) }];
+  }
+
+  return groups;
 };
 
 const CostField = ({ cost, onChange }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const renderDisplay = () => {
-    const tokens = parseCostTokens(cost);
-    if (tokens.length === 0) return null;
-
-    // Dynamically scale icon size based on count so large costs fit comfortably on a single line
-    let iconSize = 20;
-    let gap = 2;
-    if (tokens.length >= 10) {
-      iconSize = 13;
-      gap = 1;
-    } else if (tokens.length >= 8) {
-      iconSize = 15;
-      gap = 2;
-    } else if (tokens.length >= 6) {
-      iconSize = 17;
-      gap = 2;
-    } else if (tokens.length >= 4) {
-      iconSize = 18;
-      gap = 2;
-    }
+    const groups = parseCostGroups(cost);
+    if (groups.length === 0) return null;
 
     return (
       <div 
@@ -216,33 +219,68 @@ const CostField = ({ cost, onChange }) => {
           display: 'flex', 
           flexDirection: 'row',
           flexWrap: 'nowrap',
-          gap: `${gap}px`, 
+          gap: '4px', 
           alignItems: 'center', 
           justifyContent: 'flex-end',
           height: '100%'
         }}
       >
-        {tokens.map((type, idx) => (
-          <img 
-            key={idx} 
-            src={`/icons/${type}.jpg`} 
-            className="cost-icon" 
-            style={{ 
-              width: `${iconSize}px`, 
-              height: `${iconSize}px`, 
-              flexShrink: 0,
+        {groups.map((item, idx) => (
+          <div
+            key={idx}
+            className="cost-badge"
+            style={{
+              position: 'relative',
+              width: '22px',
+              height: '22px',
               borderRadius: '50%',
-              display: 'block'
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              boxShadow: '0 1px 4px rgba(0,0,0,0.8), inset 0 0 2px rgba(255,255,255,0.4)',
+              overflow: 'hidden'
             }}
-            alt={type} 
-          />
+          >
+            <img 
+              src={`/icons/${item.type}.jpg`} 
+              className="cost-icon-bg" 
+              style={{ 
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover',
+                borderRadius: '50%',
+                filter: 'brightness(0.75)'
+              }}
+              alt={item.type} 
+            />
+            <span 
+              className="cost-badge-number"
+              style={{
+                position: 'relative',
+                zIndex: 2,
+                color: '#ffffff',
+                fontSize: item.count >= 10 ? '11px' : '13px',
+                fontWeight: '900',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
+                lineHeight: 1,
+                textAlign: 'center',
+                textShadow: '0px 0px 3px #000, 0px 1px 2px #000, 1px 0px 2px #000, -1px 0px 2px #000, 0px -1px 2px #000'
+              }}
+            >
+              {item.count}
+            </span>
+          </div>
         ))}
       </div>
     );
   };
 
-  const tokens = parseCostTokens(cost);
-  const estimatedWidth = Math.max(30, tokens.length * 18 + 10);
+  const groups = parseCostGroups(cost);
+  const estimatedWidth = Math.max(30, groups.length * 26 + 10);
 
   return (
     <div 
