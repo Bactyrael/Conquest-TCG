@@ -3769,5 +3769,60 @@
     "flavorText": "A massive wooden club of unknown origin, its history lost to the ages.",
     "artY": 26,
     "artZoom": 100
+  },
+  {
+    "id": "228",
+    "name": "Initiate's Staff",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You may use Wisdom in place of your Attack modifier.",
+    "flavorText": ""
+  },
+  {
+    "id": "229",
+    "name": "Training Sword",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You may use Strength in place of your Attack modifier.",
+    "flavorText": ""
+  },
+  {
+    "id": "230",
+    "name": "Short Bow",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You may use Dexterity in place of your Attack modifier.",
+    "flavorText": ""
+  },
+  {
+    "id": "231",
+    "name": "Neophyte's Rod",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You may use Constitution in place of your Attack modifier.",
+    "flavorText": ""
+  },
+  {
+    "id": "232",
+    "name": "Slingshot",
+    "type": "Equipment",
+    "subtype": "Main-hand",
+    "rarity": "Common",
+    "cost": "3 Generic",
+    "damage": "",
+    "rulesText": "You may use Luck in place of your Attack modifier.",
+    "flavorText": ""
   }
 ]
