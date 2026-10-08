@@ -207,10 +207,12 @@ body {
 }
 
 .card-cost {
-  width: 90px;
+  width: auto;
+  min-width: 30px;
+  max-width: 140px;
   text-align: right;
   font-weight: bold;
-  padding: 6px 0;
+  padding: 4px 0;
   background: transparent;
   border: none;
 }
@@ -219,7 +221,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 4px;
+  gap: 3px;
+  flex-wrap: wrap;
 }
 
 .cost-amount {
@@ -230,10 +233,12 @@ body {
 }
 
 .cost-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.6);
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .card-art-placeholder {

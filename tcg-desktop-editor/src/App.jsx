@@ -162,29 +162,68 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
   );
 };
 
+const parseCostTokens = (costStr) => {
+  if (!costStr) return [];
+  const str = costStr.trim();
+  if (!str || str === '0') return [];
+
+  // Check legacy format like "6 Stamina", "4 Mana", "3 Generic"
+  const legacyMatch = str.match(/^(\d+)\s*(Mana|Stamina|Generic)$/i);
+  if (legacyMatch) {
+    const count = parseInt(legacyMatch[1], 10);
+    const type = legacyMatch[2].toLowerCase();
+    return Array(count).fill(type);
+  }
+
+  // Parse letter-by-letter: M -> mana, S -> stamina, G -> generic
+  const tokens = [];
+  for (const char of str.toUpperCase()) {
+    if (char === 'M') tokens.push('mana');
+    else if (char === 'S') tokens.push('stamina');
+    else if (char === 'G') tokens.push('generic');
+  }
+  return tokens;
+};
+
 const CostField = ({ cost, onChange }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const renderDisplay = () => {
-    if (!cost || cost === '0') return null;
-    const match = cost.match(/^(\d+)\s*(Mana|Stamina|Generic)$/i);
-    if (match) {
-      const amount = match[1];
-      const type = match[2].toLowerCase();
-      return (
-        <div className="cost-display" style={{ display: 'flex', gap: '4px', alignItems: 'center', justifyContent: 'flex-end' }}>
-          <span className="cost-amount">{amount}</span>
-          <img src={`/icons/${type}.jpg`} className="cost-icon" alt={type} />
-        </div>
-      );
-    }
-    return <span className="cost-amount">{cost}</span>;
+    const tokens = parseCostTokens(cost);
+    if (tokens.length === 0) return null;
+
+    // Scale down icon size slightly if there are many icons to fit nicely
+    const iconSize = tokens.length > 8 ? 16 : (tokens.length > 5 ? 18 : 20);
+
+    return (
+      <div 
+        className="cost-display" 
+        style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap',
+          gap: '3px', 
+          alignItems: 'center', 
+          justifyContent: 'flex-end',
+          maxWidth: '100%'
+        }}
+      >
+        {tokens.map((type, idx) => (
+          <img 
+            key={idx} 
+            src={`/icons/${type}.jpg`} 
+            className="cost-icon" 
+            style={{ width: `${iconSize}px`, height: `${iconSize}px`, flexShrink: 0 }}
+            alt={type} 
+          />
+        ))}
+      </div>
+    );
   };
 
   return (
-    <div className="card-cost" style={{ position: 'relative', width: '90px', zIndex: 10 }}>
+    <div className="card-cost" style={{ position: 'relative', width: 'auto', minWidth: '70px', maxWidth: '140px', zIndex: 10 }}>
       <input 
-        className="editable-field" 
+        className="cost-input" 
         style={{ 
           width: '100%', 
           textAlign: 'right',
@@ -193,9 +232,11 @@ const CostField = ({ cost, onChange }) => {
           zIndex: 2,
           padding: '4px',
           background: 'transparent',
-          border: 'none',
+          border: isFocused ? '1px dashed #777' : 'none',
           color: '#fff',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          outline: 'none',
+          fontSize: '14px'
         }}
         value={cost || ''}
         onChange={e => onChange(e.target.value)}
@@ -204,7 +245,7 @@ const CostField = ({ cost, onChange }) => {
         placeholder="Cost"
       />
       {!isFocused && (
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', padding: '4px', textAlign: 'right', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', padding: '2px 4px', textAlign: 'right', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
           {renderDisplay()}
         </div>
       )}
@@ -729,6 +770,21 @@ function App() {
                   <option value="Legendary">Legendary</option>
                 </select>
               </div>
+
+              {activeCard?.type !== 'Resource' && activeCard?.type !== 'Hero' && (
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '10px' }}>
+                  <label style={{ fontWeight: 'bold', color: '#aaa', fontSize: '12px' }}>
+                    Cost (M = Mana, S = Stamina, G = Generic):
+                  </label>
+                  <input 
+                    type="text"
+                    value={activeCard.cost || ''}
+                    onChange={(e) => setActiveCard({...activeCard, cost: e.target.value})}
+                    placeholder="e.g. MM, SSS, GG, 4 Generic"
+                    style={{ width: '100%', padding: '6px 8px', background: '#222', color: '#fff', border: '1px solid #444', borderRadius: '4px', fontFamily: 'inherit', fontSize: '13px', boxSizing: 'border-box' }}
+                  />
+                </div>
+              )}
             
                   <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '15px' }}>
                     <label style={{ fontWeight: 'bold', color: '#aaa', fontSize: '12px' }}>Flavor Text:</label>
