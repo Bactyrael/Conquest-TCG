@@ -219,7 +219,7 @@ const CostField = ({ cost, onChange }) => {
           display: 'flex', 
           flexDirection: 'row',
           flexWrap: 'nowrap',
-          gap: '4px', 
+          gap: '6px', 
           alignItems: 'center', 
           justifyContent: 'flex-end',
           height: '100%'
@@ -228,51 +228,40 @@ const CostField = ({ cost, onChange }) => {
         {groups.map((item, idx) => (
           <div
             key={idx}
-            className="cost-badge"
+            className="cost-group"
             style={{
-              position: 'relative',
-              width: '26px',
-              height: '26px',
-              borderRadius: '50%',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-              boxShadow: '0 1px 4px rgba(0,0,0,0.85), inset 0 0 2px rgba(255,255,255,0.5)',
-              overflow: 'hidden'
+              gap: '3px',
+              flexShrink: 0
             }}
           >
-            <img 
-              src={`/icons/${item.type}.jpg`} 
-              className="cost-icon-bg" 
-              style={{ 
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%', 
-                height: '100%', 
-                objectFit: 'cover',
-                borderRadius: '50%',
-                filter: 'brightness(0.82)'
-              }}
-              alt={item.type} 
-            />
             <span 
-              className="cost-badge-number"
+              className="cost-amount"
               style={{
-                position: 'relative',
-                zIndex: 2,
                 color: '#ffffff',
-                fontSize: item.count >= 10 ? '11px' : '13px',
-                fontWeight: '900',
+                fontSize: '15px',
+                fontWeight: 'bold',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 lineHeight: 1,
-                textAlign: 'center',
-                textShadow: '0px 0px 3px #000, 0px 1px 3px #000, 1px 0px 3px #000, -1px 0px 3px #000, 0px -1px 3px #000'
+                textShadow: '0px 0px 4px #000, 0px 1px 2px #000'
               }}
             >
               {item.count}
             </span>
+            <img 
+              src={`/icons/${item.type}.jpg`} 
+              className="cost-icon" 
+              style={{ 
+                width: '20px', 
+                height: '20px', 
+                borderRadius: '50%',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.6)',
+                display: 'block',
+                flexShrink: 0
+              }}
+              alt={item.type} 
+            />
           </div>
         ))}
       </div>
@@ -280,7 +269,7 @@ const CostField = ({ cost, onChange }) => {
   };
 
   const groups = parseCostGroups(cost);
-  const estimatedWidth = Math.max(30, groups.length * 30 + 10);
+  const estimatedWidth = Math.max(35, groups.length * 40 + 10);
 
   return (
     <div 
