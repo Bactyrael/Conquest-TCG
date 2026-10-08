@@ -231,14 +231,14 @@ const CostField = ({ cost, onChange }) => {
             className="cost-badge"
             style={{
               position: 'relative',
-              width: '22px',
-              height: '22px',
+              width: '26px',
+              height: '26px',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
-              boxShadow: '0 1px 4px rgba(0,0,0,0.8), inset 0 0 2px rgba(255,255,255,0.4)',
+              boxShadow: '0 1px 4px rgba(0,0,0,0.85), inset 0 0 2px rgba(255,255,255,0.5)',
               overflow: 'hidden'
             }}
           >
@@ -253,7 +253,7 @@ const CostField = ({ cost, onChange }) => {
                 height: '100%', 
                 objectFit: 'cover',
                 borderRadius: '50%',
-                filter: 'brightness(0.75)'
+                filter: 'brightness(0.82)'
               }}
               alt={item.type} 
             />
@@ -268,7 +268,7 @@ const CostField = ({ cost, onChange }) => {
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 lineHeight: 1,
                 textAlign: 'center',
-                textShadow: '0px 0px 3px #000, 0px 1px 2px #000, 1px 0px 2px #000, -1px 0px 2px #000, 0px -1px 2px #000'
+                textShadow: '0px 0px 3px #000, 0px 1px 3px #000, 1px 0px 3px #000, -1px 0px 3px #000, 0px -1px 3px #000'
               }}
             >
               {item.count}
@@ -280,7 +280,7 @@ const CostField = ({ cost, onChange }) => {
   };
 
   const groups = parseCostGroups(cost);
-  const estimatedWidth = Math.max(30, groups.length * 26 + 10);
+  const estimatedWidth = Math.max(30, groups.length * 30 + 10);
 
   return (
     <div 
