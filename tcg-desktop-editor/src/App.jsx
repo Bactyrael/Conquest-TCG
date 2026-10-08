@@ -205,6 +205,34 @@ const parseCostGroups = (costStr) => {
   return groups;
 };
 
+const toRoman = (num) => {
+  if (typeof num !== 'number' || isNaN(num) || num <= 0) return num;
+  const lookup = [
+    { value: 1000, numeral: 'M' },
+    { value: 900, numeral: 'CM' },
+    { value: 500, numeral: 'D' },
+    { value: 400, numeral: 'CD' },
+    { value: 100, numeral: 'C' },
+    { value: 90, numeral: 'XC' },
+    { value: 50, numeral: 'L' },
+    { value: 40, numeral: 'XL' },
+    { value: 10, numeral: 'X' },
+    { value: 9, numeral: 'IX' },
+    { value: 5, numeral: 'V' },
+    { value: 4, numeral: 'IV' },
+    { value: 1, numeral: 'I' }
+  ];
+  let roman = '';
+  let n = num;
+  for (const item of lookup) {
+    while (n >= item.value) {
+      roman += item.numeral;
+      n -= item.value;
+    }
+  }
+  return roman || num;
+};
+
 const CostField = ({ cost, onChange }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -232,7 +260,7 @@ const CostField = ({ cost, onChange }) => {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '3px',
+              gap: '4px',
               flexShrink: 0
             }}
           >
@@ -242,12 +270,13 @@ const CostField = ({ cost, onChange }) => {
                 color: '#ffffff',
                 fontSize: '15px',
                 fontWeight: 'bold',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: "'Cinzel', 'Times New Roman', Georgia, serif",
+                letterSpacing: '0.5px',
                 lineHeight: 1,
                 textShadow: '0px 0px 4px #000, 0px 1px 2px #000'
               }}
             >
-              {item.count}
+              {toRoman(item.count)}
             </span>
             <img 
               src={`/icons/${item.type}.jpg`} 
