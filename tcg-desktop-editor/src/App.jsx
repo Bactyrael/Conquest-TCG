@@ -192,19 +192,34 @@ const CostField = ({ cost, onChange }) => {
     const tokens = parseCostTokens(cost);
     if (tokens.length === 0) return null;
 
-    // Scale down icon size slightly if there are many icons to fit nicely
-    const iconSize = tokens.length > 8 ? 16 : (tokens.length > 5 ? 18 : 20);
+    // Dynamically scale icon size based on count so large costs fit comfortably on a single line
+    let iconSize = 20;
+    let gap = 2;
+    if (tokens.length >= 10) {
+      iconSize = 13;
+      gap = 1;
+    } else if (tokens.length >= 8) {
+      iconSize = 15;
+      gap = 2;
+    } else if (tokens.length >= 6) {
+      iconSize = 17;
+      gap = 2;
+    } else if (tokens.length >= 4) {
+      iconSize = 18;
+      gap = 2;
+    }
 
     return (
       <div 
         className="cost-display" 
         style={{ 
           display: 'flex', 
-          flexWrap: 'wrap',
-          gap: '3px', 
+          flexDirection: 'row',
+          flexWrap: 'nowrap',
+          gap: `${gap}px`, 
           alignItems: 'center', 
           justifyContent: 'flex-end',
-          maxWidth: '100%'
+          height: '100%'
         }}
       >
         {tokens.map((type, idx) => (
@@ -212,7 +227,13 @@ const CostField = ({ cost, onChange }) => {
             key={idx} 
             src={`/icons/${type}.jpg`} 
             className="cost-icon" 
-            style={{ width: `${iconSize}px`, height: `${iconSize}px`, flexShrink: 0 }}
+            style={{ 
+              width: `${iconSize}px`, 
+              height: `${iconSize}px`, 
+              flexShrink: 0,
+              borderRadius: '50%',
+              display: 'block'
+            }}
             alt={type} 
           />
         ))}
@@ -220,8 +241,24 @@ const CostField = ({ cost, onChange }) => {
     );
   };
 
+  const tokens = parseCostTokens(cost);
+  const estimatedWidth = Math.max(30, tokens.length * 18 + 10);
+
   return (
-    <div className="card-cost" style={{ position: 'relative', width: 'auto', minWidth: '70px', maxWidth: '140px', zIndex: 10 }}>
+    <div 
+      className="card-cost" 
+      style={{ 
+        position: 'relative', 
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        flexShrink: 0,
+        height: '24px',
+        minWidth: isFocused ? '60px' : `${estimatedWidth}px`,
+        maxWidth: '55%',
+        zIndex: 10 
+      }}
+    >
       <input 
         className="cost-input" 
         style={{ 
@@ -230,13 +267,14 @@ const CostField = ({ cost, onChange }) => {
           opacity: isFocused ? 1 : 0,
           position: 'relative',
           zIndex: 2,
-          padding: '4px',
-          background: 'transparent',
-          border: isFocused ? '1px dashed #777' : 'none',
+          padding: '2px 4px',
+          background: isFocused ? 'rgba(0,0,0,0.6)' : 'transparent',
+          border: isFocused ? '1px dashed #aaa' : 'none',
+          borderRadius: '4px',
           color: '#fff',
           fontWeight: 'bold',
           outline: 'none',
-          fontSize: '14px'
+          fontSize: '13px'
         }}
         value={cost || ''}
         onChange={e => onChange(e.target.value)}
@@ -245,7 +283,7 @@ const CostField = ({ cost, onChange }) => {
         placeholder="Cost"
       />
       {!isFocused && (
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', padding: '2px 4px', textAlign: 'right', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', padding: '0 2px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
           {renderDisplay()}
         </div>
       )}
