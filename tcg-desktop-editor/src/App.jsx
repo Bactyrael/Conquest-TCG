@@ -303,7 +303,6 @@ const CostField = ({ cost, onChange }) => {
   };
 
   const groups = parseCostGroups(cost);
-  const estimatedWidth = Math.max(35, groups.length * 40 + 10);
 
   return (
     <div 
@@ -315,7 +314,8 @@ const CostField = ({ cost, onChange }) => {
         justifyContent: 'flex-end',
         flexShrink: 0,
         height: '24px',
-        minWidth: isFocused ? '60px' : `${estimatedWidth}px`,
+        width: isFocused ? '60px' : 'auto',
+        minWidth: isFocused ? '60px' : '0px',
         maxWidth: '55%',
         zIndex: 10 
       }}
@@ -323,19 +323,22 @@ const CostField = ({ cost, onChange }) => {
       <input 
         className="cost-input" 
         style={{ 
-          width: '100%', 
+          width: isFocused ? '100%' : '1px', 
+          minWidth: isFocused ? '60px' : '0px',
           textAlign: 'right',
           opacity: isFocused ? 1 : 0,
-          position: 'relative',
+          position: isFocused ? 'relative' : 'absolute',
+          right: 0,
           zIndex: 2,
-          padding: '2px 4px',
+          padding: isFocused ? '2px 4px' : '0',
           background: isFocused ? 'rgba(0,0,0,0.6)' : 'transparent',
           border: isFocused ? '1px dashed #aaa' : 'none',
           borderRadius: '4px',
           color: '#fff',
           fontWeight: 'bold',
           outline: 'none',
-          fontSize: '13px'
+          fontSize: '13px',
+          cursor: isFocused ? 'text' : 'pointer'
         }}
         value={cost || ''}
         onChange={e => onChange(e.target.value)}
@@ -344,7 +347,7 @@ const CostField = ({ cost, onChange }) => {
         placeholder="Cost"
       />
       {!isFocused && (
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', padding: '0 2px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
+        <div style={{ position: 'relative', height: '100%', pointerEvents: 'none', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', zIndex: 1 }}>
           {renderDisplay()}
         </div>
       )}
