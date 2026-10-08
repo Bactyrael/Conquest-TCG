@@ -238,6 +238,43 @@ const toRoman = (num) => {
   return roman || num;
 };
 
+const RarityIcon = ({ rarity, style }) => {
+  const r = (rarity || 'common').toLowerCase();
+  
+  let baseColor = '#88929b';
+  let topFacetColor = '#ffffff';
+
+  if (r === 'magic') {
+    baseColor = '#3498db';
+    topFacetColor = 'rgba(255,255,255,0.4)';
+  } else if (r === 'rare') {
+    baseColor = '#f1c40f';
+    topFacetColor = 'rgba(255,255,255,0.4)';
+  } else if (r === 'legendary') {
+    baseColor = '#e67e22';
+    topFacetColor = 'rgba(255,255,255,0.4)';
+  }
+
+  return (
+    <svg 
+      className="rarity-icon-svg" 
+      viewBox="0 0 24 24" 
+      width="16" 
+      height="16" 
+      style={{ 
+        width: '16px', 
+        height: '16px', 
+        flexShrink: 0,
+        filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))',
+        ...style 
+      }}
+    >
+      <polygon points="12,2 22,12 12,22 2,12" fill={baseColor} stroke="#000" strokeWidth="2" strokeLinejoin="round" />
+      <polygon points="12,2 22,12 12,12 2,12" fill={topFacetColor} />
+    </svg>
+  );
+};
+
 const CostField = ({ cost, onChange }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -808,11 +845,7 @@ function App() {
                     </div>
                     
                     <div style={{ display: 'flex', alignItems: 'center', pointerEvents: 'none' }}>
-                      <img 
-                        src={`/icons/rarity-${(activeCard?.rarity || 'common').toLowerCase()}.svg`} 
-                        alt="Rarity" 
-                        style={{ width: '16px', height: '16px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))' }} 
-                      />
+                      <RarityIcon rarity={activeCard?.rarity} />
                     </div>
 
                   </div>
