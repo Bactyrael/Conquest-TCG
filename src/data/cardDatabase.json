@@ -3257,9 +3257,9 @@
   },
   {
     "id": "181",
-    "name": "Deflecting Blow",
+    "name": "Deflecting Palm",
     "type": "Reaction",
-    "imageUrl": "/cards/templates/090.jpg",
+    "imageUrl": "/cards/generated/deflecting_palm.jpg",
     "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 2,
@@ -3269,7 +3269,7 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Reduce incoming damage by 1d4 plus your Dexterity. If this reduces the damage to 0, deal damage equal to the amount reduced to the attacker.",
+    "rulesText": "Reduce incoming damage by 1d4 plus your Dexterity. If this reduces the damage to 0, deal damage equal to the amount reduced to the source.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
@@ -3732,7 +3732,7 @@
     "cost": "8 Generic",
     "damage": "",
     "rulesText": "Whenever you deal Lightning or Thunder damage, you may draw a card.",
-    "flavorText": ""
+    "flavorText": "“Bottled lightning? No, I have captured is the storm itself.” — Grand Enchanter Nimblewick"
   },
   {
     "id": "225",
@@ -3779,7 +3779,7 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You may use Wisdom in place of your Attack modifier.",
-    "flavorText": ""
+    "flavorText": "A paltry focus of arcane energy entrusted to even the most fledgling mage."
   },
   {
     "id": "229",
@@ -3790,7 +3790,8 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You may use Strength in place of your Attack modifier.",
-    "flavorText": ""
+    "flavorText": "A wooden blade that has taught more painful lessons than most sharpened steel.",
+    "artY": 0
   },
   {
     "id": "230",
@@ -3801,7 +3802,7 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You may use Dexterity in place of your Attack modifier.",
-    "flavorText": ""
+    "flavorText": "A suitable instrument for hunting small game."
   },
   {
     "id": "231",
@@ -3812,7 +3813,8 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You may use Constitution in place of your Attack modifier.",
-    "flavorText": ""
+    "flavorText": "Those in search of faith must first find a medium in which to channel the spirit.",
+    "artY": 46
   },
   {
     "id": "232",
@@ -3823,6 +3825,6 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You may use Luck in place of your Attack modifier.",
-    "flavorText": ""
+    "flavorText": "AYE-YAHHH!"
   }
 ]
