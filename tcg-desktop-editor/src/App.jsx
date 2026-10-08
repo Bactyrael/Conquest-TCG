@@ -167,29 +167,34 @@ const parseCostGroups = (costStr) => {
   const str = costStr.trim();
   if (!str || str === '0') return [];
 
-  // Match legacy/explicit format like "6 Stamina", "4 Mana", "3 Generic"
-  const legacyMatch = str.match(/^(\d+)\s*(Mana|Stamina|Generic)$/i);
-  if (legacyMatch) {
-    return [{
-      type: legacyMatch[2].toLowerCase(),
-      count: parseInt(legacyMatch[1], 10)
-    }];
-  }
-
-  // Parse strings with numbers and letters or letter sequences:
-  // e.g. "2G 3M", "10M", "MMM" -> count letters or numbers preceding letters
+  // Match: (number)? (mana|stamina|generic) with word boundary, OR (number)? [msg]
+  const regex = /(\d+)?\s*(mana|stamina|generic)\b|(\d+)?\s*([msg])/gi;
   const groups = [];
-  const regex = /(\d+)?\s*([MSGmsg])/g;
   let match;
   let hasMatches = false;
 
   while ((match = regex.exec(str)) !== null) {
     hasMatches = true;
-    const num = match[1] ? parseInt(match[1], 10) : 1;
-    const letter = match[2].toUpperCase();
-    const type = letter === 'M' ? 'mana' : (letter === 'S' ? 'stamina' : 'generic');
-    
-    // If the same type already exists at the end, merge counts
+    let num = 1;
+    let type = 'generic';
+
+    if (match[2]) {
+      // Full word matched: mana, stamina, generic
+      num = match[1] ? parseInt(match[1], 10) : 1;
+      const word = match[2].toLowerCase();
+      if (word === 'mana') type = 'mana';
+      else if (word === 'stamina') type = 'stamina';
+      else type = 'generic';
+    } else if (match[4]) {
+      // Single letter matched: m, s, g
+      num = match[3] ? parseInt(match[3], 10) : 1;
+      const letter = match[4].toLowerCase();
+      if (letter === 'm') type = 'mana';
+      else if (letter === 's') type = 'stamina';
+      else type = 'generic';
+    }
+
+    // Merge adjacent identical types
     if (groups.length > 0 && groups[groups.length - 1].type === type) {
       groups[groups.length - 1].count += num;
     } else {
