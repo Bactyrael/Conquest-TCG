@@ -2,6 +2,13 @@ const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const isDev = process.env.NODE_ENV !== 'production';
 
+// Ensure the local backend server (port 3002) is always running
+try {
+  require('./server.js');
+} catch (e) {
+  // Server might already be running
+}
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1200,

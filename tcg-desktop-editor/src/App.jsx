@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import './App.css';
+import defaultCardDatabase from '../../src/data/cardDatabase.json';
 
 const parseRichTextHTML = (text) => {
   return text
@@ -392,9 +393,10 @@ const CostField = ({ cost, onChange }) => {
   );
 };
 
+
 function App() {
-  const [cards, setCards] = useState([]);
-  const [activeCard, setActiveCard] = useState(null);
+  const [cards, setCards] = useState(defaultCardDatabase || []);
+  const [activeCard, setActiveCard] = useState((defaultCardDatabase && defaultCardDatabase.length > 0) ? defaultCardDatabase[0] : null);
   const [activeTab, setActiveTab] = useState('card');
   const [imageVersion, setImageVersion] = useState(Date.now());
   const [images, setImages] = useState([]);
@@ -403,26 +405,38 @@ function App() {
   const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
 
   React.useEffect(() => {
-    // Fetch cards
-    fetch('http://localhost:3002/api/cards', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.cards.length > 0) {
-          setCards(data.cards);
-          setActiveCard(data.cards[0]);
-        }
-      })
-      .catch(err => console.error("Failed to load cards", err));
+    let isMounted = true;
 
-    // Fetch images
-    fetch('http://localhost:3002/api/images', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setImages(data.images);
+    const loadData = async () => {
+      try {
+        const res = await fetch('http://localhost:3002/api/cards', { cache: 'no-store' });
+        const data = await res.json();
+        if (isMounted && data.success && data.cards && data.cards.length > 0) {
+          setCards(data.cards);
+          setActiveCard(prev => prev ? (data.cards.find(c => c.id === prev.id) || data.cards[0]) : data.cards[0]);
         }
-      })
-      .catch(err => console.error("Failed to load images", err));
+      } catch (err) {
+        console.warn("Could not connect to localhost:3002/api/cards immediately, using bundled database fallback.", err);
+      }
+
+      try {
+        const resImg = await fetch('http://localhost:3002/api/images', { cache: 'no-store' });
+        const dataImg = await resImg.json();
+        if (isMounted && dataImg.success && dataImg.images) {
+          setImages(dataImg.images);
+        }
+      } catch (err) {
+        console.warn("Could not load images list immediately.", err);
+      }
+    };
+
+    loadData();
+    // Re-check once after 1 second in case server was booting
+    const timer = setTimeout(loadData, 1000);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, []);
 
   const refreshImages = () => {
