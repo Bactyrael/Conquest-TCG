@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import html2canvas from 'html2canvas';
+import JSZip from 'jszip';
 import './App.css';
 import defaultCardDatabase from '../../src/data/cardDatabase.json';
 
@@ -469,6 +470,8 @@ function App() {
   const [notification, setNotification] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
+  const [exportProgress, setExportProgress] = useState(null); // { current, total, cardName }
+  const exportCancelRef = useRef(false);
 
   useEffect(() => {
     if (activeCard) {
@@ -501,31 +504,44 @@ function App() {
     }
   };
 
-  const handleExportAllImages = async () => {
-    try {
-      setNotification('Packaging all card images into ZIP...');
-      const response = await fetch('http://localhost:3002/api/export-all-images');
-      if (!response.ok) throw new Error('Export all failed on server');
-      
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'beasts_and_bounties_all_card_images.zip';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-      setNotification('All card images exported!');
-      setTimeout(() => setNotification(''), 4000);
-    } catch (err) {
-      console.error('Export all failed:', err);
-      setNotification('Failed to export all images');
-      setTimeout(() => setNotification(''), 4000);
-    }
+  const renderCardToCanvas = async (element) => {
+    return await html2canvas(element, { 
+      useCORS: true, 
+      scale: 2, 
+      backgroundColor: null,
+      onclone: (clonedDoc) => {
+        const frame = clonedDoc.querySelector('.card-frame');
+        if (!frame) return;
+        // Hide all textareas (the rich text div is underneath them)
+        const textareas = frame.querySelectorAll('textarea');
+        textareas.forEach(ta => ta.style.display = 'none');
+        
+        // Replace inputs with clean-rendering divs
+        const fields = frame.querySelectorAll('.editable-field');
+        fields.forEach(f => {
+          if (f.classList.contains('card-rules') || f.classList.contains('card-flavor')) {
+            f.style.border = 'none';
+          }
+          if (f.tagName.toLowerCase() === 'input') {
+            const div = clonedDoc.createElement('div');
+            div.className = f.className;
+            const computed = window.getComputedStyle(f);
+            div.style.cssText = f.style.cssText;
+            div.style.fontStyle = computed.fontStyle;
+            div.style.fontSize = computed.fontSize;
+            div.style.lineHeight = computed.lineHeight;
+            div.style.color = computed.color;
+            div.style.letterSpacing = computed.letterSpacing;
+            div.style.textShadow = computed.textShadow;
+            div.style.background = 'transparent';
+            div.style.border = 'none';
+            div.innerText = f.value || f.placeholder || '';
+            f.parentNode.replaceChild(div, f);
+          }
+        });
+      }
+    });
   };
-
-
 
   const handleExportCard = async () => {
     if (!activeCard) return;
@@ -534,42 +550,7 @@ function App() {
     
     try {
       setNotification('Exporting...');
-      const canvas = await html2canvas(element, { 
-        useCORS: true, 
-        scale: 2, 
-        backgroundColor: null,
-        onclone: (clonedDoc) => {
-          const frame = clonedDoc.querySelector('.card-frame');
-          // Hide all textareas (the rich text div is underneath them)
-          const textareas = frame.querySelectorAll('textarea');
-          textareas.forEach(ta => ta.style.display = 'none');
-          
-          // Replace inputs with perfect-rendering divs and remove dashed borders on text boxes
-          const fields = frame.querySelectorAll('.editable-field');
-          fields.forEach(f => {
-            if (f.classList.contains('card-rules') || f.classList.contains('card-flavor')) {
-              f.style.border = 'none';
-            }
-            if (f.tagName.toLowerCase() === 'input') {
-              const div = clonedDoc.createElement('div');
-              div.className = f.className;
-              // Copy computed style properties to ensure 1:1 match in html2canvas export
-              const computed = window.getComputedStyle(f);
-              div.style.cssText = f.style.cssText;
-              div.style.fontStyle = computed.fontStyle;
-              div.style.fontSize = computed.fontSize;
-              div.style.lineHeight = computed.lineHeight;
-              div.style.color = computed.color;
-              div.style.letterSpacing = computed.letterSpacing;
-              div.style.textShadow = computed.textShadow;
-              div.style.background = 'transparent';
-              div.style.border = 'none';
-              div.innerText = f.value || f.placeholder || '';
-              f.parentNode.replaceChild(div, f);
-            }
-          });
-        }
-      });
+      const canvas = await renderCardToCanvas(element);
       const dataUrl = canvas.toDataURL('image/png');
       const link = document.createElement('a');
       link.download = `${activeCard.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.png`;
@@ -581,6 +562,158 @@ function App() {
       console.error("Export failed", e);
       setNotification('Export failed');
       setTimeout(() => setNotification(''), 3000);
+    }
+  };
+
+  const handleExportAllCards = async () => {
+    if (!cards || cards.length === 0) return;
+    if (exportProgress) return; // Already running
+
+    exportCancelRef.current = false;
+    const zip = new JSZip();
+    const total = cards.length;
+    let completed = 0;
+
+    setExportProgress({ current: 0, total, cardName: 'Starting...' });
+
+    // Wait for helper container to be mounted in DOM
+    await new Promise(r => setTimeout(r, 100));
+
+    const exportRoot = document.getElementById('batch-export-container');
+    if (!exportRoot) {
+      setNotification('Export container not ready');
+      setExportProgress(null);
+      return;
+    }
+
+    try {
+      for (let i = 0; i < total; i++) {
+        if (exportCancelRef.current) {
+          setNotification('Batch export canceled');
+          setExportProgress(null);
+          return;
+        }
+
+        const card = cards[i];
+        setExportProgress({ current: i + 1, total, cardName: card.name });
+
+        // Temporarily render this card into the hidden export frame
+        const frameEl = exportRoot.querySelector('.card-frame');
+        if (!frameEl) continue;
+
+        // Populate frame with card details
+        const nameInput = frameEl.querySelector('.card-name');
+        if (nameInput) nameInput.value = card.name || '';
+
+        // Cost
+        const costRomanEl = frameEl.querySelector('.batch-cost-roman');
+        const costIconEl = frameEl.querySelector('.batch-cost-icon');
+        const groups = parseCostGroups(card.cost);
+        if (groups.length > 0 && card.type !== 'Resource' && card.type !== 'Hero') {
+          if (costRomanEl) costRomanEl.innerText = toRoman(groups[0].count);
+          if (costIconEl) {
+            costIconEl.style.display = 'block';
+            costIconEl.src = `/icons/${groups[0].type}.jpg`;
+          }
+        } else {
+          if (costRomanEl) costRomanEl.innerText = '';
+          if (costIconEl) costIconEl.style.display = 'none';
+        }
+
+        // Image
+        const artEl = frameEl.querySelector('.batch-card-art');
+        const imgName = getCardImage(card);
+        if (artEl) {
+          if (imgName) {
+            artEl.style.backgroundImage = `url(http://localhost:3002/cards/generated/${imgName}?t=${imageVersion})`;
+            artEl.style.backgroundSize = `${card.artZoom ?? 100}% auto`;
+            artEl.style.backgroundPosition = `${card.artX ?? 50}% ${card.artY ?? 50}%`;
+            artEl.style.backgroundRepeat = 'no-repeat';
+          } else {
+            artEl.style.backgroundImage = 'none';
+          }
+        }
+
+        // Type / Subtype
+        const typeEl = frameEl.querySelector('.batch-card-type-text');
+        if (typeEl) {
+          let typeStr = card.type || 'Action';
+          if (card.subtype) typeStr += ` - ${card.subtype}`;
+          if (card.tertiaryType) typeStr += ` - ${card.tertiaryType}`;
+          typeEl.innerText = typeStr;
+        }
+
+        // Rarity Icon
+        const rarityPoly = frameEl.querySelector('.batch-rarity-poly');
+        if (rarityPoly) {
+          const r = (card.rarity || 'common').toLowerCase();
+          let baseColor = '#88929b';
+          if (r === 'magic') baseColor = '#3498db';
+          else if (r === 'rare') baseColor = '#f1c40f';
+          else if (r === 'legendary') baseColor = '#e67e22';
+          rarityPoly.setAttribute('fill', baseColor);
+        }
+
+        // Rules text & Flavor text
+        const rulesEl = frameEl.querySelector('.batch-card-rules');
+        if (rulesEl) {
+          rulesEl.innerHTML = parseRichTextHTML(card.rulesText || '');
+        }
+        const dividerEl = frameEl.querySelector('.batch-text-divider');
+        const flavorEl = frameEl.querySelector('.batch-card-flavor');
+        if (card.flavorText) {
+          if (dividerEl) dividerEl.style.display = 'block';
+          if (flavorEl) {
+            flavorEl.style.display = 'block';
+            flavorEl.innerHTML = parseRichTextHTML(card.flavorText);
+          }
+        } else {
+          if (dividerEl) dividerEl.style.display = 'none';
+          if (flavorEl) flavorEl.style.display = 'none';
+        }
+
+        // Hero Damage
+        const damageBox = frameEl.querySelector('.batch-damage-box');
+        const damageInput = frameEl.querySelector('.batch-damage-input');
+        if (card.type === 'Hero') {
+          if (damageBox) damageBox.style.display = 'flex';
+          if (damageInput) damageInput.value = card.damage || '';
+        } else {
+          if (damageBox) damageBox.style.display = 'none';
+        }
+
+        // Wait a frame for DOM styles/images to settle
+        await new Promise(r => setTimeout(r, 60));
+
+        // Render card frame with html2canvas
+        const canvas = await renderCardToCanvas(frameEl);
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+        if (blob) {
+          const safeName = `${String(card.id || i).padStart(3, '0')}_${(card.name || 'card').replace(/[^a-z0-9]/gi, '_').toLowerCase()}.png`;
+          zip.file(safeName, blob);
+          completed++;
+        }
+      }
+
+      setExportProgress({ current: total, total, cardName: 'Compressing ZIP archive...' });
+      const content = await zip.generateAsync({ type: 'blob' });
+      const url = window.URL.createObjectURL(content);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'beasts_and_bounties_all_cards.zip';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+
+      setNotification(`Exported all ${completed} finished cards!`);
+      setTimeout(() => setNotification(''), 4000);
+    } catch (err) {
+      console.error('Batch export failed:', err);
+      setNotification('Failed to export all finished cards');
+      setTimeout(() => setNotification(''), 4000);
+    } finally {
+      setExportProgress(null);
     }
   };
 
@@ -641,7 +774,7 @@ function App() {
         const listener = (event, action) => {
           if (action === 'save') handleSave();
           else if (action === 'export-card') handleExportCard();
-          else if (action === 'export-all') handleExportAllImages();
+          else if (action === 'export-all') handleExportAllCards();
           else if (action === 'new-card') handleAddCard();
           else if (action === 'copy-card') handleCopyCard();
           else if (action === 'paste-card') handlePasteCard();
@@ -725,7 +858,7 @@ function App() {
             <button className="tool-btn" onClick={handleAddCard} title="New Card">{"\u2795"}</button>
             <button className="tool-btn" onClick={handleSave} title="Save Cards (File > Save)">{"\uD83D\uDCBE"}</button>
             <button className="tool-btn" onClick={handleExportCard} title="Export Current Card Image">{"\uD83D\uDDBC\uFE0F"}</button>
-            <button className="tool-btn" onClick={handleExportAllImages} title="Export All Card Images (File > Export > Export all)">{"\uD83D\uDCE6"}</button>
+            <button className="tool-btn" onClick={handleExportAllCards} title="Export All Cards (File > Export > Export all)">{"\uD83D\uDCE6"}</button>
             <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>{"\uD83D\uDDD1\uFE0F"}</button>
           {notification && <span style={{ color: 'lime', marginLeft: '10px', fontSize: '12px', fontWeight: 'bold' }}>{notification}</span>}
         </div>
@@ -1129,6 +1262,138 @@ function App() {
           <div className={`context-menu-item ${!activeCard ? 'disabled' : ''}`} onClick={handleDeleteCard} style={{color: '#ff4444'}}>Delete Card</div>
         </div>
       )}
+      {/* Batch Export Progress Modal */}
+      {exportProgress && (
+        <div className="modal-overlay" style={{ zIndex: 9999 }}>
+          <div className="image-modal" style={{ maxWidth: '420px', textAlign: 'center', padding: '24px' }}>
+            <h3 style={{ margin: '0 0 12px 0' }}>Exporting All Finished Cards</h3>
+            <p style={{ margin: '0 0 16px 0', color: '#666', fontSize: '13px' }}>
+              Rendering high-resolution images of each completed card...
+            </p>
+            <div style={{
+              width: '100%',
+              height: '14px',
+              backgroundColor: '#e0e0e0',
+              borderRadius: '7px',
+              overflow: 'hidden',
+              marginBottom: '12px'
+            }}>
+              <div style={{
+                height: '100%',
+                backgroundColor: '#27ae60',
+                width: `${Math.round((exportProgress.current / exportProgress.total) * 100)}%`,
+                transition: 'width 0.2s ease'
+              }} />
+            </div>
+            <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '8px' }}>
+              {exportProgress.current} / {exportProgress.total} ({Math.round((exportProgress.current / exportProgress.total) * 100)}%)
+            </div>
+            <div style={{ fontSize: '11px', color: '#888', fontStyle: 'italic', marginBottom: '20px' }}>
+              {exportProgress.cardName}
+            </div>
+            <button 
+              onClick={() => { exportCancelRef.current = true; }}
+              style={{
+                padding: '6px 18px',
+                background: '#e74c3c',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Hidden Batch Export Card Container */}
+      <div 
+        id="batch-export-container"
+        style={{
+          position: 'fixed',
+          top: '-9999px',
+          left: '-9999px',
+          width: '340px',
+          height: '480px',
+          pointerEvents: 'none',
+          opacity: 1,
+          zIndex: -1
+        }}
+      >
+        <div className="card-frame" style={{ width: '340px', height: '480px' }}>
+          <div className="card-top-half">
+            <div className="card-top-bar">
+              <input className="editable-field card-name" readOnly />
+              <div className="card-cost" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-end', height: '24px' }}>
+                <div className="cost-display" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span 
+                    className="batch-cost-roman cost-amount"
+                    style={{
+                      color: '#ffffff',
+                      fontSize: '15px',
+                      fontWeight: 'bold',
+                      fontFamily: "'Cinzel', 'Times New Roman', Georgia, serif",
+                      textShadow: '0px 0px 4px #000, 0px 1px 2px #000'
+                    }}
+                  />
+                  <img 
+                    className="batch-cost-icon cost-icon" 
+                    style={{ 
+                      width: '20px', 
+                      height: '20px', 
+                      borderRadius: '50%',
+                      display: 'none'
+                    }} 
+                    alt="cost"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            <div className="card-art-placeholder">
+              <div className="batch-card-art" style={{ width: '100%', height: '100%' }} />
+            </div>
+
+            <div className="editable-field card-type" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="batch-card-type-text" style={{ whiteSpace: 'nowrap' }}>Action</span>
+              <svg className="rarity-icon-svg" viewBox="0 0 24 24" width="16" height="16" style={{ width: '16px', height: '16px', flexShrink: 0 }}>
+                <polygon className="batch-rarity-poly" points="12,2 22,12 12,22 2,12" fill="#88929b" stroke="#000" strokeWidth="2" />
+                <polygon points="12,2 22,12 12,12 2,12" fill="rgba(255,255,255,0.4)" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="card-text-box" style={{ gap: '4px' }}>
+            <div className="batch-card-rules editable-field card-rules" style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} />
+            <hr className="batch-text-divider text-divider" style={{ margin: '4px 10%', display: 'none' }} />
+            <div className="batch-card-flavor editable-field card-flavor" style={{ flex: '1 1 auto', display: 'none', flexDirection: 'column', justifyContent: 'center' }} />
+          </div>
+
+          <div className="card-bottom">
+            <div className="card-artist-box">
+              <svg className="artist-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m14 11 4.5-4.5a2.12 2.12 0 0 0-3-3L11 8" />
+                <path d="M9 10a4 4 0 0 0-5 5c0 1.5 1 2.5 2 3 .5.25 1 .5 1.5.5s1-.25 1.5-.5c1-.5 2-1.5 2-3a4 4 0 0 0-2-5Z" />
+              </svg>
+              <input className="editable-field card-artist-input" defaultValue="Bactyrael" readOnly />
+            </div>
+            
+            <div className="batch-damage-box card-damage-box" style={{ display: 'none' }}>
+              <svg className="dice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m12 2 8 4.5v11L12 22l-8-4.5v-11L12 2Z" />
+                <path d="m12 2 8 15.5" />
+                <path d="M12 2 4 17.5" />
+                <path d="M4 6.5 20 12" />
+                <path d="m20 6.5-16 5.5" />
+              </svg>
+              <input className="batch-damage-input editable-field card-damage-input" readOnly />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
