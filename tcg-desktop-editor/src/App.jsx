@@ -455,6 +455,7 @@ function App() {
   const [notification, setNotification] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
+  const [activeMenu, setActiveMenu] = useState(null);
 
   useEffect(() => {
     if (activeCard) {
@@ -486,6 +487,48 @@ function App() {
       setTimeout(() => setNotification(''), 3000);
     }
   };
+
+  const handleExportAllImages = async () => {
+    try {
+      setNotification('Packaging all card images into ZIP...');
+      const response = await fetch('http://localhost:3002/api/export-all-images');
+      if (!response.ok) throw new Error('Export all failed on server');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'beasts_and_bounties_all_card_images.zip';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      setNotification('All card images exported!');
+      setTimeout(() => setNotification(''), 4000);
+    } catch (err) {
+      console.error('Export all failed:', err);
+      setNotification('Failed to export all images');
+      setTimeout(() => setNotification(''), 4000);
+    }
+  };
+
+  // Electron native menu IPC listener
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.require) {
+      try {
+        const { ipcRenderer } = window.require('electron');
+        const listener = (event, action) => {
+          if (action === 'save') handleSave();
+          else if (action === 'export-card') handleExportCard();
+          else if (action === 'export-all') handleExportAllImages();
+        };
+        ipcRenderer.on('menu-action', listener);
+        return () => ipcRenderer.removeListener('menu-action', listener);
+      } catch (err) {
+        // Not running directly under electron node integration
+      }
+    }
+  }, [cards, activeCard]);
 
   const handleExportCard = async () => {
     if (!activeCard) return;
@@ -654,13 +697,85 @@ function App() {
   };
 
   return (
-    <div className="mse-container" onClick={() => setContextMenu(prev => ({ ...prev, visible: false }))}>
+    <div className="mse-container" onClick={() => {
+      setContextMenu(prev => ({ ...prev, visible: false }));
+      setActiveMenu(null);
+    }}>
+      {/* Menu Bar */}
+      <div className="app-menubar" onClick={e => e.stopPropagation()}>
+        <div className="menu-item-root">
+          <button 
+            className={`menu-btn-root ${activeMenu === 'file' ? 'active' : ''}`}
+            onClick={() => setActiveMenu(activeMenu === 'file' ? null : 'file')}
+          >
+            File
+          </button>
+          {activeMenu === 'file' && (
+            <div className="menu-dropdown">
+              <div 
+                className="menu-dropdown-item" 
+                onClick={() => { handleSave(); setActiveMenu(null); }}
+              >
+                <span>Save</span>
+                <span style={{ color: '#888', marginLeft: '20px' }}>Ctrl+S</span>
+              </div>
+              <div className="menu-dropdown-item menu-has-submenu">
+                <span>Export ▸</span>
+                <div className="menu-subdropdown">
+                  <div 
+                    className="menu-dropdown-item" 
+                    onClick={() => { handleExportCard(); setActiveMenu(null); }}
+                  >
+                    Export Current Card...
+                  </div>
+                  <div 
+                    className="menu-dropdown-item" 
+                    onClick={() => { handleExportAllImages(); setActiveMenu(null); }}
+                  >
+                    <span>Export all...</span>
+                    <span style={{ color: '#888', marginLeft: '15px' }}>Ctrl+Shift+E</span>
+                  </div>
+                </div>
+              </div>
+              <div className="menu-dropdown-divider"></div>
+              <div 
+                className="menu-dropdown-item" 
+                onClick={() => {
+                  if (window.confirm('Close application?')) window.close();
+                  setActiveMenu(null);
+                }}
+              >
+                Exit
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="menu-item-root">
+          <button 
+            className={`menu-btn-root ${activeMenu === 'cards' ? 'active' : ''}`}
+            onClick={() => setActiveMenu(activeMenu === 'cards' ? null : 'cards')}
+          >
+            Cards
+          </button>
+          {activeMenu === 'cards' && (
+            <div className="menu-dropdown">
+              <div className="menu-dropdown-item" onClick={() => { handleAddCard(); setActiveMenu(null); }}>New Card</div>
+              <div className="menu-dropdown-item" onClick={() => { handleCopyCard(); setActiveMenu(null); }}>Copy Card</div>
+              <div className="menu-dropdown-item" onClick={() => { handlePasteCard(); setActiveMenu(null); }}>Paste Card</div>
+              <div className="menu-dropdown-divider"></div>
+              <div className="menu-dropdown-item" onClick={() => { handleDeleteCard(); setActiveMenu(null); }} style={{ color: '#d9534f' }}>Delete Card</div>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">
             <button className="tool-btn" onClick={handleAddCard} title="New Card">{"\u2795"}</button>
-            <button className="tool-btn" onClick={handleSave} title="Save Cards">{"\uD83D\uDCBE"}</button>
-            <button className="tool-btn" onClick={handleExportCard} title="Export Card Image">{"\uD83D\uDDBC\uFE0F"}</button>
+            <button className="tool-btn" onClick={handleSave} title="Save Cards (File > Save)">{"\uD83D\uDCBE"}</button>
+            <button className="tool-btn" onClick={handleExportCard} title="Export Current Card Image">{"\uD83D\uDDBC\uFE0F"}</button>
+            <button className="tool-btn" onClick={handleExportAllImages} title="Export All Card Images (File > Export > Export all)">{"\uD83D\uDCE6"}</button>
             <button className="tool-btn" onClick={handleDeleteCard} title="Delete Card" style={{ color: 'red' }}>{"\uD83D\uDDD1\uFE0F"}</button>
           {notification && <span style={{ color: 'lime', marginLeft: '10px', fontSize: '12px', fontWeight: 'bold' }}>{notification}</span>}
         </div>

@@ -57,7 +57,41 @@ app.post('/api/save-cards', (req, res) => {
   }
 });
 
+// Endpoint to generate & download all card images in a single zip
+app.get('/api/export-all-images', (req, res) => {
+  try {
+    const { execSync } = require('child_process');
+    const zipPath = path.resolve(__dirname, '..', 'public', 'cards', 'all_card_images.zip');
+    const zipScript = path.resolve(__dirname, 'zip_images.py');
+    
+    fs.writeFileSync(zipScript, `
+import os, zipfile
+img_dir = r"${imagesDir.replace(/\\/g, '\\\\')}"
+zip_out = r"${zipPath.replace(/\\/g, '\\\\')}"
+files = [f for f in os.listdir(img_dir) if f.endswith(('.jpg', '.png'))]
+with zipfile.ZipFile(zip_out, 'w', zipfile.ZIP_DEFLATED) as z:
+    for f in files:
+        z.write(os.path.join(img_dir, f), arcname=f)
+print(f"Zipped {len(files)} images")
+`);
+    execSync(`python "${zipScript}"`, { stdio: 'inherit' });
+    
+    if (fs.existsSync(zipPath)) {
+      res.setHeader('Content-Type', 'application/zip');
+      res.setHeader('Content-Disposition', 'attachment; filename="beasts_and_bounties_all_card_images.zip"');
+      const filestream = fs.createReadStream(zipPath);
+      filestream.pipe(res);
+    } else {
+      res.status(500).json({ error: 'Failed to generate zip file' });
+    }
+  } catch (err) {
+    console.error('Failed to export all images:', err);
+    res.status(500).json({ error: 'Failed to export images' });
+  }
+});
+
 const PORT = 3002;
 app.listen(PORT, () => {
   console.log(`Desktop Editor Backend Server running on http://localhost:${PORT}`);
 });
+

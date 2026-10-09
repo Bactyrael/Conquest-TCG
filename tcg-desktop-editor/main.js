@@ -13,7 +13,32 @@ function createWindow() {
   });
 
   const template = [
-    { label: 'File', submenu: [{ role: 'quit' }] },
+    { 
+      label: 'File', 
+      submenu: [
+        { 
+          label: 'Save', 
+          accelerator: 'CmdOrCtrl+S',
+          click: () => { win.webContents.send('menu-action', 'save'); }
+        },
+        { 
+          label: 'Export', 
+          submenu: [
+            { 
+              label: 'Export Current Card...', 
+              click: () => { win.webContents.send('menu-action', 'export-card'); }
+            },
+            { 
+              label: 'Export all...', 
+              accelerator: 'CmdOrCtrl+Shift+E',
+              click: () => { win.webContents.send('menu-action', 'export-all'); }
+            }
+          ]
+        },
+        { type: 'separator' },
+        { role: 'quit' }
+      ] 
+    },
     { label: 'Edit', submenu: [
         { role: 'undo' }, { role: 'redo' }, { type: 'separator' },
         { role: 'cut' }, { role: 'copy' }, { role: 'paste' }
