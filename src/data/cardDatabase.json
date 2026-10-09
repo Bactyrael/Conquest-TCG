@@ -1998,7 +1998,7 @@
     "id": "088",
     "name": "No Dice",
     "type": "Reaction",
-    "imageUrl": "/cards/templates/088.jpg",
+    "imageUrl": "/cards/generated/no_dice.jpg",
     "rawText": "a OY\nK) 1 N\n> ;\nReaction - Ability\nA target roll with advantage now has\ndisadvantage instead. (The lower of the\ntwo rolls must be used.)\n“The only truth about luck is that it\ndances like a fickle breeze, forever\nchanging its course.”\n\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -3259,7 +3259,7 @@
     "id": "181",
     "name": "Deflecting Palm",
     "type": "Reaction",
-    "imageUrl": "/cards/generated/deflecting_palm.jpg",
+    "imageUrl": "/cards/templates/090.jpg",
     "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
     "requirements": {
       "str": 2,
@@ -3269,13 +3269,13 @@
       "wis": 0,
       "luc": 0
     },
-    "rulesText": "Reduce incoming damage by 1d4 plus your Dexterity. If this reduces the damage to 0, deal damage equal to the amount reduced to the source.",
+    "rulesText": "Reduce incoming damage by 1d4 plus your Dexterity. If you reduce the damage to 0, deal the reduced amount back to the source.",
     "flavorText": "",
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Riposte.jpg",
     "cost": "4 Stamina",
-    "artY": 16
+    "artY": 43
   },
   {
     "id": "182",
