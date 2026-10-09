@@ -455,7 +455,6 @@ function App() {
   const [notification, setNotification] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
-  const [activeMenu, setActiveMenu] = useState(null);
 
   useEffect(() => {
     if (activeCard) {
@@ -512,23 +511,7 @@ function App() {
     }
   };
 
-  // Electron native menu IPC listener
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.require) {
-      try {
-        const { ipcRenderer } = window.require('electron');
-        const listener = (event, action) => {
-          if (action === 'save') handleSave();
-          else if (action === 'export-card') handleExportCard();
-          else if (action === 'export-all') handleExportAllImages();
-        };
-        ipcRenderer.on('menu-action', listener);
-        return () => ipcRenderer.removeListener('menu-action', listener);
-      } catch (err) {
-        // Not running directly under electron node integration
-      }
-    }
-  }, [cards, activeCard]);
+
 
   const handleExportCard = async () => {
     if (!activeCard) return;
@@ -636,6 +619,28 @@ function App() {
     setActiveCard(newCard);
   };
 
+  // Electron native menu IPC listener
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.require) {
+      try {
+        const { ipcRenderer } = window.require('electron');
+        const listener = (event, action) => {
+          if (action === 'save') handleSave();
+          else if (action === 'export-card') handleExportCard();
+          else if (action === 'export-all') handleExportAllImages();
+          else if (action === 'new-card') handleAddCard();
+          else if (action === 'copy-card') handleCopyCard();
+          else if (action === 'paste-card') handlePasteCard();
+          else if (action === 'delete-card') handleDeleteCard();
+        };
+        ipcRenderer.on('menu-action', listener);
+        return () => ipcRenderer.removeListener('menu-action', listener);
+      } catch (err) {
+        // Not running directly under electron node integration
+      }
+    }
+  }, [cards, activeCard, copiedCard]);
+
   const filteredCards = cards.filter(c => {
     if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
@@ -699,76 +704,7 @@ function App() {
   return (
     <div className="mse-container" onClick={() => {
       setContextMenu(prev => ({ ...prev, visible: false }));
-      setActiveMenu(null);
     }}>
-      {/* Menu Bar */}
-      <div className="app-menubar" onClick={e => e.stopPropagation()}>
-        <div className="menu-item-root">
-          <button 
-            className={`menu-btn-root ${activeMenu === 'file' ? 'active' : ''}`}
-            onClick={() => setActiveMenu(activeMenu === 'file' ? null : 'file')}
-          >
-            File
-          </button>
-          {activeMenu === 'file' && (
-            <div className="menu-dropdown">
-              <div 
-                className="menu-dropdown-item" 
-                onClick={() => { handleSave(); setActiveMenu(null); }}
-              >
-                <span>Save</span>
-                <span style={{ color: '#888', marginLeft: '20px' }}>Ctrl+S</span>
-              </div>
-              <div className="menu-dropdown-item menu-has-submenu">
-                <span>Export ▸</span>
-                <div className="menu-subdropdown">
-                  <div 
-                    className="menu-dropdown-item" 
-                    onClick={() => { handleExportCard(); setActiveMenu(null); }}
-                  >
-                    Export Current Card...
-                  </div>
-                  <div 
-                    className="menu-dropdown-item" 
-                    onClick={() => { handleExportAllImages(); setActiveMenu(null); }}
-                  >
-                    <span>Export all...</span>
-                    <span style={{ color: '#888', marginLeft: '15px' }}>Ctrl+Shift+E</span>
-                  </div>
-                </div>
-              </div>
-              <div className="menu-dropdown-divider"></div>
-              <div 
-                className="menu-dropdown-item" 
-                onClick={() => {
-                  if (window.confirm('Close application?')) window.close();
-                  setActiveMenu(null);
-                }}
-              >
-                Exit
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="menu-item-root">
-          <button 
-            className={`menu-btn-root ${activeMenu === 'cards' ? 'active' : ''}`}
-            onClick={() => setActiveMenu(activeMenu === 'cards' ? null : 'cards')}
-          >
-            Cards
-          </button>
-          {activeMenu === 'cards' && (
-            <div className="menu-dropdown">
-              <div className="menu-dropdown-item" onClick={() => { handleAddCard(); setActiveMenu(null); }}>New Card</div>
-              <div className="menu-dropdown-item" onClick={() => { handleCopyCard(); setActiveMenu(null); }}>Copy Card</div>
-              <div className="menu-dropdown-item" onClick={() => { handlePasteCard(); setActiveMenu(null); }}>Paste Card</div>
-              <div className="menu-dropdown-divider"></div>
-              <div className="menu-dropdown-item" onClick={() => { handleDeleteCard(); setActiveMenu(null); }} style={{ color: '#d9534f' }}>Delete Card</div>
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Toolbar */}
       <div className="toolbar">
         <div className="toolbar-section">

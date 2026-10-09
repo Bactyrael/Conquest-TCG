@@ -44,7 +44,31 @@ function createWindow() {
         { role: 'cut' }, { role: 'copy' }, { role: 'paste' }
       ]
     },
-    { label: 'Cards', submenu: [{ label: 'New Card' }] },
+    { 
+      label: 'Cards', 
+      submenu: [
+        { 
+          label: 'New Card', 
+          accelerator: 'CmdOrCtrl+N',
+          click: () => { win.webContents.send('menu-action', 'new-card'); }
+        },
+        { 
+          label: 'Copy Card', 
+          accelerator: 'CmdOrCtrl+C',
+          click: () => { win.webContents.send('menu-action', 'copy-card'); }
+        },
+        { 
+          label: 'Paste Card', 
+          accelerator: 'CmdOrCtrl+V',
+          click: () => { win.webContents.send('menu-action', 'paste-card'); }
+        },
+        { type: 'separator' },
+        { 
+          label: 'Delete Card', 
+          click: () => { win.webContents.send('menu-action', 'delete-card'); }
+        }
+      ] 
+    },
     { label: 'Format', submenu: [{ label: 'Style...' }] },
     { 
       label: 'Text', 
