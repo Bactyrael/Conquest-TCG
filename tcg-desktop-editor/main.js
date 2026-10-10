@@ -10,9 +10,14 @@ try {
 }
 
 function createWindow() {
+  const iconPath = process.platform === 'win32'
+    ? path.join(__dirname, 'build', 'icon.ico')
+    : path.join(__dirname, 'build', 'icon.png');
+
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
+    icon: iconPath,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

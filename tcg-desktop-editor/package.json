@@ -18,6 +18,7 @@
       "output": "dist_electron"
     },
     "win": {
+      "icon": "build/icon.ico",
       "target": [
         "nsis"
       ]
