@@ -405,6 +405,12 @@ function App() {
   const [copiedCard, setCopiedCard] = useState(null);
   const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
 
+  // Deck Builder State
+  const [deck, setDeck] = useState([]);
+  const [deckName, setDeckName] = useState('New Deck');
+  const [savedDecks, setSavedDecks] = useState({});
+  const [isDeckBuilderOpen, setIsDeckBuilderOpen] = useState(true);
+
   React.useEffect(() => {
     let isMounted = true;
 
@@ -428,6 +434,22 @@ function App() {
         }
       } catch (err) {
         console.warn("Could not load images list immediately.", err);
+      }
+
+      try {
+        const resDecks = await fetch('http://localhost:3002/api/decks', { cache: 'no-store' });
+        const dataDecks = await resDecks.json();
+        if (isMounted && dataDecks.success && dataDecks.decks) {
+          setSavedDecks(dataDecks.decks);
+          const deckKeys = Object.keys(dataDecks.decks);
+          if (deckKeys.length > 0 && deck.length === 0) {
+            const firstDeckName = deckKeys[0];
+            setDeckName(firstDeckName);
+            setDeck(dataDecks.decks[firstDeckName]);
+          }
+        }
+      } catch (err) {
+        console.warn("Could not load saved decks.", err);
       }
     };
 
@@ -501,6 +523,127 @@ function App() {
       console.error(e);
       setNotification('Failed to save');
       setTimeout(() => setNotification(''), 3000);
+    }
+  };
+
+  // Deck Builder Helper Actions
+  const handleAddToDeck = (card) => {
+    if (!card) return;
+    if (deck.length >= 61) {
+      setNotification('Deck full (61 cards max)');
+      setTimeout(() => setNotification(''), 3000);
+      return;
+    }
+    if (card.type === 'Hero') {
+      const heroCount = deck.filter(c => c.type === 'Hero').length;
+      if (heroCount >= 1) {
+        setNotification('Max 1 Hero card per deck');
+        setTimeout(() => setNotification(''), 3000);
+        return;
+      }
+    } else {
+      const isCommonResource = card.type === 'Resource' && (card.rarity || 'common').toLowerCase() === 'common';
+      if (!isCommonResource) {
+        const copyCount = deck.filter(c => c.name === card.name).length;
+        if (copyCount >= 4) {
+          setNotification(`Max 4 copies of ${card.name}`);
+          setTimeout(() => setNotification(''), 3000);
+          return;
+        }
+      }
+    }
+    setDeck(prev => [...prev, card]);
+    setNotification(`Added ${card.name} to deck`);
+    setTimeout(() => setNotification(''), 2000);
+  };
+
+  const handleRemoveFromDeck = (cardName, removeAll = false) => {
+    setDeck(prev => {
+      if (removeAll) {
+        return prev.filter(c => c.name !== cardName);
+      }
+      const idx = prev.findIndex(c => c.name === cardName);
+      if (idx === -1) return prev;
+      const copy = [...prev];
+      copy.splice(idx, 1);
+      return copy;
+    });
+  };
+
+  const handleSaveDeck = async () => {
+    const trimmed = (deckName || '').trim();
+    if (!trimmed) {
+      alert('Please enter a name for the deck.');
+      return;
+    }
+    try {
+      const res = await fetch('http://localhost:3002/api/decks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: trimmed, cards: deck })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSavedDecks(data.decks);
+        setNotification(`Deck "${trimmed}" saved!`);
+        setTimeout(() => setNotification(''), 3000);
+      } else {
+        alert(data.error || 'Failed to save deck');
+      }
+    } catch (e) {
+      console.error(e);
+      alert('Failed to connect to backend to save deck.');
+    }
+  };
+
+  const handleLoadDeck = (name) => {
+    if (!name || !savedDecks[name]) return;
+    setDeckName(name);
+    setDeck(savedDecks[name]);
+    setNotification(`Loaded deck "${name}"`);
+    setTimeout(() => setNotification(''), 2500);
+  };
+
+  const handleNewDeck = () => {
+    let base = 'New Deck';
+    let counter = 1;
+    let name = base;
+    while (savedDecks[name]) {
+      name = `${base} ${counter++}`;
+    }
+    setDeckName(name);
+    setDeck([]);
+    setNotification('Started new empty deck');
+    setTimeout(() => setNotification(''), 2000);
+  };
+
+  const handleDeleteDeck = async () => {
+    if (!savedDecks[deckName]) {
+      setDeck([]);
+      return;
+    }
+    if (!window.confirm(`Are you sure you want to delete deck "${deckName}"?`)) return;
+    try {
+      const res = await fetch(`http://localhost:3002/api/decks/${encodeURIComponent(deckName)}`, {
+        method: 'DELETE'
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSavedDecks(data.decks);
+        const remainingKeys = Object.keys(data.decks);
+        if (remainingKeys.length > 0) {
+          setDeckName(remainingKeys[0]);
+          setDeck(data.decks[remainingKeys[0]]);
+        } else {
+          setDeckName('New Deck');
+          setDeck([]);
+        }
+        setNotification('Deck deleted');
+        setTimeout(() => setNotification(''), 2500);
+      }
+    } catch (e) {
+      console.error(e);
+      alert('Failed to delete deck');
     }
   };
 
@@ -875,6 +1018,35 @@ function App() {
             onChange={e => setSearchTerm(e.target.value)}
           />
         </div>
+        <div className="toolbar-section" style={{ marginLeft: 'auto' }}>
+          <button 
+            className="tool-btn" 
+            onClick={() => setIsDeckBuilderOpen(!isDeckBuilderOpen)}
+            style={{ 
+              backgroundColor: isDeckBuilderOpen ? '#dfe6e9' : 'transparent',
+              borderColor: isDeckBuilderOpen ? '#b2bec3' : 'transparent',
+              fontWeight: 600,
+              fontSize: '12px',
+              padding: '2px 8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+            title="Toggle Deck Builder Column (Right)"
+          >
+            <span>🃏</span>
+            <span>Deck Builder</span>
+            <span style={{ 
+              fontSize: '10px', 
+              background: deck.length === 61 ? '#27ae60' : (deck.length > 61 ? '#e74c3c' : '#7f8c8d'),
+              color: '#fff',
+              padding: '1px 5px',
+              borderRadius: '8px'
+            }}>
+              {deck.length}
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Main Content Split */}
@@ -1200,12 +1372,14 @@ function App() {
                     key={c.id || i} 
                     className={activeCard && activeCard.id === c.id ? 'selected' : ''}
                     onClick={() => setActiveCard(c)}
+                    onDoubleClick={() => handleAddToDeck(c)}
+                    title="Click to view/edit, Double-click to add to deck"
                     onContextMenu={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
                       setActiveCard(c);
-                      const menuHeight = 180;
-                      const menuWidth = 160;
+                      const menuHeight = 210;
+                      const menuWidth = 170;
                       const x = e.pageX + menuWidth > window.innerWidth ? window.innerWidth - menuWidth - 10 : e.pageX;
                       const y = e.pageY + menuHeight > window.innerHeight ? window.innerHeight - menuHeight - 10 : e.pageY;
                       setContextMenu({ visible: true, x, y });
@@ -1224,6 +1398,135 @@ function App() {
               </tbody>
           </table>
         </div>
+
+        {/* Third Column: Deck Builder Pane */}
+        {isDeckBuilderOpen && (
+          <div className="deck-builder-pane">
+            <div className="deck-builder-header">
+              <div className="deck-builder-title-row">
+                <span className="deck-builder-title">
+                  <span>🃏</span> Deck Builder
+                </span>
+                <span className={`deck-count-badge ${deck.length === 61 ? 'valid' : (deck.length > 61 ? 'over' : '')}`}>
+                  {deck.length} / 61
+                </span>
+              </div>
+              <div className="deck-builder-controls">
+                <input 
+                  type="text" 
+                  className="deck-name-input" 
+                  value={deckName} 
+                  onChange={e => setDeckName(e.target.value)} 
+                  placeholder="Deck Name"
+                />
+                {Object.keys(savedDecks).length > 0 && (
+                  <select 
+                    className="deck-select-dropdown" 
+                    onChange={e => { if (e.target.value) handleLoadDeck(e.target.value); }}
+                    value=""
+                  >
+                    <option value="" disabled>Load...</option>
+                    {Object.keys(savedDecks).map(name => (
+                      <option key={name} value={name}>{name}</option>
+                    ))}
+                  </select>
+                )}
+              </div>
+              <div className="deck-builder-btn-row">
+                <button className="deck-action-btn primary" onClick={handleSaveDeck} title="Save deck to database">
+                  💾 Save
+                </button>
+                <button className="deck-action-btn" onClick={handleNewDeck} title="Start a fresh empty deck">
+                  📄 New
+                </button>
+                {savedDecks[deckName] && (
+                  <button className="deck-action-btn danger" onClick={handleDeleteDeck} title="Delete saved deck">
+                    🗑️ Delete
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="deck-card-list">
+              {deck.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '30px 10px', color: '#888', fontSize: '12px' }}>
+                  <div style={{ fontSize: '28px', marginBottom: '8px' }}>🗃️</div>
+                  Deck is empty.<br/>
+                  Double-click any card in the list or right-click &gt; <b>Add to Deck</b>.
+                </div>
+              ) : (
+                Object.values(deck.reduce((acc, card) => {
+                  if (!acc[card.name]) {
+                    acc[card.name] = { card, count: 0 };
+                  }
+                  acc[card.name].count++;
+                  return acc;
+                }, {}))
+                .sort((a, b) => {
+                  // Heroes first
+                  if (a.card.type === 'Hero' && b.card.type !== 'Hero') return -1;
+                  if (b.card.type === 'Hero' && a.card.type !== 'Hero') return 1;
+                  return a.card.name.localeCompare(b.card.name);
+                })
+                .map(({ card, count }) => (
+                  <div 
+                    key={card.name} 
+                    className={`deck-card-item ${card.type === 'Hero' ? 'hero-item' : ''}`}
+                    onClick={() => {
+                      const fullCard = cards.find(c => c.name === card.name);
+                      if (fullCard) setActiveCard(fullCard);
+                    }}
+                    title={`Click to preview "${card.name}"`}
+                  >
+                    <div className="deck-card-left">
+                      <span className="deck-card-count">{count}x</span>
+                      <span className="deck-card-name">{card.name}</span>
+                      {card.type === 'Hero' && <span className="deck-card-tag" style={{ background: '#fef3c7', color: '#b45309' }}>Hero</span>}
+                    </div>
+                    <div className="deck-card-controls" onClick={e => e.stopPropagation()}>
+                      <button 
+                        className="deck-card-btn" 
+                        onClick={() => handleRemoveFromDeck(card.name)} 
+                        title="Remove one"
+                      >
+                        -
+                      </button>
+                      <button 
+                        className="deck-card-btn" 
+                        onClick={() => handleAddToDeck(card)} 
+                        title="Add another copy"
+                      >
+                        +
+                      </button>
+                      <button 
+                        className="deck-card-btn remove-full" 
+                        onClick={() => handleRemoveFromDeck(card.name, true)} 
+                        title="Remove all copies"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+
+            <div className="deck-builder-footer">
+              <span className="deck-rule-hint">
+                {deck.filter(c => c.type === 'Hero').length === 0 ? '⚠️ Needs 1 Hero' : '✓ 1 Hero'}
+                {' • '}
+                {deck.length}/61 cards
+              </span>
+              <button 
+                onClick={() => setDeck([])} 
+                style={{ background: 'transparent', border: 'none', color: '#888', cursor: 'pointer', fontSize: '11px' }}
+                title="Clear current deck"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Status Bar */}
@@ -1255,6 +1558,10 @@ function App() {
       {/* Context Menu */}
       {contextMenu.visible && (
         <div className="context-menu" style={{ top: contextMenu.y, left: contextMenu.x }}>
+          <div className={`context-menu-item ${!activeCard ? 'disabled' : ''}`} onClick={() => handleAddToDeck(activeCard)}>
+            ➕ Add to Deck
+          </div>
+          <div className="context-menu-divider"></div>
           <div className={`context-menu-item ${!activeCard ? 'disabled' : ''}`} onClick={handleCopyCard}>Copy Card</div>
           <div className={`context-menu-item ${!copiedCard ? 'disabled' : ''}`} onClick={handlePasteCard}>Paste Card</div>
           <div className="context-menu-divider"></div>

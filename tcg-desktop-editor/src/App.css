@@ -637,3 +637,252 @@ body {
 
 .tertiary-placeholder { opacity: 0; transition: opacity 0.2s; }
 .card-type:hover .tertiary-placeholder { opacity: 0.5; }
+
+/* Deck Builder Third Column Pane */
+.deck-builder-pane {
+  width: 320px;
+  min-width: 280px;
+  max-width: 400px;
+  background-color: #f7f7f8;
+  border-left: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.04);
+}
+
+.deck-builder-header {
+  padding: 8px 12px;
+  background-color: #ececec;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.deck-builder-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deck-builder-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.deck-count-badge {
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #ddd;
+  color: #444;
+}
+
+.deck-count-badge.valid {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.deck-count-badge.over {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.deck-builder-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.deck-name-input {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+}
+
+.deck-name-input:focus {
+  border-color: #3498db;
+}
+
+.deck-select-dropdown {
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 11px;
+  background: #fff;
+  cursor: pointer;
+  max-width: 110px;
+}
+
+.deck-builder-btn-row {
+  display: flex;
+  gap: 6px;
+}
+
+.deck-action-btn {
+  flex: 1;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.15s;
+}
+
+.deck-action-btn:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.deck-action-btn.primary {
+  background: #27ae60;
+  color: #fff;
+  border-color: #219653;
+}
+
+.deck-action-btn.primary:hover {
+  background: #219653;
+}
+
+.deck-action-btn.danger {
+  color: #c0392b;
+}
+
+.deck-action-btn.danger:hover {
+  background: #fee;
+  border-color: #c0392b;
+}
+
+.deck-card-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.deck-card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+
+.deck-card-item:hover {
+  background-color: #f1f8ff;
+  border-color: #b3d7ff;
+}
+
+.deck-card-item.hero-item {
+  border-left: 3px solid #f1c40f;
+  background-color: #fffdf5;
+}
+
+.deck-card-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.deck-card-count {
+  font-weight: bold;
+  min-width: 18px;
+  text-align: center;
+  color: #2980b9;
+}
+
+.deck-card-name {
+  font-weight: 500;
+  color: #222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deck-card-tag {
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  background: #eee;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.deck-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.deck-card-btn {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+  padding: 0;
+  line-height: 1;
+}
+
+.deck-card-btn:hover {
+  background: #eee;
+  color: #111;
+  border-color: #999;
+}
+
+.deck-card-btn.remove-full {
+  color: #e74c3c;
+  margin-left: 3px;
+}
+
+.deck-card-btn.remove-full:hover {
+  background: #fee;
+  border-color: #e74c3c;
+}
+
+.deck-builder-footer {
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-top: 1px solid #ccc;
+  font-size: 11px;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deck-rule-hint {
+  font-size: 10px;
+  color: #777;
+  font-style: italic;
+}
+

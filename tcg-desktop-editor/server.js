@@ -61,6 +61,67 @@ app.post('/api/save-cards', (req, res) => {
   }
 });
 
+const decksPath = path.resolve(__dirname, '..', 'src', 'data', 'decks.json');
+
+app.get('/api/decks', (req, res) => {
+  try {
+    if (!fs.existsSync(decksPath)) {
+      return res.json({ success: true, decks: {} });
+    }
+    const data = fs.readFileSync(decksPath, 'utf8');
+    const decks = JSON.parse(data);
+    res.json({ success: true, decks });
+  } catch (error) {
+    console.error('Failed to read decks:', error);
+    res.status(500).json({ error: 'Failed to read decks' });
+  }
+});
+
+app.post('/api/decks', (req, res) => {
+  try {
+    const { name, cards } = req.body;
+    if (!name || !Array.isArray(cards)) {
+      return res.status(400).json({ error: 'Expected deck name and cards array' });
+    }
+    let decks = {};
+    if (fs.existsSync(decksPath)) {
+      try {
+        decks = JSON.parse(fs.readFileSync(decksPath, 'utf8'));
+      } catch (e) {
+        decks = {};
+      }
+    }
+    decks[name] = cards;
+    fs.writeFileSync(decksPath, JSON.stringify(decks, null, 2), 'utf8');
+    res.json({ success: true, message: 'Deck saved successfully', decks });
+  } catch (error) {
+    console.error('Failed to save deck:', error);
+    res.status(500).json({ error: 'Failed to save deck' });
+  }
+});
+
+app.delete('/api/decks/:name', (req, res) => {
+  try {
+    const name = decodeURIComponent(req.params.name);
+    let decks = {};
+    if (fs.existsSync(decksPath)) {
+      try {
+        decks = JSON.parse(fs.readFileSync(decksPath, 'utf8'));
+      } catch (e) {
+        decks = {};
+      }
+    }
+    if (decks[name]) {
+      delete decks[name];
+      fs.writeFileSync(decksPath, JSON.stringify(decks, null, 2), 'utf8');
+    }
+    res.json({ success: true, message: 'Deck deleted successfully', decks });
+  } catch (error) {
+    console.error('Failed to delete deck:', error);
+    res.status(500).json({ error: 'Failed to delete deck' });
+  }
+});
+
 // Endpoint to generate & download all card images in a single zip
 app.get('/api/export-all-images', (req, res) => {
   try {
