@@ -653,13 +653,43 @@ body {
 .tertiary-placeholder { opacity: 0; transition: opacity 0.2s; }
 .card-type:hover .tertiary-placeholder { opacity: 0.5; }
 
+/* Pane Splitter between Column List and Deck Builder */
+.pane-splitter {
+  width: 7px;
+  background-color: #e0e0e0;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+  user-select: none;
+  flex-shrink: 0;
+  z-index: 20;
+}
+
+.pane-splitter:hover,
+.pane-splitter:active {
+  background-color: #3498db;
+  border-color: #2980b9;
+}
+
+.pane-splitter-handle {
+  width: 2px;
+  height: 24px;
+  background-color: #999;
+  border-radius: 1px;
+}
+
+.pane-splitter:hover .pane-splitter-handle,
+.pane-splitter:active .pane-splitter-handle {
+  background-color: #fff;
+}
+
 /* Deck Builder Third Column Pane */
 .deck-builder-pane {
-  width: 280px;
-  min-width: 260px;
-  max-width: 320px;
   background-color: #f7f7f8;
-  border-left: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   overflow: hidden;

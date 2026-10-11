@@ -409,6 +409,11 @@ function App() {
   const [deckName, setDeckName] = useState('New Deck');
   const [savedDecks, setSavedDecks] = useState({});
   const [isDeckBuilderOpen, setIsDeckBuilderOpen] = useState(true);
+  const [deckBuilderWidth, setDeckBuilderWidth] = useState(() => {
+    const saved = localStorage.getItem('deckBuilderWidth');
+    return saved ? parseInt(saved, 10) : 280;
+  });
+  const isDraggingSplitterRef = useRef(false);
 
   const toggleDeckBuilder = (desiredState) => {
     const nextState = desiredState !== undefined ? desiredState : !isDeckBuilderOpen;
@@ -419,6 +424,36 @@ function App() {
         ipcRenderer.send('toggle-deck-builder-size', nextState);
       } catch (e) {}
     }
+  };
+
+  const handleSplitterMouseDown = (e) => {
+    e.preventDefault();
+    isDraggingSplitterRef.current = true;
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+
+    const handleMouseMove = (moveEvent) => {
+      if (!isDraggingSplitterRef.current) return;
+      const newWidth = window.innerWidth - moveEvent.clientX;
+      if (newWidth >= 200 && newWidth <= 600) {
+        setDeckBuilderWidth(newWidth);
+      }
+    };
+
+    const handleMouseUp = () => {
+      isDraggingSplitterRef.current = false;
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      setDeckBuilderWidth(current => {
+        localStorage.setItem('deckBuilderWidth', current.toString());
+        return current;
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
   };
 
   React.useEffect(() => {
@@ -1411,9 +1446,20 @@ function App() {
           </table>
         </div>
 
+        {/* Draggable Divider Splitter between Column List and Deck Builder */}
+        {isDeckBuilderOpen && (
+          <div 
+            className="pane-splitter"
+            onMouseDown={handleSplitterMouseDown}
+            title="Drag left or right to resize columns"
+          >
+            <div className="pane-splitter-handle" />
+          </div>
+        )}
+
         {/* Third Column: Deck Builder Pane */}
         {isDeckBuilderOpen && (
-          <div className="deck-builder-pane">
+          <div className="deck-builder-pane" style={{ width: `${deckBuilderWidth}px`, minWidth: `${deckBuilderWidth}px` }}>
             <div className="deck-builder-header">
               <div className="deck-builder-title-row">
                 <span className="deck-builder-title">
