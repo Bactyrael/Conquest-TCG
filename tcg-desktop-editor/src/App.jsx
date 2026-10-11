@@ -405,11 +405,21 @@ function App() {
   const [copiedCard, setCopiedCard] = useState(null);
   const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
 
-  // Deck Builder State
   const [deck, setDeck] = useState([]);
   const [deckName, setDeckName] = useState('New Deck');
   const [savedDecks, setSavedDecks] = useState({});
   const [isDeckBuilderOpen, setIsDeckBuilderOpen] = useState(true);
+
+  const toggleDeckBuilder = (desiredState) => {
+    const nextState = desiredState !== undefined ? desiredState : !isDeckBuilderOpen;
+    setIsDeckBuilderOpen(nextState);
+    if (typeof window !== 'undefined' && window.require) {
+      try {
+        const { ipcRenderer } = window.require('electron');
+        ipcRenderer.send('toggle-deck-builder-size', nextState);
+      } catch (e) {}
+    }
+  };
 
   React.useEffect(() => {
     let isMounted = true;
@@ -1021,7 +1031,7 @@ function App() {
         <div className="toolbar-section" style={{ marginLeft: 'auto' }}>
           <button 
             className="tool-btn" 
-            onClick={() => setIsDeckBuilderOpen(!isDeckBuilderOpen)}
+            onClick={() => toggleDeckBuilder()}
             style={{ 
               backgroundColor: isDeckBuilderOpen ? '#dfe6e9' : 'transparent',
               borderColor: isDeckBuilderOpen ? '#b2bec3' : 'transparent',

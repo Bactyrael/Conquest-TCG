@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, screen } = require('electron');
 const path = require('path');
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -8,6 +8,32 @@ try {
 } catch (e) {
   // Server might already be running
 }
+
+ipcMain.on('toggle-deck-builder-size', (event, isOpen) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (!win) return;
+  const isMaximized = win.isMaximized();
+  if (isMaximized) return; // If already maximized, window uses full screen
+
+  const [currentWidth, currentHeight] = win.getSize();
+  const [currentX, currentY] = win.getPosition();
+  const delta = 300;
+  const display = screen.getDisplayMatching(win.getBounds());
+  const maxAvailableWidth = display.workArea.width;
+
+  if (isOpen) {
+    const newWidth = Math.min(currentWidth + delta, maxAvailableWidth);
+    // If expanding pushes window off-screen on the right, shift it left
+    let newX = currentX;
+    if (newX + newWidth > display.workArea.x + maxAvailableWidth) {
+      newX = Math.max(display.workArea.x, display.workArea.x + maxAvailableWidth - newWidth);
+    }
+    win.setBounds({ x: newX, y: currentY, width: newWidth, height: currentHeight });
+  } else {
+    const newWidth = Math.max(currentWidth - delta, 1050);
+    win.setSize(newWidth, currentHeight);
+  }
+});
 
 function createWindow() {
   const iconPath = process.platform === 'win32'
