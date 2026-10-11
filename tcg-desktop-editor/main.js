@@ -99,10 +99,28 @@ function createWindow() {
   ];
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
+  const distPath = path.join(__dirname, 'dist', 'index.html');
   if (isDev) {
-    win.loadURL('http://localhost:5173');
+    // Check if the Vite dev server is actually running; otherwise fall back to built dist/index.html
+    const http = require('http');
+    const req = http.get('http://localhost:5173', (res) => {
+      win.loadURL('http://localhost:5173');
+    });
+    req.on('error', () => {
+      if (require('fs').existsSync(distPath)) {
+        win.loadFile(distPath);
+      } else {
+        win.loadURL('http://localhost:5173');
+      }
+    });
+    req.setTimeout(800, () => {
+      req.abort();
+      if (require('fs').existsSync(distPath)) {
+        win.loadFile(distPath);
+      }
+    });
   } else {
-    win.loadFile(path.join(__dirname, 'dist/index.html'));
+    win.loadFile(distPath);
   }
 }
 
