@@ -1360,10 +1360,10 @@ function App() {
             <thead>
               <tr>
                 <th onClick={() => handleSort('name')} style={{cursor: 'pointer', userSelect: 'none'}}>Name{renderSortArrow('name')}</th>
-                <th onClick={() => handleSort('cost')} style={{cursor: 'pointer', userSelect: 'none'}}>Resource Cost{renderSortArrow('cost')}</th>
+                <th onClick={() => handleSort('cost')} style={{cursor: 'pointer', userSelect: 'none', width: '85px', textAlign: 'center'}}>Cost{renderSortArrow('cost')}</th>
                 <th onClick={() => handleSort('type')} style={{cursor: 'pointer', userSelect: 'none'}}>Type{renderSortArrow('type')}</th>
-                <th onClick={() => handleSort('rarity')} style={{cursor: 'pointer', userSelect: 'none'}}>Rarity{renderSortArrow('rarity')}</th>
-                <th onClick={() => handleSort('id')} style={{cursor: 'pointer', userSelect: 'none'}}>#{renderSortArrow('id')}</th>
+                <th onClick={() => handleSort('rarity')} style={{cursor: 'pointer', userSelect: 'none', width: '85px', textAlign: 'center'}}>Rarity{renderSortArrow('rarity')}</th>
+                <th onClick={() => handleSort('id')} style={{cursor: 'pointer', userSelect: 'none', width: '45px', textAlign: 'center'}}>#{renderSortArrow('id')}</th>
               </tr>
             </thead>
               <tbody>
@@ -1385,14 +1385,16 @@ function App() {
                       setContextMenu({ visible: true, x, y });
                     }}
                   >
-                    <td>{c.name}</td>
-                    <td>{c.cost}</td>
+                    <td style={{ fontWeight: 500 }}>{c.name}</td>
+                    <td style={{ textAlign: 'center' }}>{c.cost}</td>
                     <td>{c.type} {c.subtype ? `— ${c.subtype}` : ''} {c.tertiaryType ? `- ${c.tertiaryType}` : ''}</td>
-                    <td className={`rarity-${(c.rarity || 'common').toLowerCase()}`} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <img src={`/icons/rarity-${(c.rarity || 'common').toLowerCase()}.svg`} style={{ width: '12px', height: '12px' }} />
-                      {c.rarity || 'Common'}
+                    <td className={`rarity-${(c.rarity || 'common').toLowerCase()}`} style={{ textAlign: 'center' }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        <img src={`/icons/rarity-${(c.rarity || 'common').toLowerCase()}.svg`} style={{ width: '11px', height: '11px' }} />
+                        {c.rarity || 'Common'}
+                      </span>
                     </td>
-                    <td>{c.id}</td>
+                    <td style={{ textAlign: 'center', color: '#888' }}>{c.id}</td>
                   </tr>
                 ))}
               </tbody>
