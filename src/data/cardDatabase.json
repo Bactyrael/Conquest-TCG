@@ -1998,7 +1998,7 @@
     "id": "088",
     "name": "No Dice",
     "type": "Reaction",
-    "imageUrl": "/cards/generated/no_dice.jpg",
+    "imageUrl": "/cards/templates/088.jpg",
     "rawText": "a OY\nK) 1 N\n> ;\nReaction - Ability\nA target roll with advantage now has\ndisadvantage instead. (The lower of the\ntwo rolls must be used.)\n“The only truth about luck is that it\ndances like a fickle breeze, forever\nchanging its course.”\n\nPlace Holder Art #\n| 9 4\n",
     "requirements": {
       "str": 0,
@@ -2013,7 +2013,8 @@
     "subtype": "Ability",
     "rarity": "Rare",
     "originalArtFile": "No Dice.jpg",
-    "cost": "2 Stamina"
+    "cost": "2 Stamina",
+    "artY": 19
   },
   {
     "id": "089",
@@ -2102,7 +2103,7 @@
     "rarity": "Magic",
     "originalArtFile": "Heroism.jpg",
     "cost": "5 Mana",
-    "artY": 100,
+    "artY": 0,
     "tertiaryType": "Buff",
     "artX": 50,
     "artZoom": 100
@@ -3251,7 +3252,7 @@
     "cost": "3 Generic",
     "damage": "",
     "rulesText": "You gain Advantage on Contests that have a [Mana] cost.",
-    "flavorText": "Within its depths, countless possibilities drift like stars upon a midnight sea. Those who learn to read their paths are rarely caught by surprise.",
+    "flavorText": "Within its depths, countless possibilities drift like stars upon a midnight sea.",
     "notes": "Redo artwork",
     "artY": 63
   },
@@ -3270,7 +3271,7 @@
       "luc": 0
     },
     "rulesText": "Reduce incoming damage by 1d4 plus your Dexterity. If you reduce the damage to 0, deal the reduced amount back to the source.",
-    "flavorText": "",
+    "flavorText": "Meet force with stillness, and let it undo itself. - Fei Soung",
     "subtype": "Ability",
     "rarity": "Common",
     "originalArtFile": "Riposte.jpg",
