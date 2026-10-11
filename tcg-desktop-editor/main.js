@@ -100,28 +100,27 @@ function createWindow() {
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
   const distPath = path.join(__dirname, 'dist', 'index.html');
-  if (isDev) {
-    // Check if the Vite dev server is actually running; otherwise fall back to built dist/index.html
-    const http = require('http');
-    const req = http.get('http://localhost:5173', (res) => {
-      win.loadURL('http://localhost:5173');
-    });
-    req.on('error', () => {
-      if (require('fs').existsSync(distPath)) {
-        win.loadFile(distPath);
-      } else {
-        win.loadURL('http://localhost:5173');
-      }
-    });
-    req.setTimeout(800, () => {
-      req.abort();
+  // First check if Vite dev server is running on 5173 (for live development)
+  const http = require('http');
+  const req = http.get('http://localhost:5173', (res) => {
+    win.loadURL('http://localhost:5173');
+  });
+  req.on('error', () => {
+    // If Vite dev server is not running, load the Express web server on 3002 or fallback to dist file
+    win.loadURL('http://localhost:3002').catch(() => {
       if (require('fs').existsSync(distPath)) {
         win.loadFile(distPath);
       }
     });
-  } else {
-    win.loadFile(distPath);
-  }
+  });
+  req.setTimeout(500, () => {
+    req.abort();
+    win.loadURL('http://localhost:3002').catch(() => {
+      if (require('fs').existsSync(distPath)) {
+        win.loadFile(distPath);
+      }
+    });
+  });
 }
 
 app.whenReady().then(createWindow);

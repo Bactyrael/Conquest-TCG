@@ -10,8 +10,12 @@ app.use(express.json({ limit: '50mb' }));
 const dbPath = path.resolve(__dirname, '..', 'src', 'data', 'cardDatabase.json');
 const imagesDir = path.resolve(__dirname, '..', 'public', 'cards', 'generated');
 
+// Serve static icons & public assets from editor public directory
+app.use(express.static(path.resolve(__dirname, 'public')));
 // Serve static images directly from the backend
 app.use('/cards/generated', express.static(imagesDir));
+// Serve built frontend assets
+app.use(express.static(path.resolve(__dirname, 'dist')));
 
 app.get('/api/images', (req, res) => {
   try {
