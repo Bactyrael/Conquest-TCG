@@ -1419,18 +1419,17 @@ function App() {
                   onChange={e => setDeckName(e.target.value)} 
                   placeholder="Deck Name"
                 />
-                {Object.keys(savedDecks).length > 0 && (
-                  <select 
-                    className="deck-select-dropdown" 
-                    onChange={e => { if (e.target.value) handleLoadDeck(e.target.value); }}
-                    value=""
-                  >
-                    <option value="" disabled>Load...</option>
-                    {Object.keys(savedDecks).map(name => (
-                      <option key={name} value={name}>{name}</option>
-                    ))}
-                  </select>
-                )}
+                <select 
+                  className="deck-select-dropdown" 
+                  onChange={e => { if (e.target.value) handleLoadDeck(e.target.value); }}
+                  value={savedDecks[deckName] ? deckName : ""}
+                  title="Choose a saved deck to load"
+                >
+                  <option value="" disabled>📂 Load Deck ({Object.keys(savedDecks).length})...</option>
+                  {Object.keys(savedDecks).map(name => (
+                    <option key={name} value={name}>{name}</option>
+                  ))}
+                </select>
               </div>
               <div className="deck-builder-btn-row">
                 <button className="deck-action-btn primary" onClick={handleSaveDeck} title="Save deck to database">

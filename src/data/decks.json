@@ -1,0 +1,2590 @@
+{
+  "Stug STR": [
+    {
+      "id": "109",
+      "name": "Stug",
+      "type": "Hero",
+      "imageUrl": "/cards/templates/109.jpg",
+      "rawText": "r BN TY\n‘= I\niy Q \\\ni Ne p 0%\nRS od LT\niy \\$ » Vi pA” 3\nRie oe\nLT SOT NG CR \\\nI Ree afte\nck: 1d8 + Str (Blunt) p72\nge — Until the beginning of your\n, your attacks deal +2 damage. If\nu haveladvantage, it instead deals +4\n) ] => io]\n\\ : § - Ly\nNhile enraged, attacker's have | ©\ndvantage against you = V\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Your Attacks deal +2 damage. This bonus is doubled while you have Advantage.",
+      "rarity": "Legendary",
+      "subtype": "Berserker",
+      "originalArtFile": "Barbarian Set.jpg",
+      "cost": "0",
+      "damage": "1d8 + Str (Slashing)",
+      "notes": "",
+      "artY": 79
+    },
+    {
+      "id": "001",
+      "name": "Duel",
+      "type": "Action",
+      "imageUrl": "/cards/templates/001.jpg",
+      "rawText": "a OY\nDuel\n4\n0 ’\n0\nER dr\ny 3 / No\nNE © = I\nFon =\not |\n% + NU\n(0) 1 2\nAction - Ability\nYouand a et eac on\ndamage. ifi er.\n“In a war o it tor is one\nwho doesnot battle.” — General\nBaelkhan\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "You and another target each deal attack damage plus modifier to each other.",
+      "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Duel.jpg",
+      "cost": "4 Stamina",
+      "artY": 52
+    },
+    {
+      "id": "001",
+      "name": "Duel",
+      "type": "Action",
+      "imageUrl": "/cards/templates/001.jpg",
+      "rawText": "a OY\nDuel\n4\n0 ’\n0\nER dr\ny 3 / No\nNE © = I\nFon =\not |\n% + NU\n(0) 1 2\nAction - Ability\nYouand a et eac on\ndamage. ifi er.\n“In a war o it tor is one\nwho doesnot battle.” — General\nBaelkhan\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "You and another target each deal attack damage plus modifier to each other.",
+      "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Duel.jpg",
+      "cost": "4 Stamina",
+      "artY": 52
+    },
+    {
+      "id": "001",
+      "name": "Duel",
+      "type": "Action",
+      "imageUrl": "/cards/templates/001.jpg",
+      "rawText": "a OY\nDuel\n4\n0 ’\n0\nER dr\ny 3 / No\nNE © = I\nFon =\not |\n% + NU\n(0) 1 2\nAction - Ability\nYouand a et eac on\ndamage. ifi er.\n“In a war o it tor is one\nwho doesnot battle.” — General\nBaelkhan\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "You and another target each deal attack damage plus modifier to each other.",
+      "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Duel.jpg",
+      "cost": "4 Stamina",
+      "artY": 52
+    },
+    {
+      "id": "001",
+      "name": "Duel",
+      "type": "Action",
+      "imageUrl": "/cards/templates/001.jpg",
+      "rawText": "a OY\nDuel\n4\n0 ’\n0\nER dr\ny 3 / No\nNE © = I\nFon =\not |\n% + NU\n(0) 1 2\nAction - Ability\nYouand a et eac on\ndamage. ifi er.\n“In a war o it tor is one\nwho doesnot battle.” — General\nBaelkhan\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "You and another target each deal attack damage plus modifier to each other.",
+      "flavorText": "“In a war of attrition the victor is one who does not battle.” — General Baelkhan",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Duel.jpg",
+      "cost": "4 Stamina",
+      "artY": 52
+    },
+    {
+      "id": "002",
+      "name": "Giant Stomp",
+      "type": "Action",
+      "imageUrl": "/cards/templates/002.png",
+      "rawText": "a Bh\nmp\nf a ¥ 9\n: ” 4 = 1\n1 Ee 5 J\n0) 4 §)\nn - Ability »)\nlus yo h mo\nage t . i\n| [ pr?\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Each opposing Hero must succeed on a Dexterity saving throw (DC 12 plus your Strength) or take 1d12 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Magic",
+      "originalArtFile": "Giant Stomp.png",
+      "cost": "7 Stamina",
+      "artY": 0,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "002",
+      "name": "Giant Stomp",
+      "type": "Action",
+      "imageUrl": "/cards/templates/002.png",
+      "rawText": "a Bh\nmp\nf a ¥ 9\n: ” 4 = 1\n1 Ee 5 J\n0) 4 §)\nn - Ability »)\nlus yo h mo\nage t . i\n| [ pr?\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Each opposing Hero must succeed on a Dexterity saving throw (DC 12 plus your Strength) or take 1d12 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Magic",
+      "originalArtFile": "Giant Stomp.png",
+      "cost": "7 Stamina",
+      "artY": 0,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "002",
+      "name": "Giant Stomp",
+      "type": "Action",
+      "imageUrl": "/cards/templates/002.png",
+      "rawText": "a Bh\nmp\nf a ¥ 9\n: ” 4 = 1\n1 Ee 5 J\n0) 4 §)\nn - Ability »)\nlus yo h mo\nage t . i\n| [ pr?\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Each opposing Hero must succeed on a Dexterity saving throw (DC 12 plus your Strength) or take 1d12 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Magic",
+      "originalArtFile": "Giant Stomp.png",
+      "cost": "7 Stamina",
+      "artY": 0,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "002",
+      "name": "Giant Stomp",
+      "type": "Action",
+      "imageUrl": "/cards/templates/002.png",
+      "rawText": "a Bh\nmp\nf a ¥ 9\n: ” 4 = 1\n1 Ee 5 J\n0) 4 §)\nn - Ability »)\nlus yo h mo\nage t . i\n| [ pr?\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Each opposing Hero must succeed on a Dexterity saving throw (DC 12 plus your Strength) or take 1d12 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Magic",
+      "originalArtFile": "Giant Stomp.png",
+      "cost": "7 Stamina",
+      "artY": 0,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "003",
+      "name": "Onslaught",
+      "type": "Action",
+      "imageUrl": "/cards/templates/003.png",
+      "rawText": "a Bh\ni Onslaught\nSl p\nny oi A -| l\n“ a 4 TOY | AY\nys Lg RARE LIS ek\na =F », ol”\n2h ay le : =\nction - Ability Ve\nDuring your next attack 7 you\nmay attack twice. > %\n“In chaos theresS also opportunity.” —\n: a i\n. @ Place Holder Art # p\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "During your next combat this turn, you may Attack twice.",
+      "flavorText": "“In chaos there is also opportunity.” - Stug",
+      "subtype": "Ability",
+      "rarity": "Rare",
+      "originalArtFile": "Onslaught.png",
+      "cost": "6 Stamina",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "003",
+      "name": "Onslaught",
+      "type": "Action",
+      "imageUrl": "/cards/templates/003.png",
+      "rawText": "a Bh\ni Onslaught\nSl p\nny oi A -| l\n“ a 4 TOY | AY\nys Lg RARE LIS ek\na =F », ol”\n2h ay le : =\nction - Ability Ve\nDuring your next attack 7 you\nmay attack twice. > %\n“In chaos theresS also opportunity.” —\n: a i\n. @ Place Holder Art # p\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "During your next combat this turn, you may Attack twice.",
+      "flavorText": "“In chaos there is also opportunity.” - Stug",
+      "subtype": "Ability",
+      "rarity": "Rare",
+      "originalArtFile": "Onslaught.png",
+      "cost": "6 Stamina",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "003",
+      "name": "Onslaught",
+      "type": "Action",
+      "imageUrl": "/cards/templates/003.png",
+      "rawText": "a Bh\ni Onslaught\nSl p\nny oi A -| l\n“ a 4 TOY | AY\nys Lg RARE LIS ek\na =F », ol”\n2h ay le : =\nction - Ability Ve\nDuring your next attack 7 you\nmay attack twice. > %\n“In chaos theresS also opportunity.” —\n: a i\n. @ Place Holder Art # p\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "During your next combat this turn, you may Attack twice.",
+      "flavorText": "“In chaos there is also opportunity.” - Stug",
+      "subtype": "Ability",
+      "rarity": "Rare",
+      "originalArtFile": "Onslaught.png",
+      "cost": "6 Stamina",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "003",
+      "name": "Onslaught",
+      "type": "Action",
+      "imageUrl": "/cards/templates/003.png",
+      "rawText": "a Bh\ni Onslaught\nSl p\nny oi A -| l\n“ a 4 TOY | AY\nys Lg RARE LIS ek\na =F », ol”\n2h ay le : =\nction - Ability Ve\nDuring your next attack 7 you\nmay attack twice. > %\n“In chaos theresS also opportunity.” —\n: a i\n. @ Place Holder Art # p\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "During your next combat this turn, you may Attack twice.",
+      "flavorText": "“In chaos there is also opportunity.” - Stug",
+      "subtype": "Ability",
+      "rarity": "Rare",
+      "originalArtFile": "Onslaught.png",
+      "cost": "6 Stamina",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "007",
+      "name": "Warcry",
+      "type": "Action",
+      "imageUrl": "/cards/templates/007.jpg",
+      "rawText": "r TY\n4 A\nERY 4 A\n- oN wy <i.\ngr Wr\n“I\n(0) We\nility\nyour Strength modifierin\nBI nt da to a target. N 4\ny\n\"By Corporis’ roaring presence, unleash\na wave of destruction that shatters the\nwill'of all who hear it.\"\nEY\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Strength) or take 1d8 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "War Cry.jpg",
+      "cost": "4 Stamina",
+      "artY": 43
+    },
+    {
+      "id": "007",
+      "name": "Warcry",
+      "type": "Action",
+      "imageUrl": "/cards/templates/007.jpg",
+      "rawText": "r TY\n4 A\nERY 4 A\n- oN wy <i.\ngr Wr\n“I\n(0) We\nility\nyour Strength modifierin\nBI nt da to a target. N 4\ny\n\"By Corporis’ roaring presence, unleash\na wave of destruction that shatters the\nwill'of all who hear it.\"\nEY\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Strength) or take 1d8 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "War Cry.jpg",
+      "cost": "4 Stamina",
+      "artY": 43
+    },
+    {
+      "id": "007",
+      "name": "Warcry",
+      "type": "Action",
+      "imageUrl": "/cards/templates/007.jpg",
+      "rawText": "r TY\n4 A\nERY 4 A\n- oN wy <i.\ngr Wr\n“I\n(0) We\nility\nyour Strength modifierin\nBI nt da to a target. N 4\ny\n\"By Corporis’ roaring presence, unleash\na wave of destruction that shatters the\nwill'of all who hear it.\"\nEY\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Strength) or take 1d8 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "War Cry.jpg",
+      "cost": "4 Stamina",
+      "artY": 43
+    },
+    {
+      "id": "007",
+      "name": "Warcry",
+      "type": "Action",
+      "imageUrl": "/cards/templates/007.jpg",
+      "rawText": "r TY\n4 A\nERY 4 A\n- oN wy <i.\ngr Wr\n“I\n(0) We\nility\nyour Strength modifierin\nBI nt da to a target. N 4\ny\n\"By Corporis’ roaring presence, unleash\na wave of destruction that shatters the\nwill'of all who hear it.\"\nEY\nPlace Holder Art\n| 9 4\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Strength) or take 1d8 plus Strength Blunt damage. On a successful save, targets take half damage.",
+      "flavorText": "By Corporis’ roaring presence, unleash a wave of destruction that shatters the will of all who hear it.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "War Cry.jpg",
+      "cost": "4 Stamina",
+      "artY": 43
+    },
+    {
+      "id": "033",
+      "name": "Battle Cry",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/033.jpg",
+      "rawText": "ry TY\nar ’ 6\n3 : 7”\nIR yf &\n\n0 9 ie = 1\n® JS\ndad A » » Ey\n\nNA 4» CA\n\nL % LN -\n\no ¥ ~~ !\n\nA ONS N \\ =\n\nyo Q EE pr\n\na JE Pg 9\n\nBonus A ion- Ability ~e\n\narget ins disadvantage on attacks\n‘until the} 5 ifining of your next turn. 3)\n\nAN\n\"B ength of Co poris, mayweak\n5 tremble and yieldiinthe a\nOre of true wa iors” gr\n—_ = ~ :\n@ Place Holder Art\nQC 4\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains Disadvantage on Attacks until the beginning of your next turn.",
+      "effects": [
+        {
+          "type": "apply_condition",
+          "target": "selected",
+          "condition": "disadvantage",
+          "duration": 1
+        }
+      ],
+      "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Battle Cry.jpg",
+      "cost": "3 Stamina",
+      "artY": 31
+    },
+    {
+      "id": "033",
+      "name": "Battle Cry",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/033.jpg",
+      "rawText": "ry TY\nar ’ 6\n3 : 7”\nIR yf &\n\n0 9 ie = 1\n® JS\ndad A » » Ey\n\nNA 4» CA\n\nL % LN -\n\no ¥ ~~ !\n\nA ONS N \\ =\n\nyo Q EE pr\n\na JE Pg 9\n\nBonus A ion- Ability ~e\n\narget ins disadvantage on attacks\n‘until the} 5 ifining of your next turn. 3)\n\nAN\n\"B ength of Co poris, mayweak\n5 tremble and yieldiinthe a\nOre of true wa iors” gr\n—_ = ~ :\n@ Place Holder Art\nQC 4\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains Disadvantage on Attacks until the beginning of your next turn.",
+      "effects": [
+        {
+          "type": "apply_condition",
+          "target": "selected",
+          "condition": "disadvantage",
+          "duration": 1
+        }
+      ],
+      "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Battle Cry.jpg",
+      "cost": "3 Stamina",
+      "artY": 31
+    },
+    {
+      "id": "033",
+      "name": "Battle Cry",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/033.jpg",
+      "rawText": "ry TY\nar ’ 6\n3 : 7”\nIR yf &\n\n0 9 ie = 1\n® JS\ndad A » » Ey\n\nNA 4» CA\n\nL % LN -\n\no ¥ ~~ !\n\nA ONS N \\ =\n\nyo Q EE pr\n\na JE Pg 9\n\nBonus A ion- Ability ~e\n\narget ins disadvantage on attacks\n‘until the} 5 ifining of your next turn. 3)\n\nAN\n\"B ength of Co poris, mayweak\n5 tremble and yieldiinthe a\nOre of true wa iors” gr\n—_ = ~ :\n@ Place Holder Art\nQC 4\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains Disadvantage on Attacks until the beginning of your next turn.",
+      "effects": [
+        {
+          "type": "apply_condition",
+          "target": "selected",
+          "condition": "disadvantage",
+          "duration": 1
+        }
+      ],
+      "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Battle Cry.jpg",
+      "cost": "3 Stamina",
+      "artY": 31
+    },
+    {
+      "id": "033",
+      "name": "Battle Cry",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/033.jpg",
+      "rawText": "ry TY\nar ’ 6\n3 : 7”\nIR yf &\n\n0 9 ie = 1\n® JS\ndad A » » Ey\n\nNA 4» CA\n\nL % LN -\n\no ¥ ~~ !\n\nA ONS N \\ =\n\nyo Q EE pr\n\na JE Pg 9\n\nBonus A ion- Ability ~e\n\narget ins disadvantage on attacks\n‘until the} 5 ifining of your next turn. 3)\n\nAN\n\"B ength of Co poris, mayweak\n5 tremble and yieldiinthe a\nOre of true wa iors” gr\n—_ = ~ :\n@ Place Holder Art\nQC 4\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains Disadvantage on Attacks until the beginning of your next turn.",
+      "effects": [
+        {
+          "type": "apply_condition",
+          "target": "selected",
+          "condition": "disadvantage",
+          "duration": 1
+        }
+      ],
+      "flavorText": "By the strength of Corporis, may weak hearts tremble and yield in the presence of true warriors.",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Battle Cry.jpg",
+      "cost": "3 Stamina",
+      "artY": 31
+    },
+    {
+      "id": "069",
+      "name": "Wound",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/069.jpg",
+      "rawText": "a OY\n“4\nI Ni | £3 ph - * /\nBe -\n» hy 0 Ue\n> ey us\nSOEST A]\nSEEN\nBonus Action - Curse\nt succeed a (DC 8 plus hal\n's Strength, rounded\nving throw or\n(Physical damage\nvantage against you\n, Piercing, and Slashing”. 2\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 5,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become Wounded Physical damage sources roll with Advantage against you, (“Bludgeoning, Piercing, and Slashing”.)",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Wound.jpg",
+      "cost": "5 Stamina",
+      "artY": 92,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "069",
+      "name": "Wound",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/069.jpg",
+      "rawText": "a OY\n“4\nI Ni | £3 ph - * /\nBe -\n» hy 0 Ue\n> ey us\nSOEST A]\nSEEN\nBonus Action - Curse\nt succeed a (DC 8 plus hal\n's Strength, rounded\nving throw or\n(Physical damage\nvantage against you\n, Piercing, and Slashing”. 2\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 5,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become Wounded Physical damage sources roll with Advantage against you, (“Bludgeoning, Piercing, and Slashing”.)",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Wound.jpg",
+      "cost": "5 Stamina",
+      "artY": 92,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "069",
+      "name": "Wound",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/069.jpg",
+      "rawText": "a OY\n“4\nI Ni | £3 ph - * /\nBe -\n» hy 0 Ue\n> ey us\nSOEST A]\nSEEN\nBonus Action - Curse\nt succeed a (DC 8 plus hal\n's Strength, rounded\nving throw or\n(Physical damage\nvantage against you\n, Piercing, and Slashing”. 2\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 5,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become Wounded Physical damage sources roll with Advantage against you, (“Bludgeoning, Piercing, and Slashing”.)",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Wound.jpg",
+      "cost": "5 Stamina",
+      "artY": 92,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "069",
+      "name": "Wound",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/069.jpg",
+      "rawText": "a OY\n“4\nI Ni | £3 ph - * /\nBe -\n» hy 0 Ue\n> ey us\nSOEST A]\nSEEN\nBonus Action - Curse\nt succeed a (DC 8 plus hal\n's Strength, rounded\nving throw or\n(Physical damage\nvantage against you\n, Piercing, and Slashing”. 2\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 5,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the performer’s Strength, rounded down) Strength saving throw or become Wounded Physical damage sources roll with Advantage against you, (“Bludgeoning, Piercing, and Slashing”.)",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Wound.jpg",
+      "cost": "5 Stamina",
+      "artY": 92,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "086",
+      "name": "Counter",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/086.jpg",
+      "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Counter.jpg",
+      "cost": "2 Stamina",
+      "artY": 73
+    },
+    {
+      "id": "086",
+      "name": "Counter",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/086.jpg",
+      "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Counter.jpg",
+      "cost": "2 Stamina",
+      "artY": 73
+    },
+    {
+      "id": "086",
+      "name": "Counter",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/086.jpg",
+      "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Counter.jpg",
+      "cost": "2 Stamina",
+      "artY": 73
+    },
+    {
+      "id": "086",
+      "name": "Counter",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/086.jpg",
+      "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Counter.jpg",
+      "cost": "2 Stamina",
+      "artY": 73
+    },
+    {
+      "id": "090",
+      "name": "Riposte",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/090.jpg",
+      "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Deal weapon damage to a target that has failed a contest this turn.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Riposte.jpg",
+      "cost": "2 Stamina",
+      "artY": 67
+    },
+    {
+      "id": "090",
+      "name": "Riposte",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/090.jpg",
+      "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Deal weapon damage to a target that has failed a contest this turn.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Riposte.jpg",
+      "cost": "2 Stamina",
+      "artY": 67
+    },
+    {
+      "id": "090",
+      "name": "Riposte",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/090.jpg",
+      "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Deal weapon damage to a target that has failed a contest this turn.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Riposte.jpg",
+      "cost": "2 Stamina",
+      "artY": 67
+    },
+    {
+      "id": "090",
+      "name": "Riposte",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/090.jpg",
+      "rawText": "a OY\nRiposte 5\n2 a\nSC\nVario\nTo\n(0] -T :\n\\ ~ ~ RE\n0 jE\nReaction - Abili | =\nDeal wepon amage to a target that\nhas failed 7m this turn. |\nNa\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Deal weapon damage to a target that has failed a contest this turn.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Riposte.jpg",
+      "cost": "2 Stamina",
+      "artY": 67
+    },
+    {
+      "id": "093",
+      "name": "Iron Skin",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/093.jpg",
+      "rawText": "r TY\n\nTW) id /\n, EE ¢\nos 5 NL po? 4 Sy EAR ;\nReaction - Boon\nA target gains resistance to a type of\nPhysical damage targeting them until\nthe beginning of their next turn.\n(Bludgeoning, Piercing, or Slashing).\nApu\n\n@ Place Holder Art #\n\n| 4\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains resistance to a type of Physical damage targeting them until the beginning of their next turn. (Bludgeoning, Piercing, or Slashing).",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Iron Skin.jpg",
+      "cost": "2 Stamina",
+      "artY": 36,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "093",
+      "name": "Iron Skin",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/093.jpg",
+      "rawText": "r TY\n\nTW) id /\n, EE ¢\nos 5 NL po? 4 Sy EAR ;\nReaction - Boon\nA target gains resistance to a type of\nPhysical damage targeting them until\nthe beginning of their next turn.\n(Bludgeoning, Piercing, or Slashing).\nApu\n\n@ Place Holder Art #\n\n| 4\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains resistance to a type of Physical damage targeting them until the beginning of their next turn. (Bludgeoning, Piercing, or Slashing).",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Iron Skin.jpg",
+      "cost": "2 Stamina",
+      "artY": 36,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "093",
+      "name": "Iron Skin",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/093.jpg",
+      "rawText": "r TY\n\nTW) id /\n, EE ¢\nos 5 NL po? 4 Sy EAR ;\nReaction - Boon\nA target gains resistance to a type of\nPhysical damage targeting them until\nthe beginning of their next turn.\n(Bludgeoning, Piercing, or Slashing).\nApu\n\n@ Place Holder Art #\n\n| 4\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains resistance to a type of Physical damage targeting them until the beginning of their next turn. (Bludgeoning, Piercing, or Slashing).",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Iron Skin.jpg",
+      "cost": "2 Stamina",
+      "artY": 36,
+      "tertiaryType": "Buff"
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    }
+  ],
+  "My Deck": [
+    {
+      "id": "119",
+      "name": "Viona",
+      "type": "Hero",
+      "imageUrl": "/cards/templates/119.jpg",
+      "rawText": "r TY\n\\\n\\ na)\nPte\nf N= (%\n=p N\n\\ \\,\nV2 S,\nAttack:\\1d8 +L k'(Riercing) ;\nDeft Explorer — L'dok at the top ard of\nyour Archive. If it is a Location card, you\nmay draw i ff\n1 : )\nAfter playing’ zation card, you next\nattack or Act card has advantage until\nthe end of yo rn.\n\\\n. @ Place Holder Art # y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "[USE]: Look at the top card of your Archive. If it is a Resource card, you may draw it. After you play a Resource card, your next Attack or Act card has Advantage.",
+      "rarity": "Legendary",
+      "subtype": "Tracker",
+      "originalArtFile": "Ranger Set.jpg",
+      "cost": "0",
+      "damage": "1d8 + Dex (Piercing)",
+      "image": "viona.jpg",
+      "artY": 32
+    },
+    {
+      "id": "009",
+      "name": "Boom",
+      "type": "Action",
+      "imageUrl": "/cards/templates/009.jpg",
+      "rawText": "a OY\n0 -\n0 Ne\n0\nOF. a dhe\n3 v 7 57\nAction Spell\nDeal 2d4 plus your Luck modifier in\nThunder damage to a target. :\n\"By the roar of Fragor’s mighty voice,\nthe skies shatter and strike with\nthunderous wrath.\"\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 1,
+        "luc": 3
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 2d4 plus Intelligence Thunder damage. On a successful save, targets take half damage.",
+      "flavorText": "By the roar of Fragor’s mighty voice, the skies shatter and strike with thunderous wrath.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Boom.jpg",
+      "cost": "4 Mana",
+      "artY": 56
+    },
+    {
+      "id": "009",
+      "name": "Boom",
+      "type": "Action",
+      "imageUrl": "/cards/templates/009.jpg",
+      "rawText": "a OY\n0 -\n0 Ne\n0\nOF. a dhe\n3 v 7 57\nAction Spell\nDeal 2d4 plus your Luck modifier in\nThunder damage to a target. :\n\"By the roar of Fragor’s mighty voice,\nthe skies shatter and strike with\nthunderous wrath.\"\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 1,
+        "luc": 3
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 2d4 plus Intelligence Thunder damage. On a successful save, targets take half damage.",
+      "flavorText": "By the roar of Fragor’s mighty voice, the skies shatter and strike with thunderous wrath.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Boom.jpg",
+      "cost": "4 Mana",
+      "artY": 56
+    },
+    {
+      "id": "010",
+      "name": "Chain Lightning",
+      "type": "Action",
+      "imageUrl": "/cards/templates/010.jpg",
+      "rawText": "a OY\nChain Lightning as\n7B ‘TF\n0 yy -\n»\nh # Fa\nAction d Spell - F 4\nDeal 3d4 plus your Luck Ba\nLightning damage to,ajtarget.\nA «or\n. @ Place Holder Art # y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 2,
+        "wis": 0,
+        "luc": 4
+      },
+      "rulesText": "A target Hero must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 3d4 plus your Intelligence in Lightning damage. If this Spell deals hit point damage, Chain Lightning strikes an additional target.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Chain Lightning.jpg",
+      "cost": "6 Mana",
+      "artY": 100
+    },
+    {
+      "id": "010",
+      "name": "Chain Lightning",
+      "type": "Action",
+      "imageUrl": "/cards/templates/010.jpg",
+      "rawText": "a OY\nChain Lightning as\n7B ‘TF\n0 yy -\n»\nh # Fa\nAction d Spell - F 4\nDeal 3d4 plus your Luck Ba\nLightning damage to,ajtarget.\nA «or\n. @ Place Holder Art # y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 2,
+        "wis": 0,
+        "luc": 4
+      },
+      "rulesText": "A target Hero must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 3d4 plus your Intelligence in Lightning damage. If this Spell deals hit point damage, Chain Lightning strikes an additional target.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Chain Lightning.jpg",
+      "cost": "6 Mana",
+      "artY": 100
+    },
+    {
+      "id": "013",
+      "name": "Fire Ball",
+      "type": "Action",
+      "imageUrl": "/cards/templates/013.png",
+      "rawText": "a Bh\n5 BX Fire Ball |\nEns\n3 XB\nBR\nVa ~\nIR ¢ i\nPi AN k\nAction - Spell bp 95\nDeal 1d8 plus your Strength modifier in\nFire damage to a target. a\nJ wl\n\"By the burning will of Caeles, fire be\nboth my forge and fury.\" {\nPTFE. a odes\n@ Place Holder Art # )\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 1,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 12 plus your Intelligence) or take 4d4 plus Intelligence Fire damage. On a successful save, targets take half damage.",
+      "flavorText": "By the burning will of Caeles, fire be both my forge and fury.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Fire Ball.png",
+      "cost": "8 Mana",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "013",
+      "name": "Fire Ball",
+      "type": "Action",
+      "imageUrl": "/cards/templates/013.png",
+      "rawText": "a Bh\n5 BX Fire Ball |\nEns\n3 XB\nBR\nVa ~\nIR ¢ i\nPi AN k\nAction - Spell bp 95\nDeal 1d8 plus your Strength modifier in\nFire damage to a target. a\nJ wl\n\"By the burning will of Caeles, fire be\nboth my forge and fury.\" {\nPTFE. a odes\n@ Place Holder Art # )\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 1,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 12 plus your Intelligence) or take 4d4 plus Intelligence Fire damage. On a successful save, targets take half damage.",
+      "flavorText": "By the burning will of Caeles, fire be both my forge and fury.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Fire Ball.png",
+      "cost": "8 Mana",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "003",
+      "name": "Onslaught",
+      "type": "Action",
+      "imageUrl": "/cards/templates/003.png",
+      "rawText": "a Bh\ni Onslaught\nSl p\nny oi A -| l\n“ a 4 TOY | AY\nys Lg RARE LIS ek\na =F », ol”\n2h ay le : =\nction - Ability Ve\nDuring your next attack 7 you\nmay attack twice. > %\n“In chaos theresS also opportunity.” —\n: a i\n. @ Place Holder Art # p\n",
+      "requirements": {
+        "str": 6,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "During your next combat this turn, you may Attack twice.",
+      "flavorText": "“In chaos there is also opportunity.” - Stug",
+      "subtype": "Ability",
+      "rarity": "Rare",
+      "originalArtFile": "Onslaught.png",
+      "cost": "6 Stamina",
+      "artY": 50,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "004",
+      "name": "Slice and Dice",
+      "type": "Action",
+      "imageUrl": "/cards/templates/004.jpg",
+      "rawText": "a OY\nSlice and Dice\n0 y\n4 =\n=\n0 gy NQE/7\nNGA\ny A Bo S40\n(0) p To AS |\nAction - Ability J\nDeal 1d8 s your Dexterity modifier in\nSlashing damage to a target.\n“I have no desire to mar my blade; 1 will\nend you with the utmost efficiency.” —\nShadow orf)\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 4,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Dexterity) or take 1d8 plus Dexterity Slashing damage. On a successful save, targets take half damage.",
+      "flavorText": "“I have no desire to mar my blade; I will end you with the utmost efficiency.” — Shadow Chuson",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Slice and Dice.jpg",
+      "cost": "4 Stamina",
+      "artY": 60,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "004",
+      "name": "Slice and Dice",
+      "type": "Action",
+      "imageUrl": "/cards/templates/004.jpg",
+      "rawText": "a OY\nSlice and Dice\n0 y\n4 =\n=\n0 gy NQE/7\nNGA\ny A Bo S40\n(0) p To AS |\nAction - Ability J\nDeal 1d8 s your Dexterity modifier in\nSlashing damage to a target.\n“I have no desire to mar my blade; 1 will\nend you with the utmost efficiency.” —\nShadow orf)\nPI Holder Art\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 4,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Dexterity) or take 1d8 plus Dexterity Slashing damage. On a successful save, targets take half damage.",
+      "flavorText": "“I have no desire to mar my blade; I will end you with the utmost efficiency.” — Shadow Chuson",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Slice and Dice.jpg",
+      "cost": "4 Stamina",
+      "artY": 60,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "030",
+      "name": "Thunderclap",
+      "type": "Action",
+      "imageUrl": "/cards/templates/030.png",
+      "rawText": "é A\nA hunderclap, .\nFL an A\n0)\na, Ci\nNg y a\nKk |\nA on - Spell Bl, J |\nDeal 3d4 olushou Luck modifier in\nThunder damage to a target. kl f\n\\ )\nN\\\nPlace Holder Art #\n| 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 2,
+        "luc": 4
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 12 plus your Intelligence) or take 3d4 plus Intelligence Thunder damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Thunderclap.png",
+      "cost": "7 Mana",
+      "artY": 62
+    },
+    {
+      "id": "032",
+      "name": "Water Ball",
+      "type": "Action",
+      "imageUrl": "/cards/templates/032.jpg",
+      "rawText": "a TY\n0@® oa ¥-{\nmo a 7.\n\n«iF\nT/A’ Fy\n0 “7 &)\nbd [7 0 SO = 3\n® 5 AP Ya J Jy\nTe ’ - i\nhy - Spell \\ \\ ° / ™ J 1 £\nDea 1d6 plus our Dexterity. odifier in\n\\ ater damage toa’ arget. C4\nquamai turbu ent w i, radndlfP\nconverge-and crash down-pon _\njmy‘foes with mercilessiforee™”\ni / \\\nP=\nPlace Holder Art #\n| 9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 2,
+        "con": 0,
+        "int": 0,
+        "wis": 1,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Intelligence) or take 1d6 plus Intelligence Water damage. On a successful save, targets take half damage.",
+      "flavorText": "By Squama’s turbulent will, raging waters converge and crash down upon my foes with merciless force.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Water Ball.jpg",
+      "cost": "3 Mana",
+      "artY": 80
+    },
+    {
+      "id": "032",
+      "name": "Water Ball",
+      "type": "Action",
+      "imageUrl": "/cards/templates/032.jpg",
+      "rawText": "a TY\n0@® oa ¥-{\nmo a 7.\n\n«iF\nT/A’ Fy\n0 “7 &)\nbd [7 0 SO = 3\n® 5 AP Ya J Jy\nTe ’ - i\nhy - Spell \\ \\ ° / ™ J 1 £\nDea 1d6 plus our Dexterity. odifier in\n\\ ater damage toa’ arget. C4\nquamai turbu ent w i, radndlfP\nconverge-and crash down-pon _\njmy‘foes with mercilessiforee™”\ni / \\\nP=\nPlace Holder Art #\n| 9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 2,
+        "con": 0,
+        "int": 0,
+        "wis": 1,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Intelligence) or take 1d6 plus Intelligence Water damage. On a successful save, targets take half damage.",
+      "flavorText": "By Squama’s turbulent will, raging waters converge and crash down upon my foes with merciless force.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Water Ball.jpg",
+      "cost": "3 Mana",
+      "artY": 80
+    },
+    {
+      "id": "038",
+      "name": "Misdirection",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/038.jpg",
+      "rawText": "a OY\n< Jif Ce 7\nNEN\nCd a ye —\nWor 75 ad NE 5 0\nond \\l KI L Hs\n“7 / 4 \\S7 Soh\nb// A > \\ 1)\nRN Aig! )\n\\ REN # (lf Nise\nn o Acti 4\nntil the beginning of you ext turn, all,\nHeroes must attack ea atif.\nable.. [0 a\n$ aN\n| 25 » ail RA NN\nNo” - nN 5 Z 4\nNS @ di. po a Lo\n@ Place Holder Art #\n| 4\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the beginning of your next turn, all Heroes must Attack each combat if able.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Taunt.jpg",
+      "cost": "3 Stamina",
+      "artY": 83
+    },
+    {
+      "id": "045",
+      "name": "Ensorcell",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/045.jpg",
+      "rawText": "a OY\nI e\niy 2 BR 4 ;\n\nA Oh ow\nBP \\\\\nLN SAN W =\n\" AN ~\n. . 6) 3 v\na WAY lo BF\nth el coll\n30nus Action - Been\\ ~ /77/ :\n=i &\n| the endiof theilfnext tirn-a-target\ndeals an additionalsld4iin Magic\ndamage with the ra acks. (Ensorcell.\n&ahnot critically hit)\"; Rh\nDrawing power from:th Mund s an\neasy featfor those w eld the: ¢\narcan e-~— Patheld: ~thelVeek= -\nPlace Holder Art #\n9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 4,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Magic damage with their Attacks. (Additional damage cannot critically hit.)",
+      "flavorText": "\"Drawing power from the Mundus is an easy feat for those who wield the arcane.\" - Patheld the Meek",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Ensorcell.jpg",
+      "cost": "2 Mana",
+      "artY": 30,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "019",
+      "name": "Ice Bolt",
+      "type": "Action",
+      "imageUrl": "/cards/templates/019.jpg",
+      "rawText": "Ice Bolt \"4\nr § » - n\n4\npr - X\n@ Place Holder Art\n",
+      "requirements": {
+        "str": 3,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 1,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Intelligence) or take 1d8 plus Intelligence Ice damage. On a successful save, targets take half damage.",
+      "flavorText": "By the chilling breath of Gelus, let frost pierce air and strike with icy precision.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Ice Bolt.jpg",
+      "cost": "4 Mana",
+      "artY": 46
+    },
+    {
+      "id": "018",
+      "name": "Holy Bolt",
+      "type": "Action",
+      "imageUrl": "/cards/templates/018.jpg",
+      "rawText": "r TY\nHoly\n0a B\nhe pr RAN - jo) NN\noD a\nLf EW 2 vi\n|\noR , A\nfo J Spell |\nDeal*1.d4 plus your Constit :\nmodifierin Holy dama |\nKE Xa\ney the radiant grace of Spiral \"\npure light pierce the darknessa\nsmite with divine fury.\" . ]\nPI Holder Art\n@ Place Holder Ar p\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 2,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Wisdom) or take 1d4 plus Wisdom Holy damage. On a successful save, targets take half damage.",
+      "flavorText": "By the radiant grace of Spirabilis, let pure light pierce the darkness and smite with divine fury.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Holy Bolt.jpg",
+      "cost": "2 Mana",
+      "artZoom": 100,
+      "artY": 50,
+      "artX": 50
+    },
+    {
+      "id": "016",
+      "name": "Gust",
+      "type": "Action",
+      "imageUrl": "/cards/templates/016.jpg",
+      "rawText": "0 il i = — |\n= 3 . 4 4 ho |\nUre £/ o ae\ngegen C0\nAir gh -\n\"By Volucris’ bfeath, the winds stirand\nsweep alfbefore me with boundless\n—— ee § Su — =\n— —- aT\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 2,
+        "con": 0,
+        "int": 1,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Intelligence) or take 1d6 plus Intelligence Air damage. On a successful save, targets take half damage.",
+      "flavorText": "By Volucris’ breath, the winds stir and sweep all before me with boundless force.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Gust.jpg",
+      "cost": "3 Mana",
+      "artY": 85
+    },
+    {
+      "id": "016",
+      "name": "Gust",
+      "type": "Action",
+      "imageUrl": "/cards/templates/016.jpg",
+      "rawText": "0 il i = — |\n= 3 . 4 4 ho |\nUre £/ o ae\ngegen C0\nAir gh -\n\"By Volucris’ bfeath, the winds stirand\nsweep alfbefore me with boundless\n—— ee § Su — =\n— —- aT\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 2,
+        "con": 0,
+        "int": 1,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 8 plus your Intelligence) or take 1d6 plus Intelligence Air damage. On a successful save, targets take half damage.",
+      "flavorText": "By Volucris’ breath, the winds stir and sweep all before me with boundless force.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Gust.jpg",
+      "cost": "3 Mana",
+      "artY": 85
+    },
+    {
+      "id": "036",
+      "name": "Instruction",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/036.jpg",
+      "rawText": "0]\n80000 06\n| |\n\n- WV\nBonus Action - Ability —_— is\nSearch y Archive tor anfADIIItY-«\n55 1 5 hae {yo\nNe a -\n———— ee eee\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 3,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Search your Archive for an Ability, reveal it, then shuffle your Archive and place that card on top.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Magic",
+      "originalArtFile": "Instruction.jpg",
+      "cost": "3 Stamina",
+      "artY": 71
+    },
+    {
+      "id": "086",
+      "name": "Counter",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/086.jpg",
+      "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Counter.jpg",
+      "cost": "2 Stamina",
+      "artY": 73
+    },
+    {
+      "id": "086",
+      "name": "Counter",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/086.jpg",
+      "rawText": "a OY\nCounter\n[0] y\non - Ability i\nake a contest againsta (DC of 2 plus\nfan a er's Strength). If successful,\nd o cker.\n3\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [2] plus an attacker’s Strength). If successful, deal Weapon damage to the attacker.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Counter.jpg",
+      "cost": "2 Stamina",
+      "artY": 73
+    },
+    {
+      "id": "087",
+      "name": "Dodge",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/087.jpg",
+      "rawText": "a OY\n[0] -\n- b\n0) \\ 4 ~~ »\nof CY Vo\nA \\ 1\noe VP\n0 A A\nD > 0 hb ifr J 5\nMake a contest against a (DC of 3 plus\na target's Dexterity). If successful, gain\nresistance and negate the effects of\nany Act card from that target.\n> 3\n. @ Place Holder Art p\n",
+      "requirements": {
+        "str": 0,
+        "dex": 3,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [3] plus a target’s Dexterity). If successful, gain resistance and negate the effects of any Act card from that target.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Dodge.jpg",
+      "cost": "3 Stamina"
+    },
+    {
+      "id": "087",
+      "name": "Dodge",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/087.jpg",
+      "rawText": "a OY\n[0] -\n- b\n0) \\ 4 ~~ »\nof CY Vo\nA \\ 1\noe VP\n0 A A\nD > 0 hb ifr J 5\nMake a contest against a (DC of 3 plus\na target's Dexterity). If successful, gain\nresistance and negate the effects of\nany Act card from that target.\n> 3\n. @ Place Holder Art p\n",
+      "requirements": {
+        "str": 0,
+        "dex": 3,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Make a contest against a (DC of [3] plus a target’s Dexterity). If successful, gain resistance and negate the effects of any Act card from that target.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Dodge.jpg",
+      "cost": "3 Stamina"
+    },
+    {
+      "id": "093",
+      "name": "Iron Skin",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/093.jpg",
+      "rawText": "r TY\n\nTW) id /\n, EE ¢\nos 5 NL po? 4 Sy EAR ;\nReaction - Boon\nA target gains resistance to a type of\nPhysical damage targeting them until\nthe beginning of their next turn.\n(Bludgeoning, Piercing, or Slashing).\nApu\n\n@ Place Holder Art #\n\n| 4\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains resistance to a type of Physical damage targeting them until the beginning of their next turn. (Bludgeoning, Piercing, or Slashing).",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Iron Skin.jpg",
+      "cost": "2 Stamina",
+      "artY": 36,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "101",
+      "name": "Cure",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/101.jpg",
+      "rawText": "4 Bh\nwr’ { % Se\nWo prs c re 2) o) by\nERPs “We \\\n0 PRN\nag 4 3 i itp UND LY\nOY PIE ON\nNe We J ses kJ)\nMC { W 0)\nReacti pell 2\n@; NA HM\n@ Place Holder Art -\n| 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 3,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a target Debuff.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Cure.jpg",
+      "cost": "3 Mana",
+      "artY": 43
+    },
+    {
+      "name": "Cavern of Wisdom",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Cavern of Wisdom",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Cavern of Wisdom",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Treasure of Luck",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Library of Intelligence",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Stream of Dexterity",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Stream of Dexterity",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Stream of Dexterity",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Citadel of Resilience",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Citadel of Resilience",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Citadel of Resilience",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Sanctum of Valor",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Sanctum of Valor",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Sanctum of Valor",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Sanctum of Valor",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Shrine of Finesse",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Tower of Ingenuity",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Training Grounds",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Training Grounds",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Training Grounds",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Tower of Ingenuity",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Tower of Ingenuity",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Cavern of Wisdom",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Cavern of Wisdom",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "id": "023",
+      "name": "Meteor Shower",
+      "type": "Action",
+      "imageUrl": "/cards/templates/023.jpg",
+      "rawText": "r TY\nMeteor Shower\nfe < ‘\nB\nD ; i\nP .\nAction - Spell \"\nDeal 1d12 plus your Strength modifier\nin Fire damage to a target.\nly by 3\na “— : x\nPlace Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 4,
+        "dex": 0,
+        "con": 0,
+        "int": 2,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Each opposing Hero must succeed on a Dexterity saving throw (DC 14 plus your Intelligence) or take 1d20 plus Intelligence Fire damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Meteor Shower.jpg",
+      "cost": "12 Mana",
+      "artY": 50,
+      "artZoom": 100,
+      "artX": 50
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Arena of Strength",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "id": "036",
+      "name": "Instruction",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/036.jpg",
+      "rawText": "0]\n80000 06\n| |\n\n- WV\nBonus Action - Ability —_— is\nSearch y Archive tor anfADIIItY-«\n55 1 5 hae {yo\nNe a -\n———— ee eee\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 3,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Search your Archive for an Ability, reveal it, then shuffle your Archive and place that card on top.",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Magic",
+      "originalArtFile": "Instruction.jpg",
+      "cost": "3 Stamina",
+      "artY": 71
+    }
+  ],
+  "Con Deck": [
+    {
+      "id": "111",
+      "name": "Aelastrion",
+      "type": "Hero",
+      "imageUrl": "/cards/templates/111.jpg",
+      "rawText": "r TY\nAelastrion\n> 4\n® A\n2,\n(gs 8 &. [| -\ny an 7% p I\nAttack: 6 +Condl oly)\nChannel'Divinit | Bpyou may use yourCon\nin placelof vo ther stat - meeting the\ntotal s eq L Fat of the next son you\nperformithis rou oh\n1 JL)\nWi ver you perform a Boon card, restore\n1 Point to the target for each point of\nConstitution required to perform that card.\n@ Place Holder Art #\nC 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "The first time each turn you play a Buff, restore 1 Hit Point to its target for each [Mana] or [Stamina] in its cost.",
+      "rarity": "Legendary",
+      "subtype": "Invoker",
+      "originalArtFile": "Cleric Set.jpg",
+      "cost": "0",
+      "damage": "1d6 + Con (Holy)",
+      "notes": "",
+      "artY": 34,
+      "artX": 50,
+      "artZoom": 100
+    },
+    {
+      "id": "017",
+      "name": "Heal",
+      "type": "Action",
+      "imageUrl": "/cards/templates/017.jpg",
+      "rawText": "r TY\n[ Nl |\n| WERT\n: LALA il 1\nli AD ¢ ll}\n0 Ny ot i | \\\nSi 2 7 JE \\\n| JSWAA RN i.\nalll) did P\"\nFARE | 0\nii ll J\nesi e 4 plus your Constitution\nmodifier in Hit Points to a target.\n\"By Spirabilis” gentle touch, may light\n+ a\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Restore 1d4 plus your Constitution in Hit Points to a target.",
+      "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Heal.jpg",
+      "cost": "4 Mana",
+      "artY": 49
+    },
+    {
+      "id": "017",
+      "name": "Heal",
+      "type": "Action",
+      "imageUrl": "/cards/templates/017.jpg",
+      "rawText": "r TY\n[ Nl |\n| WERT\n: LALA il 1\nli AD ¢ ll}\n0 Ny ot i | \\\nSi 2 7 JE \\\n| JSWAA RN i.\nalll) did P\"\nFARE | 0\nii ll J\nesi e 4 plus your Constitution\nmodifier in Hit Points to a target.\n\"By Spirabilis” gentle touch, may light\n+ a\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Restore 1d4 plus your Constitution in Hit Points to a target.",
+      "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Heal.jpg",
+      "cost": "4 Mana",
+      "artY": 49
+    },
+    {
+      "id": "017",
+      "name": "Heal",
+      "type": "Action",
+      "imageUrl": "/cards/templates/017.jpg",
+      "rawText": "r TY\n[ Nl |\n| WERT\n: LALA il 1\nli AD ¢ ll}\n0 Ny ot i | \\\nSi 2 7 JE \\\n| JSWAA RN i.\nalll) did P\"\nFARE | 0\nii ll J\nesi e 4 plus your Constitution\nmodifier in Hit Points to a target.\n\"By Spirabilis” gentle touch, may light\n+ a\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Restore 1d4 plus your Constitution in Hit Points to a target.",
+      "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Heal.jpg",
+      "cost": "4 Mana",
+      "artY": 49
+    },
+    {
+      "id": "017",
+      "name": "Heal",
+      "type": "Action",
+      "imageUrl": "/cards/templates/017.jpg",
+      "rawText": "r TY\n[ Nl |\n| WERT\n: LALA il 1\nli AD ¢ ll}\n0 Ny ot i | \\\nSi 2 7 JE \\\n| JSWAA RN i.\nalll) did P\"\nFARE | 0\nii ll J\nesi e 4 plus your Constitution\nmodifier in Hit Points to a target.\n\"By Spirabilis” gentle touch, may light\n+ a\n. @ Place Holder Art y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Restore 1d4 plus your Constitution in Hit Points to a target.",
+      "flavorText": "By Spirabilis’ gentle touch, may light mend wounds and restore life’s sacred essence.",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Heal.jpg",
+      "cost": "4 Mana",
+      "artY": 49
+    },
+    {
+      "id": "025",
+      "name": "Radiance",
+      "type": "Action",
+      "imageUrl": "/cards/templates/025.png",
+      "rawText": "a OY\nRadiance\n0 |\n0 .\n4\n- 4 : \\\nA ;\n/] i\nAction - Spell 1\nDeal 2d4 plus your Constitution\nmodifier in ot 1 toa =\nPlace Holder Art a\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Wisdom) or take 1d8 plus Wisdom Holy damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Radiance.png",
+      "cost": "4 Mana",
+      "artY": 55
+    },
+    {
+      "id": "025",
+      "name": "Radiance",
+      "type": "Action",
+      "imageUrl": "/cards/templates/025.png",
+      "rawText": "a OY\nRadiance\n0 |\n0 .\n4\n- 4 : \\\nA ;\n/] i\nAction - Spell 1\nDeal 2d4 plus your Constitution\nmodifier in ot 1 toa =\nPlace Holder Art a\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Wisdom) or take 1d8 plus Wisdom Holy damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Radiance.png",
+      "cost": "4 Mana",
+      "artY": 55
+    },
+    {
+      "id": "025",
+      "name": "Radiance",
+      "type": "Action",
+      "imageUrl": "/cards/templates/025.png",
+      "rawText": "a OY\nRadiance\n0 |\n0 .\n4\n- 4 : \\\nA ;\n/] i\nAction - Spell 1\nDeal 2d4 plus your Constitution\nmodifier in ot 1 toa =\nPlace Holder Art a\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Wisdom) or take 1d8 plus Wisdom Holy damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Radiance.png",
+      "cost": "4 Mana",
+      "artY": 55
+    },
+    {
+      "id": "025",
+      "name": "Radiance",
+      "type": "Action",
+      "imageUrl": "/cards/templates/025.png",
+      "rawText": "a OY\nRadiance\n0 |\n0 .\n4\n- 4 : \\\nA ;\n/] i\nAction - Spell 1\nDeal 2d4 plus your Constitution\nmodifier in ot 1 toa =\nPlace Holder Art a\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed on a Dexterity saving throw (DC 10 plus your Wisdom) or take 1d8 plus Wisdom Holy damage. On a successful save, targets take half damage.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Radiance.png",
+      "cost": "4 Mana",
+      "artY": 55
+    },
+    {
+      "id": "044",
+      "name": "Divine Favor",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/044.jpg",
+      "rawText": "r TY\nov 3\n3 Divine Favor\n0 k rs \\ Ere\n£2) ~ Ni\n0 Ny\na :\n~~ :\nBonus Action -Boon #\nUntil the end of their next tu n, a target\ndeals an*additional 1d4 insHoly'damage\nwith their attackss(DiVine Favorcannot\ncritically hit.) ND\nNY\n“Power is not a oder but a'gif <\nbestowed to uplift those in need: =\nVenia, the Aspect of Charity\nPlace Holder Art #\n| 9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Additional damage cannot critically hit.)",
+      "flavorText": "\"Power is not a burden but a gift bestowed to uplift those in need.\" - Venia, the Aspect of Charity",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Divine Favor.jpg",
+      "cost": "2 Mana",
+      "artY": 93,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "044",
+      "name": "Divine Favor",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/044.jpg",
+      "rawText": "r TY\nov 3\n3 Divine Favor\n0 k rs \\ Ere\n£2) ~ Ni\n0 Ny\na :\n~~ :\nBonus Action -Boon #\nUntil the end of their next tu n, a target\ndeals an*additional 1d4 insHoly'damage\nwith their attackss(DiVine Favorcannot\ncritically hit.) ND\nNY\n“Power is not a oder but a'gif <\nbestowed to uplift those in need: =\nVenia, the Aspect of Charity\nPlace Holder Art #\n| 9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Additional damage cannot critically hit.)",
+      "flavorText": "\"Power is not a burden but a gift bestowed to uplift those in need.\" - Venia, the Aspect of Charity",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Divine Favor.jpg",
+      "cost": "2 Mana",
+      "artY": 93,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "044",
+      "name": "Divine Favor",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/044.jpg",
+      "rawText": "r TY\nov 3\n3 Divine Favor\n0 k rs \\ Ere\n£2) ~ Ni\n0 Ny\na :\n~~ :\nBonus Action -Boon #\nUntil the end of their next tu n, a target\ndeals an*additional 1d4 insHoly'damage\nwith their attackss(DiVine Favorcannot\ncritically hit.) ND\nNY\n“Power is not a oder but a'gif <\nbestowed to uplift those in need: =\nVenia, the Aspect of Charity\nPlace Holder Art #\n| 9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Additional damage cannot critically hit.)",
+      "flavorText": "\"Power is not a burden but a gift bestowed to uplift those in need.\" - Venia, the Aspect of Charity",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Divine Favor.jpg",
+      "cost": "2 Mana",
+      "artY": 93,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "044",
+      "name": "Divine Favor",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/044.jpg",
+      "rawText": "r TY\nov 3\n3 Divine Favor\n0 k rs \\ Ere\n£2) ~ Ni\n0 Ny\na :\n~~ :\nBonus Action -Boon #\nUntil the end of their next tu n, a target\ndeals an*additional 1d4 insHoly'damage\nwith their attackss(DiVine Favorcannot\ncritically hit.) ND\nNY\n“Power is not a oder but a'gif <\nbestowed to uplift those in need: =\nVenia, the Aspect of Charity\nPlace Holder Art #\n| 9 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the end of their next turn, a target deals an additional 1d4 in Holy damage with their attacks. (Additional damage cannot critically hit.)",
+      "flavorText": "\"Power is not a burden but a gift bestowed to uplift those in need.\" - Venia, the Aspect of Charity",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Divine Favor.jpg",
+      "cost": "2 Mana",
+      "artY": 93,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "027",
+      "name": "Restoration",
+      "type": "Action",
+      "imageUrl": "/cards/templates/027.jpg",
+      "rawText": "a Bh\nRestoration\nWi | re & QY =\nWC fT : y\n{ERAN 4\nA a a\nction - Spell : he | |\nRemove-a tC e, then restore 4\nHit points 1 yaleil TAL ih\nTES ee a\nBe Fae  ]\n|\n. @ Place Holder Art # )\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a Debuff from a target, then restore 1d4 Hit Points to your target.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Restoration.jpg",
+      "cost": "6 Mana",
+      "artY": 59
+    },
+    {
+      "id": "027",
+      "name": "Restoration",
+      "type": "Action",
+      "imageUrl": "/cards/templates/027.jpg",
+      "rawText": "a Bh\nRestoration\nWi | re & QY =\nWC fT : y\n{ERAN 4\nA a a\nction - Spell : he | |\nRemove-a tC e, then restore 4\nHit points 1 yaleil TAL ih\nTES ee a\nBe Fae  ]\n|\n. @ Place Holder Art # )\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a Debuff from a target, then restore 1d4 Hit Points to your target.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Restoration.jpg",
+      "cost": "6 Mana",
+      "artY": 59
+    },
+    {
+      "id": "027",
+      "name": "Restoration",
+      "type": "Action",
+      "imageUrl": "/cards/templates/027.jpg",
+      "rawText": "a Bh\nRestoration\nWi | re & QY =\nWC fT : y\n{ERAN 4\nA a a\nction - Spell : he | |\nRemove-a tC e, then restore 4\nHit points 1 yaleil TAL ih\nTES ee a\nBe Fae  ]\n|\n. @ Place Holder Art # )\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a Debuff from a target, then restore 1d4 Hit Points to your target.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Restoration.jpg",
+      "cost": "6 Mana",
+      "artY": 59
+    },
+    {
+      "id": "027",
+      "name": "Restoration",
+      "type": "Action",
+      "imageUrl": "/cards/templates/027.jpg",
+      "rawText": "a Bh\nRestoration\nWi | re & QY =\nWC fT : y\n{ERAN 4\nA a a\nction - Spell : he | |\nRemove-a tC e, then restore 4\nHit points 1 yaleil TAL ih\nTES ee a\nBe Fae  ]\n|\n. @ Place Holder Art # )\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a Debuff from a target, then restore 1d4 Hit Points to your target.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Restoration.jpg",
+      "cost": "6 Mana",
+      "artY": 59
+    },
+    {
+      "id": "059",
+      "name": "Charm",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/059.jpg",
+      "rawText": "r TY\na mm\nYT\nh-\n| 0] a VE -\n-. Bi tee = WN)\n| / VES\nBonus Action - Curse\nA get must succeed a (DC 8 plus half\ntl er's on, rounded\nofe onstitutic ing throw or\nbecom ed (Roll with\ndisadvantage on Act cards). /\nTi 7\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the caster’s Wisdom, rounded down) Wisdom saving throw or become Charmed (Roll with Disadvantage on Act cards).",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Charm.jpg",
+      "cost": "5 Mana",
+      "artY": 67,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "059",
+      "name": "Charm",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/059.jpg",
+      "rawText": "r TY\na mm\nYT\nh-\n| 0] a VE -\n-. Bi tee = WN)\n| / VES\nBonus Action - Curse\nA get must succeed a (DC 8 plus half\ntl er's on, rounded\nofe onstitutic ing throw or\nbecom ed (Roll with\ndisadvantage on Act cards). /\nTi 7\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the caster’s Wisdom, rounded down) Wisdom saving throw or become Charmed (Roll with Disadvantage on Act cards).",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Charm.jpg",
+      "cost": "5 Mana",
+      "artY": 67,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "059",
+      "name": "Charm",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/059.jpg",
+      "rawText": "r TY\na mm\nYT\nh-\n| 0] a VE -\n-. Bi tee = WN)\n| / VES\nBonus Action - Curse\nA get must succeed a (DC 8 plus half\ntl er's on, rounded\nofe onstitutic ing throw or\nbecom ed (Roll with\ndisadvantage on Act cards). /\nTi 7\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the caster’s Wisdom, rounded down) Wisdom saving throw or become Charmed (Roll with Disadvantage on Act cards).",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Charm.jpg",
+      "cost": "5 Mana",
+      "artY": 67,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "059",
+      "name": "Charm",
+      "type": "Bonus Action",
+      "imageUrl": "/cards/templates/059.jpg",
+      "rawText": "r TY\na mm\nYT\nh-\n| 0] a VE -\n-. Bi tee = WN)\n| / VES\nBonus Action - Curse\nA get must succeed a (DC 8 plus half\ntl er's on, rounded\nofe onstitutic ing throw or\nbecom ed (Roll with\ndisadvantage on Act cards). /\nTi 7\nPI Holder Art #\n. @ Place Holder Ar y\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 5,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target must succeed a (DC 8 plus half the caster’s Wisdom, rounded down) Wisdom saving throw or become Charmed (Roll with Disadvantage on Act cards).",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Charm.jpg",
+      "cost": "5 Mana",
+      "artY": 67,
+      "tertiaryType": "Debuff"
+    },
+    {
+      "id": "095",
+      "name": "Sanctuary",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/095.png",
+      "rawText": "0 3 1\nFre\nReact Boon of\ntil the beginning of their next |\ntacks and Act card Jainst 5 : :\nrequire a (DC 8 plusihalf the per r's\nonstitution, rounded'down) {\nonstitution saving ow to succ\nEe nee\nmust targ the i r\nAct card. <\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 10 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Sancturary.png",
+      "cost": "4 Mana",
+      "artY": 70,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "095",
+      "name": "Sanctuary",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/095.png",
+      "rawText": "0 3 1\nFre\nReact Boon of\ntil the beginning of their next |\ntacks and Act card Jainst 5 : :\nrequire a (DC 8 plusihalf the per r's\nonstitution, rounded'down) {\nonstitution saving ow to succ\nEe nee\nmust targ the i r\nAct card. <\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 10 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Sancturary.png",
+      "cost": "4 Mana",
+      "artY": 70,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "095",
+      "name": "Sanctuary",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/095.png",
+      "rawText": "0 3 1\nFre\nReact Boon of\ntil the beginning of their next |\ntacks and Act card Jainst 5 : :\nrequire a (DC 8 plusihalf the per r's\nonstitution, rounded'down) {\nonstitution saving ow to succ\nEe nee\nmust targ the i r\nAct card. <\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 10 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Sancturary.png",
+      "cost": "4 Mana",
+      "artY": 70,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "095",
+      "name": "Sanctuary",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/095.png",
+      "rawText": "0 3 1\nFre\nReact Boon of\ntil the beginning of their next |\ntacks and Act card Jainst 5 : :\nrequire a (DC 8 plusihalf the per r's\nonstitution, rounded'down) {\nonstitution saving ow to succ\nEe nee\nmust targ the i r\nAct card. <\n@ Place Holder Art #\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 4,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Until the beginning of their next turn, Attacks and Act cards against a target require a (DC 10 plus the caster's Constitution) Constitution saving throw to succeed. On a failed saving throw, the Attacker must target another with that Attack or Act card.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Magic",
+      "originalArtFile": "Sancturary.png",
+      "cost": "4 Mana",
+      "artY": 70,
+      "tertiaryType": "Buff"
+    },
+    {
+      "id": "101",
+      "name": "Cure",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/101.jpg",
+      "rawText": "4 Bh\nwr’ { % Se\nWo prs c re 2) o) by\nERPs “We \\\n0 PRN\nag 4 3 i itp UND LY\nOY PIE ON\nNe We J ses kJ)\nMC { W 0)\nReacti pell 2\n@; NA HM\n@ Place Holder Art -\n| 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 3,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a target Debuff.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Cure.jpg",
+      "cost": "3 Mana",
+      "artY": 43
+    },
+    {
+      "id": "101",
+      "name": "Cure",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/101.jpg",
+      "rawText": "4 Bh\nwr’ { % Se\nWo prs c re 2) o) by\nERPs “We \\\n0 PRN\nag 4 3 i itp UND LY\nOY PIE ON\nNe We J ses kJ)\nMC { W 0)\nReacti pell 2\n@; NA HM\n@ Place Holder Art -\n| 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 3,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a target Debuff.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Cure.jpg",
+      "cost": "3 Mana",
+      "artY": 43
+    },
+    {
+      "id": "101",
+      "name": "Cure",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/101.jpg",
+      "rawText": "4 Bh\nwr’ { % Se\nWo prs c re 2) o) by\nERPs “We \\\n0 PRN\nag 4 3 i itp UND LY\nOY PIE ON\nNe We J ses kJ)\nMC { W 0)\nReacti pell 2\n@; NA HM\n@ Place Holder Art -\n| 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 3,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a target Debuff.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Cure.jpg",
+      "cost": "3 Mana",
+      "artY": 43
+    },
+    {
+      "id": "101",
+      "name": "Cure",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/101.jpg",
+      "rawText": "4 Bh\nwr’ { % Se\nWo prs c re 2) o) by\nERPs “We \\\n0 PRN\nag 4 3 i itp UND LY\nOY PIE ON\nNe We J ses kJ)\nMC { W 0)\nReacti pell 2\n@; NA HM\n@ Place Holder Art -\n| 4\n",
+      "requirements": {
+        "str": 0,
+        "dex": 0,
+        "con": 3,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "Remove a target Debuff.",
+      "flavorText": "",
+      "subtype": "Spell",
+      "rarity": "Common",
+      "originalArtFile": "Cure.jpg",
+      "cost": "3 Mana",
+      "artY": 43
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    },
+    {
+      "name": "Fortress of Constitution",
+      "type": "Action",
+      "cost": ""
+    }
+  ]
+}
