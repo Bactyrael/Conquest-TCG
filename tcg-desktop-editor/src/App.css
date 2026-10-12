@@ -818,6 +818,18 @@ body {
   border-color: #c0392b;
 }
 
+.deck-action-btn.tts-export {
+  background: #6c5ce7;
+  color: #fff;
+  border-color: #5b4cc4;
+  white-space: nowrap;
+}
+
+.deck-action-btn.tts-export:hover:not(:disabled) {
+  background: #5b4cc4;
+  border-color: #4a3cb0;
+}
+
 .deck-card-list {
   flex: 1;
   overflow-y: auto;

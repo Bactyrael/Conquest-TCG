@@ -753,6 +753,92 @@ function App() {
     }
   };
 
+  const populateBatchCard = async (frameEl, card) => {
+    // Name
+    const nameInput = frameEl.querySelector('.card-name');
+    if (nameInput) nameInput.value = card.name || '';
+
+    // Cost
+    const costRomanEl = frameEl.querySelector('.batch-cost-roman');
+    const costIconEl = frameEl.querySelector('.batch-cost-icon');
+    const groups = parseCostGroups(card.cost);
+    if (groups.length > 0 && card.type !== 'Resource' && card.type !== 'Hero') {
+      if (costRomanEl) costRomanEl.innerText = toRoman(groups[0].count);
+      if (costIconEl) {
+        costIconEl.style.display = 'block';
+        costIconEl.src = `/icons/${groups[0].type}.jpg`;
+      }
+    } else {
+      if (costRomanEl) costRomanEl.innerText = '';
+      if (costIconEl) costIconEl.style.display = 'none';
+    }
+
+    // Image
+    const artEl = frameEl.querySelector('.batch-card-art');
+    const imgName = getCardImage(card);
+    if (artEl) {
+      if (imgName) {
+        artEl.style.backgroundImage = `url(http://localhost:3002/cards/generated/${imgName}?t=${imageVersion})`;
+        artEl.style.backgroundSize = `${card.artZoom ?? 100}% auto`;
+        artEl.style.backgroundPosition = `${card.artX ?? 50}% ${card.artY ?? 50}%`;
+        artEl.style.backgroundRepeat = 'no-repeat';
+      } else {
+        artEl.style.backgroundImage = 'none';
+      }
+    }
+
+    // Type / Subtype
+    const typeEl = frameEl.querySelector('.batch-card-type-text');
+    if (typeEl) {
+      let typeStr = card.type || 'Action';
+      if (card.subtype) typeStr += ` - ${card.subtype}`;
+      if (card.tertiaryType) typeStr += ` - ${card.tertiaryType}`;
+      typeEl.innerText = typeStr;
+    }
+
+    // Rarity Icon
+    const rarityPoly = frameEl.querySelector('.batch-rarity-poly');
+    if (rarityPoly) {
+      const r = (card.rarity || 'common').toLowerCase();
+      let baseColor = '#88929b';
+      if (r === 'magic') baseColor = '#3498db';
+      else if (r === 'rare') baseColor = '#f1c40f';
+      else if (r === 'legendary') baseColor = '#e67e22';
+      rarityPoly.setAttribute('fill', baseColor);
+    }
+
+    // Rules text & Flavor text
+    const rulesEl = frameEl.querySelector('.batch-card-rules');
+    if (rulesEl) {
+      rulesEl.innerHTML = parseRichTextHTML(card.rulesText || '');
+    }
+    const dividerEl = frameEl.querySelector('.batch-text-divider');
+    const flavorEl = frameEl.querySelector('.batch-card-flavor');
+    if (card.flavorText) {
+      if (dividerEl) dividerEl.style.display = 'block';
+      if (flavorEl) {
+        flavorEl.style.display = 'block';
+        flavorEl.innerHTML = parseRichTextHTML(card.flavorText);
+      }
+    } else {
+      if (dividerEl) dividerEl.style.display = 'none';
+      if (flavorEl) flavorEl.style.display = 'none';
+    }
+
+    // Hero Damage
+    const damageBox = frameEl.querySelector('.batch-damage-box');
+    const damageInput = frameEl.querySelector('.batch-damage-input');
+    if (card.type === 'Hero') {
+      if (damageBox) damageBox.style.display = 'flex';
+      if (damageInput) damageInput.value = card.damage || '';
+    } else {
+      if (damageBox) damageBox.style.display = 'none';
+    }
+
+    // Wait for DOM styles and background images to settle
+    await new Promise(r => setTimeout(r, 60));
+  };
+
   const handleExportAllCards = async () => {
     if (!cards || cards.length === 0) return;
     if (exportProgress) return; // Already running
@@ -762,7 +848,7 @@ function App() {
     const total = cards.length;
     let completed = 0;
 
-    setExportProgress({ current: 0, total, cardName: 'Starting...' });
+    setExportProgress({ current: 0, total, cardName: 'Starting...', title: 'Exporting All Finished Cards', subtitle: 'Rendering high-resolution images of each completed card...' });
 
     // Wait for helper container to be mounted in DOM
     await new Promise(r => setTimeout(r, 100));
@@ -783,95 +869,12 @@ function App() {
         }
 
         const card = cards[i];
-        setExportProgress({ current: i + 1, total, cardName: card.name });
+        setExportProgress({ current: i + 1, total, cardName: card.name, title: 'Exporting All Finished Cards', subtitle: 'Rendering high-resolution images of each completed card...' });
 
-        // Temporarily render this card into the hidden export frame
         const frameEl = exportRoot.querySelector('.card-frame');
         if (!frameEl) continue;
 
-        // Populate frame with card details
-        const nameInput = frameEl.querySelector('.card-name');
-        if (nameInput) nameInput.value = card.name || '';
-
-        // Cost
-        const costRomanEl = frameEl.querySelector('.batch-cost-roman');
-        const costIconEl = frameEl.querySelector('.batch-cost-icon');
-        const groups = parseCostGroups(card.cost);
-        if (groups.length > 0 && card.type !== 'Resource' && card.type !== 'Hero') {
-          if (costRomanEl) costRomanEl.innerText = toRoman(groups[0].count);
-          if (costIconEl) {
-            costIconEl.style.display = 'block';
-            costIconEl.src = `/icons/${groups[0].type}.jpg`;
-          }
-        } else {
-          if (costRomanEl) costRomanEl.innerText = '';
-          if (costIconEl) costIconEl.style.display = 'none';
-        }
-
-        // Image
-        const artEl = frameEl.querySelector('.batch-card-art');
-        const imgName = getCardImage(card);
-        if (artEl) {
-          if (imgName) {
-            artEl.style.backgroundImage = `url(http://localhost:3002/cards/generated/${imgName}?t=${imageVersion})`;
-            artEl.style.backgroundSize = `${card.artZoom ?? 100}% auto`;
-            artEl.style.backgroundPosition = `${card.artX ?? 50}% ${card.artY ?? 50}%`;
-            artEl.style.backgroundRepeat = 'no-repeat';
-          } else {
-            artEl.style.backgroundImage = 'none';
-          }
-        }
-
-        // Type / Subtype
-        const typeEl = frameEl.querySelector('.batch-card-type-text');
-        if (typeEl) {
-          let typeStr = card.type || 'Action';
-          if (card.subtype) typeStr += ` - ${card.subtype}`;
-          if (card.tertiaryType) typeStr += ` - ${card.tertiaryType}`;
-          typeEl.innerText = typeStr;
-        }
-
-        // Rarity Icon
-        const rarityPoly = frameEl.querySelector('.batch-rarity-poly');
-        if (rarityPoly) {
-          const r = (card.rarity || 'common').toLowerCase();
-          let baseColor = '#88929b';
-          if (r === 'magic') baseColor = '#3498db';
-          else if (r === 'rare') baseColor = '#f1c40f';
-          else if (r === 'legendary') baseColor = '#e67e22';
-          rarityPoly.setAttribute('fill', baseColor);
-        }
-
-        // Rules text & Flavor text
-        const rulesEl = frameEl.querySelector('.batch-card-rules');
-        if (rulesEl) {
-          rulesEl.innerHTML = parseRichTextHTML(card.rulesText || '');
-        }
-        const dividerEl = frameEl.querySelector('.batch-text-divider');
-        const flavorEl = frameEl.querySelector('.batch-card-flavor');
-        if (card.flavorText) {
-          if (dividerEl) dividerEl.style.display = 'block';
-          if (flavorEl) {
-            flavorEl.style.display = 'block';
-            flavorEl.innerHTML = parseRichTextHTML(card.flavorText);
-          }
-        } else {
-          if (dividerEl) dividerEl.style.display = 'none';
-          if (flavorEl) flavorEl.style.display = 'none';
-        }
-
-        // Hero Damage
-        const damageBox = frameEl.querySelector('.batch-damage-box');
-        const damageInput = frameEl.querySelector('.batch-damage-input');
-        if (card.type === 'Hero') {
-          if (damageBox) damageBox.style.display = 'flex';
-          if (damageInput) damageInput.value = card.damage || '';
-        } else {
-          if (damageBox) damageBox.style.display = 'none';
-        }
-
-        // Wait a frame for DOM styles/images to settle
-        await new Promise(r => setTimeout(r, 60));
+        await populateBatchCard(frameEl, card);
 
         // Render card frame with html2canvas
         const canvas = await renderCardToCanvas(frameEl);
@@ -883,7 +886,7 @@ function App() {
         }
       }
 
-      setExportProgress({ current: total, total, cardName: 'Compressing ZIP archive...' });
+      setExportProgress({ current: total, total, cardName: 'Compressing ZIP archive...', title: 'Exporting All Finished Cards', subtitle: 'Rendering high-resolution images of each completed card...' });
       const content = await zip.generateAsync({ type: 'blob' });
       const url = window.URL.createObjectURL(content);
       const a = document.createElement('a');
@@ -899,6 +902,161 @@ function App() {
     } catch (err) {
       console.error('Batch export failed:', err);
       setNotification('Failed to export all finished cards');
+      setTimeout(() => setNotification(''), 4000);
+    } finally {
+      setExportProgress(null);
+    }
+  };
+
+  const handleExportTTSDeck = async () => {
+    if (!deck || deck.length === 0) {
+      alert('The active deck is empty! Add cards before exporting for Tabletop Simulator.');
+      return;
+    }
+    if (exportProgress) return;
+
+    exportCancelRef.current = false;
+    const total = deck.length;
+    setExportProgress({
+      current: 0,
+      total,
+      cardName: 'Preparing Tabletop Simulator sheet...',
+      title: 'Exporting TTS Deck Sheet (10x7)',
+      subtitle: 'Compositing cards onto Tabletop Simulator sprite sheet...'
+    });
+
+    await new Promise(r => setTimeout(r, 100));
+
+    const exportRoot = document.getElementById('batch-export-container');
+    if (!exportRoot) {
+      setNotification('Export container not ready');
+      setExportProgress(null);
+      return;
+    }
+
+    try {
+      // Standard Tabletop Simulator 10x7 Grid
+      const cols = 10;
+      const rows = 7;
+      const cardWidth = 340 * 2;   // 680px (from html2canvas scale: 2)
+      const cardHeight = 480 * 2;  // 960px (from html2canvas scale: 2)
+      const totalSlots = cols * rows; // 70 slots
+
+      const masterCanvas = document.createElement('canvas');
+      masterCanvas.width = cols * cardWidth;   // 6800px
+      masterCanvas.height = rows * cardHeight; // 6720px
+      const ctx = masterCanvas.getContext('2d');
+
+      // Fill with transparent or subtle dark background
+      ctx.clearRect(0, 0, masterCanvas.width, masterCanvas.height);
+
+      const frameEl = exportRoot.querySelector('.card-frame');
+
+      for (let i = 0; i < total; i++) {
+        if (exportCancelRef.current) {
+          setNotification('TTS export canceled');
+          setExportProgress(null);
+          return;
+        }
+
+        const card = deck[i];
+        setExportProgress({
+          current: i + 1,
+          total,
+          cardName: card.name,
+          title: 'Exporting TTS Deck Sheet (10x7)',
+          subtitle: `Rendering card ${i + 1} of ${total}: ${card.name}`
+        });
+
+        await populateBatchCard(frameEl, card);
+
+        const cardCanvas = await renderCardToCanvas(frameEl);
+
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const posX = col * cardWidth;
+        const posY = row * cardHeight;
+
+        ctx.drawImage(cardCanvas, posX, posY, cardWidth, cardHeight);
+      }
+
+      // Load card back for slot 70 (index 69, row 6, col 9) and individual export
+      setExportProgress({
+        current: total,
+        total,
+        cardName: 'Drawing card back for hidden slot (slot 70)...',
+        title: 'Exporting TTS Deck Sheet (10x7)',
+        subtitle: 'Finalizing Tabletop Simulator sprite sheet...'
+      });
+
+      const backImg = new Image();
+      backImg.crossOrigin = 'anonymous';
+      await new Promise((resolve) => {
+        backImg.onload = () => resolve();
+        backImg.onerror = () => {
+          console.warn('Could not load /icon.png for card back');
+          resolve();
+        };
+        backImg.src = '/icon.png';
+      });
+
+      // Draw card back into the 70th slot (last slot, index 69)
+      const hiddenCol = 9;
+      const hiddenRow = 6;
+      if (backImg.complete && backImg.naturalWidth > 0) {
+        ctx.drawImage(backImg, hiddenCol * cardWidth, hiddenRow * cardHeight, cardWidth, cardHeight);
+      }
+
+      // Download TTS Deck Sprite Sheet
+      const safeDeckName = (deckName || 'Deck').replace(/[^a-z0-9_-]/gi, '_').toLowerCase();
+      
+      setExportProgress({
+        current: total,
+        total,
+        cardName: 'Generating sprite sheet PNG file...',
+        title: 'Exporting TTS Deck Sheet (10x7)',
+        subtitle: 'Saving files to downloads...'
+      });
+
+      await new Promise(r => setTimeout(r, 50));
+
+      const sheetBlob = await new Promise(resolve => masterCanvas.toBlob(resolve, 'image/png'));
+      if (sheetBlob) {
+        const sheetUrl = window.URL.createObjectURL(sheetBlob);
+        const link = document.createElement('a');
+        link.href = sheetUrl;
+        link.download = `${safeDeckName}_tts_sheet_10x7.png`;
+        document.body.appendChild(link);
+        link.click();
+        window.URL.revokeObjectURL(sheetUrl);
+        document.body.removeChild(link);
+      }
+
+      // Also trigger download of the card back image for TTS back slot
+      if (backImg.complete && backImg.naturalWidth > 0) {
+        const backCanvas = document.createElement('canvas');
+        backCanvas.width = cardWidth;
+        backCanvas.height = cardHeight;
+        const bCtx = backCanvas.getContext('2d');
+        bCtx.drawImage(backImg, 0, 0, cardWidth, cardHeight);
+        const backBlob = await new Promise(resolve => backCanvas.toBlob(resolve, 'image/png'));
+        if (backBlob) {
+          const backUrl = window.URL.createObjectURL(backBlob);
+          const linkBack = document.createElement('a');
+          linkBack.href = backUrl;
+          linkBack.download = `${safeDeckName}_tts_card_back.png`;
+          document.body.appendChild(linkBack);
+          linkBack.click();
+          window.URL.revokeObjectURL(backUrl);
+          document.body.removeChild(linkBack);
+        }
+      }
+
+      setNotification(`TTS Deck Sheet exported successfully (${deck.length} cards + back)!`);
+      setTimeout(() => setNotification(''), 4000);
+    } catch (err) {
+      console.error('TTS export failed:', err);
+      setNotification('TTS export failed');
       setTimeout(() => setNotification(''), 4000);
     } finally {
       setExportProgress(null);
@@ -1496,9 +1654,18 @@ function App() {
                 <button className="deck-action-btn" onClick={handleNewDeck} title="Start a fresh empty deck">
                   📄 New
                 </button>
+                <button 
+                  className="deck-action-btn tts-export" 
+                  onClick={handleExportTTSDeck} 
+                  title="Export 10x7 sprite sheet and card back for Tabletop Simulator"
+                  disabled={deck.length === 0}
+                  style={{ opacity: deck.length === 0 ? 0.5 : 1 }}
+                >
+                  🎲 Export TTS
+                </button>
                 {savedDecks[deckName] && (
                   <button className="deck-action-btn danger" onClick={handleDeleteDeck} title="Delete saved deck">
-                    🗑️ Delete
+                    🗑️
                   </button>
                 )}
               </div>
@@ -1630,9 +1797,9 @@ function App() {
       {exportProgress && (
         <div className="modal-overlay" style={{ zIndex: 9999 }}>
           <div className="image-modal" style={{ maxWidth: '420px', textAlign: 'center', padding: '24px' }}>
-            <h3 style={{ margin: '0 0 12px 0' }}>Exporting All Finished Cards</h3>
+            <h3 style={{ margin: '0 0 12px 0' }}>{exportProgress.title || 'Exporting Cards'}</h3>
             <p style={{ margin: '0 0 16px 0', color: '#666', fontSize: '13px' }}>
-              Rendering high-resolution images of each completed card...
+              {exportProgress.subtitle || 'Rendering high-resolution images...'}
             </p>
             <div style={{
               width: '100%',
