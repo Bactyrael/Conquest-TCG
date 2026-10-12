@@ -842,12 +842,25 @@ function App() {
 
     // Hero Damage
     const damageBox = frameEl.querySelector('.batch-damage-box');
-    const damageInput = frameEl.querySelector('.batch-damage-input');
+    const damageEl = frameEl.querySelector('.batch-damage-text') || frameEl.querySelector('.batch-damage-input');
     if (card.type === 'Hero') {
       if (damageBox) damageBox.style.display = 'flex';
-      if (damageInput) damageInput.value = card.damage || '';
+      if (damageEl) {
+        if (damageEl.tagName.toLowerCase() === 'input') {
+          damageEl.value = card.damage || '';
+          damageEl.setAttribute('value', card.damage || '');
+        }
+        damageEl.innerText = card.damage || '';
+      }
     } else {
       if (damageBox) damageBox.style.display = 'none';
+      if (damageEl) {
+        if (damageEl.tagName.toLowerCase() === 'input') {
+          damageEl.value = '';
+          damageEl.setAttribute('value', '');
+        }
+        damageEl.innerText = '';
+      }
     }
 
     // Wait for DOM styles and background images to settle
@@ -974,7 +987,8 @@ function App() {
           return;
         }
 
-        const card = deck[i];
+        const rawCard = deck[i];
+        const card = cards.find(c => c.id === rawCard.id || c.name === rawCard.name) || rawCard;
         setExportProgress({
           current: i + 1,
           total,
@@ -1939,7 +1953,7 @@ function App() {
                 <path d="M4 6.5 20 12" />
                 <path d="m20 6.5-16 5.5" />
               </svg>
-              <input className="batch-damage-input editable-field card-damage-input" readOnly />
+              <span className="batch-damage-text card-damage-input" style={{ display: 'inline-block', lineHeight: '20px' }}></span>
             </div>
           </div>
         </div>
