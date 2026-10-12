@@ -70,6 +70,59 @@ const RichTextTextarea = ({ value, onChange, className, placeholder, style, forc
   );
 };
 
+const calculateOptimalFontSize = (rulesText, flavorText, availableWidth = 304, availableHeight = 168) => {
+  const measureBox = document.createElement('div');
+  measureBox.style.width = `${availableWidth}px`;
+  measureBox.style.padding = '8px 10px';
+  measureBox.style.boxSizing = 'border-box';
+  measureBox.style.display = 'flex';
+  measureBox.style.flexDirection = 'column';
+  measureBox.style.gap = '4px';
+  measureBox.style.position = 'absolute';
+  measureBox.style.visibility = 'hidden';
+
+  const rulesWrap = document.createElement('div');
+  rulesWrap.style.whiteSpace = 'pre-wrap';
+  rulesWrap.style.wordWrap = 'break-word';
+  rulesWrap.style.lineHeight = '1.15';
+  rulesWrap.style.padding = '2px';
+  rulesWrap.style.border = '1px solid transparent';
+  rulesWrap.innerHTML = parseRichTextHTML(rulesText || 'Card rules...');
+  
+  const flavorWrap = document.createElement('div');
+  flavorWrap.style.whiteSpace = 'pre-wrap';
+  flavorWrap.style.wordWrap = 'break-word';
+  flavorWrap.style.fontStyle = 'italic';
+  flavorWrap.style.lineHeight = '1.15';
+  flavorWrap.style.padding = '2px';
+  flavorWrap.style.border = '1px solid transparent';
+  flavorWrap.innerHTML = parseRichTextHTML(flavorText || 'Flavor text...');
+
+  measureBox.appendChild(rulesWrap);
+  if (flavorText) {
+    const hr = document.createElement('hr');
+    hr.style.margin = '4px 10%';
+    hr.style.border = 'none';
+    hr.style.borderTop = '1px solid rgba(255, 255, 255, 0.3)';
+    measureBox.appendChild(hr);
+    measureBox.appendChild(flavorWrap);
+  }
+  document.body.appendChild(measureBox);
+
+  let currentSize = 20;
+  rulesWrap.style.fontSize = `${currentSize}px`;
+  flavorWrap.style.fontSize = `${currentSize}px`;
+
+  while (measureBox.scrollHeight > availableHeight && currentSize > 8) {
+    currentSize -= 0.5;
+    rulesWrap.style.fontSize = `${currentSize}px`;
+    flavorWrap.style.fontSize = `${currentSize}px`;
+  }
+
+  document.body.removeChild(measureBox);
+  return currentSize;
+};
+
 const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
   const boxRef = useRef(null);
   const [optimalSize, setOptimalSize] = useState(20);
@@ -78,63 +131,14 @@ const UnifiedTextMeasurer = ({ activeCard, setActiveCard }) => {
     const box = boxRef.current;
     if (!box) return;
 
-    // 1. Temporarily hide contents so the flexbox shrinks to its true bounded height
+    // Temporarily hide contents so the flexbox shrinks to its true bounded height
     const originalDisplays = Array.from(box.children).map(c => c.style.display);
     Array.from(box.children).forEach(c => c.style.display = 'none');
     const trueAvailableHeight = box.clientHeight;
     Array.from(box.children).forEach((c, i) => c.style.display = originalDisplays[i]);
 
-    const computed = window.getComputedStyle(box);
-    const measureBox = document.createElement('div');
-    measureBox.style.width = `${box.clientWidth}px`;
-    measureBox.style.padding = computed.padding;
-    measureBox.style.boxSizing = computed.boxSizing;
-    measureBox.style.display = 'flex';
-    measureBox.style.flexDirection = 'column';
-    measureBox.style.gap = '4px';
-    measureBox.style.position = 'absolute';
-    measureBox.style.visibility = 'hidden';
-
-    const rulesWrap = document.createElement('div');
-    rulesWrap.style.whiteSpace = 'pre-wrap';
-    rulesWrap.style.wordWrap = 'break-word';
-    rulesWrap.style.lineHeight = '1.15';
-    rulesWrap.style.padding = '2px';
-    rulesWrap.style.border = '1px solid transparent';
-    rulesWrap.innerHTML = parseRichTextHTML(activeCard?.rulesText || 'Card rules...');
-    
-    const flavorWrap = document.createElement('div');
-    flavorWrap.style.whiteSpace = 'pre-wrap';
-    flavorWrap.style.wordWrap = 'break-word';
-    flavorWrap.style.fontStyle = 'italic';
-    flavorWrap.style.lineHeight = '1.15';
-    flavorWrap.style.padding = '2px';
-    flavorWrap.style.border = '1px solid transparent';
-    flavorWrap.innerHTML = parseRichTextHTML(activeCard?.flavorText || 'Flavor text...');
-
-    measureBox.appendChild(rulesWrap);
-    if (activeCard?.flavorText) {
-      const hr = document.createElement('hr');
-      hr.style.margin = '4px 10%';
-      hr.style.border = 'none';
-      hr.style.borderTop = '1px solid rgba(255, 255, 255, 0.3)';
-      measureBox.appendChild(hr);
-      measureBox.appendChild(flavorWrap);
-    }
-    document.body.appendChild(measureBox);
-
-    let currentSize = 20;
-    rulesWrap.style.fontSize = `${currentSize}px`;
-    flavorWrap.style.fontSize = `${currentSize}px`;
-
-    while (measureBox.scrollHeight > trueAvailableHeight && currentSize > 8) {
-      currentSize -= 0.5;
-      rulesWrap.style.fontSize = `${currentSize}px`;
-      flavorWrap.style.fontSize = `${currentSize}px`;
-    }
-
-    document.body.removeChild(measureBox);
-    setOptimalSize(currentSize);
+    const size = calculateOptimalFontSize(activeCard?.rulesText, activeCard?.flavorText, box.clientWidth, trueAvailableHeight);
+    setOptimalSize(size);
   }, [activeCard?.rulesText, activeCard?.flavorText]);
 
   return (
@@ -807,10 +811,12 @@ function App() {
       rarityPoly.setAttribute('fill', baseColor);
     }
 
-    // Rules text & Flavor text
+    // Rules text & Flavor text with dynamic font size matching the preview editor
+    const optimalSize = calculateOptimalFontSize(card.rulesText, card.flavorText, 304, 168);
     const rulesEl = frameEl.querySelector('.batch-card-rules');
     if (rulesEl) {
       rulesEl.innerHTML = parseRichTextHTML(card.rulesText || '');
+      rulesEl.style.fontSize = `${optimalSize}px`;
     }
     const dividerEl = frameEl.querySelector('.batch-text-divider');
     const flavorEl = frameEl.querySelector('.batch-card-flavor');
@@ -819,6 +825,7 @@ function App() {
       if (flavorEl) {
         flavorEl.style.display = 'block';
         flavorEl.innerHTML = parseRichTextHTML(card.flavorText);
+        flavorEl.style.fontSize = `${optimalSize}px`;
       }
     } else {
       if (dividerEl) dividerEl.style.display = 'none';
