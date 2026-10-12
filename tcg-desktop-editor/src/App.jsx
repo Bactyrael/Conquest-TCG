@@ -814,16 +814,24 @@ function App() {
     // Rules text & Flavor text with dynamic font size matching the preview editor
     const optimalSize = calculateOptimalFontSize(card.rulesText, card.flavorText, 304, 168);
     const rulesEl = frameEl.querySelector('.batch-card-rules');
-    if (rulesEl) {
+    const rulesInner = frameEl.querySelector('.batch-card-rules-inner');
+    if (rulesInner) {
+      rulesInner.innerHTML = parseRichTextHTML(card.rulesText || '');
+      rulesInner.style.fontSize = `${optimalSize}px`;
+    } else if (rulesEl) {
       rulesEl.innerHTML = parseRichTextHTML(card.rulesText || '');
       rulesEl.style.fontSize = `${optimalSize}px`;
     }
     const dividerEl = frameEl.querySelector('.batch-text-divider');
     const flavorEl = frameEl.querySelector('.batch-card-flavor');
+    const flavorInner = frameEl.querySelector('.batch-card-flavor-inner');
     if (card.flavorText) {
       if (dividerEl) dividerEl.style.display = 'block';
-      if (flavorEl) {
-        flavorEl.style.display = 'block';
+      if (flavorEl) flavorEl.style.display = 'flex';
+      if (flavorInner) {
+        flavorInner.innerHTML = parseRichTextHTML(card.flavorText);
+        flavorInner.style.fontSize = `${optimalSize}px`;
+      } else if (flavorEl) {
         flavorEl.innerHTML = parseRichTextHTML(card.flavorText);
         flavorEl.style.fontSize = `${optimalSize}px`;
       }
@@ -1905,9 +1913,13 @@ function App() {
           </div>
 
           <div className="card-text-box" style={{ gap: '4px' }}>
-            <div className="batch-card-rules editable-field card-rules" style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} />
+            <div className="batch-card-rules editable-field card-rules" style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
+              <div className="batch-card-rules-inner" style={{ width: '100%', pointerEvents: 'none', zIndex: 1, whiteSpace: 'pre-wrap', wordWrap: 'break-word', lineHeight: '1.15' }} />
+            </div>
             <hr className="batch-text-divider text-divider" style={{ margin: '4px 10%', display: 'none' }} />
-            <div className="batch-card-flavor editable-field card-flavor" style={{ flex: '1 1 auto', display: 'none', flexDirection: 'column', justifyContent: 'center' }} />
+            <div className="batch-card-flavor editable-field card-flavor" style={{ flex: '1 1 auto', display: 'none', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
+              <div className="batch-card-flavor-inner" style={{ width: '100%', pointerEvents: 'none', zIndex: 1, whiteSpace: 'pre-wrap', wordWrap: 'break-word', fontStyle: 'italic', lineHeight: '1.15' }} />
+            </div>
           </div>
 
           <div className="card-bottom">

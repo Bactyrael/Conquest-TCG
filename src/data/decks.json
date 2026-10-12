@@ -849,129 +849,291 @@
       "tertiaryType": "Buff"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "188",
+      "name": "Red Essence",
+      "type": "Resource",
+      "subtype": "",
+      "rarity": "Common",
+      "cost": "0",
+      "rulesText": "[USE]: Add [Stamina] to your resource pool.\n\nGain +1 Strength.",
+      "flavorText": "",
+      "image": "red_essence.jpg"
     },
     {
-      "name": "Arena of Strength",
-      "type": "Action",
-      "cost": ""
+      "id": "093",
+      "name": "Iron Skin",
+      "type": "Reaction",
+      "imageUrl": "/cards/templates/093.jpg",
+      "rawText": "r TY\n\nTW) id /\n, EE ¢\nos 5 NL po? 4 Sy EAR ;\nReaction - Boon\nA target gains resistance to a type of\nPhysical damage targeting them until\nthe beginning of their next turn.\n(Bludgeoning, Piercing, or Slashing).\nApu\n\n@ Place Holder Art #\n\n| 4\n",
+      "requirements": {
+        "str": 2,
+        "dex": 0,
+        "con": 0,
+        "int": 0,
+        "wis": 0,
+        "luc": 0
+      },
+      "rulesText": "A target gains resistance to a type of Physical damage targeting them until the beginning of their next turn. (Bludgeoning, Piercing, or Slashing).",
+      "flavorText": "",
+      "subtype": "Ability",
+      "rarity": "Common",
+      "originalArtFile": "Iron Skin.jpg",
+      "cost": "2 Stamina",
+      "artY": 36,
+      "tertiaryType": "Buff"
     }
   ],
   "My Deck": [
